@@ -1,0 +1,201 @@
+How to change the permissions for a given file/folder?
+Only a sudoer/superuser can change the permissions for a file or folder in linux operating system.
+Linux has provided chmod which is an super user command under /sbin directory which can be used only by sudoers/super users only
+
+chmod = stands for change mode of permissions and it works in 2 ways
+1. octal notation
+2. symbolic notation
+
+#1. octal notation
+For any given file/folder we can grant 3 permissions which are read, write and execute these permissions are assigned with octal numbers through which we can grant permissions on a file/folder
+read = 4
+write = 2
+execute = 1
+	
+if we want to grant read and write access on a file/folder we need to use 6, similarly if we want to grant read, execute permission we need to use 5 
+based on the permissions we want to allocate on a file/folder sum the individual weight numbers of the each permission to allocate
+
+when we are working with octal notation we need to issue permissions for owner, group and others always so we need to specifiy 3 numbers indicating
+chmod ownerpermgrouppermotherperm file/folder
+chmod 644 file/folder
+
+if we want to change permissions for a folder and files inside the folder recursively we can use -R switch
+chmod -R ownergroupother directory/
+the above command changes the permissions for the given directory, sub-directories along with files inside them.
+	
+#2. symbolic notation
+each permission we want to assign to a file or folder is indicated/denoted with a symbol
+read    = r
+write   = w
+execute = x	
+
+these permissions should be assigned to 3 levels of people which are indicated with 3 symbols again
+u = owner of the file
+g = group of the file
+o = others
+
+we have to use operators in adding/removing or resetting permissions
++ = add
+- = remove
+= = reset the permissions
+
+let us say we want to assign read permission on a file to the owner
+chmod u+r file/folder
+chmod g-w file/folder = removes write permission for the group on a file or folder
+
+-rw-rw-r--  bob  devopsgroup  guarage.txt
+In the above file guarage.txt we want to remove write permission to the group so we can do this using both octal and symbolic notation
+#1. octal notation
+sudo chmod 644 guarage.txt
+while working with octal notation we cannot remove a permission to a specific level we need to always reset the permissions for all the 3 levels
+
+#2. symbolic notation
+sudo chmod g-w guarage.txt
+in symbolic notation we dont have to reset the all the permissions for all the 3 levels using symbols and operators we can change permissions of a file easily
+
+How to change permission of a file/folder for all the 3 levels of users at one-shot using symbolic notation
+sudo chmod u+rw,g=r,o=r file/folder
+
++/- = symbols will changes the existing permissions but an "=" will reset the existing permissions for eg..
+	
+-rw-rw-r--  bob   devopsgroup  guarage.txt
+sudo chmod u=r guarage.txt
+it removes all the permission and adds only read permission for the owner of the file
+-r--rw-r--  bob   devopsgroup  guarage.txt
+------------------------------------------------------------------------------------------
+Understanding default permissions
+----------------------------------
+Always while we create a file/folder in linux operating system, we wanted them to be created with same access permissions across. so if linux is enforcing us to specific permissions while creating a file/folder it becomes tedious/difficult job
+
+so linux by default creates a file or folder with default permissions. how does linux derives default permission for a file/folder while creating
+
+umask = user mode access file mask
+umask is a special variable available as part of linux operating system which is used for computing the default permissions while create a file/folder.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

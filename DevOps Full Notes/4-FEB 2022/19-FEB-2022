@@ -1,0 +1,257 @@
+1. How to create a user in linux operating system?
+There are 2 ways
+1. useradd = core system linux command
+2. adduser = ubuntu distro command
+
+#1. useradd
+------------
+1. How to add an user?
+sudo useradd username
+1.1 creates the user by creating an group and associating the user with the group by generating gid and uid
+1.2 doesnt create home directory
+1.3 creates user without password
+
+manually perform the below operations to make the user complete:
+1. goto /home directory
+2. sudo mkdir /home/$USER
+3. change the ownership the directory as user
+sudo chown $USER:$USER /home/$USER
+4. reset the password
+sudo passwd $USER
+
+#2 how to create user with home directory created with shell defined
+sudo useradd -m -s /bin/bash username
+sudo passwd username
+
+#3 adduser
+-----------
+sudo adduser username
+prompts for all the inputs and creates the user automatically
+-----------------------------------------------------------------------------------------------
+#4. how to get the details of the user?
+id username
+shows the id, username, primary group id & name along with other groups of the user
+
+#5. how to find a user is in which group?
+group username
+
+#6. where does the info about the users are stored in linux?
+/etc/passwd
+
+#7. all the groups in linux
+/etc/group
+
+#8. How to create an user with a different home directory location than the default?
+sudo useradd -m -d directoryLocation -s shell username
+
+#9. How to create a group?
+sudo groupadd groupName
+sudo groupadd -g 1002 groupName
+
+#10. How to create an user under a specific group?
+sudo useradd -m -g gid -s shell -d directoryPath username
+
+#11. How to add an user with a specific user id?
+sudo useradd -u uid -m -s shell -d directoryPath username
+
+#12. How to delete an user?
+sudo userdel username
+sudo deluser username
+
+#13. how to delete a group?
+sudo groupdel groupName
+if the group is associated with a user as a primary group we can't delete the group directly
+
+#14. How to add an existing user into one more group?
+sudo usermod -aG grp1 grp2 grp3 username
+usermod = stands for modifying the user
+-a = add, G=group
+
+#15. How to rename a existing user?
+sudo usermod -l newUser oldUserName
+-l = stands for newLoginName
+
+#16. How to rename the home directory of the user?
+sudo usermod -d /home/newdirectory -m username
+-m stands for create the directory
+-d stands for directory path where it has to be created
+the above command renames the existing directory into the new location
+(or)
+changes the home directory of the current user
+sudo usermod -d /home/joseph -m joseph
+
+#17. How to change the uid of an existing user?
+sudo usermod -u 2002 username
+
+#18. How to reset the group of the user instead of adding?
+sudo usermod -G groupName username
+sudo usermod -G devgroup joseph
+
+#19. How to remove a user from a group?
+sudo gpasswd -d user group
+---------------------------------------------------------------------------------------------
+How to check the document of any command?
+man commandName
+man is the bibble of linux command which stands for manual which shows all the options of any of the linux commands. we need to press q button to quit from man pages.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

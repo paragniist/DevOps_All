@@ -1,0 +1,12 @@
+---
+- name: extravars play
+  hosts: all
+  tasks:
+  - name: create file
+    file:
+      name: "{{filename}}"
+      owner: "{{ownerName}}"
+      group: "{{groupName}}"
+      mode: "{{perm}}"
+      state: touch
+...

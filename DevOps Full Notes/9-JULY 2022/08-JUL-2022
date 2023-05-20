@@ -1,0 +1,160 @@
+what is a classpath, why do we use it?
+
+$HOME/workspace/taxhelper:$	
+package com.ngpayroll.tax;
+public class TaxManager {
+	public double getTaxAmount(double grossSalary, String gender) {
+		double taxAmount = 0.0;
+		
+		if(gender.equals("male")) {
+			if(grossSalary > 250000) {
+				taxAmount = ((grossSalary-250000) * 10) / 100;
+			}			
+		}	else {
+			if(grossSalary > 500000) {
+				taxAmount = ((grossSalary-500000) * 10) / 100;
+			}
+		}
+		return taxAmount;
+	}
+}
+	
+$HOME/workspace/ngpayroll$
+package com.ngpayroll.manager;
+public class PayrollManager {
+	TaxManager taxManager;
+	public double netPay(double grossSalary, String gender) {
+		double taxAmount = 0;
+		double netPay = 0;
+		
+		taxManager = new TaxManager();
+		taxAmount = taxManager.getTaxAmount(grossSalary, gender);
+		netPay = grossSalary - taxAmount;
+		return netPay;
+	}
+	public static void main(String[] args) {
+		PayrollManager manager = new PayrollManager();
+		double netpay = manager.netPay(700000, "female");
+		System.out.println("netpay : " + netpay);
+	}
+}
+	
+There are 2 different projects
+#1. taxhelper
+#2. ngpayroll
+
+The ngpayroll application classes are using taxhelper application classes. so how to compile and run the ngpayroll application?
+	
+#1. let us keep the project directory structure organized, so that we can easily identify source code and bytecode (.class)
+$HOME
+|-workspace
+	|-taxhelper
+		|-src
+			|-TaxManager.java
+		|-bin
+		
+$HOME
+|-workspace
+	|-ngpayroll
+		|-src
+			|-PayrollManager.java
+		|-bin
+		
+#2. as ngpayroll has dependency with taxhelper, let us first compile taxhelper project classes.
+			
+$HOME/workspace/taxhelper/> javac -d bin src/*.java
+after running the above command we will see the class files generated as shown below.
+$HOME
+|-workspace
+	|-taxhelper
+		|-src
+			|-TaxManager.java
+		|-bin
+			|-com
+				|-ngpayroll
+					|-tax
+						|-TaxManager.class
+							
+now we can compile the ngpayroll project classes, but ngpayroll project classes are referring to taxhelper project classes, so to let the java compiler uses the classfiles of taxhelper while compiling ngpayroll source code we need to set the classpath.
+	
+CLASSPATH is an environment variable, used by the java compiler and java interpreter to identify the location of the .class files of the other projects we are using for compiling and running our application
+
+export CLASSPATH=$HOME/workspace/taxhelper/bin
+$HOME/workspace/ngpayroll:> javac -d bin src/*.java
+
+$HOME
+|-workspace
+	|-ngpayroll
+		|-src
+			|-PayrollManager.java
+		|-bin
+			|-com
+				|-ngpayroll
+					|-manager
+						|-PayrollManager.class
+			
+export CLASSPATH=$HOME/workspace/taxhelper/bin:$HOME/workspace/ngpayroll/bin
+java com.ngpayroll.manager.PayrollManager 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

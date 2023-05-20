@@ -1,0 +1,79 @@
+Playbook execution strategies
+By default Ansible runs each tasks within the playbook on all the hosts listed in the inventory before moving to the next task. If we want to change this default behaviour, we can use different strategies
+
+
+#1 Selecting Strategy
+The default strategy of executing a playbook is linear (one by one), ansible offers other strategies 
+1. linear
+2. free
+3. debug
+
+you can set a strategy to be applied either at the playbook level or global at ansible.cfg
+
+playbook.yml
+- name: play
+	hosts: group
+	strategy: free
+
+(or)
+		
+ansible.cfg
+[default]
+strategy=free
+----------------------------------------------------------------------------------------------------------------------
+Number of Forks
+if we have processing power and want to use more forks in executing the playbook tasks we modify the forks in ansible.cfg
+[default]
+forks=19
+	
+----------------------------------------------------------------------------------------------------------------------
+How to achieve rolling update (or zero-downtime patching)
+There are keywords using which we can apply the execution strategies
+serial: number
+indicating the playbook should be applied for how many machines in batches
+
+for eg.. if we specify serial: 3 means the playbook will be applied on 3 machines within fleet and there after moves to the next 3 months
+
+serial can take either  a number or percentage
+serial = 3 = batch of 3 machines at once
+serial = 20% = out of the number of hosts/servers on inventory, it counts the percentage of machines and applies in batches. for eg.. if we have 10 machines a 20% of the 10 is 2 will be applied
+
+order:
+The order keyword controls the order in which the playbooks are applied on the hosts
+order:
+inventory
+reverse_inventory
+sorted
+reverse_sorted
+shuffle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

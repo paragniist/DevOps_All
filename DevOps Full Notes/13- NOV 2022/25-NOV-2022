@@ -1,0 +1,109 @@
+How to install apache2 server?
+------------------------------
+1. 
+sudo apt update -y
+sudo apt install -y apache2
+
+2. need to enable http_proxy modules on apache2 server to work as proxy redirector
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod proxy_balancer
+sudo a2enmod lbmethod_byrequests
+
+3. create an virtualhost configuration file in which we need to configure whenever the incoming request is coming on port: 80 -> forward the request to the backend application (jfrog artifactory)
+	
+/etc/apache2/sites-available
+|-repo.speed.conf
+
+jfrogrepo.conf
+<VirtualHost *:80>
+	ServerName www.repo.speed.com
+	ProxyPreserveHost on
+	ProxyPass / http://127.0.0.1:9099
+	ProxyPassReverse / http://127.0.0.1:9099
+</VirtualHost>
+
+4. sudo a2ensite repo.speed
+5. sudo systemctl reload apache2
+6. sudo systemctl restart apache2
+------------------------------------------------------------------------------------------------------------------------
+How to install JFrog artifactory oss repository?
+1. create an middleware directory
+mkdir -p /u01/middleware
+
+2. jfrog artifactory is shipped as binary distribution, we need to download the jfrog binary distribution zip file and extract to /u01/middleware directory
+
+https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/[RELEASE]/jfrog-artifactory-oss-[RELEASE]-linux.tar.gz?_gl=1*wu0v4r*_ga*NjU5NjIxODgwLjE2NjkxMzM4NzE.*_ga_SQ1NR9VTFJ*MTY2OTQ3MzM2NS4yLjEuMTY2OTQ3MzM4OC4zNy4wLjA.
+
+3. copy the tar file into /u01/middleware directory and extract
+it will be extracted into artifactory-oss-x.x directory
+
+
+4. There are 2 parts of artifactory are there
+1. ui = a webconsole through which we can administer artifactory software and configure like
+	- local repositories
+	- remote repositories
+	- virtual repositories
+	
+2. endpoints = for distributing dependencies through maven build
+
+both ui and endpoints runs on 2 ports by default 8081/8082 (ui)
+	                                               9090/9099
+if we want we can change the defaults ports by modified artifactory-oss-xx/var/etc directory system.yml file
+
+4. goto $JFROG_HOME/app/bin
+artifactoryctl start/stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

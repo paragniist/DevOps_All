@@ -1,0 +1,36 @@
+Java Language
+-------------
+What is an programming language, what the purpose of it?
+programming language provides programmatic constructs/instructions using which we can write programs for performing operations.
+There are 2 types of programming languages are there
+1. low-level programming languages
+Low-level programming language programs directly works on the underlying operating system of the computer. These language programs doesnt require any translation/compilation for execution.
+For eg.. shellscripting 
+
+advantages:-
+	1. These programs are hardware portable and works across any underlying hardware vendors
+	2. high performance, since these programs are already written in operating system instructionset they dont need translation during execution
+	3. as these works closely with underlying operating system, there are powerful enough to use the platform services
+	
+dis-advantages:-
+	1. Platform dependent, these are not platform (operating system) portable
+	2. quite complex to program and maintain
+	
+2. high-level programming languages
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

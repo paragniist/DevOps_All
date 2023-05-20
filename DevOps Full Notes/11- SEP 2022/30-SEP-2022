@@ -1,0 +1,85 @@
+cloud platform
+on-demand delivery of computing services to the world is called "cloud computing". A cloud provider or a platform offers 3 types of services
+
+1. IaaS [Infrastructure as a Service]
+2. PaaS [Platform as a Service]
+3. SaaS [Software as a Service]
+
+
+#1. IaaS
+Infrastructure as a Service is about infrastructure resources like Computing Machines, Hardware, Networking devices, Internet lines etc in hosting and running the applications are delivered to the world by the cloud platform
+There are plently of advantages are there in using IaaS services from a cloud provider than Hosting/DataCenter platforms
+
+1. We can choose the shape of the machine as per our choice in hosting the applications, there is no restriction over shapes, so we pay for what we wanted only
+2. The Cloud providers offers 2 types of billing
+	2.1 Fixed         = irrespective of the usage of the resources we procured until those are retired or released back, the bill or cost will be applied 
+	2.2 Pay per usage = In Pay per usage model, we will be charged based on the usage of the resources only.
+	For eg.. we might have procured an machine from the cloud provider and has setup env for usage. If we turn off the machine for sometime the bill will not be charged even though we have not released the resource
+	The Pay per usage model can bring additional savings for moderate or small scale business vendors
+	5:00 am - 12:00 am = 12:00 am - 5:00 am = 1% of the usual traffic may appear during these off business hours
+	during business hours = can run the application 3 node cluster instance and scale-down overnight to 1 node instance to reduce the cost of infrastructure
+	even cloud providers supports scheduling the resources to be start/stop automcatically
+3.	on-demand delivery of resources = upon requesting a resource the cloud provider provides them instantaneously so no waiting time and no queues in procuring the resources required for running the application
+4. the adding a machine and removing a machine can be done instantly 
+5. monitoring, tracking and securing the access to resources are taken care by the cloud provider
+6. backup and recovery are taken care automatically
+7. The cloud providers provides the machines with operating system and few utility softwares ontop of them, so patching, updates are taken care by the cloud vendor itself
+
+The cloud providers takes care of managing the lifecycle activities of the cloud resources like
+1. provisioning = creating the resources
+2. de-provisioning = releasing or destroying the resources
+3. scale-up = increasing the computing capacity of the resources
+4. scale-down = decreasing the computing capacity
+5. scale-out = adding a resource to the cluster
+6. scale-in = removing a resource from the cluster
+7. backup
+8. recovery
+
+#2. Paas
+Platform as a Service
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

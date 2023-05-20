@@ -1,0 +1,152 @@
+What is shellscripting, what is the purpose of shellscripting?
+	
+We can perform operations on the linux operating by using bash shell, it is an interpreter program that takes the shell instructions or commands and passes those to the kernal of the operating system in performing the operations.
+	
+Shellscripting:
+Shellscript is a file in which we write bunch of shell commands/instructions that we wanted to execute repeatedly over the period of time in sequence order and pass it as an input to the shell interpreter. The shell interpreter reads the shell commands from the file and executes them from top to bottom in linear/sequential order one after of the another one is called "shellscripting"
+The file in which we wrote the shell commands/instructions is called "Shell script file" and usually will be saved with an extension ".sh" to indicate as a shell file (but not necessarily required)
+	
+What is the purpose of Shellscripting?
+We may have some job that has to be performed repeatitively over the period of time, we might have to execute a bunch of shell commands in accomplishing the job
+So the shell/linux user has to repeatively enter these commands/instructions on bash terminal in carrying out the activities of the job which has lot of problems
+
+1. it is quite time consuming in manually entering these bunch of shell commands on the bash interpreter/terminal 
+2. there is high chance where the user might make some mistakes while entering these commands which might cause data loss or damage of business
+3. since there are bunch of commands that has to be executed sequentially one after the another one, the linux user has to be available in-person and has to enter these commands interactively which is going to waste lot of time of the resource
+
+Instead of executing these bunch of instructions manually at the bash terminal, we can write all these instructions into a file called "shell script file" and pass it as an input to the bash interpreter asking him to read and execute them.
+-----------------------------------------------------------------------------------------
+How to write an shellscript file in linux?
+Shellscript file is nothing but bunch of shell commands written in a their order of execution sequentially that can be passed as an input to the shell interpreter to execute them, so it is just a file on the filesystem of your computer.
+	
+#1. create a file with name based on the operation we want to carry/perform in that file. usually good practise to write the file with an extension as ".sh".
+touch console-out.sh
+
+#2. every shellscript file should be written with the starting line called "shebang"
+#!/bin/bash = shebhang
+shebang is instruction we are writing to the shellinterpreter asking to use which shell to execute the instructions in the file
+in the above statement we are telling the interpreter program to use bash interpreter to execute the instructions/commands in the file
+
+Followed by any of the shell commands we want to execute
+console-out.sh
+---------------
+#!/bin/bash
+echo "Hurray! shellscript program is the winner"
+	
+How to execute the shellscript?
+There are 2 ways in executing a shell program
+1. grant the execute permission to the shell program file we wrote and run the file on the bash interpreter as below.
+
+sriman@ubuntu$ chmod u+x console-out.sh
+sriman@ubuntu$ export JAVA_HOME=/usr/lib/java/jdk11-22/
+sriman@ubuntu$ ./console-out.sh  "inside the shellprogram i can read env variable since it is running on the current shell"
+	
+if the file is not in the present working directory, then specify the full path to the file wherever it is located to execute
+
+2. we can execute a shell script file even without execute permission given if we have "READ" permission on the file
+
+sriman@ubuntu$ export JAVA_HOME=/usr/lib/java/jdk11-22/
+sriman@ubuntu$ bash console-out.sh "since the program runs on a diferent shell than source, the env variables will not become accessible in the shell program"
+
+the above statement indicates to the bash interpreter read the instructions written in the file and execute them sequentially.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

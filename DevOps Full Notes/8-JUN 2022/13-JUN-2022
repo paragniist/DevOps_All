@@ -1,0 +1,31 @@
+What is an web application, what is the purpose?
+Web application is used for distributing/publishing information about a business/organization or an entity to the world.
+
+There are 2 types of web applications are there
+1. static web application
+The static web applications comprises of HTML pages only. These always render static content/information describing the business/organization/entity for whom it has been created. 
+	
+2. dynamic web application
+The enduser can interact with these applications and can pass the information as an input to perform operation. these application upon taking the data, performs operation and returns an dynamic response to the user
+
+#1. How to host the static web applications and make them exposed to the world?
+HTTP: is an web standard protocol used for exchanging web content over the network. HTTP is an application protocol, it defined message formats/semantics and standards in exchanging the data between the network applications
+
+The application protocols defines 2 things:
+1. action/operation request server program to perform
+2. data in standard format, so that applications can exchange between them
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

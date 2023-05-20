@@ -1,0 +1,236 @@
+What the major distros of the linux operating system are available?
+There are 4 major linux distros are available in the market
+1. arch
+2. debain
+3. redhat
+4. slackware
+
+There are 2 most popular distributions widely used in the market. each of these vendors has provided multiple distros of linux as below
+1. debain
+	1. kali linux
+	2. ubuntu
+	3. elementory os
+	4. linux mint
+2. redhat
+	1. fedora
+	2. centos
+	3. redhat enterprise linux
+	
+What is a distro, why do we need linux distro?
+distro is nothing but kernal packaged with different software utilities/tools along with linux operating system installer to make the linux operating usable to general public user is called a "distro"
+	
+What are the features of the Linux?
+1. portable = easy to carry on different hardware platforms
+2. opensource = freely distributable and modifiable
+3. multi-user and multi-programming operating system = supports multiple users to access the linux operating system parallel by sharing the underlying hardware resources across the users along with that multiple programs can execute in parallel as well
+4. hierarchial filesystem
+5. shell = interpreter program which helps the users to interact with the kernal easily
+6. secured = linux operating is designed from ground from point of security itself. there are various different security features are implemented at different levels in linux
+1. user authentication (system login)
+2. file level security
+3. process level security
+-----------------------------------------------------------------------------------------------
+Linux Architecture
+------------------
+The linux architecture comprises of 4 layers of it
+1. hardware = to the lowest of the linux hardware represents peripherals and other computing devices of the computer it interacts in performing the computation operation
+2. kernal = it is the core component of the linux operating system interacts directly with the underlying hardware components of the computer in providing services to the higher layers
+3. shell = as interacting with the kernal directly is very complex, the shell interpreter program provides simple commands through which we can interact with the kernal
+4. utility programs = where users can use these programs in performing operations on the computer
+-----------------------------------------------------------------------------------------------
+
+Linux File System
+------------------
+There are 2 types of memory are there
+1. primary storage memory / volatile memory (RAM)
+2. secondary storage memory / permanent memory (HDD)
+	
+How does the data is stored on the secondary storage device / harddisk of the computer?
+The harddisk or secondary storage device is divided into smaller and smaller memory partitions or units in which 	we can store the data interms of 0s and 1s only
+
+we cannot store character representation format of data directly within the harddisk of the computer
+let us say we cannot store character "a" on the harddisk, it has to be translated into 0 and 1 format to be persisted onto the memory units of the harddisk.
+	
+why does harddisk cannot store character representation?
+harddisk is an magnetic device which can only store power in memory units, so only way to hold the data on harddisk is either poweron or poweroff which can be denotated or decoded as 0 or 1 only, so we can store information as on/off which is nothing but 0 / 1
+		
+as huge characters or symbols are there to represent them we need more numeric values, so we cannot use binary number system we need decimal number system
+
+assign each symbol we want to store on the computer a decimal value for eg
+a = 1
+b = 2
+c = 3
+d = 4
+e = 5
+.
+.
+.
+z = 26
+
+since we cannot store decimal number on the harddisk, convert decimal number into binary format by doing lcm operation
+for eg. a = 63 as decimal number if we convert into binary format it becomes 111111(2), so now we can store binary equivalent of the 63 which is a character on the harddisk
+
+characters are assigned with decimal value -> decimal value is translated into -> binary equivalent = now the binary value is stored on the computer device like harddisk or ram or processor etc
+
+To help us in standardizing the symbol notation by assigning decimal number to all the symbols the character set encoding standards are introduced by computer experts in the industry
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

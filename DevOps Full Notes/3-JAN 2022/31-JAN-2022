@@ -1,0 +1,254 @@
+1. how to copy a file into a destination directory with a different name?
+/home/sriman
+|-holiday.txt
+|-memories
+	
+copy holiday.txt into memories/ directory with name trip.txt
+/home/sriman:$ cp ~/holiday.txt ~/memories/trip.txt
+
+2. move an file from source dir to destination directory
+/home/sriman
+|-bank-account.txt
+|-secrets/	
+move the bank-account.txt into secret/ folder
+mv ~/bank-account.txt secrets/
+	
+3. move the source directory into an destination directory.
+/home/sriman:$
+|-products
+	|-television.txt
+	|-airconditioners.txt
+|-godawn
+
+move products directory into the godawn directory
+mv ~/products ~/godawn
+
+4. rename a given file with a different name
+/home/sriman:$
+dairy.txt
+rename dairy.txt to yesterday-dairy.txt
+mv ~/dairy.txt ~/yesterday-dairy.txt
+
+5. How does linux operating system identifies the type of an given file?
+In linux operating system we dont have to create a file using extension, because linux doesnt rely on file extension to identify the type of the file, rather it uses contents of the file to determine.
+If there is no extension how does the user can identify the type of file?
+file filename = returns the information about the type of file.
+	
+6. How to know the details of a file like size, owner etc?
+stat filename
+-----------------------------------------------------------------------------------------------
+1. How to use regular expressions in Linux shell commands?
+There are 3 symbols that can be used as part linux shell commands as regular expression characters.
+	1. "*" = for any characters of any number match
+	2. "?" = any single character match
+	3. "[]" = single character within the give group match
+	
+/home/sriman:$
+|-products
+	|-jean-pants.txt
+	|-cotton-pants.txt
+	|-night-pants.txt
+	|-linen-pants.txt
+	|-jackets.txt
+	|-ucb-jackets.txt
+	|-usp-jackets.txt
+	|-lee-jackets.txt
+	|-hrx-jackets.txt
+	|-gap-jackets.txt
+	|-w-jackets.txt
+	
+ls ~/products
+ls ~/products/*-pants.txt = shows all the files which are ending with -pants.txt
+ls ~/products/?????-pants.txt = shows all the files of 5 any characters ending with -pants.txt
+ls ~/products/[jc]* = 
+[] matching one character within range
+In the above expression it matches with files which are starting with either "j" or "c"
+
+ls -l ~/products/???-jackets.txt
+give me all the jackets with are of 3 characters and 2nd position with cs and third character should be within range of [be]
+ls ~/products/?[cs][be]-jackets.txt
+
+ls -l ~/products/*j*
+ls -l ~/products/u*[te]*
+---------------------------------------------------------------------------------------------
+2. Working with ranges in shell commands?
+we want to repeatedly execute a shell command over the range of values, this can be done using {}
+
+echo 1
+echo 2
+echo 3
+echo 4
+echo 5
+echo 6
+echo 7
+echo 8
+echo 9
+echo 10
+or
+echo {1..10} 
+
+touch dairy1.txt
+touch dairy2.txt
+touch dairy3.txt
+touch dairy{1..12}.txt
+-----------------------------------------------------------------------------------------------
+3. How to create an hidden file in linux operating system?
+In linux if a file/folder name starts with "." it is considered as hidden file/folder and linux will not display them when we use ls command
+
+touch .secret = .secret is the filename which is considered as hidden file
+mkdir .vault = creates an hidden directory with name .vault
+
+when we use ls command both of these will not be listed
+to see all the files including the hidden files we need to -a option with ls
+
+ls -a
+here -a stands for show/list all the files
+----------------------------------------------------------------------------------------------
+4. using more
+---------------
+
+when we are running an linux shell commands, few commands might results in large output that may not fit the screen to easily read. the contents will auto-scrolled up which makes us difficult to read the content. we need to manually scroll the page top to read.
+
+Instead of scrolling up we can use more command as below
+
+cat manual.txt | more
+will allow to browse the output by scrolling through lines. it initially display a full page of output and waiting for scrolling line by line
+press enter button will scroll through the output. press q to quit scrolling.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	

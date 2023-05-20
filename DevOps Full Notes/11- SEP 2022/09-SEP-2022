@@ -1,0 +1,84 @@
+5. database category
+the database category provided all the modules related to managing the database like
+1. creating an datbase
+2. adding/removing users from the database etc
+
+Before using the mysql modules we need to have
+1. mysql server installed on the remove machine
+2. should have python installed
+3. the python3-pymysql package should be installed
+apt install -y python3-pymysql
+
+
+#1. How to add a user to the mysqlserver database
+- name: add user
+	mysql_user:
+		name: rconnectsqluser
+		password: welcome1
+		state: present
+		priv: "*.*:ALL"
+		login_user: root
+		login_password: root
+		
+#2. how to create a database in mysql
+- name: create database
+  mysql_db:
+		name: rconnectdb
+		state: present
+------------------------------------------------------------------------------------------------------------------------
+Working with ansible variables
+
+
+5:30 pm - 6:30 pm ist
+7:00 pm - 8:00 pm ist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

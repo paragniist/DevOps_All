@@ -1,0 +1,76 @@
+vagrant architecture
+There are 3 major components are there in vagrant
+1. vagrant engine
+2. vagrant cli
+3. vagrant cloud
+
+#1. vagrant engine
+vagrant engine takes the vagrant configuration file as an input, understands or interprets the machine configuration that is described aspart of the configuration file and interacts with the underlying hypervisor provider in provisioning and managing the virtual machines
+
+#2. vagrant cli
+vagrant cli is a command-line interface tool through which we can interact with the vagrant engine asking to provision, manage the virtual machines running on an hypervisor provider.
+The vagrant cli acts as an unified interface through which we can talk to any of the underlying hypervisor providers in managing the virtual machines.
+	
+#3. vagrant cloud
+vagrant cloud is the place where the vagrant boxfiles are placed and distributed, so that people can quickly download and use these boxfiles in creating the virtual machines
+
+What is a Vagrant boxfile?
+The vagrantbox files are prepackaged and compressed virtual machine template image files, these contains operating system, software tools and configurations that can be quickly imported in creating the virtual machine harddisk files using which we can run the virtual machine quickly.
+	
+
+What are the features of vagrant?
+There are 6 main features of vagrant are there
+1. networking
+2. vagrant boxfiles
+3. sync folders
+4. provider customizations
+5. provisioners
+6. multi-machine vagrant
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

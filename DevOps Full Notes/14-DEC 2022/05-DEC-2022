@@ -1,0 +1,81 @@
+How to setup the Jenkins?
+To setup jenkins we need a master & atleast 1 slave node to run the jobs. 
+let us create 3 machines where 1 master & 2 nodes as slaves.
+	
+#1 create the machines	
+To create	the machines we can use
+1.1 physical servers
+1.2 aws cloud instances
+1.3 virtual machines
+
+To setup the jenkins on virtual machine, let us use vagrant to quickly bringup the machines
+1.goto d:\jenkinsworkspace
+2. Vagrantfile
+
+Note: to use vagrant, first we need to install oracle virtualbox + extension pack on the machine first
+after that install vagrant
+
+we need 2 networking modes
+1. Master Node
+	- NAT network + Port Forwarding (8081: 8080)
+	- Private Network (Master - Slave communication)
+	
+2. For slave Nodes
+	- Nat network (public network access)
+	- private network (master-slave communication)
+	
+Vagrantfile
+------------
+Vagrant.configure(2) do | config |
+	config.vm.define "jenkinsmaster" do | jm |
+		jm.vm.box = "ubuntu/focal64"
+		jm.vm.network "private_network", ip: "192.168.11.10"
+		jm.vm.network "forwarded_port", guest: 8080, host: 8081
+		jm.vm.hostname = "jenkinsmaster"
+		jm.vm.provider "virtualbox" do | vb |
+			vb.cpus = 2
+			vb.memory = 2048
+			vb.name="jenkismaster"
+		end
+	end
+	%w{slaveNode1 slaveNode2}.each_with_index do | nodename, index |
+			config.vm.define nodename do | slaveNode |
+				slaveNode.vm.box = "ubuntu/focal64"
+				slaveNode.vm.network "private_network", ip: "192.168.11.#{index+11}"
+				slaveNode.vm.hostname = nodename
+				slaveNode.vm.provider "virtualbox" do | vb |
+					vb.cpus = 2
+					vb.memory = 2048
+					vb.name = nodename
+				end
+			end
+	end
+end
+
+goto the Vagrantfile directory and type the below command to start the virtual machines
+vagrant up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

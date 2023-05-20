@@ -1,0 +1,303 @@
+We cannot change the priority of a process directly, rather linux allows us to modify the priority of a process through nice value
+The nice value can range between -20 - 0 - 19, and the default nice value for every user process is 0
+	
+The PR is calculated based on the nice value using
+PR = 20 + NI
+So from the above we can derive the priority of a process is ranging between 0 - 39
+
+We can directly run a process with a specified priority using
+nice -n NI command (given if NI is negative we need to use sudo)
+	
+How to change the priority of an existing process
+renice -n NI PID
+------------------------------------------------------------------------------------------
+
+process status (ps)
+--------------------	
+How to find the current running process of the linux operating system?
+we can use top shell command, top is a live command which is used for monitoring the running process of the system
+
+instead of using top we can use ps command to see the snapshot of running process of the linux system
+ps = process status
+ps = displays all the running process of the current user within the TTY (Terminal)
+ps -a = display all the process of all the terminals of the user
+ps -u username = display all the process of a specific user
+ps -e = display everyone process in the linux system
+ps -f = show all the columns
+ps -eo pid,ppid,ni,command = -e = everyones process, -o = output specific columns only
+----------------------------------------------------------------------------------------
+kill
+-----
+all the process of the linux operating system we run may not work properly, few times few process might consume high system resources and degrades the performance or few processes may become un-responsive. In such case we need to restart, reload the process by killing them.
+this can be done using kill command in linux operating system
+kill pid = will sends an signal to the process asking to terminate
+kill -SIGNAL_NUMBER pid = indicates how a process has to be terminate
+kill -9 pid = terminate forcefully
+
+kill -l = displays all the supported signals of the kill command
+if we dont specify any signal the default signal with which kill will send the request is 15
+------------------------------------------------------------------------------------------
+Foreground vs Background Process
+--------------------------------
+There are 2 ways in which we can run a process in linux operating system
+1. Foreground process
+2. Background process
+
+#1. Foreground process
+The foreground process are the processes that requires user interaction during the execution and may take user input while executing the program, these are always attached to the TTY (terminal) and blocks until the program completes the execution
+The output out of the process will be directly generated onto the Console of the TTY (STDOUT)
+	
+For eg.. let us write a shell program that will generates some output by taking user input as below.
+	
+addnumbers.sh
+-------------
+#!/bin/bash
+READ -p "A:" A
+READ -p "B:" B
+SUM=$[A+B]
+echo "sum : $SUM" 
+	
+sudo chmod u+x addnumbers.sh
+odwa3ubuntu@sriman:$ ./addnumbers.sh
+odwa3ubuntu@sriman:$ A: 10
+odwa3ubuntu@sriman:$ B: 20
+odwa3ubuntu@sriman:$ sum: 30
+odwa3ubuntu@sriman:$ 
+
+by default when we run a program in linux operating system by default the program executes in foreground only
+
+background process:-
+These are the processes that doesnt requires user interaction or doesnt take any input from the user and executes the instructions of the program and generates the output and terminates
+
+if these processes/programs are executed as foreground, even though they dont need user input still they block terminal and runs unnecessarily 2 process
+1. program process
+2. tty process
+
+instead we can run such processes in background
+How to run a program as background process in linux?
+
+printN.sh
+---------
+#!/bin/bash
+I=1
+N=5000
+while[ $I -lt $N ]; do
+	echo $I
+	I=$[I+1]
+done
+odwa3ubuntu@sriman:$ ./printN.sh
+by default the above program runs in foreground blocking the terminal even though it doesnt require user interaction
+we can run the above program in background using 
+
+odwa3ubuntu@sriman:$ ./printN.sh &
+"&" = indicates run the program in background
+
+The above program is generating the output as there is no terminal attached the output will be discarded by default. we can redirect the output of the program to an file using nohup command
+
+odwa3ubuntu@sriman:$ nohup ./printN.sh &
+nohup = no hangup will redirects the output of the program into by default nohup.out file under the current directory
+
+if we want to write the output into a different file we can use redirection operator
+odwa3ubuntu@sriman:$ nohup ./printN.sh > print.out &
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

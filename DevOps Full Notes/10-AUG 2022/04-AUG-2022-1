@@ -1,0 +1,170 @@
+What are vagrant boxfiles?
+vagrant boxfiles are packaged and compressed virtual disk images with software utilities and configurations inside them. these boxfiles can be quickly imported to create the virtual machines in vagrant.
+	
+What are the features of vagrant?
+Vagrant is used for provisioning and managing the virtual machines on a hypervisor provider. So while provisioning or managing the virtual machines there are lot of aspects to be taken care like defining hardware resources, network modes and shared folder configurations extra, all these can be managed through vagrant which are the features of vagrant
+1. networking
+2. vagrant boxfiles
+3. sync folders
+4. provisioners
+5. provider customizations
+6. multi-machine vagrant
+
+How to install the vagrant?
+We need to install the vagrant on the host machine [here in our case : windows 10/11]	so that it can provision and manage the virtual machines using hypervisor provider
+To install vagrant we need an hypervisor provider to be installed on the host machine, the default hypervisor provider vagrant works with is "oracle virtualbox", which is an popular opensource hypervisor provider available in the market.
+	
+1. install oracle virtualbox including the extension pack (extensionpack is mandatory otherwise few of the features will not work with vagrant)
+2. download the vagrant binary distribution "vagrant.msi" and click on to proceed installation.
+	
+
+How to create an virtual machine using vagrant?
+To create an virtual machine using vagrant we need to create vagrant configuration file in a directory. since we create virtual machines for running a project, it would be best practise to place the machine configuration file within the project directory itself
+
+fithealth
+|-src
+  |-main
+		|-java
+	|-WebRoot
+		|-WEB-INF
+			|-lib
+			|-web.xml
+|-Vagrant Configuration File
+|-bin
+	|-classes
+	|-dist
+	
+The directory in which we created the vagrant configuration file becomes the vagrant project directory.
+	
+How to create the vagrant configuration file?
+The vagrant configuration file should be written with the filename as "Vagrantfile" only and should be kept inside a directory (there by which is called vagrant project directory.), in this file we write machine configuration information asking vagrant to provision a virtual machine.
+	
+The vagrant configuration files are written in ruby language. Ruby is an programming language, to work with writing the vagrant configuration files we dont need to learn ruby language, because we are not going to write programming instructions in Vagrantfile rather we define machine configuration using the ruby language in Vagrantfile.
+	
+The vagrant engine knows how to create the virtual machine by reading the configurations we just only need to define the machine configurations only.
+
+Ruby language supports DSL language (Domain Specific Language). which is an english like language. by using Ruby DSL we are going to define machine configurations
+
+How to create a vagrant file and provision an virtual machine?
+#1. create an vagrant project directory
+d:\work\vagrant:/>
+basicvagranteg
+|-Vagrantfile
+
+Vagrantfile
+-------------
+Vagrant.configure(2) do | config |
+	
+end
+
+The vagrant configuration file should begin with a config object block declaration. here we are creating an vagrant configuration object into which we populate the machine configuration, so that vagrant engine reads the configuration binded to the config object and creates the virtual machine
+
+Vagrant.configure(2) = means we are using vagrant configuration version: #2
+
+Into the config object the only required configuration that should be populated is vm.box pointed to the vbox file image to be used in provisioning the machine
+
+Vagrant.configure(2) do | config | 
+	config.vm.box = "hashicorp/precise64"
+end
+
+instead of we writing the above configuration file manually we can quickly run vagrant init command which will creates an default Vagrantfile with values which can modified quickly.
+	
+once we write the Vagrantfile be in the project directory and run vagrant up to bring up the virtual machine.
+	
+									 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

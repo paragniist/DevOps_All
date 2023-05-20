@@ -1,0 +1,153 @@
+How many types of networking modes are supported by vagrant?
+vagrant supports 3 networking modes
+1. forwarded_port
+oracle virtualbox: nat + port forwarding, generally used under development environment
+config.vm.network "forwarded_port", guest: 80, host: 8082
+	
+2. private_network
+oracle virtualbox: hostonly network adapter, used for deploying multi-tier applications. There are 3 configuration options are available in configuring private_network.
+	2.1 dhcp enabled = here ip address for the machines on private network are generated through dhcp configuration dynamically
+		config.vm.network "private_network", type: "dhcp"
+	2.2 static ip = the ip address of the private network machines are fixed and facilitates easy deployment of multi-tier applications
+		config.vm.network "private_network", ip: "192.168.10.11"
+	2.3 using internal network name. we can pool the virtual machines to a internal network name, so that all the machines to that network can communicate
+		config.vm.network "private_network", ip: "192.168.10.11", virtualbox_intnet: "network1"
+		
+3. public_network
+oracle virtualbox: bridge network. used for development only purpose and not recommended for production deployment since it is not secured topology
+	3.1 bridge network = brdige to the default network adapter of the host
+		config.vm.network "public_network"
+	3.2 static ip = the ip address configured for the vms should be within the network address range of host machine network adapter we are bridging
+		config.vm.network "public_network", ip: "192.168.1.12"
+	3.3 choose the hostnetwork adapter to be used for creating the bridge
+		config.vm.network "public_network", bridge: ["network adapter name"]
+-----------------------------------------------------------------------------------------------------------------------	
+vagrant ssh
+There are 2 stages being carried by the vagrant to make the virtual machine ready for ssh access
+1. each vagrant boxfile is being packaged with
+	1.1 SSH Server installed and configured
+	1.2 pre-seeded known ssh keys
+	1.3 network configuration enable nat + port forward (host: 2222, guest: 22)
+	1.4 default operating system user vagrant/vagrant is setup
+	
+using which vagrant provisions the virtual machine
+2. during the time of booting the virtual machine vagrant ssh into the vm and replaces insecured private/public key with generated public/private key and stores the public key onto the server and places the private key under .vagrant/ directory of the project
+so that each vagrant virtual machine is qualified/available for secured ssh access
+
+Now when we run vagrant ssh, it internally picks up the private_key file from .vagrant/ of the project directory using which it ssh into the machine by running ssh client utilitty only
+ssh -i .vagrant/private_key -p 2222 vagrant@127.0.0.1
+------------------------------------------------------------------------------------------------------------------------
+How to work with different hypervisor providers in vagrant?
+There are multiple hypervisor providers are available in the market like oracle virtualbox, hyper-v, vmware desktop etc. using the vagrant we can provision and manage the virtual machines with most of the popular hypervisor providers. but by default vagrant works with the popular opensource hypervisor provider "oracle virtualbox". it supports all the versions of oracle virtualbox right from version: 5.1 to current.
+	
+If we have installed along with oracle virtualbox an another hypervisor provider on our host machine like vmware desktop or hyper-v still vagrant goes with default hypervisor provider in provisioning the virtual machines	
+	
+How to change the default hypervisor provider?
+There are 2 ways we can change the default hypervisor provider
+1. global configuration
+we can change the default hypervisor provider globally at host level using environment variable
+set VAGRANT_DEFAULT_PROVIDER=vmware_desktop
+so that when we run vagrant up in bringing up any machine it chooses the hypervisor provider as vmware_desktop only
+
+2. change the hypervisor for a specific machine
+Instead of changing the hypervisor provider globally at system level we change it to a machine specific by passing a switch while bringing up the machine
+vagrant up --provider=vmware_desktop
+
+Note:
+once a virtual machine has been provisioned with an hypervisor provider, we cannot change the machine to a different provider unless we destroy and recreate.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

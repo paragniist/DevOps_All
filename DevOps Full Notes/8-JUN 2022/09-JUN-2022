@@ -1,0 +1,151 @@
+What is Systemd init system, why do we need it?
+The systemd init system is a software packaged used for running, and managing the software programs during the bootup of the operating system
+
+How to register a program with Systemd init system?
+The administrator of the system has to write a service definition file and place it under /etc/systemd/system, so that the initd system pickup and register it as an ubuntu service
+The service definition file has 3 parts which are called "3 Unit Sections"
+1. Unit
+2. Service
+3. Install
+
+#1. Unit
+describes the information about the service and represents the hard and soft dependencies of the service
+[Unit]
+Description=
+After=
+Required=
+Wants=
+	
+#2. Service
+It describes the information about how to start/stop and restart a program
+ExecPreStart=
+ExecStart=
+ExecStartPost=
+Restart=always, on-failure, never
+Type
+There are 5 types of services are there
+1. simple
+2. forking
+3. dbus
+4. oneshot
+5. notify
+ExecStop=
+	
+#3. Install
+When does this Service should be installed?
+[Install]
+WantedBy=multi-user.target
+--------------------------------------------------------------------------------------------
+With the above we have defined the information about the program to be registered as a Ubuntu Service to initd system, but we need to register the service definition, start, stop, restart and monitor these services
+
+To help us in monitoring, managing the initd system service, the initd system has provided an tool called systemctl. It is an superuser command and should be used with sudo previlige only
+
+tomcat.service = tomcat or tomcat.service = The name of the file itself will be reffered as service name
+
+#1. sudo systemctl daemon-reload = will reload the unit definition files
+#2. sudo systemctl start serviceName
+#3. sudo systemctl stop serviceName
+#4. sudo systemctl restart serviceName
+#5. sudo systemctl status serviceName
+#6. sudo systemctl disable serviceName = it will not be executed anymore as part of bootup
+#7. sudo systemctl enable serviceName = to bring back the service
+#8. sudo systemctl list-units = shows all the services registered with initd system
+
+Let us write an shellscript program and register it as an inid service in ubuntu.
+monitoring the free memory of our computer and log it on a interval basis
+
+free -h | grep -wv "Swap:" | awk '{print $1 "\t" $2 "\t" $3 "\t" $4}'
+
+/usr/bin [PATH]	
+freemem.sh
+-------------
+#!/bin/bash
+while [ true ]
+do
+	date >> /var/monitor-memory.log
+	free -h | grep -wv "Swap:" | awk '{print $1 "\t" $2 "\t" $3 "\t" $4}' >> /var/monitor-memory.log
+	sleep 120
+done
+
+/etc/systemd/system
+monitor-memory.service
+[Unit]
+Description=Service used for monitoring the free memory available on the system
+After=Network.target
+
+[Service]
+ExecStart=/usr/bin/freemem.sh
+Type=simple
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reload
+sudo systemctl status monitor-memory
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

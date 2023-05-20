@@ -1,0 +1,183 @@
+What is shellscripting, what is the purpose of it?
+Shellscripting is a file in which we write bunch of shell commands that has to be executed repeatively over a period time and pass that as an input to the shell interpreter to execute the commands sequentially from top to the bottom to produce the output
+
+purpose:-
+1. laborious job of manually entering the shell commands on the shell interpreter one after the another one can be avoided and saves time as well
+2. non-interactive execution of the instructions
+3. avoids human errors in typing the commands on the terminal manually
+------------------------------------------------------------------------------------------
+How to write a shellscript program?
+create a file usually with an extension as ".sh" in which write the shell commands. usually the shellscript file will starts with shebang
+shebang = is a special instruction indicating the shell intepreter to use a specific shell command/interpreter in executing the shell instructions written in that file
+#!/bin/bash  (or) #!/bin/sh
+
+How to execute the shellscript program?
+There are 2 ways in executing the shellscript program
+1. grant execute permission to the shellscript file and execute directly by pointing to the location of the file ./shellscriptfile.sh
+2. if we dont have execute permission still we can run the shell file (given if we have read permission), by passing shell file as an input to the bash interpreter as below
+bash shellscriptfile.sh
+------------------------------------------------------------------------------------------
+vscode editor
+--------------
+microsoft has provided vscode editor, it is very light weight and devops tools and ui technology friendly editor that is used by most of the people in the market
+
+#1. download the deb file directory from vscode site
+#2. install it using sudo apt install -f codexxxx.deb
+------------------------------------------------------------------------------------------
+Working with variables in shellscripting
+----------------------------------------
+While writing an shell program we might want to use the values as part of the program to perform operations. The values that we directly use in our programs are called "literals".
+	
+There are different types of literals are there like
+1. String literal = value will be written sourrounded with double quote as "Good Morning"
+2. Integer literal = directly as a value 10
+3. Float/Decimal literal = directly written as floating point value 23.4
+	
+in our program if we use directly the literal values in performing the operation, in future if we want to change the literal values to a different we run into lot of problems
+for eg..
+math.sh
+-------
+echo 10+20
+echo 20-10
+echo 10*20
+echo 20/10
+
+problems:-
+	1. we need to goto each line within the program and modify the literal value to a new values which is a tedious job
+	2. while modifying these values there is a chance of comitting human errors
+	3. we might modify few place and might miss some other places due to which the program runs into in-consistency and results in in-correct output
+From the above we can understands using literals directly in the program makes the program difficult to maintain. So avoid using literals and use variables.
+		
+What are variables?
+Variables are the named placeholders into which we store the values
+or
+Variables are place holders or reserved memory locations given with name into which we can store values.
+Now whereever in our program we want to use these values, instead of using values directly refer variables
+
+How to declare variables in shellscript program?
+math.sh
+-------
+#!/bin/bash
+VARIABLENAME=VALUE
+
+The best practise in naming the variable name is with capital letters in shellscript. but not necessarily required
+
+A=10
+B=20
+while declaring variables give an appropriate name based on the purpose of their usage.
+	
+How to refer a variable value inside the shell program?
+by default anything we typed in the shellscript is interpreted as a command by the shell interpreter and tries to execute. To let the shell interpreter differentiate between command and variable reference we need to use $VARIABLENAME syntax
+
+echo $A
+echo $B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

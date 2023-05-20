@@ -1,0 +1,156 @@
+What is Linux operating system?
+Linux is an general purpose computer operating system released in 1991 by Linus Torvalds. Linux has been build on a philosophy where software should be distributed freely and source code should be made accessible/modifiable freely, that is where linux is distributed under GNU License
+
+
+The major important component of Linux operating system is "Kernal", kernal interacts with the hardware components of the computer enabling software application run/communicate with the underlying hardware
+
+past/history:-
+How to use linux operating system?
+The users has to install the kernal/linux to use it. 	but installing the linux operating system is a tedious job, the general user has to run bunch of commands to have kernal installed on the computer system. more over the kernal/linux works on CGI (Character Graphic interface) interface, there is no GUI (Graphical User Interface)	
+
+Based on the above general public user find it very difficult to use linux operating system. even though the innovation is powerful, but it fails from usabibility point of view.
+	
+There are group of opensource contributors who wants to promote opensource software distribution, they came together and formed group called "GNU project" and started contributing tools/utility softwares that makes the linux operating system general public friendly to use.
+	
+For eg..
+	1. music players
+	2. graphical user interface
+	3. video players
+	4. text editors
+	5. office tools
+	6. browsers
+	etc
+	
+Now people can install linux kernal operating system ontop of which they can add these additional software packages to enable GUI and other tools required to use linux sophisticatedly
+
+
+Even though the GNU project contributed at a great scale in promoting linux as opensource general purpose operating system, still people find it tough to use/adopt linux operating system
+
+because the linux has not distributed by packging all the tools/utilities at one go, so people has to install kernal software and on top of it they need to download individual tools/utilities and should install by themself which is very difficult and time consuming task, so majority of the people has not adopted linux
+
+To help in solving the above problem in using linux operating system the linux distros came into picture
+
+Different groups and organizations came forward and build linux operating system with their own choice of software tools/utilities and configurations and packaged and distributed linux operating system with sophisticated operating installers, so people can download the linux distributions provided by these companies in using the linux quickly.
+	
+There are 4 major linux distributions are available in the market (linux maintainers) 
+	1. Arch
+	2. Debian
+	3. Redhat
+	4. Slackware
+	
+Out of the above there are 2 distributions very popular in the market which are
+1. Debain
+	1. linux mint
+	2. ubuntu
+	3. elementary os
+	4. kali linux
+	
+2. Redhat
+	1. centos
+	2. fedora
+	3. red hat enterprise linux (commercial)
+-----------------------------------------------------------------------------------------------
+Even though there are many distributions of linux operating system the kernal component is more or less same across all the distros, each vendor/distribution has comeup with packaging their own set of tools/utilities and package management softwares and distributed linx operating system to make it easy to use.	
+-----------------------------------------------------------------------------------------------
+Features of Linux operating system:
+1. Portable = Linux operating system can work on different types of hardwares and kernal supports installations of any kind of hardware platform
+2. Open Source = source code is freely available and it is community based development project
+3. Multi-User / Multi-programming operating system
+it can be used by multiple users at a time and can share the system resources like cpu, ram etc and can run multiple programs also at the same time
+4. Hierarchial File System = todo
+5. Shell = shell is an interpreter program that helps the people in talking to the linux kernal easily
+6. Security = highly secured operating system on this earth
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

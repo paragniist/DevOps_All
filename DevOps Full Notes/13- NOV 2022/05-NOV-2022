@@ -1,0 +1,445 @@
+What is datasource, how to work with it?
+Datasource is used for querying the resources that are part of our aws account.	These are used for provisioning the resources on an existing infra
+The datasource declaration starts with data followed by resourceType we want to query, aliasName we want to give to the resource we queried
+
+      TYPE         ALIASNAME
+data "aws_subnet" "sailorpubsn" {
+	filter {
+		name = "tag:Name"
+		values = ["sailorpubsn"]
+	}
+}
+The filter condition indicates the criteria based on which we want to query the resources.
+	
+resource "aws_instance" "javaserverec2" {
+	subnet_id = data.aws_subnet.sailorpubsn.id
+}	
+-----------------------------------------------------------------------------------------------------------------------
+Working with variables in Terraform?
+Variables are the placeholders in which we can store the data or values. so that in the programs rather than using hardcoded values, we can refer variables that improves code readability and maintainability. Like any other programming language terraform also supports working with declaring variables, assigning values to them and referencing them in the terraform configuration file
+
+How can we use variables in Terraform?
+Let us consider we have written an Terraform configuration for provisioning an ec2 instance as below
+
+resource "aws_instance" "tomcatserver" {
+	instance_type = "t2.micro"
+	ami = "ami-a9383"	
+}
+here we have declared an ec2 instance resource to be provision of shape "t2.micro", but while moving to production, we want to bump-up the shape of the resource, this can be done by modifying the terraform configuration file. each time changing the terraform configuration file is error-prone and searching and locating the place where we need to make the changes seems complex
+
+Instead of hardcoding these values we can use variables. while writing the terraform configuration file we can refer the variables and while executing we can pass the values to these variables
+So that we can quickly produce infrastructure with different values being attached for different env
+There are 3 parts of working with variables are there
+1. declare variables
+2. refer the variables in terraform configuration file instead of hardcoding
+3. passing the values 
+
+#1. How to declare variables in terraform
+We can declare variables inside the terraform configuration file using variable block declaration
+
+main.tf
+---------
+variable "variableName" {
+	type = dataType
+	description = "purpose/usage of the variable"
+	default = "defaultValue"
+}
+
+a variable declaration contains 3 parts
+1. type = which type of data the variable holds is indicated through dataType. when we supply the value for the variable terraform validates it against the dataType before applying the configuration
+2. description = indicates the purpose or usage of the variable
+3. default = indicates the defaultValue to be used incase user has not supplied any value for the variable
+
+Following are the supported dataTypes for a variable declaration
+1. string
+2. list
+3. map
+4. bool
+5. number
+6. set
+7. object
+
+#1. list variable
+variable "cidr_blocks" {
+	type = list
+	description = "cidrs for security group"
+	default = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+
+#2. map variable
+variable "tags" {
+	type = map
+	default = {
+		Name = tomcatserver
+		Env = dev
+		App = fithealth2
+	}
+}
+
+#3. object variable
+variable "ec2instanceconf" {
+	type = object({
+		instance_type = string
+		ami = string
+	})	
+	default = {
+		instance_type = "t2.micro"
+		ami = "ami-39393"
+	}
+}
+
+#4. number variable
+variable "port" {
+	type = number
+	description = "port no"
+	default = 22
+}
+
+It is recommended to place the variable declarations outside the terraform resource configuration file. it is recommended to place in an another *.tf file under the project directory. Most commonly used filename in which the people declare the variables in variables.tf
+
+#2. how to refer the variables in terraform configuration file?
+variables.tf
+------------
+variable "ec2config" {
+	type = object({
+		instance_type = string
+		ami = string
+	})
+	default = {
+		instance_type = "t2.micro"
+		ami = "ami-3938"
+	}
+}
+
+variable "tags" {
+	type = map
+	default = {
+		Name = "tomcatec2"
+	}
+}
+
+main.tf
+-------
+terraform {
+	required_providers {
+		aws = {
+			source = "hashicorp/aws"
+		}
+	}
+}
+provider "aws" {
+	region = "ap-south-1"
+	profile "default"
+}
+resource "aws_instance" "tomcatec2" {
+	instance_type = var.ec2config.instance_type
+	ami = var.ec2config.ami
+	tags = {
+		Name = var.tags['Name']
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------
+#3. How to supply values while applying the terraform configuration?
+while declaring the variables, if we dont assign a default value, then terraform during the apply prompts for the values for the variables which results in interactive execution. instead we can pass the values for the variables at runtime while running the terraform configuration for achieving touchless automation
+
+In case if we supply the values at runtime, the default values that we defined at the time of declaring variables will be overriden.
+There are 4 ways we can supply values for the inputs while running the terraform configuration
+
+#1. using -var switch at the terminal while launching the terraform CLI
+syntax:
+
+terraform apply -var varName=value -var varName=value
+
+if more variables are there constructing the CLI command in passing them becomes difficult
+
+#2. instead of passing the values for these variables through terminal, we can define the values in *.tfvars file and pass it as input during execution 
+tfvars = terraform variables
+
+The recommended filename to be used in supplying values is inputs.tfvars, by looking at *.tfvars extension we can easily differentiate these files holds the values for the variables
+
+variables.tf
+variable "instance_shape" {
+	type = string
+	default = "t2.micro"
+}
+
+main.tf
+resource "aws_instance" "ec2" {
+	instance_type = var.instance_shape
+}
+
+inputs.tfvars
+instance_shape="t2.nano"
+variableName=value
+
+terraform apply -vars-file=inputs.tfvars
+
+#3. using *.auto.tfvars
+instead of we manually passing the filename as an input while applying the terraform we can create files by following the naming convention as *.auto.tfvars and place under the project directory. So, when we apply the terraform, it looks for any file with extension "*.auto.tfvars" if found pick the values for the variables and executes
+
+inputs.auto.tfvars
+instance_type=t2.micor
+
+#4. environment variables
+instead of declaring the variable values in files we can set them through environment variables as well
+To differentiate the terraform env variables from others we need to follow naming convention while setting the variables in env
+
+export TF_VAR_variableName=value
+variables.tf
+variable "ami" {
+	type = string
+}
+set TF_VAR_ami=ami-3938
+
+precedence in taking the values supplied:
+1. *.auto.tfvars
+2. -var-file=*.tfvars
+3. -var  var=value
+4. env variable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

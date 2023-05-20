@@ -1,0 +1,11 @@
+---
+- name: shellplay
+  hosts: javaservers
+  tasks:
+    - name: shell with command (noptions)
+      shell: ls -la | wc -l > filestat.txt
+    - name: shell with removes (if file exists then only execute)      
+      shell: rm filestat.txt
+      args:
+        removes: filestat.txt
+...

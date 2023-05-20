@@ -1,0 +1,84 @@
+oracle virtualbox hypervisor supports 7 networking modes
+1. not attached
+2. nat
+3. nat network
+4. bridge
+5. internal network
+6. host-only network
+7. generic driver
+
+1. not attached
+The network interface card is attached to the virtual machine, but it is disconnected or unplugged from the network. The developers/test engineers can use this network mode for testing the behaviour of the application when the machine got disconnected from the network
+
+2. nat
+nat stands for network address translation protocol. it is a special type of network adapter/port (NAT port) that is created by the virtualbox hypervisor in plugging in the virtual machine on to the network
+The NAT is a special port that allows only out-bound network traffic from VM to host or external network, but in-bound network traffic is not allowed
+How does NAT works?
+NAT Port isolate the VM from other networks of the computer, all the outbound traffic generated from the VM will be received by the NAT Port and it will copy the data packets from NAT Port to the destination/target computer of the network as if the data is being send from NAT itself.
+The target computer doesnt know or even aware of the source VM from where data is coming from thus making our machine/vm completely secured.
+	
+The NAT Port 	on the Host machine is created with the Ip address as 10.0.2.0 and the vm will be assigned with the ip range of that network.
+Since 2 vm on the same host with NAT mode are on 2 different networks those cannot communiate with each other.
+	
+#3. NAT Network
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

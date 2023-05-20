@@ -1,0 +1,103 @@
+#1. What are the important components of a computer?
+There are 4 important components of a computer are there
+1. processor = performs computing operations
+2. ram = volatile memory which stores the information temporarily for performing the operations
+3. harddisk = secondard storage device of a computer, wherein the data will be stored permanently interms of files/folders
+4. motherboard = all the hardware components of the computer are inter-connected and communicated with each other through the help of motherboard of the computer
+
+#2. how to communicate and perform operations by interacting with the computer
+The processor is an electronic device which can understand only 2 states off and on, so we need to express or represent the data interms of off = 0 and on =1 and pass it as an input to the processor the computer to perform operations.
+	
+As the instructions/data is written in 0s and 1s which is only understandable by the processor of a computer, it is called "Machine Level Language"	 (or) even Binary Language
+
+It is very difficult for humans to represent information in 0s and 1s inorder to communicate or use the computer, so to help us in overcoming the problem in talking to the computer Assembly language has been introduced
+
+#3. What is Assembly Language, how does it solves the problem with Machine Language
+Assembly languages provides human-friendly english keywords which are called "mnemonics", the user can use the keywords of the language in passing instructions to processor/cpu of the computer asking to perform operations.
+There are lot of mnemonics provided as part of assembly language like
+	1. ADD
+	2. SUBSTRACT
+	3. MULTIPLY
+	4. DIVIDE
+	5. MODULUS
+	6. COPY
+	7. MOVE
+	8. STORE
+	etc
+write the instructions using the mnemonics and pass it as an input to the processor of the computer asking to perform operation.
+looks like there are quite a number of advantages are there with assembly languages
+1. easy to memorize and understand
+2. no complexity in writing the instructionset asking the processor to perform operations
+
+There are problems with Assembly Level languages
+Different processor manufacturer vendors and different processor models will provide different assembly language instructions and mnemonics due to which we run into problems
+	1. the program written in assembly language will not be portable across the various hardwares of the computer
+	2. the programmer has to write multiple copies of the same program to run across various different hardware platforms again and again.
+	
+From the above we can understand its becoming quite difficult for the users to use a computer as the programs written are not portable across the hardwares and people has to learn different mnemonic instructions of each hardware to program and use
+
+In order to solve the above problems, the operating system (system software) has been introduced
+Operating System is an System Software that takes care of achieving portability across various different hardwares of a computer.
+The enduser/programmer dont have to write the programs or instructions using machine-level language or assembly level language, instead operating system will provide their own instruction set called "System Routines". 
+	
+Now the programmers has to write programs/instructions using System Routines and pass it as an input to operating system of the computer, the operating system takes the help of hardware translator of the platform/vendor and converts into hardware executable instruction set, there by operating system passes those translated instruction to the cpu/processor of the computer to perform operations.
+	
+The operating system is the means through which we achieve hardware portability in working on a computer.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

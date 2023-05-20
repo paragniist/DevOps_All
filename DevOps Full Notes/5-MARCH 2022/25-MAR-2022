@@ -1,0 +1,107 @@
+What are environment variables, what is the purpose of it?
+Environment variables are the variables that we create at the operating system level which can be used by all the programs that are running on the operating system.
+
+There are 2 types of environment variables are there
+1. System variables
+2. User-Defined variables
+
+#1. System variable
+System variable is the build-in/pre-defined variables created by the operating system and has attached with a pre-defined meaning around it.
+	
+There is an pre-defined variable called PATH, which will be used by the linux operating system in resolving the the programs to be executed
+
+Whenever we typed a text on the bash-prompt in linux operating system, the bash tries to resolve the text by performing below activities
+1. Bash by default tries to check is there any program file which is executable exists within the current directory of the user, if yes and has execute permission it will executes the program and displays the output
+
+2. if there is no program file matching with text we entered, then operating system/bash-prompt goes to the environment variable PATH and picks the directory locations the PATH variable is point to, 
+	now goes to each directory location to check whether there is a program available within that directory matching with text entered, if yes executes the program file and provides output
+3. if there is not program file matching with text entered then it gives error saying unknown command
+The linux operating system creates the PATH variable defaults to the below directory locations
+/bin
+/sbin
+/usr/bin
+/usr/sbin
+/usr/local/bin
+/usr/local/sbin
+	
+
+/home/sriman:$
+print.sh
+------
+#!/bin/bash
+echo "printing"
+	
+/home/sriman:$ chmod u+x print.sh
+/home/sriman:$ ./print.sh
+
+/home/sriman:$
+ |-library
+ 		|-blocks
+			|-novels.txt
+ |-programs
+   |-netbank
+	   |-print.sh
+		 
+/home/sriman/library/blocks:$ /home/sriman/programs/netbank/print.sh
+
+From the above we can understand, each time when the user wants to run the program he has 2 options
+1. navigate to the program directory where the program files are there to execute them
+2. provide the complete path pointing to the location of the file where is it located to help linux operating system to pick the file and execute
+
+so looks like the above 2 approaches are complicated from an endusers point of view, because navigating to the directory location of the program files or entering the complete path of the program file
+	1. takes time
+	2. memorize the location of the files where are those located
+
+instead of it we can add the directory location of the programs files into PATH variable then operating system takes care of identifying the location by resolving through PATH variable.
+	
+#2. User-Defined 
+These are variables created by the user of the operating system to be used as part of applications
+
+How to create an environment variable in linux operating system?
+There are 2 syntaxes in creating environment variables in linux operating system
+2. using export = sh
+
+#2. export variableName=value
+echo $variableName
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

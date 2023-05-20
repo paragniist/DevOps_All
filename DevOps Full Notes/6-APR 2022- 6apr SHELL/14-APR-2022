@@ -1,0 +1,183 @@
+How to perform string operations using expr?
+expr supports 3 types of string operations
+1. length
+2. sustr
+3. compare(:)
+	
+#1. `expr length $VAR` = to find the length of a given string
+#2. `expr substr $VAR START_INDEX LENGTH`
+#3. `expr "$STR1": "$STR2"`	
+	1. returns 0 if all the characters in both the strings are not same
+	2. if all the characters in both strings are same it returns length of the string
+------------------------------------------------------------------------------------------
+Control Statements
+-------------------
+
+Control Statements are used for controlling the flow of execution of the program. By default a program begins execution from the top to the bottom sequentially, executing each line of code one by one. 
+But many of the times we dont want all the instructions/code written in the program to be executed sequentially one by one, based on some decisions or conditional evaluations we wanted to control what control what instructions to be executed and for how many times.
+These can be done through control statements
+
+There are 2 types of Control Statements are there
+1. Conditional Control Statements
+	1.1 if conditional control statement
+	1.2 if-else
+	1.3 case
+2. Loop Control Statements
+	2.1 while
+	2.2 for
+	2.3 util
+-----------------------------------------------------------------------------------------
+#1. Conditional Control Statements
+Conditional Control Statements are used for controlling the flow of execution of the lines of code within a program based on conditional evaluation
+
+1.1. if condition
+if is a control statement used for executing an instruction or a block based on conditional evaluation
+
+syntax:-
+if [ relationalexpression ]
+then
+	statement1
+	statement2
+fi
+
+if the relationalexpression we wrote here is evaluated to "true" then the instructions written inside the if-fi will be executed otherwise those instructions will be skipped
+
+note:
+the expression containers operands with operators between them for eg..
+	$A + $B = here A, B are operands on whom we are performing operations
+	+ = operator indicates operation to be performed
+put all these together called an expression
+if we are using arthematic operators in writing the expression then it is called arthematic expression, if we use relational operators then it is called relational expression.
+	
+#1 wap to find biggest of 2 given numbers
+bignumber.sh
+------------
+#!/bin/bash
+#comment
+read -p "a:" $A
+read -p "b:" $B
+
+if [ $A -gt $B ]
+then	
+	echo "$A is big"
+fi
+
+if [ $B -gt $A ]
+then
+	echo "$B is big"
+fi
+
+if [ $A -eq $B ]
+then
+	echo "$A and $B are same"
+fi
+
+./bigNumber.sh
+a: 10
+b: 20	
+------------------------------------------------------------------------------------------
+#2 wap to take passport no from the user and check whether/print whether it is valid or not
+Validation: if passportNo is equal to 8 characters then it is valid
+
+validatepassportno.sh
+----------------------
+#!/bin/bash
+read -p "passport no: " PASSPORT_NO
+#LEN=`expr length $PASSPORT_NO`
+LEN=$(echo -n $PASSPORT_NO | wc -c)
+
+if [ $LEN -eq 8 ]	
+then
+	echo "passport no: $PASSPORT_NO is valid"
+fi
+
+if [ $LEN -ne 8 ]
+then 
+	echo "passport no : $PASSPORT_NO is not valid"
+fi
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

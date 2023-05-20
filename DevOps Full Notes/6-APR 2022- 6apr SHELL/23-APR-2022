@@ -1,0 +1,238 @@
+WAP to print the sum of digits in a given number
+
+N=193
+1 + 9 + 3
+	
+#1 extract a number by dividing with 10 and take remainder
+193%10 = 3
+#2 eliminate one number from given number by dividing by 10
+193/10 = 19
+	
+19%10 = 9
+19/10 = 1
+	
+sumofdigits.sh
+---------------
+#!/bin/bash
+read -p "n :" N
+T=$N
+SUM=0
+
+while [ $T > 0 ]
+do
+	REM=$[T%10] 
+	SUM=$[SUM+REM]
+	T=$[T/10]
+done
+echo "number: $N, sum of digits: $SUM"
+-----------------------------------------------------------------------------------------
+wap to find whether a given number is palindrome or not
+191 = palindrom
+122 = 221 (not an palindrome)
+	
+N=123
+123%10 = 3
+123/10 = 12	
+	
+T = 3
+	
+12
+12%10 = 2
+T = (3 * 10) + 2 = 32
+12/10 =1
+	
+1
+1%10 = 1
+T = (32 * 10) + 1 = 321
+1/10 = 0
+	
+palindrome.sh
+--------------------
+read -p "n : " N
+T=$N
+R=0
+
+while [ $T -gt 0 ]
+do
+	REM=$[T%10]
+	R=$[(R*10)+REM]
+	T=$[T/10]
+done
+if [ $N -eq $R ]
+then
+	echo "given number $N is palindrome"
+else
+	echo "$N is not palindrome"
+fi
+------------------------------------------------------------------------------------------
+for loop
+--------
+for loop is also an loop control statement, which is used for executing a block of code repeatitively. 
+The for loop has been designed majorly for iterating over a fixed list of values. but it allows counter based loops also
+
+From the above we can understand for loop supports 2 types of iterations, which are called 2 forms of for loop
+#1. loop through fixed list of values
+#2. loop based on counter conditions
+
+#1 loop through fixed list of values
+syntax:
+for VAR IN LIST
+do
+	statements
+done
+ 
+#1. wap to print 1 to 10 numbers
+printN.sh
+----------
+#!/bin/bash
+for I in 1 2 3 4 5 6 7 8 9 10
+do
+	printf "%d\t" $I
+done
+echo "bye!"
+	
+#2. wap to add N given numbers non-iteratively
+sumn.sh
+--------
+SUM=0
+for N in $@
+do
+	SUM=$[SUM+N]
+done
+echo "sum : $SUM"
+
+./sumn.sh 10 21 34 22
+	
+#3. print all the files in the given directory (dont print directories)
+~/library
+	|-newpapers.txt
+	|-magzines.txt
+	|-posters.txt	
+	|-kids
+		|-pachatantra-stories.txt
+		|-chandama-stories.txt
+	|-novels
+		|-ramayana.txt
+		|-harryporter.txt
+	|-icon.jpg	
+
+lsfiles.sh
+-----------
+#!/bin/bash
+N=$#
+if [ $N -ne 1 ]
+then
+	echo "ERROR! provide directory name"
+	exit 1
+fi
+
+DIR=$1
+if [ ! -d $DIR ]
+then
+	echo "ERROR! directory doesnt exist"
+	exit 1
+fi
+
+for F in $DIR
+do
+	if [ -f $F ]
+	then
+		echo "$F"
+	fi 
+done
+
+./lsfiles.sh library
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+	 

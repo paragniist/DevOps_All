@@ -1,0 +1,179 @@
+Jenkins Persistence
+
+Jenkins Persistency
+with the default installation of the jenkins it stores the
+1. jobs
+2. build executions
+3. buildlogs
+4. credentials
+5. users
+6. roles
+etc in the file and folders. 
+Jenkins uses File-based persistency in storing the information. Directories are created inside the JENKINS_HOME following the structure of the java object model. some data like console output, is stored on plain text files. the configuration values are stored in property files
+majority of structured data such as project, jobs, build records etc are stored in xml format using XStream.
+
+------------------------------------------------------------------------------------------------------------------------
+jenkins credentials
+
+within the jenkins jobs/builds we quite often need to use credentials to connect to a remote machine or a database or external system to perform some activity. 
+For eg.. to pull the code from vcs repository we need to use the username/password of the scm repository, if we hardcode the vcs repository credetials aspart of the jenkins jobs, then we would endup with security breach.
+because everyone who has access to the jenkins job or logs will be able see the credentials of the repository there by which people can mis-use
+
+To overcome this problem jenkins has introduced credentials.
+we can create credentials within the jenkins system and can be refer them aspart of the jenkins jobs. while creating credentails we have few things to understand
+1. scope = while creating the credentials we need to specify the scope of the credential to be used, for example we can create credential at
+1.1 server & node = these credentials cannot be referred in jenkins jobs only used within jenkins sytem only
+1.2 server, node and childs  = we can use these credentials aspart of the jenkins jobs
+
+by default all the credentials are stored in jenkins "system" and domain "global". if we want to differentiate credentials of our application/projects from others, we can add our own domain and create credentials from our domain.
+
+2. id = every credential is identified with an id
+3. credential type = while creating the credential we need to choose the type of the credential
+
+To create a credential navigate to dashboard > manage jenkins > manage credentials 
+------------------------------------------------------------------------------------------------------------------------
+Jenkins Plugins
+
+Plugins are means through which we can enhance the functionality of the jenkins system. we can integrate jenkins controller (master) with various build tools, cloud providers, analysis tools etc throught the help of plugins. 
+The plugins are nothing but programs that sits in jenkins system and are invoked by the jenkins controller aspart of build process, these programs works with jenkins system and invokes the external tools in carrying the build activities
+
+Jenkins developers itself has written lot of jenkins plugins, these plugins are distributed by the jenkins through jenkins repository. when we install plugins into the jenkins, the jenkings downloads these plugins by connecting to the jekins repository.
+	
+In addition to the jenkins team, there are lot of third-parties and open-source contributors written nuemorous of plugins and published aspart of jenkins repository which can be used aspart of jenkins build for integrating with external tools
+
+How to install a jenkins plugin?
+There are 2 ways we can install jenkins plugins onto the jenkins controller
+1. through repository (online)
+2. offline installation
+
+
+#1. through jenkins repository (online)
+The jenkins system has provided an tool called "Plugin Manager tool" which takes care of discovering, downloading and installing the plugins from the jenkins repository
+
+we need to navigate in jenkins dasboard to
+dashboard > manage jenkins > manage plugins 
+here jenkins shows all the
+1. available plugins
+2. installed plugins 
+through which either we can update existing plugins or search and install new plugins
+
+#2. jenkins plugins offline
+Incase if we are not having access to the internet, we need to download all the plugins and their dependencies and upload them to jenkins plugin installation manager manually.
+	
+by navigating to dashboard > manage jenkins > manage plugins > Advanced Tab > Deploy Plugin
+
+alternatively if you have access to the jenkins server node/computer, goto JENINS_HOME/plugins directory. inside that folder we will see *.jpi files these are plugins.
+we can install our own plugins by downloading it manually which are of *.hpi extension copy them into JENKINS_HOME\plugins directory by renaming them into *.jpi and restart jenkins.
+-----------------------------------------------------------------------------------------------------------------------	
+Jenkins System Configuration
+
+Jenkins system configuration properties can be tuned are modified by navigating to
+dashboard > manage jenkins > configure system, here we can locate bunch of jenkins system configurations like
+1. jenkins home directory
+2. by default we can run jobs on jenkins controller as well, but it is not recommended to run jobs on jenkins controller due to performance issues, we can disable scheduling jobs on controller by changing executors property here.
+In case if we want to schedule jobs we can attach labels to the master and configure other parameters related to it
+
+3. jenkins Location
+4. Global properties = we can attach additional environment variables which we wanted them to be available during build
+5. Pipeline configurations
+6. SMTP and email server configurations for integrating with emails
+etc
+
+------------------------------------------------------------------------------------------------------------------------
+Global Tool Configuration
+
+install maven pipeline integration plugin
+
+node ("jenkinsslave1") {
+    stage("mvn version") {
+        withMaven(maven: '3.8.6') {
+            sh '''mvn -version'''
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

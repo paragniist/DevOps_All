@@ -1,0 +1,74 @@
+1. create an IAM user with api access
+ |-EC2Full
+ |-RDSFull
+ |-DynamoDBFull
+ |-it is not adviced to configure permissions to allow any S3 bucket/objects defining accountlevel policy rather it is adviced to bind policy at the bucket level only
+ only allow programmatic access only.
+	
+ 
+2. create s3 bucket for storing terraform remote state
+add bucket level policy
+allowing IAM user to have s3.* on bucket and even objects of the bucket aswell
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1672069254470",
+    "Statement": [
+        {
+            "Sid": "Stmt1672069252313",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::725759590734:user/bob"
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::urotaxi-tfstate-bucket/*",
+                "arn:aws:s3:::urotaxi-tfstate-bucket"
+            ]
+        }
+    ]
+}
+
+3. create an dynamodb table with partition key = LockID (String)
+-----------------------------------------------------------------------------------------------------------------------
+1. JENKINS CREDENTIALS
+1. JENKINS_GIT_PAT (USERNAME & PASSWORD)
+2. AWS_ACCESS_KEY (SECRET TEXT)
+3. AWS_SECRET_ACCESS_KEY (SECRET TEXT)
+4. UROTAXI_DB_PSW (SECRET TEXT)
+
+	
+2. JENKINS GLOBAL TOOL CONFIGURATION
+1. MAVEN 3.8.6
+2. jdk 11
+3. Terraform
+4. Ansible
+
+3. Setup the Pipeline with code
+
+	
+	
+	
+pat token = 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
+https://github.com/techsriman/urotaxijenkins.git
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+ 

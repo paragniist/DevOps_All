@@ -1,0 +1,16 @@
+pipeline {
+    agent none
+    stages {
+        stage('retrieve cred') {
+            agent {
+                label 'agent1'
+            }
+            environment {
+                DB_CRED = credentials('dbCreds')
+            }
+            steps {
+                sh 'echo "DB USERNAME: ${DB_CRED_USR} and Password: ${DB_CRED_PSW}"'
+            }
+        }
+    }
+}

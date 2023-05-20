@@ -1,0 +1,57 @@
+docker
+docker is an containerization technology that is used for packaging and running the applications isolated environment from other applications 
+
+To better understand docker, let us quickly recap the virtualization technology first.
+	
+virtualization 	
+---------------
+virtualization is a technic through which we can run multiple parallel isolated environments on a single machine through the help of hypervisor software
+
+The reason for using virtualization:
+The I.T infrastructure cost in developing and delivering the software applications is quite high. To reduce the infrastructure cost in delivering the software applications people make use of virtualization.
+	
+1. In an organization there can be multiple software applications being developed, to certify and deliver these software applications we need to build and deploy on test environments. For each application rather than created an dedicated physical server environment, we can make use of virtualization where we can create multiple parallel isolated env for deploying and verifying different projects out of a single machine itself thus can lower the cost of infrastructure for delivering the application
+
+2. Software companies can bake their products into virtual machine images and can deliver to the customers to try their products. customers can quickly import these virtual machine images and can explore the software being delivered without the need of installing/configuring them on the physical env
+
+3. developers can setup an development/server environment using virtualization on his workstation, so that he develop project locally on the workstation env, build, package and deploy on virtual server env to verify the code. So that the developer is developing and verifying the application in production like env due to which we can eliminate the problem of my code works on my env only
+
+4. A developer needs multiple workstations to setup multiple different envs while working on different projects.because across the projects the platform & software libraries to be installed are different cannot be managed by keeping them in one workstation. thus the cost of development of the application goes high because of multiple workstations.
+To overcome this we can use virtualization where we can setup multiple parallel isolated env on a single workstation and the developer can work in parallel across several projects easily
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

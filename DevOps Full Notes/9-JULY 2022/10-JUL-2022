@@ -1,0 +1,68 @@
+What is a java class?
+In java, everything is written inside the class. A java class is a structure in which we wrap the variables and the logic together, so that we can understand which logic is manipulating which variables within the program
+
+
+class Caculator {
+	int a;
+	int b;
+	
+	#50 functions
+	int add() {
+		int sum = a + b;
+		return sum;
+	}
+}
+--------------------------------------------------------------------------------------------
+How can we modularize the java programs and keep them simple and reusable?
+
+package com.powerone.tools;
+public class ChemicalAnalyzer {
+	public String analyse(String material) {
+		return "co2";
+	}
+}
+
+package com.powerone.labs;
+import com.powerone.tools.ChemicalAnalyzer;
+
+class Laboratory {
+	public void examine(String material) {
+		ChemicalAnalyzer chemicalAnalyzer = new ChemicalAnalyzer(); #new classname (creates object)
+		String composition = chemicalAnalyzer.analyze(material);
+		System.out.println("composition : " + composition + "for material : " + material);
+	}
+}
+
+package com.powerone.run;
+import com.powerone.labs.Laboratory;
+public class Main {
+	public static void main(String[] args) {
+		Laboratory laboratory = new Laboratory();
+		laboratory.examine("water");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

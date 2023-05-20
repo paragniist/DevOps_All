@@ -1,0 +1,139 @@
+What is sed?
+sed stands for streaming editor, it takes the text content as an input either from STDIN or from a file and performs the operations like printing, deleting or substituting the text content.
+	
+syntax:-	
+sed 'action/operation' filename
+sed supports 3 operations which are indicated with the respective symbols below.
+print = p
+delete = d
+substitute = s
+
+print actions
+---------------
+1. sed '' filename.txt = it prints the contents of the file, because the default operation is print
+2. sed 'p' filename.txt = it prints the contents of the file twice, how do we suppress the default print
+sed -n 'p' filename.txt (or) sed --silent 'p' filename.txt
+3. sed -n '2p' filename.txt
+4. sed -n '2,5p' filename.txt
+5. sed -n '2~2p' filename.txt = every alternate line starting from 2nd line
+6. sed -n '2,+10p' filename.txt
+
+delete action
+--------------
+1. sed '2d' filename.txt
+sed by default will not modify the contents of the original file, if we want sed to apply the changes inline to file we need to -i
+sed -i '2,5d' filename.txt
+
+substitute action
+------------------
+1. sed 's/text1/text2/' filename.txt 
+'s' = stands for substitute, we are asking sed to substitute text1 with text2 in each line of the file. by default it substitutes only the first occurence of the given text per each line
+
+2. sed 's/text1/text2/n' filename.txt 
+replace nth occurence of the given text per each line
+
+3. sed 's/text1/text2/g' filename.txt
+'g' = indicates globally, which means substitute all the occurences of the text1 with text2 in the file
+------------------------------------------------------------------------------------------
+What are the disk management commands available in linux operating system?
+The process of registering an physical hardware resource of a computer into the linux operating system is called "mounting".
+
+#1. lshw = will display all the hardware devices attached to the computer
+#2. fdisk -l = show all the disks attached to the computer
+#3. lsblk = show all the device blocks
+#3. hwinfo
+#4. du
+#5. df = displays the usage size also, similar to fdisk
+------------------------------------------------------------------------------------------
+Shellscripting
+----------------
+we can write programs using shellscripting in linux operating system
+variables
+conditional statements
+loop control statements
+command substitutions
+functions
+etc
+
+little/highly complex = 1 month (freedom) (programming logic) [good time]
+please work in parallel with me and active post questions on leawy.com if you stuck and resolve immediately
+excersise = programs to workout (#1: next program)
+	
+python, java, .net = fails badly in learning shellscripting
+= it is totally different way of working from other languages
+syntaxes are quite complex
+
+we are going to use shellscripting for accomplishing touchless automations through out our devops
+1. vagrant [multi-tier applications using shellscripting] [#1000 lines] (dropping)
+2. aws
+3. docker
+4. kubernetes
+5. jenkins
+6. terraform
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

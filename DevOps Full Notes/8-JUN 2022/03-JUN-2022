@@ -1,0 +1,211 @@
+There are 7 network modes supported by oracle virtualbox hypervisor
+1. not attached
+2. nat
+3. nat network
+4. bridge
+5. internal network
+6. host-only network
+7. generic driver
+
+2. nat
+VM ->             HOST = YES
+VM -> EXTERNAL NETWORK = YES
+HOST ->             VM = NO
+EXTERNAL NETWORK -> VM = NO
+VM -> VM               = NO
+
+2 virtual machines configured with nat mode are considered to be part of 2 different networks completely
+The NAT Port will assign the ip address within the CIDR range: 10.0.2.0/24
+	
+For the applications running on the VM we can allow the host machine to communicate through port-forwarding
+The host machine traffic on a specific port will be forwarded to the guest machine port using port forwarding enabling the applications to be accessed from the host
+
+[host] http://localhost:8080 -> forward the request to guest machine on port: 80
+
+To see how does port forwarding works, let us do the below.
+#1. install apache2 server on the guest machine so that it works on 80 port
+sudo apt update -y
+sudo apt install -y apache2
+
+#2. goto the host computer, open oracle virtualbox and choose the guest vm
+	1. click on settings and switch to network tab
+	2. under NAT mode, advanced section click on port forwarding and configure
+		host port: 8080 and guest port: 80
+
+#3 restart the vm to make the network settings take effect
+--------------------------------------------------------------------------------------------
+#2 nat network
+nat network is same as nat with allowing the network traffic between the vms which are on the same nat network.
+			
+How to configure nat network?
+#1 open oracle virtualbox manager GUI
+#2 goto preferences, navigate to network you will see nat network, create a nat network with a name
+
+#4. bridge network
+The virtualbox hypervisor will brings all the guest machines onto the host network adapter forming a brige allowing them to interconnect with each other.
+Here all the guest machines will be assigned with an ip address within the range of host network adapter
+
+VM -> HOST = YES
+VM -> EXTERNAL NETWORK = YES
+HOST -> VM = YES
+EXTERNAL NETWORK -> VM = YES
+VM -> VM = YES
+
+#5 Internal Network
+If we want to isolate the virtual machines from the rest of the world, then we use internal network. all the vms that are placed on the same internal network will communicate with each other allowing the network traffic between them
+But these machines will be isolated from host/external network
+
+VM -> HOST = NO
+VM -> EXTERNAL NETWORK = NO
+HOST -> VM = NO
+EXTERNAL NETWORK -> VM = NO
+VM -> VM = YES
+
+#6. Host-only Adapter
+In virtualbox we create a special type of network adapter called host-only network adapter to which we plugin the virtualmachines.
+all the vm connected to the same host-only network adapter can communicate with each other and even host can communicate vm and vm can communicate with host
+But vm cannot communicate with external network or external network to vm
+
+VM -> HOST = YES
+VM -> EXTERNAL NETWORK = NO
+HOST -> VM = YES
+EXTERNAL NETWORK -> VM = NO
+VM -> VM = YES
+
+#7. Generic Driver
+Generic driver is used for working with generic network adapters
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,141 @@
+File System
+------------
+1. How does the data will be stored on the storage device of a computer?
+The data will not be stored on the storage device of the computer in symbolic/character format it has to be transformed into binary format to be persisted onto the Storage device of the computer.
+	
+2. How to transform the Symbolic/Character representation of data into Binary notation?
+For each symbol assign an numeric value, then convert the decimal number assigned to the character into binary number and store the binary bits of data on to the storage device
+
+3. How do we know which symbol/character should be assigned with what decimal value to exchange the data?
+In order to exchange the data in a standard manner, the character-set encoding standards are introduced, the char-set standards has defined for each symbol and decimal number which will be used by everyone in storing/exchanging the data in an understandable format
+
+There are lot of char-set encoding standards are there
+1. ascii
+2. utf-8
+3. utf-16
+etc
+
+4. How to store the data on the storage device?
+once the data has been converted into binary representation we need to store the data in the memory locations of the harddisk interms of bits
+----------------------------------------------------------------------------------------------
+To keep track of the data and access it back the harddisk memory units/locations has been given unique address, using which we can refer or access the data.
+	
+When we stored multiple different data on the harddisk, memorizing the address of those memory locations where we have stored the data and access them is very difficult, so how to access the data that we have stored on the harddisk.
+	
+Files
+-------
+The actual data will be stored on the physical locations of the harddisk, inorder to keep track of the address location where the data has been resided on the harddisk Files are being used.
+Files are logical memory location stored on the harddisk of the computer, which is a data structure in which we store the address location where the actual data has been stored on the harddisk, additionally with some file attributes attaching to the data like
+- fileName
+- owner
+- created date
+etc
+
+In the File if we are storing the physical memory address of the data where it has been stored, it looks like more than the data the physical memory is used for storing address the data which eventually wastes huge amount of storage memory
+
+To avoid wastage of memory in storing the address on a file, the harddisk is organized into blocks. The entire harddisk is divided into data blocks of fixed size.
+	
+For eg. each block size = 1kb
+Now while storing the data onto the harddisk locations we allocate blocks in which the bits are stored. To keep track of the physical locations where the data is stored on the harddisk we store block addresses in the File rather than individual memory location address, so that we save the physical memory and easily keep track of the data
+
+if we choose small block size then for storing large volumes of data we need more blocks so we need to keep track more block addresses on the File which will waste memory. Instead if we take block size as big, while storing small data, again lot of memory will be wasted. The success factor is choosing an ideal block size.
+
+The address of the data blocks are stored in File, again the File also has to be stored on the harddisk in a reserved memory location which is called FileSystem space
+
+Each file will be allocated a fixed block size, which are called File blocks in which 
+name, owner, date and data block addresses will be stored.
+	
+To help in quickly accessing the contents on the Files of storage the File Pointer table will be maintained in which name of the file and file block address will be stored.
+	
+The whole processing of organizing the data on the physical harddisk location of the computer is called FileSystem.
+	
+FileSystem = organizing and storing the data on the physical storage device of the computer so that it can be accessed/modified quickly and easily.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

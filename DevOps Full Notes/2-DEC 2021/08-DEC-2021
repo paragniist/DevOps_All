@@ -1,0 +1,104 @@
+What are the roles and responsibilities of an operation engineer in developing and delivering an software application?
+The operation engineering team is responsible for carrying various different operations during the different stages of development to delivery of the application. let us explore the role of operational engineer at different stages of the application:
+
+#1 during development
+There are few applications that belongs to banking and financial domains, where developers by themself cannot setup local development environments, due to various reasons as below.
+ - organization policies
+ - security restrictions 
+ - limitations of software licences 
+ - complexity in setting up the environment
+ so the developer can write the code on local machine / computer alloted to him, but inorder to unit test his code he need an environment where he can run the code.
+Now the operation engineering team is responsible for setting up development/sandbox environment and distribute to the development team, so that developers can verify their code and release to the qa.
+	
+in addition for each developer who joins the team they need to provide a computer with basic set of s/w being installed that is also carried by operational engineers.
+	
+#2 during quality assurance phase
+During the time of qa phase the quality assurance engineering team requires qa environment to run and verify the code delivered by the developers is working fine or not.
+The operational engineering team helps the qa in setting up the qa environment by talking to developers in understanding the software requirements in running the application.
+	
+#3 production rollout
+The operational engineers has to carry several duties in making the application available to public world.
+	3.1 talk to the business users or business owners of the application to understand the nature of the users/customers who are going to access the application and the traffic patterns
+	3.2 talk to the architects and developers of the application to understand the software technology stack and their resource requirements in running those softwares
+	
+	we need webserver "for eg.. tomcat/weblogic server" which requires 2 gb ram for running
+	we need mysql database server software and requires 1.5 gb ram and 1tb harddisk space
+	based on the above the operational engineering has to understand the requirements interms of infrastructure in running the application.
+		
+	3.3 procure the infrastructure (machines) required for running the application at different stages
+		- development  = how many machines we need, of what capacity
+		- qa environment = what is configurations of the machines
+		- production = based on user traffic analyze and identify the computers required
+	3.4 assemble the hardware
+	3.5 setup networking for making the applications accessible to the external world
+	3.6 configure firewall and security software to secure access to the applications
+	3.7 install operating system on each machine
+	3.8 configure routers for routing the network traffic
+	3.9 install the softwares required for running the software application 
+		- language softwares
+		- web servers
+		- database servers
+		etc
+	3.10. setup and configuring monitoring tools to track and monitor application and infrastructure as well.
+	3.11 build the software application using build tools
+	3.12 deploy or execute the software application on the production environment he setup now
+	4.0 maintain and monitor the application.
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

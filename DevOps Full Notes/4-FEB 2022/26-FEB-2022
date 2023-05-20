@@ -1,0 +1,145 @@
+What is the difference between sudoers and pkexec?
+We can delegate/grant the root access to any other linux user through sudoers, now the normal users can act like root using sudo or by switching to root user using sudo su -
+	
+The pkexec command can be used for executing any linux command onbehalf the Root using super user credentials, which means only an super user can execute pkexec command.
+-----------------------------------------------------------------------------------------------------
+How to enforce restrictions on the sudoers?
+In sudoers we can use alias for enforcing restrictions on the sudoers, there are four types of alias are supported
+1. User_Alias
+2. Runas_Alias
+3. Host_Alias
+4. Cmnd_Alias
+
+#4. Cmnd_Alias
+we can grant an sudoer to execute a specific list of commands under sudo/root permission by using Cmnd_Alias
+
+#Cmnd_Alias
+Cmnd_Alias USER_MGMT_CMNDS=/sbin/useradd,/sbin/usermod,/sbin/groupadd,/sbin/chmod,/sbin/chown
+
+#Users 
+joe ALL=(ALL:ALL) USER_MGMT_CMNDS
+
+#3. Host_Alias
+we can grant an sudoer to execute commands under sudo/root permissions if the user has been connected through a specific hostname of the computer
+#Host Alias
+Host_Alias REMOTE_HOST=192.168.1.4
+joe REMOTE_HOST=(ALL:ALL) ALL
+
+if joe has been logged into to the machine using the above ip address, then only he is permitted to execute the commands under sudo/root
+
+#1. User_Alias
+----------------
+we can specify a set of users to grab sudo/root access through the help of User_Alias
+
+User_Alias DEVOPS_ADMINS=kerin,bob,joe,jim
+DEVOPS_ADMINS ALL=(ALL:ALL) ALL
+all the 4 users kerin, bob, joe and jim can act as sudoers
+----------------------------------------------------------------------------------------------------
+How to configure passwordless sudo access?
+by default linux will prompt the user to enter his password while executing a command using sudo just for the sake of additional security
+
+we can disable this additional check by using NOPASSWD variable in sudoers file as below
+/etc/sudoers
+username ALL=(ALL:ALL) NOPASSWD:ALL
+Now the user can execute sudo commands without prompting for/reentering password
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

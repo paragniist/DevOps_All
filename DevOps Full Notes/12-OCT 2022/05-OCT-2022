@@ -1,0 +1,71 @@
+There are 2 types of aws accounts are there
+1. aws root account
+2. aws user account
+
+#1. root account
+root account is the aws account owner who has created the account and has unrestricted access to all the services of the aws cloud platform
+
+#2. aws user account
+aws root account can delegate access to the others by creating an user account in aws platform. The root account holder can create user account and enforce quota restrictions and grant permissions in accessing the services of the aws account.
+	
+so inorder to use the aws cloud platform, we need to create an aws root account. upon the initial signup of the aws account, an free-tier access would be provided for 1 year.
+but within the free-tier scope not all the services are free and even there are restrictions on the services being used under free-tier
+
+For eg..
+an ec2 instance is eligible under free-tier account but there are restrictions
+- The shape machine should be t2.micro only
+- per month we only get 720 hours usage, beyond that would be charged
+
+similary an rds instance also comes under free-tier, but we need to choose the free-tier eligible instance shape only during provisioning
+
+so not everything is free on the aws cloud platform, we should look for eligibility before provisioning a service in aws cloud platform
+
+How to consume the services offered by the aws cloud platform?
+There are 4 different ways in which we can connect or consume the services of the cloud platform
+1. aws cloud console
+2. aws http/rest endpoints
+3. aws api
+4. awscli tool
+------------------------------------------------------------------------------------------------------------------------
+1. Networking domain
+The network related services like private networks, firewalls and routes etc are provided aspart of the networking domain by aws cloud platform
+
+1.1 vpc 
+vpc stands for virtual private cloud network, it is used for creating an isolated network of resources. we can enforce access restrictions enabling the access to the resources over the network through the help of vpc
+
+An aws account user can create multiple vpcs, for isolating resources from each other. the vpcs can be created for different purposes or at various levels
+1. we can create vpc per application/project
+2. we can create vpc per business domain or organization
+3. we can create vpc per environment (dev, test, prod)
+	
+per an aws user account per one region we can create at max #5 vpc only (it is an soft limit)	
+There are 2 types of limits or restrictions are there
+1. softlimit = those are enforced but can be requested to aws cloud asking for change /relief
+2. hardlimit = cannot be changed
+
+A vpc contains all the availability zones of that region
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	

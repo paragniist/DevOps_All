@@ -1,0 +1,83 @@
+Scope of AWS Services
+There are lot of services offered by the AWS Cloud platform, these services can be categorized into 3 different scopes based on their availability or accessibility
+1. Global
+2. Regional
+3. Availability Zone 
+
+1. Global Scope
+The services scoped to the Global are accessible and available across all the regions of the AWS Cloud platform, A change in any of these services would be reflected across all the regions of the AWS account for whom we are modifying
+For eg..
+1. If we add an DNS entry in Route53 Service the route information would be reflected or modified across all the regions of the aws account
+2. The changes we made to the user in IAM registry would be reflected globally across all the regions of the account
+
+2. Regional Scope
+The services that are scoped to region level are only visible and accessible within that region only.
+For eg.. when we create a DynamoDB table it is scoped to the region level and would be visible and accessible within that region only
+
+If we create an S3 bucket, the bucket and objects stored inside the bucket are accessible within the region only
+
+3. Availability Zone
+These are the services created and accessible within the AZ of the region only
+For e.g.. an ec2 instance will be created within the AZ of a region only
+
+There are 7 domains in AWS Cloud platform are there
+1. Networking
+2. Compute
+3. Storage
+4. Database
+5. Security (IAM)
+6. Management Tools
+7. Messaging
+8. Developer Tools
+
+
+#1. Networking domain
+The Networking domain of the AWS Cloud platform offers all the services related to network and network devices in hosting and running the applications
+
+There are lot of services offered by the networking domain let us explore each of them
+
+1.1 VPC
+vpc stands for virtual private cloud network
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

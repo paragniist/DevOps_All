@@ -1,0 +1,9 @@
+How to customize the vagrant configuration based on provider?
+To support customizing the virtual machine configurations based on the provider we need to write one configuration file per one provider. but there are problems in this approach
+1. across the vagrant configuration files of each provider, most of the configurations are same so we would endup in duplicating the machine configurations across the providers
+2. we endup in spending lot of time in writing the same configuration files across the providers to support few customizations
+3. maintainability of the dupliate configuration files is going to be difficult
+4. by keeping multiple configurations each per provider, there is an added complexity in identifying the right configuration to be used for a provider to provision the machine
+
+So to overcome these problems in customizing the machine configurations for different providers vagrant introduced provider customizations. Through provider customizations we can write multiple provider configurations in the same vagrant file so that vagrant engine is intelligent enough in pickingup the right configurations while provisioning the machine with the underlying provider.
+	

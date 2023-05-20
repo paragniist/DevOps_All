@@ -1,0 +1,86 @@
+What are the advantages of adopting iac tools in building the infrastructure?
+There are plenty of benefits in adopting the iac tools in provisioning infrastructure 
+1. Higher-rate of deliveries
+The applications that adopts iac tools for provisioning the infrastructure has better rate of delivery of the application when compared with others 
+2. self-service
+Most of the time the application being developed by the developers is deployed manually into the production environment. There are small team of ops engineers who are responsible for building the infrastructure in delivering the application into production. For each delivery the development has to reach to ops engineering team to setup required infrastructure, here the development team groups are in large numbers and ops engineering team is small and it becomes bottleneck for releasing the application
+
+Instead of we manually taking care of releasing the application, if we can adopt iac automation the development team by themself can release the application straight into the production and will improve deliverability of the application.
+3. documentation
+If we express the infrastructure in terms of code through iac tools, it acts as good source of documentation in understanding the infrastructure. So if an existing ops engineer has been replaced by a new one, within less time the new ops engineer can become productive by looking through the iac code in understanding infrastructure being used for our application.
+4. versioning
+since we build the infrastructure through code, we can push and commit the code into version control system repositories, so each time when we need to make change in the infrastructure we need to modify the code and every change is being captured and commited into repository. as we keep versioning the infrastructure code, we can easily understand and track how does the infrastructure has been evolved to the current state and anytime we can rollback the infrastructure to the previous state by rolling back the code
+5. Speed and Safety
+if we are setting up the infrastructure manually, there is always a chance of commiting an human mistake while building the infrastructure due to which we landup in failure of delivering he application. Instead if we adopt iac tools for creating the infrastructure, since the code is pre-tested before executing on the actual environments, there is no chance something go wrong while creating the infrastructure using iac code and we can create repeatable infrastructure quickly
+6. Validation
+as we build the infrastructure through code, we can share the code to the peers and get it reviewed along with that we can run the code on a test environment to see the final state of the system being produced, there after we can validate the env being produced before using the code for creating actual environment.
+7. Reusability
+We can write the iac code as libraries or modules, so that when we are working on building the code for creating infrastructure, we can import existing libraries or modules in quickly writing the code for creating infrastrucutre
+8. Collaboration & Sharing
+as we create infrastructure through code, we can push the code into version control systems and can share it to the other members of the team, so that all the members can collaboratively build infrastructure and share with each other
+
+There are 2 types of tools are there
+1. configuration management tools = used for installing and configuring the software packages on the machines
+
+2. infrastructure as code (infrastructure automation tools) = building infrastructure resources required for deploying the application
+	
+There are few configuration management tools, that supports building infrastructure as well, like ansible has aws modules for creating aws cloud services/resources on that platform.
+So what is the difference between Configuration Management Tools and Infrastructure as a code tools, which one should be used when?
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

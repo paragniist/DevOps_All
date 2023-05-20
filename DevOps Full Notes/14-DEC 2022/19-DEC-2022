@@ -1,0 +1,50 @@
+1. jenkins architecture
+2. setting up the master and slave
+3. types of jenkins jobs
+4. jenkins system configuration options
+	4.1 jenkins system configuration
+	4.2 manage credentials
+	4.3 global tool configuration
+	4.4 manage plugins
+5. working with pipelines
+	1. agent
+	2. stages
+	3. post block
+6. directives
+	1. environment
+	2. options
+	3. triggers
+	4. parameters
+	5. tools
+	6. input
+	7. script
+	8. when
+	
+what is the difference between scripted pipeline and declarative pipeline?
+1. In declarative pipeline always the pipeline execution begins with declarative SCM checkout which comes for free, where as in scripted pipeline we need to write the checkout from scm
+
+2. In declarative pipeline we can restart a pipeline from any stage within the pipeline where as in scripted pipeline we cannot execute the pipeline from any stage always it starts from stage 1
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

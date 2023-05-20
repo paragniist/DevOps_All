@@ -1,0 +1,87 @@
+How to install the docker?
+docker supports both windows/linux operating system, in early releases of the docker there is no support of running it on windows operating system, since it requires additional features like namespace, cgroups, unionfilesystem. Later on Microsoft has hardly worked on bring dockeron to the windows platform by adding all the required features.
+
+From windows 10 professional and above verions the support of running docker is available. The docker has shipped an tool called docker-desktop-windows that can be installed on windows 10 professional to the containers.
+
+The difference between docker linux to docker windows is
+1. docker cli changes
+2. docker base images will change
+3. The size of the docker images on windows is more than linux
+
+Installing docker on linux operating system
+-------------------------------------------
+
+1. create a new virtual machine on virtualbox platform
+2. install the operating system as ubuntu
+
+3. sudo apt update -y
+4. sudo apt install apt-transport-https ca-certificates curl software-properties-common
+5. sudo apt install -y docker
+
+after installing the docker we can check the status of the docker using
+sudo systemctl status docker
+
+The docker software will be installed by creating an docker user and docker group and run onbehalf of the docker useronly. so if we logged-in as an "sriman" user, he cannot access the docker containers/images since he dont have permissions on the process or directories on which it is running.
+
+The only way to make docker works for "sriman" user is
+1. sriman should be sudoer (not recommended)
+2. add sriman into docker group, so that he can manage the docker engine
+
+#2 approach is recommended
+sudo usermod -aG docker sriman
+logout from shell and login back so that the roles or groups will be refreshed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

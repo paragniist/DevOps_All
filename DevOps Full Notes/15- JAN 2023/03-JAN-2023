@@ -1,0 +1,107 @@
+docker workflow
+docker workflow indicates how can we use docker during development and delivery of the software application
+
+There are 2 ways in which docker is being used by the people in the industry
+1. developer build docker images out of their application binaries and publish them into docker container registries, so devops engineers can pull these images and distribute them across the env to run the docker container
+
+
+The developers themself are responsible writing the code for building the docker images, these docker images are created during the continous integration / continous deployment pipeline and will be published into the docker container registry
+The devops engineers pull these images and run docker containers using these images on the target env
+
+
+2. developers will not write the code for baking the docker images, rather they publish the stable build artifacts into the artifactory repository, then devops engineers has to take the responsibility of creating docker images by packing the application binaries and publish them into the docker container registry and distribute them across env to run the containers
+------------------------------------------------------------------------------------------------------------------------
+
+Architecture of docker
+----------------------
+The docker architecture comprises of 5 main components or parts in it which are required for working with docker
+1. docker daemon or docker engine
+2. docker cli
+3. docker container registry
+4. docker image
+5. docker container
+
+
+#1 docker daemon or docker engine
+The machine on which docker engine/daemon is installed is called "docker host/workstation"
+docker daemon or docker engine is the core component of the docker system, it takes care of pulling the docker images from the docker container registry, and creates the docker containers out of the images and runs them on the docker host
+
+The docker engine is responsible for managing the lifecycle of the docker container like
+1. creating the container
+2. starting
+3. stopping
+4. allocating resources to the container 
+
+#2. docker cli
+docker cli stands for command-line interface, the docker cli has provided handful of docker commands through which we can interact with the docker engine asking it to start, stop, restart etc the docker containers
+
+#3. docker container registry
+docker container registry is the central repository where people can publish the docker images and can distribute them across the envs on which we want to run the docker containers
+
+#4. docker image
+is an compressed file packaged with application binaries, dependent software libraries, bins/libs and instructions in running the application, which isused by the docker daemon in running a container out of it
+
+#5. docker container
+docker container is nothing but a program under execution isolated from other programs running on the host
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

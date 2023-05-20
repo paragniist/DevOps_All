@@ -1,0 +1,154 @@
+1. changed_when and failed_when
+2. ansible vault
+3. ansible conditions and loops
+4. ansible roles
+5. jinja2 templates
+6. handlers
+7. controlling the playbook executions
+
+1. changed_when and failed_when
+Ansible control node server upon executing an ansible module on the managed node, gathers the outcome of execution and reports the status of the module execution as one of the following per each module
+1. changed
+2. skipped
+3. failed
+4. ok
+5. unreachable
+6. ignored
+
+
+The ansible control node server derives an module has affected/changed the state of the managed node or not by collecting the exitcode of the module execution. if there is an "0" exitcode as an outcome, then ansible control node server reports the status as changed, anything other than "zero" is marked as failed
+
+sometimes we dont wanted to mark the status of a task/module to be reported as changed or failed based on exitcode rather we wanted to evaluate the condition based on the outcome of execution and mark the changed or failed status of a module execution, this can be done by using changed_when and failed_when conditional statements in playbooks at task level
+
+For eg..
+when we execute a shell or command module, upon executing the command passed as an input, it always returns the exitcode as "0" indicating the success of execution, so that ansible marks the task as "changed".
+if the shell command passed returns an non-zero exit code, then ansible control node server marks the module execution as "failed". this is the default behaviour of executing and reporting the status of an module
+
+Now we wanted to evaluate a conditional check based on which we wanted to mark the module has been executed and changed or failed this can be done using failed_when and changed_when
+
+Let us consider an example to better understand, 
+we want to install mysql server on the managed node, but to install mysql server we need a minimum diskspace of 2048 mb (2gb), how can we perform a conditional check before installing the mysql server in a playbook?
+
+in case if the system is not meeting the minimum disk requirement we wanted to fail the playbook execution this can be done using magic variables. to demonstrate the usage of failed_when let us try to use shell module
+
+install-mysql-playbook.yml
+---
+- name: mysql play
+	hosts: all
+	tasks:
+	- name: check diskspace
+		shell: "df /dev/sda3 | tail -1 | awk '{print $4}'"
+		register: diskspace
+		failed_when: "diskspace.stdout | float < 41943040"
+	- name: install mysql
+		apt:
+			name: mysql-server-8.0
+			update_cache: yes
+		become: yes
+			
+In the above check dispace task upon executing the shell module, by default it reports as changed, but wanted to evaluate the condition based on outcome of the module execution to mark it as failed or changed 
+so we have collected the output into an variable "diskspace" using register. now we are evaluating the condition by using failed_when conditional clause, if the condition has been met true, then the task execution will be marked as failed.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

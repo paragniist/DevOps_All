@@ -1,0 +1,93 @@
+Jinja2 templates
+
+Jinja2 template is an python module used for creating configuration files out of a template files by substituting the The ansible has strong support and integration with jinja2 template engine. The ansible has provided a template module, using which we can pass substitution values for a template file to the jinja2 engine and generate configuration files quickly
+
+
+dynamic values.
+	
+Why to use Jinja2 Templates?
+We can create configuration files by using programming languages or through shellscripting, but we endup in writing lot of code that contains business/application logic and configuration file content generation logic which becomes complex to understand
+Each time we want to modify the configuration file content, we need to modify the program 
+The program is not easily readable since it has lot of code in writing the configuration file
+errorneous as we dont know whether we are making changes properly unless the output is generated
+
+since most of the configuration content would be same in a configuration file with few differing values we can use template files with placeholders and substitute them through programs, but if the configuration files holds complex content that should generated out of conditions or bunch of values, again we need to write the code in constructing the configuration files based on conditions and collection of values
+
+The ansible has strong support and integration with jinja2 template engine. The ansible has provided a template module, using which we can pass substitution values for a template file to the jinja2 engine and generate configuration files quickly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

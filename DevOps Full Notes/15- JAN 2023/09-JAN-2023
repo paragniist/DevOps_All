@@ -1,0 +1,214 @@
+How to install the latest version of docker ce on ubuntu machine?
+pre-requisite:
+1. install ubuntu-22.04.10 LTS on the virtualbox vm machine
+--------------------------------------------------------------
+2. 
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg lsb-release
+3.
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+4. 
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+	
+5. 
+sudo apt-get update
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+sudo apt-get update
+
+6. 
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+7. verify docker is running or not by running the below command
+sudo systemctl status docker
+
+8. add the current logged-in user to the docker group permitting him to access the docker service
+sudo usermod -aG docker $USER
+sudo init 6 #restart
+---------------------------------------------------------------------------------------------------------------------------------
+How to install docker on ec2 instance and access it from dockercli running on our local machine (ubuntu vm)?
+1. create an vpc, public subnet and security group as described below
+1. vpc
+vpcname: dockervpc
+cidr: 10.1.0.0/16
+	
+2. subnet
+subnet name: dockerpublicsn
+cidr: 10.1.1.0/24
+availability zone: ap-south-1a
+
+3. internet gateway
+internet gateway: dockerig
+attach to vpc: dockervpc
+
+4. route table to associate internet gateway to the public subnet
+routetable name: dockerigrt
+vpc: dockervpc
+subnet associate: dockerpublicsn
+routes: 0.0.0.0/0 -> dockerpublicsn
+
+5. security groups
+name: dockersshsg
+in-bound:
+ssh 22 0.0.0.0/0 allow
+outbound
+all any 0.0.0.0/0 allow
+
+6. provision an ec2 instance on dockerpubsn
+storage capacity: 30gb
+auto assign public ip: true
+ami: ubuntu
+
+7. install the docker by following the above instructions
+
+8. goto ubuntu vm on virtualbox
+8. generate an ssh keypair
+ssh-keygen [make sure the sshkey generated has a name id_rsa, id_rsa.pub]
+9. copy the id_rsa.pub onto ec2 instance under ~/.ssh/authorized_keys
+cat id_rsa.pub (copy the text)
+ssh into ec2 instance
+ssh -i ~/.ssh/kp ubuntu@publicip
+vim ~/.ssh/authorized_keys (paste the id_rsa.pub contents)
+	
+10. goto ubuntu vm and run the below command to add the new docker context
+docker context create ec2context --description "ec2 docker host" --docker "host=ssh://ubuntu@ipec2"
+	
+11. docker context use ec2context
+docker container ls
+---------------------------------------------------------------------------------------------------------------------------------
+docker workflow
+#1. package
+upon building an software application, the developer/devops engineer has to containerize the application by packaging into an docker image.
+	
+#2. ship
+publish the docker image that has been built into the docker container registry (dockerhub)
+	
+#3. run
+pull the docker image from docker container registry and run the container out of the image on a docker host env
+
+Let us explore how to run the docker container using dockerCLI
+To run a docker container we need an docker image, we dont need to create our own docker image, rather there are plenty of pre-built docker images published and available on dockerhub which we can directly user to create an docker container
+
+#1. how to run a docker container interactively?
+docker container run -it image:tag command
+
+eg.
+docker container run -it ubuntu:23.04 bin/bash
+                          image:tag    command
+													
+when we run the above command, docker-daemon/engine pulls the docker image from docker container registry and creates an container out of it and logs us into the container by running bin/bash command on it. so that we will holding the bash interpreter of the container when we run above command
+
+here -it indicates run a command on the container interactively
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

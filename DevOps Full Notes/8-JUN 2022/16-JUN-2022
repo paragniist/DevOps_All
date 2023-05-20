@@ -1,0 +1,72 @@
+How to host an static web application on a virtual machine environment?
+1.	
+Prepare host machine[windows] to forward the request to the apache2 server upon sending the request using domainname through web browser.
+	
+host machine [windows]:
+#1. In our guest machine we need to configure network adapter (virtualbox management console)
+	For Network adapter 
+		- Mode: NAT
+		- Port Forwarding: host: 8082, guest: 80
+#2. setup local dns cache with domainnames and ipaddress
+c:\windows\system32\drivers\etc\hosts
+127.0.0.1 crazyeats.com
+127.0.0.1 toyland.com 
+--------------------------------------------------------------------------------------------	
+2. how to host the static website on apache2 server in ubuntu/guest machine
+#1 install apache2 server 
+a) sudo apt update -y
+b) sudo apt install -y apache2
+
+#2 copy the static website root directories into /var/www
+/var/www
+|-crazyeats
+|-toyland
+
+#3 write apache2 site configuration files
+cd /etc/apache2/sites-available
+sudo touch crazyeats.conf
+vim crazyeats.conf
+<VirtualHost *:80>
+	ServerName crazyeats.com
+	DocumentRoot /var/www/crazyeats
+</VirtualHost>
+
+sudo touch toyland.conf
+vim toyland.conf
+<VirtualHost *:80>
+	ServerName toyland.com
+	DocumentRoot /var/www/toyland
+</VirtualHost>
+
+#4. we need to enable the sites we have configured above
+sudo a2ensite crazyeats
+sudo a2ensite toyland
+sudo systemctl daemon-reload apache2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

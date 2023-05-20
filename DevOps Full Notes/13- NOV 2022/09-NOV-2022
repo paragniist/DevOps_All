@@ -1,0 +1,235 @@
+Provisioners:
+Provisioners are the way through which we can hookup software configuration management scripts to the terraform asking to execute upon provisioning a resource or at the end of execution of the terraform configuration. So, that devops engineers dont need launch or trigger the software configuration management scripts manually.
+	
+There are 3 types of provisioners are supported by terraform
+1. file provisioner
+2. local-exec provisioner
+3. remote-exec provisioner
+
+#1. file provisioner
+file provisioners are used for copying the files from terraform control node to the remote resources provisioned
+
+#2. local-exec provisioner
+runs the software configuration management scripts locally on the terraform control node
+
+#3. remote-exec provisioner
+run the software configuration management scripts by copying them on the remote resource and executes local to the resource itself
+
+Provisioners can be defined at 2 levels
+1. local to the resource level
+2. global 
+
+#1. local to resource level
+we can define a provisioner to a resource on whom it has to be applied, so that upon provisioning the resource, the terraform immediately executes the provisioner on that resource
+
+#2. global provisioner
+if we wanted to execute a provisioner or a software configuration management script upon provisioning a group of resources or all the resources, then we need to use global provisioner.
+In general provisioner are used for applying software configuration management scripts on resource, so without a resource we cannot write a provisioner, but global provisioner is not attached to any resource so how to write a provisioner without attaching to any specific resource
+
+That is where terraform has provided an "null_resource" on which we can configure the provisioner
+
+lets understand how to work with file & remote-provisioner
+we wanted to install jdk upon provisioning an ec2 instance
+
+tfprovisioners
+|-sh
+  |-installjdk.sh
+|-main.tf
+|-variables.tf
+|-inputs.tfvars
+|-output.tf
+
+installjdk.sh
+#!/bin/bash
+sudo apt update -y
+sudo apt install -y openjdk-11-jdk
+
+variables.tf
+------------
+variable "ec2config" {
+	type = object({
+		instance_type = string
+		ami = string
+		public_key = string
+		associate_public_ip = bool
+		tags = map(string)
+	})
+}
+
+inputs.tfvars
+-------------
+ec2config = {
+	instance_type = "t2.micro"
+	ami = "ami-29383"
+	public_key = "SSH-RSA al93903"
+	associate_public_ip = true
+	tags = {
+		Name = "javaserver"
+	}
+}
+
+outputs.tf
+---------
+output "tfprovisionerec2_publicip" {
+	value = aws_instance.javaserver.public_ip
+}
+
+main.tf
+-------
+terraform {
+	required_providers {
+		aws = {
+			source = "hashicorp/aws"
+		}
+	}
+}
+
+provider "aws" {
+	region = "ap-south-1"
+	profile = "default"
+}
+
+resource "aws_keypair" "javaserverkp" {
+	key_name = "javaserverkp"
+	public_key = var.ec2config.public_key
+}
+
+resource "aws_instance" "javaserver" {
+	instance_type = var.ec2config.instance_type
+	ami = var.ec2config.ami
+	key_name = aws_keypair.javaserverkp.key_name
+	associate_public_ip_address = var.ec2config.associate_public_ip
+	
+	connection {
+		type = "ssh"
+		host = self.public_ip
+		user = "ubuntu"
+		private_key_file = "~/.ssh/jkp"
+	}
+	provisioner "file" {
+		source = "sh/installjdk.sh"
+		destination = "/tmp/installjdk.sh"
+	}
+	provisioner "remote-exec" {
+		inline = {
+			"chmod u+x /tmp/installjdk.sh",
+			"bash /tmp/installjdk.sh"
+		}
+	}	
+}
+
+#local-exec provisioner
+resource "aws_instance" "localexecec2" {
+	instance_type = "t2.micro"
+	ami = "ami-3983"
+	
+	provisioner "local-exec" {
+		inline = [
+			"echo $self.public_ip >> hosts" 
+		]
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

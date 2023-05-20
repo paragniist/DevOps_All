@@ -1,0 +1,96 @@
+ansible roles
+ansible roles are used for packaging and distributing the ansible playbook automations in a standardized way, so that people can reuse them quickly aspart of their playbook automations.
+	
+To help others to easily use an code automation, ansible has defined 8 standard directories into which we can organize the files required for applying the automation
+
+rootdir (role) (apache2webhosting)
+|-default
+	|-main.yml
+|-files
+|-templates
+|-tasks
+	|-main.yml
+|-handlers
+	|-main.yml
+|-meta
+	|-main.yml
+|-vars
+	|-main.yml
+|-tests
+	|-inventory
+	|-main.yml
+
+1. default/main.yml = variables with default values are configured, we can override these default values during playbook execution
+2. files = static files that are used aspart of automation
+3. templates = jinja2 template files
+4. tasks/main.yml = tasks to be executed aspart of the role
+
+main.yml
+- import_tasks: install-jdk11.yml
+- import_tasks: create-tomcatuser.yml
+- import_tasks: setup-tomcat10.yml
+- import_tasks: create-tomcat-service.yml
+
+5. handlers/main.yml = place all the handlers that has to be executed upon executing an task of the role when notified
+6. meta/main.yml = define the metadata information about the role like author, licensing, platform, version etc
+7. vars/main.yml = variable declarations used aspart of role
+8. tests = contains required files for testing the role
+
+
+How to create a role?
+ansible has provided an tool called ansible-galaxy using which we can create a role directory layout quickly
+ansible-galaxy init rolename
+
+How to use a role inside a playbook?
+we need to place the roles inside any of the 3 standard directories to be used inside a playbook
+1. roles/ directory under the playbook directory
+2. /etc/ansible/roles
+3. roles_path in ansible.cfg pointing to a directory where we want to place the roles
+
+
+playbook.yml
+- name: play
+	hosts: all
+	roles:
+	- roleName
+-----------------------------------------------------------------------------------------------------------------------
+
+download_url : tomcat10
+jdk_version: 
+osuser
+tomcat_install_dir
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

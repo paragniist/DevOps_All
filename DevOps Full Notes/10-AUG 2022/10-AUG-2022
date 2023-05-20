@@ -1,0 +1,88 @@
+How to perform provider customizations in vagrant?
+While working in a project, we wanted to create vagrant machine that supports to work with different providers. For each provider under which we create the machine we wanted to customize the configuration with which the machine should be created. this can be achieved by writing multiple vagrant files each per provider, but there are lot of problems
+1. code duplication
+2. more time in writing more configurations
+3. maintainability
+4. complexity in choosing the right configuration file based on the provider
+
+To overcome the above problems vagrant supports embedding the provider customizations in single vagrant configuration file. with in the vagrant configuration file we define provider blocks (conditions), in which we define the machine configurations to be applied while creating the machine on that provider.
+
+In addition to the above, there are few configuratios/settings that are specific to the hypervisor provider that may not be applied to another hypervisor providers. to enable the features specific to an hypervisor provider we need to use provider customizations
+For eg.. oracle virtualbox hypervisor allows the below customizations;
+1. cpu 
+2. gui (headless more or interactive mode)
+3. ram
+4. virtual machinename
+5. modify cpu cap execution
+
+if we have directly written these configurations in vagrant file it many not be applicable for other providers and your Vagrantfile becomes non-portable, so for such provider configurations also we need to use provider customizations 
+
+Vagrantfile
+-------------
+Vagrant.configure(2) do | config |
+	#global configuration, applies to all the providers
+	config.vm.box = "ubuntu/focal64"
+	config.vm.network "public_network", ip: "192.168.1.10"
+		
+	config.vm.provider "virtualbox" do | vb |
+		vb.cpus = 4
+		vb.memory=1024
+		vb.gui = true #interactive terminal
+		vb.name = "javaserver"
+		vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+		vb.customize ["modifyvm", :id, "--vram", "512"]
+	end
+end
+
+
+VBoxManager = oracle virtualbox command-line interface tool
+We can execute all the VBoxManager commands through vagrant using vb.customize["command",:machineId, "options", "value"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

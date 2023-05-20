@@ -1,0 +1,114 @@
+System Category
+The operating system related modules are there aspart of the System category
+#1. user module
+adding a new user or modifying an existing user of the linux operating system can be done using user module
+
+#1. add auser with specific uid and gid
+- name: task
+	user:
+		name: userName
+		uid: id
+		groupid: gid
+		
+#2. add a user with default shell
+- name: task
+	user:
+		name: username
+		uid:
+		groupid:
+		shell: /bin/bash
+
+#3. add a user with home directory
+- name: task
+	user:
+		name: username
+		create_home: yes|no 
+		password: login password
+		generate_ssh_key: true|false 
+		remove: yes (removes an existing user)	
+			
+write an playbook that creates an user 'joe'	with home directory, password and enable passwordless sudoers access
+
+1. we need to create the user with home directory, password = user module
+2. /etc/sudoers                = lineinfile
+we need to add an entry 
+joe ALL=(ALL) NOPASSWD:ALL
+
+adduser-playbook.yml
+---
+- name: adduser play
+	hosts: all
+	tasks:
+	- name: add user joe
+		user:
+			name: joe
+			password: welcome1
+			create_home: yes
+		become: yes
+	- name: promote user as sudoer
+		lineinfile:
+			path: /etc/sudoers
+			insertAfter: '^root ALL.*'
+			line: 'joe ALL=(ALL) NOPASSWD:ALL'
+			validate: '/usr/sbin/visudo -csf %s'		
+		become: yes
+...
+			
+#2. service module
+we can stop, start, reload or restart an initd service system service using Service module
+
+- name: task
+	service:
+		name: servicename
+		state: started | stopped | restarted | reloaded
+		
+- name: task
+	service:
+		name: servicename
+		enabled: yes|no
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

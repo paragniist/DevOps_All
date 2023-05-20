@@ -1,0 +1,234 @@
+pipelines
+running pipelines from scm repository
+concepts of pipeline
+- variable declaration
+- plugins
+- parameters
+- input 
+- when condition
+
+- pipeline + shell programming
+- pipeline + terraform (AWS Infrastructure) + Ansible
+------------------------------------------------------------------------------------------------------------------------
+Jenkins Pipeline
+Pipeline is a sequence of activities or expressions or processes that are executed in an automated way for getting the software right from version control to the users or customers
+
+There are 2 types of pipelines are there
+1. declarative pipeline
+2. scripted pipeline
+
+In pipelines the entire automated code we write for deliverying the software application will be broken down into stages/steps
+
+#1. declarative pipeline
+delcarative pipelines are written in DSL Language (domain specific language), which is an english like language that can be understood easily and doesnt need programming language knowledge to work
+In declarative pipeline the whole build process or the code is broken down into stages, where each stage comprises of steps inside it
+
+syntax:-
+	
+pipeline {
+	agent {
+		label 'agent1'
+	}
+	stages {
+		stage('checkout scm') {
+			steps {
+				echo "checkout code from scm"
+			}
+		}
+		stage('build') {
+			steps {
+				echo "mvn clean verify"
+			}
+		}
+	}
+}
+
+#2. 
+How to run the pipeline from the SCM repository?
+#1
+In our project we need to write the pipeline script in a file, the default filename we need to use in writing the script is Jenkinsfile and should appear in the root directory of the project
+
+	
+#2. while creating the pipeline we need to choose pipeline script from SCM
+2.1 choose the SCM as git
+2.2 provide the git repository url in which our pipeline script file exists
+2.3 choose the credentails
+and enter the script filename if it is different from the default filename and create the pipeline
+
+
+#3. scripted pipelines
+The scripted pipelines are the more advanced jenkins pipelines in which the groovy script will be written aspart of pipeline code. we can levarage the grooving programming capabilities in writing the scripted pipelines. But to work with scripted pipeline we need strong groovy programming knowledge.
+	
+syntax:-
+node('agent1') {
+	stage('checkout') {
+		echo 'checkout project from git repository'
+	}
+	stage('build') {
+		echo 'maven build'
+	}
+}
+
+#4. variables in jenkins pipeline
+variables are the placeholders in which we can store the values that can be used across within the pipeline script.
+we can declare variables in jenkins pipeline under environment {} block using KEY=VALUE
+
+pipeline {
+	agent any
+	environment {
+		KEY=VALUE
+	}
+}
+
+how to use the variables declared?
+we need to use "${VARIABLE}" or env.VARIABLE_NAME
+
+pipeline {
+	agent any
+	environment {
+		APPLICATION_NAME='SAILOR'
+	}
+	stages {
+		stage ('show variable') {
+			steps {
+				echo "${APPLICATION_NAME}"
+			}
+		}
+	}
+}
+There are lot of global variables are pre-defined aspart of the jenkins, which can be accessed using keyword env.
+For eg.. we can get the information about the current build status using env variables 
+like env.BUILD_NUMBER
+env.BUILD_ID
+
+pipeline {
+    agent any
+    environment {
+        APPLICATION_NAME='sailor'
+        APPLICATION_VERSION=1.0
+    }
+    stages {
+        stage('variables') {
+            steps {
+                echo "${env.APPLICATION_NAME}"
+                echo "${APPLICATION_VERSION}"
+            }
+        }
+        stage('global variables'){
+            steps {
+                echo "${env.BUILD_NUMBER}"
+                echo "job name: ${env.JOB_NAME}"
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

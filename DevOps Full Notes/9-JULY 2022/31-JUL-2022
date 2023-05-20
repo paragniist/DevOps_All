@@ -1,0 +1,101 @@
+How to setup the virtual machine environment?
+1. Need to install the hypervisor software on the workstation of the developers/opsengineers.
+2. download the iso file of the operating system platform we want to use for setting up the environment
+3. create the virtual machine by choosing the hardware configuration appropriately
+	1. cpu
+	2. ram
+	3. hdd
+	4. networking
+	5. shared folders
+	etc
+4. install the operating system on the virtulmachine using the iso
+5. install the software libraries and tools required for running the application (server environment setup)
+6. export the virtualmachine into an disk image and distribute to the team.
+	
+Looks like the virtualization approach has solved majority of the problems, but it has its own challenges in creating and using them
+1. creating the virtual machines manually is an laborious process and takes lot of time in setting up the virtual machines
+2. upgradations, patching the softwares or operating platform on the virtual machine enforces us to recreate the virtualmachines from the scratch which involves lot of time in recreating and distributing them
+3. The process of setting up the virtual machine is not an one-time job, it is an repeatitive activity that has to be carried repeatedly for various different reasons like upgradations, patching and change in software env etc. while performing these activities manually we might carry somethings wrong which will forces us to restart the whole process of setting up the env from scratch which wastes huge amount of time
+4. The virtual machine image files are quite huge in nature, distribute these vdi images are quite difficult across the team members
+5. everyone in team dont have the knowledge of virtualization/hypervisor technology, so importing the disk images and recreating the virtualmachines on their local workstation is difficult across the team.
+	
+even though the virtualization has solved majority of the problems, it looks like using the virtualization has its own challenges to overcome the problems in using the virtualization we need sophisticated tools, that takes care of setting up and creating the virtual machines through automation, that is where vagrant is introduced.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

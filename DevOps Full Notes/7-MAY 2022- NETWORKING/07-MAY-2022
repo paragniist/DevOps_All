@@ -1,0 +1,101 @@
+What are the protocols, why do we need to use them?
+protocol is nothing but set of rules/guidelines that should be followed by the programs/computers inorder to effectively communicate over the network
+
+There are 2 types of protocols are there
+1. Application protocols
+2. Transport protocols
+
+To help us in exchanging the data over the network, osi model layer protocols has been introduced.
+OSI stands for open system inter-connection standard is a protocol that helps us in exchanging the data across any 2 different computers, irrespective of their hardware platform or operating system on which there are running.
+	
+The OSI Model layer protocol contains both application protocol and transport protocol together. There are 7 layers are there in osi model layer protocol
+1. application layer
+2. presentation layer
+3. session layer
+4. transport layer
+5. network layer
+6. datalink layer
+7. physcial layer
+
+#1. application layer
+If 2 software applications has to communicate with each other in exchanging the data between them in an understandable format, they need to define set of rules that should be agreed by both parties in exchanging the data.
+	
+The data exchanged between these 2 parties usually contains 2 types of data
+1. business/application data = that is used as an input for performing operation
+2. metadata/header = that helps the receiver in interpreting the actual data in performing the operation
+
+So the server program defines messaging structure and semantics in allowing the clients to communicate with the server
+The set of rules defined and agreed by both the parties in exchanging the data between them is called "application layer protocol"
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

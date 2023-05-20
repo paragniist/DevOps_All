@@ -1,0 +1,131 @@
+Network devices
+Network devices are used for inter-connecting the computers over the network, there are 7 different network devices are there
+1. Repeater
+2. Hub
+3. Switch
+4. Bridge
+5. Router
+6. Modem
+7. Firewall
+
+#1. Repeater
+Regenerates the signals over transmission to reach to the farway away destination
+
+#2. Hub
+Hub is a network device used for interconnecting the computers in a star network. Hub  operates at Physical layer and copies the data it has recieved to all the other ports connected to the hub
+There are 2 types of hubs
+1. Passive Hub
+it is not connected to the power, and doesnt regenerates the signal, it just copies the recieved signals to all the ports connected
+
+2. Active Hub
+Requires power supply and amplifies/regenerates the signals and copies to the other ports connected
+
+#3. Switch
+Switch is an intelligent hub, that works at datalink layer used for transerring the data between the computers within the network
+The hub maintains mac address table, in which it stores the portno of the hub and mac address of the computer that is plugged in
+
+Whenever the datapacket arrives to the switch it reads the mac address of the destination computer in the frame, and identifies the hubport to which the computer is plugged in and forward the data to the corresponding computer
+
+
+#4. Bridge
+Bridge is a device used for inter-connecting 2 different networks. Bridge also works at physical layer only.
+Bridge device has only 2 port, whenever the data comes to oneport it just copies to the other port to forward the data to the other network of computers
+Bridge device is used in-conjunction with Hub,and always the data flows from 1 end to the other end of computer no matter whom it has to be received.
+	
+#5. Router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

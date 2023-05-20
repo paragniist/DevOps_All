@@ -1,0 +1,26 @@
+---
+- name: comandplay
+  hosts: dbservers
+  tasks:
+    # - name: basic command module
+    #   command: whoami
+    #   register: cuser
+    # - name: print user
+    #   debug: 
+    #     msg: "{{cuser}}"
+    
+    # - name: command module by change to a directory    
+    #   command: ls -la
+    #   args:
+    #     chdir: /vagrant
+    #   register: lsfiles
+    # - name: show files and directories
+    #   debug:
+    #     msg: "{{lsfiles}}"  
+
+    - name: command module with creates option to skip execution if the given file exists
+      command: touch readme
+      args:
+        creates: readme
+
+...

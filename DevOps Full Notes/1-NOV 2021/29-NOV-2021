@@ -1,0 +1,57 @@
+1. What is a Software Application?
+Set of instructions or lines of code written by the developer using a programming language, to fulfill the business requirements in running an business to provide business services to their customers/endusers
+
+2. how many roles of people are involved in developing and delivering an software application?
+There are 3 roles of people involved
+1. developer
+2. quality assurance engineer
+3. operational engineer
+
+3. how many stages in which an application is moved to production?
+There are 4 stages in which an application is moved to production
+1. development environment
+2. quality assurance engineer environment
+3. uat/stage/pre-prod environment
+4. production environment
+
+What is DevOps?
+DevOps is change in culture/process and adoption of new tools and technologies in developing and delivering an software application.
+	
+What do we achieve by adopting the devops?
+Fast paced application development and fast paced application delivery
+
+Why do we need to develop and delivery applications quickly, what do we get out of it?
+1. always we are ahead of competitors in the market
+2. improve customer satisfaction and better ROI for the customer
+3. bring down the cost of developing and delivering the applications, so that we can increase the adoption of software applications in the market
+
+What are the culture or change in process we need to bring, what new tools and technologies we need to use, how do they improve the speed of development and delivery?
+	
+To study the above things we need to explore 
+1. how does the existing development and delivery process is followed by the people, 
+2. what tools there are using and 
+3. how the people are working
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

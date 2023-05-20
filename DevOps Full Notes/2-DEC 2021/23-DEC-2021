@@ -1,0 +1,150 @@
+What are the change in culture/process and adoption of new tools and technologies during development phase of the application in order to adopt devops process/methodology
+1. choose the programming language that better suites the nature of the application
+2. setup the development environment
+	 use virtualization and vagrant to quickly build or setup the development environments across the members of the team
+3. choose the process model to develop and deliver the application
+   recomended to use agile based methodology, scrum process model
+4. implement the software system
+	 while developing the software system, how to distribute the source code of the application?
+	 use source code management repositories, recommended to use git repository
+5. unit test the application before delivering to the qa
+   There are 2 levels of unit testing to be conducted before delivering the application to qa
+	 5.1 when the developer fixed the bug to verify the fix is working properly or not he has to run bunch of unit testcases pertaining to the fix
+	 5.2 to certify the overall system is working and has not broken any other functionality because of his code changes we need to run the entire unit testcases of the whole system before delivering the application to the qa
+	 
+Unit testing is an repeatitive activity that has to performed by the developer for every code change/bug fix he has made before delivering it to the qa.
+If the developer performs the unittesting manually it takes lot of time and delays the development and delivery of the application due to which it in-directly affects the cost of building the application
+
+The developer has to adopt unit test automation tools, and has to write the code for testing the application so that he can quickly certify the code changes.
+
+There are 2 levels of unit testing we need to do.
+1. code fix/bug fix level to quickly verify the code he has modified is working or not which can be done local to the development environment of the developer.
+
+2. we need to certify the whole system by running the entire testcases, which has to be done out of the code from repository rather than local code.
+it takes lot of time to setup the code and run the entire testcases to cerify the whole system manually by a developer.
+Instead of performing manually the devops engineer has to automate the process of executing the unit testcases for the entire system and publish the executable file into artifactory repository.
+
+devops engineer has to setup an continous integration pipeline using the tools like
+jenkins
+hudson
+bamboo
+etc
+
+he has to write the code in any of the above tools in pulling the code, setup the env, building the application, running the application and executing the testcode and verify the test results and publish test results and upload the executable file into artifactory (if all tests passed).
+
+so that we can save lot of time in delivering the application quickly to the qa engineer.
+6. the developer has to build the application and has to make an single executable file inorder to deliver to the qa
+	to create an single executable file manually it takes lot of time and there are bunch of steps to be carried to make an application single executable.
+	so the developer has to adopt build tools like
+		ant
+		maven
+		gradle
+	if it is java language
+-----------------------------------------------------------------------------------------------
+what is the change in culture and adotption of tools and technologies during the testing phase of our application inorder to adopt the devops?
+
+qa engineer is responsible for verifying the application is working as per the requirement or not. In order to verify the application the qa engineer has to execute the application, pass the data as an input and verify the system is producing the correct output or not.
+
+In order for the qa to verify the application by executing it, they need qa environment.
+1. setup the qa environment
+Now the developer has to provide requirements/technology stack required for running the application to ops engineer.
+The ops engineer has to setup the 
+1. infrastructure
+2. install all the softwares and tools required for running the application
+3. build the application and package into single executable
+4. run the application on qa environment and pass it to the qa for testing
+How much time does it takes for operational engineer to setup a qa environment with all required set of tools and libraries?
+after the developer delivered the executable program, to make the application run on qa environment it takes nearly 5/10 days of time depends on the project which is going waste lot of time in building the environments itself
+
+Instead of it devops engineer has to automate the whole process of setup the qa environment using the tools like
+	1. cloud platform like aws/azure/oci/gcp etc
+	2. terraform for provisioning the infrastructure
+	3. ansible|puppet|chef|salt for installing and configuring the software
+	4. jenkins for automating the whole of delivery
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+		

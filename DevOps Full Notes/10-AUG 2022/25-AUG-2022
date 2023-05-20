@@ -1,0 +1,114 @@
+How to test the ansible cluster we setup is working properly or not?
+1. create an ansible_workspace/adhoc directory
+2. create an inventory file declaring all the ansible managed nodes inside it
+hosts
+192.168.10.5
+192.168.10.6
+	
+ansible control node server by default uses id_rsa as the private key file to ssh into the managed nodes, but we have the key_file name as "ansible", so to change the keyfile name we need add an additional attribute for each host in the inventory file
+
+[inventory file]
+~/ansible_workspace/adhoc/hosts
+192.168.10.5 ansible_ssh_private_key_file=~/.ssh/ansible
+192.168.10.6 ansible_ssh_private_key_file=~/.ssh/ansible
+
+3. run the ansible adhoc command to ping whether ansible is able to reach to all the managed nodes or not 
+ansible all -i hosts -m ping
+
+The ansible should be able to ping all the managed nodes and should return success
+------------------------------------------------------------------------------------------------------------------------
+Ansible configuration
+When we install the Ansible software on the machine, it creates an directory under /etc/ansible in which it places bunch of ansible configuration files. All the configurations pertaining to ansible are placed under this directory
+
+There is an central configuration file located inside the directory called /etc/ansible/ansible.cfg, in this file the ansible configuration settings are placed which can be tuned or modified for changing the default behaviour of Ansible
+For eg.. ansible by default ssh onto the managed nodes using port 22, if we wanted to change the default port using which ansible connects to the managed nodes we can change a property in the ansible.cfg file
+remote_port=22 change to 2022
+	
+The ansible by default runs an ansible playbook modules/modules on the fleet server in parallel and number of managed nodes on which it executes paralley is : 5
+we can modify the parallel node executions by changing an property
+forks=5
+	
+we can change the default private_key_file being used to ssh into ansible managed nodes by setting an property
+private_key_file=~/.ssh/ansible
+	
+when we run an ansible module or playbook, the ansible tries to locate the default inventory file under the location /etc/ansible/hosts which is driven by a property in /etc/ansible.cfg
+inventory=/etc/ansible/hosts
+
+so if we want to change the default global inventory file location/name we can modify the property in ansible.cfg
+
+/etc/ansible/ansible.cfg
+[defaults]
+PRIVATE_KEY_FILE=~/.ssh/ansible
+FORKS=5
+REMOTE_PORT=22
+INVENTORY=/etc/ansible/hosts
+
+Now we can create an default inventory file with name hosts under /etc/ansible
+hosts
+192.168.10.5
+192.168.10.6
+	
+now we can avoid passing inventory file location while running the ansible modules as below
+ansible all -m ping 
+if we see the above command we dropped -i option 
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

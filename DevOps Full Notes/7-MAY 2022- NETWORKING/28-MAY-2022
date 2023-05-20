@@ -1,0 +1,48 @@
+CIDR
+----
+CIDR Stands for classless interdomain routing. In classfull ip addressing the network bits and host bits are distributed over fixed octets, due to which we will not have flexibility of creating network of computers with varied size
+
+To overcome the above problem, CIDR has been introduced. So CIDR allows us to assign flexibily the network and host bits in an ip address,so there is no ip classification.
+	
+ip address: 192.168.10.23
+if we write/represent the ipaddress	as above it is treated as classfull ip address only and determines the network and host address based on ip class
+	
+To identify the ip address has been written based on CIDR (class-less) we need to represent an ip address using CIDR Notation
+ip address: 192.168.10.23/23
+The above notation clearly helps us to interpret that the ip address is not written based on Ip Class as we indicated /23 as how many bits are given to network address.
+	
+	
+Now for the above ip addresss we need to computer network and host address by following the below process.
+#1. represent the ip address in binary format
+#2. represent the subnet mask in binary format by turning on the network bits specified in the ip notation and remaining bits as off
+#3. do an BIT AND operation on these bits
+#4. covert the result into decimal notation based on place value of the BIT
+#5 This will provide network address and starting ip of the network
+
+What is public ip address and private ip address?
+The ip addresses are classified into 2 types
+1. public ip address
+2. private ip address
+
+private ip range:
+CLASS A: 10.0.0.0 - 10.255.255.255 
+CLASS B: 172.16.0.0 - 172.31.255.255
+CLASS C: 192.168.0.0 - 192.168.255.255
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

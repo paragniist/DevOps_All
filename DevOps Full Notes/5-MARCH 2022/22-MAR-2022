@@ -1,0 +1,184 @@
+apt = stands for advanced packaging tool, apt is an super user command and should be used with sudo
+
+sudo apt update = is used for caching the indexes of the software repositories
+sudo apt install packageName 
+sudo apt list --upgradable = show the list of software packages which has latest version available for upgrading on our machine
+sudo apt upgrade = will upgrade the installed softwares for whom latest versions are available
+sudo apt search packageName = to search for an software package within the repository
+sudo apt upgrade packageName = will upgrade the specified package to the latest if it is available
+sudo apt remove installedPackageName
+sudo apt purge installedPackageName
+sudo apt autoremove = removing the unused software packages or libraries from our machine
+------------------------------------------------------------------------------------------
+In older versions of the ubuntu there are 2 package manager tools are there and there is no apt tool available
+1. apt-cache = refreshing the software package repository
+2. apt-get = installing, upgrading the software packages on the system
+the people using the ubuntu find it complex using these 2 tools and they should know which tool to be used when inorder to manage software packages, latest on in recent version of the ubuntu these 2 tools are merged with most of the common features of them into apt 
+
+How many ways the software packages are distributed as par tof linux?
+There are 3 ways the software packages are distributed
+1. repository based software package distribution
+2. direct downloadable software package distributions
+3. binary distribution
+
+#2. direct downloadable software package distributions
+There are software vendors who manufacture and directly distribute their software packages from their official websites, so we can download the packages directly based on the operating system distribution we are using
+
+To install such software packages ubuntu has provided dpkg
+dpkg = debain package manager which is used for installing the software packages directly if those are downloaded at available on our local system
+
+There is a difference between dpkg and apt
+dpkg = software installer
+apt = package manager
+	
+a package manager is responsible for browsing, searching and downloading the software package libraries and there after it will install the software package using the help of dpkg only internally.
+So dpkg is an installer who does the job of unpacking/extracting, copying the files and registering the s/w package with the operating system
+	
+for each software package there can be other dependent packages are needed, unless we install the dependent package libraries the software package will not work
+for eg.. if we want to use maven software package java software package is required. The developer/author/manufacturer of the software package declares these dependencies information while packaging that software and distributing it within the metadata
+
+From the above we can understand before installing maven s/w package we need to install java software package.
+when we use dpkg for installing the downloaded software packages, the dpkg doesnt resolves the dependent software libraries and will fail installing the software package if depends are not installer prior
+
+but apt is an intelligent tool which will understand dependent libraries for a software package, automatically resolves/downloads them, before installing the software package.
+	
+what are the options available for installing the .deb files using dpkg
+sudo dpkg -i file.deb = install the supplied software package
+sudo dpkg -l = list of packages installed
+sudo dpkg -s packageName = displays the details of the s/w package and status whether it is installed or not
+sudo dpkg -c file.deb = shows the contents of the software package
+sudo dpkg -unpack file.deb = unpacks the packaged software
+
+sudo apt --fix-broken install = if there are any broken installations because of dependencies we can fix them by running --fix-broken option
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

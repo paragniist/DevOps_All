@@ -1,0 +1,132 @@
+What is the change in culture or process and what new tools and technologies has to be adopted during the development phase of our application, while following devops process/methodology?
+	
+1. choose a programming language of the choice
+2. setup the development environment required for developing the application
+	devops recommends us to use virtualization technology to quick setup the development environment, to automate the process of setting up the virtualization environment use vagrant.
+	The time required for setting up the development environment will become almost zero, so that developers can quickly jump start in building the applications.
+3. choose the process model in developing and delivering the application
+	devops recommends us to use agile based methodology, and one of the popular process model in agile is scrum which is being heavily used in the market
+	scrum = principle "fast-fail"
+	sprint = shortest duration of interval where scrum team builds a product increment and deliver
+	backlogs = product owner writes the product backlog 
+	scrum master = tracks the progress the sprint and ensures all the challenges are resolved
+4. implement the project
+the developers has to being the development project in sprints by assigning the product backlogs as user stories to the sprint. during the development the scrum team collaborates the source code across the members of the team using source code management repository tools. (scm repository)
+There are plenty of source code management repository softwares are manufactured and produced by third-party organizations freely and commercially as well. few of them are
+	- wincvs
+	- vss
+	- perforce
+	- rational clearcase
+	- pvcs
+	- svn
+	- git
+The devops methodology recommends us to use git repository only since it supports scrum based project development
+
+while working with classic/old repository management tools like svn:
+in svn when we create a repository the repository will be created with a layout as below.
+	repo
+	|-trunk
+	|-branches
+	|-tags
+trunk = always the working code will be kept under the trunk directory inside the repository
+branches = whenever the code has been moved into the production, the current copy of the code which was moved into the production will be placed into the branch as rb (release branch)-version
+
+if it is a first-release into production then we create a directory under branches with name rb-1.0 and copy the code in trunk into that directory. 
+
+repo
+|-trunk
+	(working code)
+|-branches
+	|-rb-1.0
+		(project code)
+	|-rb-1.1
+		(project code)
+	|-rb-2.0
+		(project code)
+|-tags
+
+the repository administrator takes care installation/configuration/administering the repository  for the project
+
+The svn repository or any of the other repositories does support working based on scrum methodology. why?
+while working in scrum methodology developers in the team are going to working on their individual user stories, so if all the developers push their code changes into trunk only, we have below dis-advantages:
+	1. each developer can not have his user story being tested by the qa independent of other user stories even though he has completed the development. every developer to wait for all of the stories to be completed inorder to be ceritified by the qa. this does support fast paced development and delivery
+	2. the developers cannot take out their changes from the trunk if their user story has been rejected by po.
+		
+instead of using svn or other repositories use git repository.
+while working with git repository we start with master branch.
+at the begining of the sprint the repo administrator (devops engineer) creates an develop branch from master encouraging the team the team to create features branches for their individual user stories there are working on from develop.
+	
+Each developer individually work on their user stories, and deliver it to qa for testing, once after ceritifed merge the code to develop
+once after all the userstories are certified and merged into develop, the qa does an integration testing to very all the code/functionality is working together properly or not.
+	
+The demo the user stories to the product ower, based on feedback merge only the stories approved by the po to master and reject remaining.
+	
+using the above branching strategy each of the developer can develop independently and qa can test in parallel to support fast-paced development and fast-paced delivery.
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

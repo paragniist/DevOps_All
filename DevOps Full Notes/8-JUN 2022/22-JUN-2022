@@ -1,0 +1,105 @@
+What is SSH, why do we need it?
+SSH stands for 	secure shell, it is used for accessing the shell of a remote linux computer.
+
+How does SSH is secured?
+SSH uses cryptographic technics in securing the communication end-to-end. It uses 3 forms of encryption technics 
+1. symmetric encryption
+2. asymmetric encryption
+3. hasing
+
+	
+How does SSH works?
+The SSH connection would be established between the client and the server in 2 stages	
+1. The session will be established between both the parties by computing a shared session key for end-to-end encryption
+2. authenticating the client to allow access to the server machine
+
+#1. The session will be established between both the parties by computing an shared session key
+The client sends the request to the server initiate the session, upon the server accepts the requests, the below process would begin to compute a shared session key for encryption
+1. both parties will agree upon and generates an large prime number which is an shared key
+2. both parties agrees upon an encryption algorithm to encrypt the data
+3. each party independently generates an prime number which is kept as an private key
+4. each party generates independently their own public key with a combination of shared key, private key and algorithm
+5. exchange their public keys with each other
+6. upon exchanging the public key, compute a session key with either of their public keys with their private key and shared key which will results in the same session key by both the parties.
+7. use the computed session key for encrypting the data during the communication
+
+#2. upon generating the shared session key, the server challenges the client to authenticate himself in gaining the access to the server computer
+1. The client has to send the username/password onbehalf of the user for whom he wanted to access the remote server by encrypting the data with shared session key.
+2. The server vaidates the username/password by decrypting with shared session key and grants the access to the client if the credentials are valid
+
+This process of authenticating the user in granting the access to the remote server is called "passwordAuthentication"
+	
+There are problems with passwordAuthentication in gaining the access to the remote server
+1. exchanging the username/password over the network is an security breach or even though we encrypt the username/password, there is still a chance someone might decrypt it
+
+2. Granting the access to the remote machine to a client based on username/password becomes permanent access and we cannot revoke the access to the machine easily
+
+To overcome the above problem asymmetric key-based authentication technic has been introduced.
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

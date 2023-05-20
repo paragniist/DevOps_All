@@ -1,0 +1,445 @@
+How many ways we can write arthematic expressions in shellscript program?
+There are 3 ways we can write arthematic expressions in shellscript
+1. using expr expression
+`expr $OPERAND1 OPERATOR $OPERAND2`
+SUM=`expr $A + $B`
+
+expr is an old fashioned way of writing arthematic expressions and introduced 2 more convinient ways as below
+
+2. using $(()) notation
+$((OPERAND1 OPERATOR OPERAND2))
+SUM=$((A+B))
+	
+3. using $[] notation
+$[OPERAND1 OPERATOR OPERAND2]
+SUM=$[A+B]
+
+2. printf
+There are 2 ways in writing the output to the STDOUT or console
+1. echo
+2. printf
+
+what is the difference between echo and printf?
+#1.
+echo = always writes an newline at the end of the message
+printf = writes an given message and stays within the current/same line without only
+
+#2. 
+echo = doesnt support escape characters
+printf = supports escape characters through which we can format the output
+1. \n
+2. \b
+3. \r
+4. \t
+5. \\
+etc
+
+#3. 
+echo = doesnt support format specifiers, every thing is written as an character output
+printf = supports format specifiers so that we can format the output based on the type of value we are writing
+%d = integer
+%f = floating
+%s = string
+%c = character
+%x = hexa decimal small characters
+%X = hexa decimal capital characters
+%o = octal numbers
+etc
+
+syntax:
+printf "message formatspecifier" substitution
+printf "A : %d\n" $A
+
+We can use -e in echo to parse escape sequence as below.
+echo -e "Good evening\nhave a nice day!"
+We can suppress the default newline produced by the echo using -n
+echo -n "No new line printed at the end of the message"
+------------------------------------------------------------------------------------------
+1. What is shellscripting, what is the purpose of it?	
+2. shebang
+3. variable declaration
+4. how to read the data interactively in shellscripting?
+5. how to pass the data as an input to a shellscript program non-interactively?
+6. how to write an arthematic expression in shellscripting?
+7. how many ways we can write output in a shellscript	program (echo, printf)?
+------------------------------------------------------------------------------------------
+8. Command Substitutions
+------------------------
+When we write a shellcommand inside a shellscript program, by default shell interpreter will execute the shell command and writes the output to the STDOUT/console directly.
+if we want to collect the output of the shell command and store into a variable for further usage we need to use Command Substitution
+syntax:-
+VARIABLE=$(shellcommand)
+	
+wap to list files/folders of a given directory and store it in variable and print it?
+#!/bin/bash
+DIRECTORY_NM=$1
+ALL_FILES=$(ls $DIRECTORY_NM)
+	
+./showfiles.sh ~/library
+-----------------------------------------------------------------------------------------
+9. Working with operators in shell program
+operators are the symbols defined with special meaning to perform operations
+
+Computer is meant for performing computations/calculations, there are various different types of computations/calculations supported by a computer
+1. Arthematic operations = nothing but we can perform mathematical operations like addition, substraction, multiplication, division, modulus etc
+2. Relational operations = used for comparing the inputs to make decisions (greater than, lessthan, equalTo, notEqual, greaterThanEqual, lessThanEqual)
+3. Logical operations = joining multiple relational operators outcome (AND, OR, NOT)
+4. String operations = to perform operations on String (length, empty, blank, equal)
+5. File operations = to perform operations on files (file or directory, exists, writable, readable, executable)	
+	
+To carry all the above operations the programming language or shellscript should provide relevant operators (symbols) indicating what operation we want to perform
+
+The shellscripting supports 5 types of operations
+#1. Arthematic operators
+1.1 + = addition
+1.2 - = substraction
+1.3 \* = multiplication
+1.4 / = division
+1.5 % = modulus
+
+#2. Relational operators
+These operators works for integer values only
+1. -lt = less than
+2. -gt = greater than
+3. -le = lessthan or equal
+4. -ge = greaterthan or equal
+5. -eq = equal to
+6. -ne = not equal
+always the outcome of an relational operator is either a true/false
+	
+#3. logical operators
+used for evaluating or combining multiple relational operations
+1. -a = and
+2. -o = or
+3. ! = not
+
+Truth tables:
+AND
+---
+RE1   REL2    OUTCOME
+----------------------
+T     T       T
+T     F       F
+F     T       F
+F     F       F
+
+OR
+---
+RE1    RE2     OUTCOME
+----------------------
+T       T       T
+F       T       T
+T       F       T
+F       F       F
+
+NOT
+---
+RE  OUTCOME
+-----------
+T   F
+F   T
+------------------------------------------------------------------------------------------
+#4 String operators
+used for performing string comparisions
+> = greater
+< = less than
+>= = greaterthan or equal
+<= = lessthan or equal
+== = equal
+-z = is zero length
+-n = is non-zero length
+------------------------------------------------------------------------------------------
+#5. File operators
+Used for performing operations on the Files
+-e = file/directory exists or not
+-f = is it a regular file
+-d = is it a directory
+-r = read permission
+-w = write permission
+-x = execute permission
+-c = character special file
+-s = size of the file is greather than zero
+-b = block special file
+-o = is he the owner of file or not
+-of = f1 is older than f2
+-nf = f1 is newer than f2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

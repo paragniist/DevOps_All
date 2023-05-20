@@ -1,0 +1,62 @@
+What is an Software Application?
+Bunch of lines of code written by the developer using an programming language to fulfil the business needs or to offer business services to the external world
+
+Who are the people involved in developing and deliverying a software application?
+There are 3 roles of people involved in developing and delivering a Software application
+1. developer
+A software application development process begins with developer. The developer will takes the requirements from business owner/product owner, based on which he is going to choose an programming language of the choice. Will write instructions or lines of code in developing an Software Application
+
+2. quality assurance engineer
+The developer developed Software Application cannot be release to the external world / enduser. The program/application developed may contain errors/bugs.
+  
+How many types of errors are there
+1. Programmatical errors
+2. Logical / Functional errors
+The quality assurance engineer has to verify the application and should report the bugs to the developer asking him to fix.
+
+The quality assurance engineer has to execute the software application by passing inputs and verify the application/program is provider correct/expected output or not, if it is not producing the expected output he/she has to report a bug to the developer asking him to fix the error/bug
+
+3. Operational Engineer
+takes the responsibility of release/making or hosting the application to the external world or production.
+He has to take care of creating necessary infrastructure and setup required softwares/tools on the computer and should run the application to make it accessible to the external world/end-users.
+
+How does these teams are going to collaborate and share the source code of the application?
+The people will share or distribute the source code through the help of Source Code Management Repositories. It is a central server location where the source code of the project/software application is placed and distributed
+
+Developers will push the code written in the local system into the SCM Repository
+QA/Operational Engineers can pull the code from SCM Repository to use it.
+  
+How many stages in which an software application is developed and delivered?
+(or)
+What are the stages in which an application is developed and delivered?
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

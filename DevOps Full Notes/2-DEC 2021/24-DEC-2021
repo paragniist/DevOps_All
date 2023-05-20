@@ -1,0 +1,143 @@
+What is the change in culture/process and which tools need to be adopted during qa phase of the application in order to implement devops practices in the project?
+
+What is the role / job of qa?	
+qa engineer has to test and verify the application is working as per the business requirement or not.
+How does qa has to verify the application?
+he/she has to run the application by passing the data as an input and verify the application has produced the right output or not based on which he/she can mark the testcases as failed / passed and report a bug on the developer.
+	
+#1.	
+In order to verify the application is working or not by running, the qa requires qa environment. 
+The ops engineer is responsible for setting up the qa environment, the developer has to pass the information about which software packages are required and what tools/configurations are needed to run the application to ops engineer.
+
+based on the inputs from developers, now the ops engineers has to setup the qa environment which should be production like environment.
+
+in-production:
+we run the application in 3 tiers/layers on 3 machines
+we run app server on 1 machine, database server on 2nd machine and client with browser on 3rd machine.
+	
+in development: (earlier to devops)
+the developer has only 1 computer, with one machine creating an production like environment is not possible. So we use to setup app server, database server and webbrower on same machine and develop the application. 
+Since the development env is not matching with production like env we need 2 stages of testing
+	1. qa environment = which is same as development env to identify functional bugs
+	2. uat environment = which is same as production like env, to verify the application will work on production or not.
+	
+because the development environment is not same as production like env, the qa has to certify the application on 2 environments qa/uat due to which we have more dis-advantages:
+	1. the time required for setting up 2 environments is high
+	2. the qa has to repeatedly execute the sames test that are conducted on qa env again on uat which increases the twice the time and cost of testing
+	3. developer has to fix the code in 2 phases, one per functional level and another for environment level bugs which may require 2 times fixes 
+	
+from the above we can understand the overall cost and time required for developing and delivering the application is growing high
+
+with adoption of devops:
+in-development env:
+we are able to create 3 different machines with browser, app server and db server through virtualization which resembles production like environment on one single machine. because of this we can eliminate 2 levels of testing for qa environment and 2nd uat env
+The application developed can be straight way tested on one single environment and can be released into production. which will promotes fast-paced development and fast-paced delivery and the cost of building application reduces drastically
+-----------------------------------------------------------------------------------------------
+From the above we can understand the qa environment should be same as production environment.
+	
+In production environment we run the application on cluster/group of computers. each computer is a server-grade machine equiped with high-speed public network connection making the application accessible to the world.
+	
+In the qa environment also we need server-grade group of computers connected to public network on which we need to install required softwares and tools to run/execute the application, so that qa can test the application
+
+How to setup qa environment quickly like production like environment?
+The ops engineers has to do the following.
+1. procure high-end server grade computers
+2. establish high-speed network connection inter-connecting the computers
+3. install and configure software packages and tools
+4. pull the executable file from artifactory server and run on the qa environment we setup
+
+The investment cost and time required for procuring server-grade computers for both qa/production is very very high. In addition setting up the network inter-connecting the computers is high difficult and takes lot of time. So how to overcome this problem
+
+To overcome the above problem adopt cloud platforms like
+ 1. aws
+ 2. google cloud (gcp)
+ 3. azure
+ 4. oci (oracle cloud infrastructure)
+ 
+now devops engineer has to provision the infrastructure/machine by talking to the any of the cloud providers in getting infrastructure/network as well.
+to automate the creation of infrastructure with cloud providers the devops engineer has to use terraform (iac) tool.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

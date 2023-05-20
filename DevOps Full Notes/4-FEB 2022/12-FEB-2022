@@ -1,0 +1,264 @@
+1. replace a single character = r
+2. append text to the begining of the line = I
+3. delete a word = dw
+4. delete a character = x
+5. open a line above the current line = O
+6. copy the current line = yy
+7. move to first line = :1
+8. move to the end of the page = G
+9. replace the entire line = S
+10. replace from current cursor position = R
+11. undo = u
+12. delete a line = dd
+13. append the text at the end of the line = A
+14. insert the text in current cursor position = i
+15. append text right to the current cursor position = a
+16. begining of the previous word = b
+17. end of the current word = e
+18. begining of the next word = w
+19. search for a phrase in the file = /phrase + enter
+n = move to next matching content
+shift + n = move to previous matching content
+20. paste the content = p
+21. page down = ctrl + f
+22. page up  = ctrl + b
+-----------------------------------------------------------------------------------------------
+nano
+nano is not shipped by default within all the linux distros, but in ubuntu distro nano is available along with vim/vi editor
+
+unlike vim/vi being a programmers editor, nano provides simple command that can be used by a general user in editing the text files quickly and save it.
+	
+how to work with nano?
+nano filename 
+if it is an existing file, then nano opens the file for editing other wise creates a blank file for writin the content.
+	
+ctrl + o =writes the unsaved changes onto the file
+ctrl + x = quit = when we press ctrl+x with unsaved changes it ask for confirmation to save or not (y/n).
+ctrl + w = search for a word in the file
+ctrl + \ = to replace a text pharse with a different
+prompts for searching for a phrase: input phrase and press enter
+prompts for replacing phrase: input replacement phrase
+then prompts replace each instance one after the other or all at once
+
+ctrl + k = cut the line
+ctrl + u = paste line
+ctrl + c = displays line number, character in the file
+ctrl + underscore(_) = jump to a specific line in the file
+alt + e = redo
+alt + u = undo
+alt + a = goto selection mode or mark the content
+alt + 6 = copy selected text
+-----------------------------------------------------------------------------------------------
+gedit
+gedit is an graphical user interface based editor similar to the notepad in windows. we can run gedit using
+gedit filename
+----------------------------------------------------------------------------------------------
+packaging and compressing
+-------------------------
+#1. packaging
+
+We have some files on the filesystem of our computer and we want to share or transfer these files to an another user, what are the possibilities in transferring files?
+	1. we can copy the file into a storage device and can take it to another computer
+	2. send over an email
+	3. transfer it over the network using sftp, ftp etc
+	
+lets say we have bunch of files we would want to send it over the network or through an email, inorder to send these bunch of files we need to transfer one after the another file
+
+since it takes lot of time to transfer each file at a time, we can group all the files into a folder, but the folders are not transferable, in such case how can we transfer bunch files together quickly
+
+That is where packaging comes into picture, packaging is a technic of combining multiple files into one single file. The packging doesnt really compress the size of the original file rather it just bundles multiple files into one single file only.
+	
+The linx has provided an utility called tar which is used for packging and unpacking the files.
+
+#1. how to package the files?	
+tar -cvf pics.tar pics/
+tar -cvf pic.tar pics/1.jpg pics/2.jpg
+
+	
+tar stands for tape archive used for packaging bunch of files into a single file with an extension .tar, the above command will packages the contents of pics/ directory into a pics.tar file
+here 
+-c = create
+-v = verbose
+-f = filename to be created
+
+#2. unpack the contents of a tar file
+tar -xvf picks.tar
+the above command extracts the content of the tar file pics.tar 
+-x = extract
+-v = verbose
+-f = filename to be extracted
+
+#3. how to see the contents inside a tar file
+tar -tvf filename.tar
+without extracting it just displays the contents inside the tar file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

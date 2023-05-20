@@ -1,0 +1,16 @@
+apache-tomcat-9.0.64/
+├── bin
+	|--startup.sh
+	|--shutdown.sh
+├── BUILDING.txt
+├── conf
+├── CONTRIBUTING.md
+├── lib
+├── LICENSE
+├── logs
+	|--catalina.out
+├── temp
+├── webapps
+	|--*.war
+└── work
+

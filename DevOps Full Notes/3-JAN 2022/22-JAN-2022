@@ -1,0 +1,72 @@
+We are going to use ubuntu operating system.
+	
+There are 2 ways we can work with Linux operating system 
+
+#1. through virtualization software
+Minimum System Requirement
+operating system: windows and mac
+cpu: i3, i5, i7, ryzon or amd (equivalent to i3 or above)
+ram: 8gb
+hdd space: 20 gb (free space)
+
+#2. through aws cloud ec2 compute machine (good internet connection)
+	
+#3 dual boot operating system if you dont qualify with minimal system requirements
+-----------------------------------------------------------------------------------------------
+#1. through virtualization software
+
+1.1 Install virtualbox and extension package software
+-------------------------------------------------------	
+1. install VirtualBox-6.1.32-149290-Win by going through installation wizard.
+2. after installing virtualbox software double click on Oracle_VM_VirtualBox_Extension_Pack-6.1.32 to install it and proceed onscreen instructions to install it.
+mandatory: otherwise usb drives, pendrives, internet settings, shared folders features will not work.
+	
+1.2 open virtualbox manager
+1. goto start menu search for virtualbox manager and open it
+2. click on New machine icon
+	2.1 enter machine name for eg: odwa3ubuntu
+	2.2 choose type of operating system: linux
+	2.3 family: ubuntu (64bit)
+	click on next
+	2.4 enter ram size as minimum: 4gb (8gb) or 6gb (16gb)
+	2.5 create virtual harddisk
+		2.5.1 choose the drive/directory location where we have 20gb space available
+		2.5.2 then create vdi file under that directory and click ok
+	2.6 click on the machine from left pane and select settings from the top icon
+		1. allocate 2 cpus (if not available 1 is also sufficient)
+		2. de-select floppy
+		3. disable audio
+		4. enable 3d acceleration and increase video ram memory
+		
+3. start the virtual machine we created
+	1. it popups asking for iso file to install
+	2. click add button and choose ubuntu iso file we downloaded and click ok
+4. after first boot of the operating system
+	1. goto device menu, click on install guest additions from cd image
+5. goto view menu and choose virtual screen resolution as 1280x800
+6. goto devices menu > shared clipboard -> bidirectional
+7. right ctrl + c = scale your window
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

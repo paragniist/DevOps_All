@@ -1,0 +1,84 @@
+S3
+---
+S3 stands for simple storage service, it is an object storage database provided by the aws cloudplatform for storing any type of objects within it.
+An object can be a File, Video, Audio, Image or Xls/Ppt etc, which can be stored and accessed from anywhere.
+	
+For each object we store in S3 it generates an unique identifier using which we can access or manage the object. These objects can be stored in organized manner by placing them in buckets
+
+Buckets are the way through which we group the related objects together and can enforce the access restrictions on these objects.
+	
+By default when we create a bucket, the public access to the bucket objects are disabled. We need to enable access to the buckets and objects explicitly. There are 2 ways we can enable access to the objects and the buckets
+
+1. acl
+2. policies
+The acls or policies we applied on the bucket/objects will be effective only when we enable public access on the bucket
+
+
+#1. acl
+acl stands for access control list, it an old/deprecated mechanism for enforcing traffic restrictions on the buckets and objects and it is not recommended by aws cloudplatform itself.
+By default when we create an S3 bucket the acls are disabled, so during the time of creating the S3 bucket, we need to enable acls manually ontop of public access
+
+once we enable acls, then we need to goto permissions tab of the bucket and its objects to enable public access on the bucket  and individual objects. the acls provided limited set of capacilities in enforcing permissions 
+
+There are 2 levels of permission can be configured
+1. bucket
+2. object
+
+There are 2 types of permissions available
+1. READ
+2. WRITE
+
+We can attach these permissions at 4 different parties
+1. owner
+2. authenticated users of the platform
+3. anonymous
+4. cloudwatch/cloudtrail services
+
+#2. policies
+Instead of using acls we can attach policies both at bucket level and object level to grant access. it is recommended to use policies over acl for granting permissions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+---
+- name: mysql vars_file play
+  hosts: all
+  vars_files:
+    - mysqluser_vars.yml
+  tasks:
+  - name: create sql user
+    mysql_user:
+      name: "{{mysql_user}}"
+      password: "{{mysql_password}}"
+      login_user: "{{login_user}}"
+      login_password: "{{login_password}}"
+      priv: "{{priv}}"
+      state: present
+...

@@ -1,0 +1,135 @@
+How to create an virtual machine using vagrant?
+To create an virtual machine using vagrant, we need to create an project directory in which we need to write vagrant configuration file describing the information about the machine we wanted to provision
+
+d:\work\vagrant:/>
+|-basicvagrant (project directory)
+	|-Vagrantfile
+	
+The vagrant configuration file should be written with filename as "Vagrantfile"	only within this file we need to write machine configuration using ruby language.
+	
+Ruby is an programming language, we dont need to learn ruby programming language to write vagrant configuration file, because we dont need to write programmatic instructions in creating the virtual machine, we only need just declare/configure information about the machine we wanted, vagrant engine takes care of reading the configurations and creates the virtual machine 
+
+Ruby has provided an language called "DSL", DSL stands for domain specific language which is an simple english like language through which we can easily express configurations
+
+Vagrantfile
+-----------------
+Vagrant.configure(2) do | config |
+	config.vm.box = "hashicorp/precise64"
+end
+
+#1. we are using vagrant configuration version: 2, using that we created an config object. Into this config object we need to populate information of the machine we wanted to create using vagrant
+
+#2. To create an virtual machine the only property or info we need to populate in config object is vm.box which is nothing but the vagrant boxfile to be used in creating the virtual machine
+
+The vagrant developers has pre-built vagrant boxfiles which are virtual machine image template files and distributed these boxfiles by placing them as part of vagrant cloud. each box file has an unique name to identify and use it.
+In the above configuration file "hashicorp/precise64" is an vagrant boxfile created by vagrant team with minimal linux operating system of very less size, but there are lot of other linux distribution boxfiles are available to choose. we can search in vagrant cloud
+www.app.vagrantup.com/boxes
+
+Instead of we writing the above Vagrantfile manually we can take the help of vagrant cli 
+goto project directory and run vagrant init, this command generates an Vagrantfile with default machine configurations, which can be edited to bring up the machine
+
+vagrant init boxName = this creates the Vagrantfile with prepopulated box name we specified
+if the project directory already contains the Vagrantfile, upon running vagrant init it simply ignores creating one more.
+we can force vagrant init to replace the existing file by using
+vagrant init -f
+
+How to run the vagrant machine?
+go inside the project directory and run the machine through the help of vagrant cli using command vagrant up
+
+vagrant cli commands for managing the machine:
+all the commands works in relative to the project directory
+
+1. vagrant init = creates an Vagrantfile base template
+2. vagrant up = brings up the vm
+3. vagrant status = tells the status of the vm
+5. vagrant halt = stop the vm 
+6. vagrant suspend = saves the current state of the machine and poweroff, so that during reboot all the programs will be resumed
+7. vagrant resume = boots the machine back to the saved state
+8. vagrant reload = restart the vm
+9. vagrant destroy = stop and delete the vm
+10. vagrant ssh = ssh into the vm
+
+	
+global command:	
+4. vagrant global-status = shows all the vms running on our host	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

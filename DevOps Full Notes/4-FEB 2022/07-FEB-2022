@@ -1,0 +1,149 @@
+1. find
+---------
+find is a bash command used for searching and locating the files/folders based on a pattern. There are plenty options are available in find command lets explore
+
+1. find directory/ -name "pattern"
+2. find directory/ -name "pattern" -print 
+displays each matching file in a new line, default option
+3. find directory/ -name "pattern" -print0 
+print all the matching files/folders in single line
+4. find directory/ -type [f/d] -name "pattern"
+search based on type provided, if -type is "f" means search for files -type is "d" means search only for directories
+5. find directory/ -name "pattern" -empty
+search for only empty files with matching pattern
+6. find directory/ -name "pattern1" -o -name "pattern2"
+search for matching files or directory based on either pattern1 or pattern2
+7. find directory/ -name "pattern" -exec shell {} \;
+execute the shell command on each matching file/folder one by one
+8. find directory/ -name "pattern" -perm octal
+search for files based on pattern and permission and display only matching files/folders
+
+rwx|rwx|rwx
+r = 4
+w = 2
+x = 1
+	-----
+	  7
+	-----
+find directory/ -name "*" -perm 644
+9. find directory/ -name "pattern" -ok shell {} \;
+-ok = is same as -exec but the only difference is while executing the shell command it asks for confirmation for each matching outcome
+we need either say 'y' or 'n' to execute or skip
+
+what is the difference between using -exec/-ok and pipe (|)?
+1. pipe	
+find directory/	-name "pattern" | shell command
+all the matching files/folders will be passed as an input to the shell command at one shot, if the shell command accepts multi-line input it works otherwise it will fail
+
+2. -exec or -ok
+find directory/ -name "pattern" -ok or -exec shell {} \;
+it passes each matching file/directory as input and execute the shell command line by line
+
+Note:-
+we should be choosing carefully between pipe (|) and -exec command. if we are using shell command that executes by taking multi-line input then use pipe only, if the command takes a singleline input then use -exec or -ok
+----------------------------------------------------------------------------------------------
+2. grep
+find is used for searching for files/folders matcing with their filename or foldername with given pattern
+unlike that
+grep (content based search)
+---------------------------
+grep is used for searching for the files based on the content. it displays all the files which contains the given text inside them.
+it is one of the very powerful bash command available in linux and can used for searching within the log files for errors quickly
+
+log = used for tracing the flow of executing of a program. the program writes the intermediate output and errors into the file during execution.	
+How can we find whether there is an error happened during the program execution?	
+we need to go and search for error inside the log file, which can be done quickly using grep
+
+There are plenty of options available with grep command let us explore
+1. grep "text" filename = it displays all the matching lines of the text within the file
+2. grep -R "text" directory/
+search within the directory including the subdirectories recursively matching with the contents of the files with given text pattern. if matched display the matching line with filename along with path
+3. grep -R -n "text" directory/
+-n displays the matching line number where the text content was found 
+
+4. by default grep will search for the text content matching with case (case-sensitive)
+if we want to ignore the case while searching for the matching text we can use -i option
+grep -i "text" filename
+grep -R -i "text" directory/
+	
+5. by default grep will matches the contents of file with given text and displays all the lines even with partial matches also. if we want whole word to be matched then we should use -w
+grep -R -w "text" directory/
+	
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	

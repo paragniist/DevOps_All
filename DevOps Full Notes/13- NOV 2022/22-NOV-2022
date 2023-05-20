@@ -1,0 +1,35 @@
+Artifactory Repository
+Artifactory repositories are used for 2 reasons
+1. They act as proxies repositories in caching and distributing the central repository artifacts
+2. These are used for distributing the build artifacts of the application/projects through various stages of development to delivery of the application 
+
+There are many 3rd party vendors manufacturing and producing the artifactory server software. Few are opensource and others are commercial
+1. nexus repository (commercial)
+2. jfrog platform (commercial)	
+	
+3. jfrog oss artifactory repository
+we can configure proxy to the maven,jcentral and bitnary central repository and distribute build dependencies
+
+4. JFrog container registry (OSS)
+container images within the organization can be published and distributed across
+	
+How to work with JFrog Artifactory (OSS) repository?
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

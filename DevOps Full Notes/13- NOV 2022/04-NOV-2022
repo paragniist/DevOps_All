@@ -1,0 +1,52 @@
+How can we write terraform configuration file with resource/datasource delcarations to provision the infrastructure?
+per each project for deployment and delivery we provision the infrastructure, so there are 2 ways we place the infrastructure and configuration management code
+1. along with the application project
+2. by keeping them in a separate repository with a project something like project-integration or project-cicd directory
+
+
+main.tf
+--------
+terraform {
+	required_providers {
+		aws {
+			source = "hashicorp/aws"
+		}
+	}
+}
+
+provider "aws" {
+	region = "ap-south-1"
+	profile = default
+}
+
+resource "aws_instance" "javaec2" {
+	instance_type = "t2.micro"
+	ami = "ami-3938"
+}
+here the ec2 instance will be provisioned on default vpc, subnet & securitygroup with no keypair attached to it.
+How to execute the terraform configuration?
+1. goto the project directory
+2. terraform init = validates the configuration by combining into one single file & downloads the provider plugin and stores in the .terraform directory under the project
+3. terraform plan = dry run
+4. terraform apply
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

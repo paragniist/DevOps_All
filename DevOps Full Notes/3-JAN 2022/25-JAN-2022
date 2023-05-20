@@ -1,0 +1,219 @@
+Linux is defined by its "Kernal". Kernal is the major component of the linux which takes care of communicating with the underlying hardware resources of our computer. Working with kernal or communicating with Kernal is quite complex, the people should have good programming skills in working with kernal.
+	
+To help us in easily communicating with Kernal, the Shell interpreter program has been introduced.
+	
+What is a Shell?
+Shell is an interpreter program which is an Utility program that provides simple instruction-set/command utilities using which we can communicate with the underlying kernal of the operating system.
+	
+There are lot of developers produced Shell utility softwares and made available for usage through GNU Project. Among the available Shell 2 major shell types are popularly used in the market.
+	1. Bourne Shell
+	2. C Shell
+
+#1. Bourne Shell has sub-categories
+1. Bourne Shell (sh)
+2. Korn Shell (ksh)
+3. Bourne Again Shell (bash)
+4. POSIX (Portable operating system interface) Shell (sh)
+	
+#2. C-Shell categories 
+C Shell resembles C-Language instruction set and people who works on C programming language prefers to use C Shell.	
+1. C Shell (csh)
+2. TENEX/TOPS C Shell (tcsh)
+---------------------------------------------------------------------------------------------
+How do we interact with Linux operating system?
+Many of the Linux distros are packaged with gui and software utility programs like
+- music players
+- spreadsheets
+- videoplayers
+- browsers etc
+these utilities are quite useful when we are using the linux operating system for personal computing or general purpose usage.
+	
+but when we are running linux on production environment, we solely use the operating system for running the software application only which doesnt requires any gui or user utility programs, 
+so that the computing capacity of the machine can be dedicatedly used for running the application and can achieve high performance.
+	
+This way of running the linux operating system without having any gui/utility programs is called "headless linux"	mode
+In this case linux will be offered with a blank black window which is called "Terminal" window using which we can interact with the Linux operating system.
+---------------------------------------------------------------------------------------------
+	
+To work with terminal easily we need to know shortcuts
+1. Tab = for auto-completion of commands/filenames/directories etc
+2. Control+C = to cancel the command that is running
+3. Control+a = to move the cursor to the begining of the line
+4. Control+e = to move the cursor to the end of the line
+5. Control+l = to clear the screen
+6. Control+left arrow /right arrow = to move one word left/right
+7. Control + Shift + c = copy
+8. Control + Shift + v = paste
+9. Control + u = delete the characters from current cursor position to the begining of the line
+10. Control + k = delete the characters from current custor position to the end of the line
+11. up/down arrow = browse the history of commands
+12. Control + r = search the commands through history
+
+----------------------------------------------------------------------------------------------
+What are the activities we can perform on a computer using linux operating system?
+Linux learning means managing various different aspects of your computer like
+1. File Management
+2. User Management
+3. Process Management
+4. Device Management
+5. Network Management
+6. Software Package Installations etc
+
+To start with learning we can use File Management in initially place
+----------------------------------------------------------------------------------------------
+#1. File Management 
+Any data we want to store permanently on the computer should be stored on Harddisk or secondary storage device of our computer. In order to organize the access the data on the Harddisk of our computer we need to store the data in Files/Folders.
+	
+File = logical memory allocated on the harddisk of our computer in which we store the data and access it easily
+Folder = Group/Collection of Files kept together to locate and access them easily
+
+File
+To store the data we need to create a File, each file is identified by a Name uniquely. 
+
+When we open terminal in linux, by default the prompt will be launched on $USER_HOME/Desktop switch to User Home by typing "cd"
+	
+#1. How to create a File on the Filesystem of Linux?
+touch filename
+touch is a command creates an empty file with no data on the current directory in which we are in.
+
+#2. How to see the list of files/folders within a directory?
+ls = list files and folders
+
+#3 How to see the directory in which we are in?
+pwd = print working directory
+displays the current directory in which the user is there
+
+#4. How to print message on to the terminal?
+echo "message" = echo is used for writing a message on to the terminal
+
+#5. How to create a file with data inside it?
+every linux command upon executing by produces output and writes the output onto Terminal (STDOUT), but if we want to write the output to a different destination rather than STDOUT/Terminal the we need to use redirection operators ("<", ">").
+
+echo "Good Morning! Guys" > message.txt
+
+#6 how to see the contents of the File?
+cat filename
+will display the contents of the given file.
+	
+#7 how to create a directory?
+mkdir directory	 = make directory 
+creates an new directory with given name
+
+#8 How to change between directories
+cd directoryName = will take you into the directory specified
+cd ..  = takes you to the parent directory from the current directory
+cd = takes the user to home directory
+cd ~ = takes the user to home directory
+cd / = takes the root of the FileSystem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

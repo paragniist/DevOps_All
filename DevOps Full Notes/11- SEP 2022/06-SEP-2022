@@ -1,0 +1,132 @@
+#2. File Category
+2.2 File Module
+The File module is used for creating a new file/folder or changing the permissions of an existing file/folder or removing 
+
+#1. create a new file
+- name: task
+  file:
+    path: 
+    state: touch
+		
+#2. create a new directory
+- name: task
+  file:
+    path: 
+    state: directory
+
+#3. how to create a symlink file to an existing file
+We create symlink pointing to the existing file/directory on the Filesystem. there are 2 types of symlinks are there 
+1. softlink
+2. hardlink
+
+- name: task
+  file:
+    src: sourcefilelocation
+		dest: symlnkfileNameWithlocation
+		owner: 
+    group:
+    state: link | hard
+Note: for softlink the owner and group is not applicable, only for the hardlinks it is applicable
+
+#4. How to change the owner and group of an existing file
+- name: task
+  file:
+    path:
+    group:
+    owner:
+    mode:
+
+#5. How to preserve the modificationTime and accessTime of a file?
+Linux will not keep track of the information about creation time of a file or directory. but it keeps track of 3 timestamps related to a file/directory
+1. accessedTime = read/copy/move operations on the file/folder, the accessed time will be changed
+2. modifiedTime = modify the contents of the file then modified time will be changed
+3. changeTime = when we change the attributes of the file like group, owner and permissions then changeTime will be affected
+
+- name: task
+  file:
+   path:
+   group:
+   owner:
+   mode:
+   modification_time: preserve
+	 access_time: preserve
+	 
+the possibles values we can write for access_time and modification_time is : now or preserve or set to custom date and tie format '{{%Y%m%d%H%M.%S}}'
+-----------------------------------------------------------------------------------------------------------------------
+2.3 lineinfile module
+if we wanted to edit or change a single line in an existing file we can use lineinfile module. we can treat it as something similar to sed in linux
+
+#1 replace a line based on matching expression
+/etc/mysql/mysqld.cnf
+MYSQL_BIND_ADDRESS=127.0.0.1
+	
+sed -i 's/^MYSQL_BIND_ADDRESS=.*/MYSQL_BIND_ADDRESS=0.0.0.0/g'	/etc/mysql/mysqld.conf
+
+syntax:
+lineinfile:
+  path: locationOfTheFile
+	regexp:
+	line:
+
+- name: task
+  lineinfile:
+		path: /etc/mysql/mysqld.cnf
+		regexp: '^MYSQL_BIND_ADDRESS=.*'
+		line: 'MYSQL_BIND_ADDRESS=0.0.0.0'
+			
+#2. how to add/remove a line before or after the matching expression line
+/etc/ssh/sshd_conf
+PermitEmptyPassword no
+ChallengeResponseAuthentication no
+
+we want to add a new line after PermitEmptyPassword line with line text: PasswordAuthentication yes
+expected output:
+/etc/ssh/sshd_conf
+PermitEmptyPassword no
+PasswordAuthentication yes
+ChallengeResponseAuthentication no
+
+- name: task
+  lineinfile:
+		path: /etc/sshd/sshd_conf
+		line: 'PasswordAuthentication yes'
+		insertAfter: '^PermitEmptyPasswords.*'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

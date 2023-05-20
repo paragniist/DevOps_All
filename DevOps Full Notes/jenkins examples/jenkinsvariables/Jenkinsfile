@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    environment {
+        APPLICATION_NAME='jenkinsvariables'
+        APPLICATION_VERSION=1.0
+    }
+    stages {
+        stage('variables') {
+            steps {
+                echo "APPLICATION NAME: ${env.APPLICATION_NAME}"
+                echo "APPLICATION VER: ${APPLICATION_VERSION}"
+            }
+        }
+        stage('global variables') {
+            steps {
+                echo "BUILD ID: ${env.BUILD_ID}"
+                echo "JOB NAME: ${JOB_NAME}"
+            }
+        }
+    }
+}

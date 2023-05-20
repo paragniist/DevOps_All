@@ -1,0 +1,82 @@
+Network topologies
+Network topologies refers to the way the computers are interconnected over a network
+There are 2 types of toplogies are there
+1. Logical topologies
+Logical topologies refers to the way the data is transferred between the computers over the network
+2. Physical topologies
+The way the computers are inter-connected with each other refers to physical topology
+
+There are 5 different topologies are there in interconnecting the computers
+1. Bus topology
+2. Ring topology
+3. Star topology
+4. Mesh topology
+5. Hybrid topology
+
+#1. Bus topology
+In bus topology a backbone cable will be laid interconnecting all the computers across the network. Each computer is tapped or pierced into the backbone cable forming an network.
+A computer inorder to transfer the data to the other computers on the network, should drop the data onto the backbone cable, so that it would be carried all together across the cable from one end to the other end of the cable
+Each computer on the network will receive the data and ignore if it is not designated to that computer and moves the data packet to the other computers. Always the data flows in uni-directional only
+
+At anypoint of time only one computer can transmit the data over the backbone cable to avoid collision of the data
+
+advantages:-
+1. Easy to setup the network, and quick to interconnect a small group of computers
+2. very less hardware devices are required in setting up the network
+3. cost of setting up the network is very less
+4. Troubleshooting the network is easy
+
+dis-advantages:-
+1. if the backbone cable fails the entire network goes down
+2. Not suitable for connecting large network of computers using bus topology, 
+		1. because the signals will be degraded in while transferring the data for long distance. 
+		2. The more the number computers, the traffic will be high and leads to data collisions and data loss
+		3. The more the number of computers the performance will be degraded
+3. less secured, as the data moves along through all the hops of the network
+
+#2. Ring topology
+Each computer is connected to the another computer next to it forming an ring like network. The data transfer will be taken place in uni-directional anti-clock wise only. 
+If a computer wants to send the data to another computer on the network, it has to send the to the immediate computer to its right. So that the other computer upon receiving will check whether the data belongs to him or not otherwise forwards to the next computer 
+
+If an nth computer wants to send the data to n-1 computer, since the data travels only in one direction, it has to move all through the computers between n and n-1 to reach which delays the data transer
+
+To solve the above problem, the double ring topology is introduced where in each computer is connected to the other computer using 2 cables, one to move the data in clock-wise direction and another one in anti-clock wise direction so that data can move in both the directions quickly.
+			
+advantages:-
+	1. we can connect large computer networks
+	2. we can quickly add new computers onto the network by breaking the existing connections and plugin-in to the new computer
+	3. no chance of data collision
+	
+dis-advantages:-
+	1. More number of cables, more devices and more time required in setting up the network. The complexity in inter-connecting these computers is very high.
+	In a double ring each computer requires 2 network interface cards to form the network
+	By the above we can understand the cost of setting up the network is quite high	
+	2. if an nth node on the network goes down all the nodes from n-1 cannot transfer the data to the next of them in clock-wise direction	
+	3. Troubleshooting and diagnosing the failure is very difficult and takes lot of time	
+	4. less secured since the data moves through all the hops in between source/destination
+	
+#3. Star Topology
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

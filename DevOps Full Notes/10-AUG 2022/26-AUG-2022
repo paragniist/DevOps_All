@@ -1,0 +1,129 @@
+Ansible
+---------
+upon installing the ansible, it creates bunch of ansible configuration files under the directory /etc/ansible. It contains all the central configuration files that are used for tuning or modifying the ansible engine.
+1. ansible.cfg is the central configuration file that contains the ansible settings placed inside /etc/ansible directory. we can customize or change the behaviour of the ansible engine by configuration the pre-defined properties provided by ansible.
+few of the properties are 
+PRIVATE_KEY_FILE = the keyfile to be used for ssh into managed nodes of the cluster
+FORKS=no of nodes on which the ansible should execute the modules/playbooks in parallel
+REMOTE_PORT=ssh port to be used for connecting to the managed nodes
+INVENTORY=default inventory file to be used to identify the managed nodes to be connected
+the default location of the inventory file if not specified is /etc/ansible/hosts
+
+
+Ansible Module
+----------------
+Ansible modules are the building blocks of the ansible system, each ansible module performs an stipulated operation or an action on the targeted node on whom we applied. These code modules are written in Python language and are distributed by the ansible developers aspart of the ansible installation.
+Upon installing the Ansible on our machine we have execution engine and code modules together available for usage. Now the developer has to ask the ansible engine to execute a specific code module with inputs on the targeted managed node to perform an operation.
+	
+Now the ansible control node/engine transfers the ansible module over the ssh executes on the ansible managed node and captures the output and reports back to the user who has requested for execution.
+	
+The devops engineer can ask the ansible control node server to execute a module on the managed node in 2 ways
+1. adhoc commands
+2. playbook
+
+#1. adhoc commands
+to perform an one-time operation in running an ansible module on the fleet servers rather than writing an playbook describing all the details, we can use adhoc commands in ansible.
+adhoc commands are the quick and easy way of running an ansible module directly on fleet servers since these operations are one-time and does not require any archestration during execution
+
+syntax:-
+ansible [group] [-i inventoryFile] -m moduleName [-a arguments]
+[] = optional
+
+
+ansible has provided lot of modules out of which one module is 
+1. ping = used for checking whether an node is reachable or not, ping module doesnt take an input so the are no arguments while invoking the ping module
+ansible all -m ping
+
+2. shell = shell module is used for executing directly a shell-command on the managed server/fleet. The shell modules requires the command to be executed as an argument
+
+ansible all -m shell -a "echo Good evening"
+	
+When to use adhoc commands?
+1. if we wanted to perform an one-time activity that is not reusable or may have to be executed in future on a different machines 
+2. and the activity or the operation we wanted to perform involves executing only 1 or 2 ansible modules
+3. and does not requires an orchestration in executing the modules
+then use adhoc commands otherwise we should use playbooks only for achieving the automation
+------------------------------------------------------------------------------------------------------------------------
+Ansible Inventory File / Ansible Playbook = YAML
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,152 @@
+What is subnet mask, why do we need it?
+Within a given ip address there are 2 types of address are there
+1. network address
+2. host address
+based on classfull ip addressing we can identify from a given ip what is the network address and host address.
+	
+To help us in quickly computing the network and host address from an given ip address subnet mask has been introduced
+For each ip address classification, we know network bits and host bits, so based on that the subnet mask can be derived as below.
+CLASS A = 255.0.0.0
+CLASS B = 255.255.0.0
+CLASS C = 255.255.255.0
+	
+now to compute network address for a given ip address
+1. identify the IP CLASS of the ip address
+2. choose the relevant subnet mask of that IP CLASS
+3. represent both ip address and subnet mask in binary format
+4. do an bit AND operation to derive the network address
+--------------------------------------------------------------------------------------------
+CIDR [Class-less inter-domain routing]
+
+while we are working with classfull ip addressing the bits are evenly broken based on octets. for eg.. in CLASS A, the first 8 bits are given to network and 24 bits are given to host address.
+Similarly in CLASS C, 24 bits are given to network and only 8 bits are given to host address. because of this we have an limitation described below.
+	
+I want to create a 2500 hosts into one network, which ip class should i choose?
+Here if we use CLASS C only 8 bits are given to host, that means we can connect only 255 computers. So we can use CLASS B
+16bits for network and 16 bits for host
+
+65535 computer networks and each network can be connected with 65535 hosts
+
+now i wanted to connect 2500 hosts in each network, wanted to create 75000 networks
+2500 hosts = we need to choose CLASS B only, so 16 bits are allocated to HOST address
+remaining 16 bits are assigned to network address: 65535 networks
+In the above case we cannot use CLASS B or any of the classes.
+
+Here we analyze 16 bits are given to network and 16 bits are given to host based on classification.
+But to represent 2500 hosts, how many bits we need?
+we only need just 12 bits, so remaining 4 bits are wasted by assigning to host adress.
+if we can assign those 4 bits to network address, then we can accomplish what we wanted.
+	
+So we need to assign 20 bits to network address and 12 bits to host address to build the above network, which can be possible by using CIDR notation
+
+In CIDR we dont allocate network and host bits based on IP CLASSES, we distribute network and host bits based on requirement.
+Till now we are deriving network and host address based on ip classes,if there is no ip classes how do we identify for a given ip what is the network address and host address?
+	
+Now when we are writing an ip address in CIDR notation we need to represent the ip address as below
+CIDR IP ADDRESS NOTATION: 192.168.44.28/22
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

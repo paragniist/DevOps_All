@@ -1,0 +1,240 @@
+Process Management
+-------------------
+What is a process?
+Process is a program under execution, where operating system will creates a process for each program we asked him to execute to keep track of the information related 
+	1. owner
+	2. cpu
+	3. memory
+	4. hdd
+	5. program name
+	6. elasped time
+of the process so that operating system can effectively allocate resource of the computer in executing/running the process
+For each process the linux operating system will allocate PID (process id) to identify and manage the process. each process will be storeed in a file separately under the location /proc directory
+
+How to find the processes that are running within the operating system?
+linux has provided top shellcommand
+odwa3ubuntu@sriman:$ top
+top: table of process
+displays all the current running process of the linux operating system in table format
+
+PID   USER   PR  NI   VIRMEM   RESMEM   SHRMEM  %CPU  %MEM   S   TIME+COMMAND
+PID     = process id
+USER    = owner of the process
+PR      = priority
+NI      = nice value
+VIRMEM  = virtual memory 
+RESMEM  = reserved memory
+SHRMEM  = shared memory
+%CPU    = cpu usage
+%MEM    = memory usage
+S       = status of the process
+TIME+
+COMMAND = elasped time + program used for lauching the process
+
+What are the possible status in which a process can be there in linux operating system?
+There are 6 status in which a process could exist in linux system
+1. D = daemon / un-interruptable process
+2. S = sleeping
+3. T = traced/terminated
+4. R = running
+5. I = idle
+6. Z = zoombie
+------------------------------------------------------------------------------------------
+How does the linux operating system allocates the cpu to the processes?
+Linux operating system is an multi-user and multi-programming operating system, so it allocates the cpu to multiple processes using cpu scheduling algorithms
+
+Linux uses an hybrid model in allocating the cpu, both round robin, time sharing + priority based scheduling
+
+Each process in linux operating system will be created with priority, the lowest the priority value of a process indicates highest priority for the process. based on the priority the cpu will be allocated to the process
+
+There are 2 types of process are there in linux
+1. system process = These process are launched and managed by the linux operating system itself and those are mostly daemons
+
+2. user process = These the programs that are fed as an input to linux operating system asking to execute which are called "user process"
+	
+A process can be assigned with a priority ranging between 0 - 139, where 0 - 99 system process space which we cannot modify. and the user process are allocated with the priority between 100 - 139
+by default linux process will be created with a default PR = 120	
+	
+Can we change the priority of the process?
+Linux doesnt permit us to directly change the priorty of a process, if it allows the user to directly change the priority of the process then a user can assign the priority of a user process overriding the system process space, which will leads to un-expected behaviour
+
+So linux allows the user to change the priority of the user process in a controlled way using nice value. The priority of the process will be computed based on the nice value
+
+PR = 20 + NICE_VALUE
+the valid range of the nice value can exists between -20 to 19
+	
+PR = 20 + (-20) = 100
+	 = 20 + (19)  = 39
+The highest the nice value of a process, the lowest the priority of a process.
+	
+How to change the priority of a process?
+renice -n nicevalue pid - to change the priority of an existing process
+renice = is used for changing the priority of an existing process
+
+we can launch a process with a specific priority using nice
+nice -n nicevalue command
+
+by default a process will be launched with default nice value : 20, we can decrease the priority of the process by increasing the  nice value.
+but we cannot increase the priority of the process by decreasing the nice value unless you are a sudoer
+
+
+How to stop a running process?
+using kill we can stop a running process
+sudo kill -9 pid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

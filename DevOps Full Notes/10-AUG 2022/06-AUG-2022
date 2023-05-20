@@ -1,0 +1,397 @@
+How to create an virtual machine using vagrant?
+we need to write machine configuration in Vagrantfile within a project directory
+
+Vagrant.configure(2) do | config |
+	config.vm.box="ubuntu/focal64"
+end
+
+vagrant cli commands:
+1. vagrant init
+2. vagrant up
+3. vagrant status
+4. vagrant global-status
+5. vagrant halt
+6. vagrant reload
+7. vagrant suspend
+8. vagrant resume
+9. vagrant destroy
+10. vagrant ssh
+-----------------------------------------------------------------------------------------------------------------------
+How does an vagrant machine will be booted?
+upon running vagrant up first-time within a project directory the below activities will takes place in bringing up the virtual machine
+1. downloads the vagrant boxfile specified in Vagrantfile (config.vm.box) and places under $VAGRANT_HOME/.vagrant.d/boxes directory
+if we wanted to create 10 virtual machines, the Vagrant boxfile will not be downloaded 10 times, once the boxfile has been downloaded for first-time, the same boxfile is imported in creating any number of vagrant machines quickly.
+	
+Vagrant boxfiles are created by hashicorp and other vendors in the market along with opensource contributors around the world and publishes these boxfiles in vagrant cloud. for each hypervisor provider there is an vagrant boxfile published
+
+From the above we can understand first-time when we run the vagrant up, it goes and checks for the boxfile under $VAGRANT_HOME/.vagrant.d/boxes directory, if the box file is available it will not download rather imports the same boxfile in creating the virtual machine otherwise downloads the boxfile and places it under this directory and creates the virtual machine by importing it
+
+2. import the boxfile into the project directory
+Vagrant creates an separate virtual disk image (vdi) by importing the vagrant boxfile which it has downloaded above. 
+It places the vdi file it has created for each project under ~/Virtualbox vms/
+	
+d:\work\vagrant:/>
+|-basicvm
+  |-Vagrantfile [config.vm.box="ubuntu/focal64"]
+it imports vagrantbox file and creates an vdi file for that project and places this vdi file of the project under ~/Virtualbox vms/. The vagrant boxfile is an compressed file, it will be extracted into an virtual machine image file under the ~/Virtualbox vms/ and then imported as a disk image in creating the vm
+
+3. booting up the machine
+In the project directory where we created Vagrantfile, inside that directory vagrant creates an .vagrant folder. In this folder vagrant will store the box metadata information that is being used for the virtual machine. vagrant while creating the virtual machine to identify and manage the virtual machine it generates an unique id for each machine and creates an metadata file  under .vagrant directory in which it stores the information about the vagrant machine
+1. what is the vdi file being used for running the virtual machine
+2. networking configuration
+3. sync folder
+4. vagrant machine name
+etc
+
+
+by default vagrant provision the virtual machine by setting up the networking as NAT with port forward on 22 port. In addition it generates an public/private key and seeds the public key into the virtual machine while creating and stores the private/public key under project directory/.vagrant directory.
+when we run vagrant ssh, it internally runs ssh command only by pickingup the private key from .vagrant directory and ssh into the virtual machine
+
+What are the states in which a vagrant machine can exists?
+There are 5 states in which an vagrant machine could exists
+1. not created = The vagrant machine is not created yet which means in our project directory there is no .vagrant directory, so it shows the virtual machine status as not created.
+	
+2. Running = The virtual machine is booted up and running. .vagrant directory is created and appropriate boxmetadata is placed associating the virtual machine with vdi file
+
+3. poweroff = vagrant machine is stopped or halted
+
+4. Saved = The current state of the virtual machine is saved onto a disk file of the host operating system and the machine will be stopped. when we bring up the virtual machine it will restore the state of the machine from the saved file on the host.
+	
+5. Abort = if we kill the virtual machine forcibility by pressing ctrl+c then the machine will be moved to aborted state.
+-----------------------------------------------------------------------------------------------------------------------
+#1. sync_folder
+during the development we want to share the files which we have developed on the host machine onto the guest (vm), this would be possible by mouting the directory of the host machine onto the guest using sync_folder feature
+
+sync_folder is sharing an directory on the host machine onto the guest vm, so that we can copy files/folders between host and guest through shared directory we mounted.
+	
+all the hypervisors supports sync_folder or shared folders feature but the way we setup with each hypervisor might differ, so vagrant has provided relevant configuration that we can use in mouting a shared directory from host to guest irrespective of the hypervisor provider.
+	
+by default vagrant configures the project directory as a sync folder and mount it to the guest as "/vagrant", so we can access all the project files inside the guest from /vagrant directory. 
+	
+d:\work\vagrant:/>
+fithealth -> mounted to the guest under /vagrant
+|-src
+  |-main
+	  |-java
+		|-WebRoot
+			|-WEB-INF
+				|-lib
+				|-web.xml
+|-Vagrantfile				
+|-bin
+	|-dist
+	|-classes
+	
+
+In addition to the default sync_folder we can add our own directories to be mounted onto the guest as below
+d:\work\config:/>
+        |-db.properties
+The above config directory can be mounted onto the guest vm under /dbconfig using the below configuration in Vagrantfile
+
+Vagrant.configure(2) do | config |
+	config.vm.box = "ubuntu/focal64"
+	config.vm.synced_folder "source_directory", "guestmountLocation"
+end
+
+In our above example it looks as below.
+config.vm.synced_folder "d:/work/config", "/dbconfig"
+------------------------------------------------------------------------------------------------------------------------
+Vagrant networking
+A virtual machine requires networking to make applications running within the vm to be accessible from external network, in addition virtual machine needs access to the external network to download/browse or install software packages. merely a virtual machine without a network access is of not use.
+	
+Every hypervisor provider supports networking for the virtual machines by creating virtual network adapters (software adapters) and attached them to the virtual machines to make them accessible. In addition to the support of networking through virtual network adapter, these hypervisor providers provides networking mode to control the accessibility of these machine.
+	
+For eg.. oracle virtualbox hypervisor supports 7 network adapter types
+1. Not Attached
+2. NAT
+3. NAT Network
+4. Bridge Network
+5. Host-only Network adapter
+6. Internal Network
+7. Generic Driver
+
+Now ops engineer has to choose the network adatper to be configured and attached to the virtual machine based on the accessibility requirements of the Virtual Machine.
+	
+Now we are provisioning the virtual machine through vagrant, so vagrant along with provisioning should support configuring the network adapter to be attached to the machine in vagrant configuration file.
+	
+
+different hypervisor providers supports different network adapter types, so if vagrant allows/encourages in writing provider specific networking modes in the vagrant configuration file, then the file has to be changed while moving across the hypervisor providers or the same configuration file will not work for multiple providers.
+	
+we need to know each hypervisor provider and their supported networking options to configure the vm even though we are using vagrant.
+	
+So to overcome the above problem, vagrant has comeup with its own networking modes that are supported across all the hypervisor providers. Now we need to write Vagrantfile with vagrant networking configuration, it internally takes care of mapping the vagrant network mode to the underlying hypervisor network adapter/mode supported to bring up the machine
+
+
+Vagrant supports 3 types of networking configurations
+1. forwarded_port
+2. private network
+3. public network
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

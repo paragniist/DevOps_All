@@ -1,0 +1,76 @@
+What is an operating system, what is the purpose of it?
+across the various different hardware platforms the instructionset we need to use in performing the operations differ, so we write the program with hardware instructionset of a vendor, the same program doesnt works on other hardware platforms. to avoid the above problem the operating system has been introduced
+
+The operating system provides System Routines or Operating System instructionset using which the enduser can write programs and pass it as an input to the operating system.
+Now the operating system users an appropriate hardware translator in translating the operating system instructionset into hardware instructionset and passes to the underlying hardware/processor of the computer for execution, so that the programmer/enduser of the computer can achieve hardware portability through the help of operating system.
+	
+Inshort:
+operating system help us in acheiving the hardware portablity across the vendors in executing the enduser programs.
+The strength or power of an operating lies in the number of hardware platforms the support.	
+	
+How many types of programming languages are there
+There are 4 types of programming languages are there
+1. Machine level language
+The program instructions are written 0s and 1s are called "Machine Level Language"
+	
+2. Assembly level language
+The operating system provides mnemonics using which we perform the operations on the processor of the computer.
+	
+3. Low-level language
+The operating system provides system routines using which we write the programs through which we can directly talk to the operating system computer to perform operations.
+We can achieve hardware portability using low-level programming languages, but our programs are operating system or platform dependent.	
+	
+4. High-level language
+These languages provides their own instruction set and compiler tools to covert the HLL instrucution set into LLL instruction set so that it can be executed on the underlying platform of the computer.
+We can achieve platform indepenent using High-level programming languages which means if we write a program, it can be executed on any platform like windows, linux, mac without re-writing, we just need to recompile.
+	
+1. Hardware
+2. operating system
+3. programming languages
+-----------------------------------------------------------------------------------------------
+Linux operating system
+Linux is an operating system that works on various different hardware platforms in the market.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

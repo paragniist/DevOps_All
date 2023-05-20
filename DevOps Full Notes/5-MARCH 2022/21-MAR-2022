@@ -1,0 +1,127 @@
+How to install the s/w applications within the ubuntu operating system?
+The ubuntu has provided an package manager tool called apt "advanced packaging manager", we can use it for browing, searching and installing the software packages from ubuntu repository.
+	
+The apt tool will looks into /etc/sources.list or the repositories files placed under /etc/sources.list.d directory	and tries to search and install software packages with the repositories configured.
+	
+There are 2 ways we can add repository information
+1. either manually we can add repository information
+2. we can apt-add-repository tool
+
+#1. how to add manually the repository information?
+deb repositoryUrl version categories
+deb http://dl.google.com/linux/chrome/deb/ focal main
+
+#2. we can use apt-add-repository tool as below
+sudo apt-add-repository http://dl.google.com/linux/chrome/deb/ 
+
+after adding the repository we need to run sudo apt update
+sudo apt update will download the indexes of the repository and caches it locally on the ubuntu operating system, so that locating and downloading the s/w packages from the repositories becomes quick
+
+each time before installing or searching for any software package we need to perform sudo apt update thereafer we need to proceed for performing operations
+
+Most of the package repositories hosted by the vendors requires public key (gpg key) for communicating securely, so each vendor provides their repository gpg key for download. Now before adding the repository to the sources.list file we need to download the gpg key of the repository and added it to the ubuntu system.
+	
+#1. download the gpg key using curl command or wget command
+wget gpgkeyurl
+#2. sudo apt-key add keyfile 
+this adds the gpgkey to the operating system
+
+there after we can add repository url into sources.list and refresh the cache.
+----------------------------------------------------------------------------------------
+There are bunch of commands provided as part of the apt tool for browsing,searching and installing the software packages
+
+1. sudo apt update
+2. sudo apt install packageName
+3. sudo apt upgrade = by default it checks for the new version of installed software packages and if available will updates all of them
+4. sudo apt search packageName = we can search for an software package 
+5. sudo apt remove package = we can remove existing software package using remove, but it will not cleanup the files
+6. sudo apt purge packageName = purge along with uninstalling will cleanup the files on the system
+7. sudo apt list --upgradable = show me all the software packages which has latest versions and are available for upgrade
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

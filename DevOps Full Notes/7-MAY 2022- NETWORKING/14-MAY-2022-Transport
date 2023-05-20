@@ -1,0 +1,66 @@
+#4. Transport layer
+There are 3 reponsibilities transport layer performs
+1. Segmentation
+2. Flow control
+3. Error control
+
+#1. Segmentation
+The Transport layer takes the data from the Session layer and breaks the data into smaller packets 
+1. To avoid network congession in transferring large data volumes
+2. to quickly retransmit the lost data over the network
+
+Then attached to each data packet, the portno of the receiver application along with sequenceno of the package.
+Based on the sequenceno the message can reconstructed back by reordering the packets at the receiver side.
+These packets are sent over the network
+
+#2. Flow Control
+Instructions the sender to reduce the speed at which the data is being tranmitted to the reciever, when the receiver is connected to the low-speed network in receiving the data, so that it protects the loss data over the tranmission
+
+#3. Error Control
+The data segments that are transmitted over the network, get corrupted over the transmission and might be recieved at the receiver end. There should be a mechanism for receiver to identify the loss of data /corrupted packets recieved by the reciever over the network.
+	
+So the transport layer will computes a checksum no based on the contents of the message and appends the end of the message while transmitting. so that the receiver upon receiving the data will computes the checksum on the message he recieved and compares with the original checksum to identify the corrupted packets which is called "Error Control"
+	
+#5. Network Layer
+The network layer is responsible for transferring the data from an computer of one network to the computer of another network. It has 3 responsibilities
+1. Logical Addressing
+The network layer takes the data segment from the transport layer and adds the source/destination computers ip address to the data segment which is called "ip packet" or data packet
+
+2. Routing
+3. Path Determination
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

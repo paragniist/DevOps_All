@@ -1,0 +1,83 @@
+ip address
+-----------
+Each computer connected to the network requires a unique identification for accessing the computer over the network. ip address acts as an identification to access the computer over the group of computers on a network
+
+ip address is an logical address which is not permanent unlike the mac address of the network interface card.
+The mac address is a physical address assigned to the network interface card by the manufacturer which acts as an hardware identification number that will be permanent and will be same all the time irrespective of the network to which you connected.
+	
+unlike the mac address ip address is logical and would be assigned to the computer when it is connected to the network. This address will be changing based on the network to which your computer is connected.
+	
+How does a computer gets an ip address?
+There are 2 ways a computer will be assigned with an ip address
+1. static ip address
+In case of small computer networks of a size ranging between 5 to 20, the network administrator might prefer to assign ip address for each of the computers manually, by confiugring the properties for the network interface card.
+	
+These ip address assigned to the computer manually are going to be fixed/static and would not change even after restart of the computer on that network.
+advantage:
+as the computers are assigned with static ip address we can access them by using their ip address quickly
+
+2. dynamic ip address
+When we are connecting large group of computers on the network, assigning the ip address manually to these computers is very difficult, so the network administrator takes the help of DHCP Server
+
+DHCP Stands for dynamic host configuration protocol, DHCP server is a component built into switch or router of every network. The network administrator has to enable the DHCP Server and configure it with settings like
+ip range
+subnet mask
+dns server
+lease intervals
+etc
+whenever a computer is connected to the network, the DHCP server detects and sends the ip address and other details to that computer to configure with
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

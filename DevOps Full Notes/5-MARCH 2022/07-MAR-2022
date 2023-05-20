@@ -1,0 +1,67 @@
+By default when a user creates a file/folder in linux system, the file or folder will be associated with
+owner as the user who created the file and group as the primary group of the owner who created it.
+	
+There are 3 levels of permissions attached to a file/folder by default
+	1. owner
+	2. group
+	3. others
+	
+Types of permissions
+1. Read    = r
+2. Write   = w
+3. Execute = x
+
+The linux assigns default permissions to a file/folder upon creating
+default permission:
+         owner  group  others
+file:    rw-    rw-    r--
+folder:  rwx    rwx    r-x
+
+How can we allow other users of the linux operating system to access files/folders of a user?
+-----------------------------------------------------------------------------------------
+How to change the permissions of an existing file/folder in linux?
+The sudoer/root only can change the permissions for a file/folder and linux has provided an shell command called "chmod"	
+	
+chmod = stands for change mode "permissions" for a file/folder
+chmod supports 2 modes of changing the file permissions
+1. octal mode
+2. symbolic mode
+
+#1. octal mode
+in octal notation each permission has been given an weighted number
+r = 4
+w = 2
+x = 1
+	-----
+	  7
+	-----
+7 = indicates we granted read, write and execute permission
+5 = read, execute only
+6 = read and write only
+
+while working with octal notation we need to specify permissions for a given folder/file for all 3 levels of users (owner/group/others).
+syntax:
+sudo chmod ownergroupother file/folder
+
+sudo chmod 764 accounts.txt
+7 = owner permissions
+6 = group permissions
+4 = other permissions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

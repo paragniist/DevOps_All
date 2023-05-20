@@ -1,0 +1,15 @@
+Storage Domain
+The storage domain provides all the storage services required for running an application. There are total 7 storage services are provided aspart of the Storage domain
+1. AWS Storage Gateway
+2. Amazon S3
+3. Glacier
+4. EBS (Elastic Blockstorage)
+5. Snowball
+6. EFS (Elastic FileSystem)
+7. CloudFront
+
+
+S3
+S3 stands for simple storage service, which is an object storage database used for storing any type of objects. Let the object we wanted to store could be any thing like an audio, video, images or xls/ppt etc. These objects can be stored and accessed from anywhere using S3 storage
+
+

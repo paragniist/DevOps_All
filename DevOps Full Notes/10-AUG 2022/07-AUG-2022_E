@@ -1,0 +1,16 @@
+Vagrant SSH
+------------
+What does vagrant do to provide ssh access to the virtual machine?
+1. vagrant uses the vagrant boxfile to create the virtual machines, these boxfiles are prepackaged/preinstalled with 
+	1.1 operating system
+	1.2 preconfigured os user (vagrant/vagrant)
+	1.3. pre-installed openssh server
+	1.4 seeded with default public/private key to facilitate ssh access in first boot
+	1.5 preconfigured with network mode: NAT with forwarded port: host: 2222, guest: 22
+		
+2. upon booting the virtual machine first-time vagrant ssh into the vm using predefined keys and generates a new public/private secured keys install the public_key on to the virtual machine and stores the corresponding private key on the host machine project directory .vagrant directory
+3. removes the default keys from the virtual machine and make the machine ready for ssh
+
+4. when we type vagrant ssh
+it goes into the .vagrant directory of the project and picks up the private_key it has generated and ssh into the virtual machine using 2222 as forwarded port from host so internally executes the ssh command as below
+ssh -i ./.vagrant/private_key -P 2222 vagrant@127.0.0.1

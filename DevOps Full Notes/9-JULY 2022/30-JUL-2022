@@ -1,0 +1,16 @@
+How to setup the virtual machine environment?
+1. we need to install the hypervisor software on the workstation of each developer along with devops engineer.
+2. Now one of the developer/devops engineer has to setup the server env by creating the virtual machine manually. There are lot of steps involved in creating the virtual machine as described below.
+	1. download the iso image of the relevant operating system platform we wanted to use in setting up the server env
+	2. create the virtual machine by choosing the appropriate hardware configurations
+		1. cpu
+		2. ram
+		3. hdd
+		4. network adapters
+		5. shared folders 
+	3. install the operating system on the virtual machine created
+	4. download, install and configure all the software packages, libraries on the virtual machine to setup the server environment
+	5. export the vm as an vdi diskimage so that we can distribute to all the developers of the team.
+	
+	
+	

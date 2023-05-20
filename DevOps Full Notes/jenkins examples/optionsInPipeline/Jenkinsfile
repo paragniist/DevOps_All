@@ -1,0 +1,21 @@
+pipeline {
+    agent {
+        label 'jenkinsslave2'
+    }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '3'))
+        checkoutToSubdirectory('project1')
+        disableConcurrentBuilds()
+        retry(3)
+        timeout(time: 1, units: 'SECONDS')
+        timestamps()
+    }
+    stages {
+        stage('stage1') {
+            steps {
+                sh 'echo running'
+            }
+            
+        }
+    }
+}

@@ -1,0 +1,14 @@
+---
+- name: inventory variables play
+  hosts: all
+  tasks:
+  - name: print dbname
+    debug:
+      msg: "dbname: {{mysql_dbname}}"
+  - name: print login user
+    debug:
+      msg: "dblogin user: {{mysql_login_user}}"
+  - name: print dbpassword
+    debug:
+      msg: "dbpassword: {{mysql_login_password}}"
+...

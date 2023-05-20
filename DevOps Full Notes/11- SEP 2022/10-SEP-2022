@@ -1,0 +1,297 @@
+Ansible Variables
+Variables are the placeholder in which we can store values. In a typical program instead of hardcoding the values to perform operation we can refer to the variables to use the values in performing the operation. So each time we want to change the values with which we want to perform operation in the program, we only need to change the values we pass to the variables rather than modifying the code. So the program becomes maintainable
+
+similar while applying automations through ansible we write playbooks to perform operations, instead of hardcoding the values with which we want to execute the playbook we can refer to the values of the variables in carrying out the automation. So each we wanted to change the values we just need to pass different values in running the playbook
+
+There are various different levels at which we can define variables in ansible
+1. ansible variables (pre-defined variables)
+2. inventory variables
+	- host
+	- group
+3. playbook variables
+4. var_files in playbooks
+5. vars from command-line
+6. register variables
+7. ansible facts or ansible magic variables
+
+#1. ansible variables
+These are variables pre-defined by the ansible system with definite meaning for them. by changing the values for these variables we can modify the behaviour of the ansible system.
+	
+Ansible system/control plane has been preconfigured with default values for most of the settings. if we want we can modify the behaviour of the control plane by defining the predefined variables as part of /etc/ansible/ansible.cfg file
+
+1. forks
+2. private_key_file
+3. remote_port
+4. inventory
+etc
+
+If we want to apply settings while applying automation on a specific host or a group instead of at the cluster level permanently we can add pre-defined variables in inventoryFile either at the host level or at group level 
+pre-defined variables are:
+1. ansible_connection = local/ssh
+ssh = the ansible control node server uses ssh protocol by default to connect and apply automations on the managed nodes
+local = in case if we are applying the playbooks on the control node server itself (not recommended), then we can let the ansible control node to execute locally by specifiying the connection as local
+
+2. ansible_ssh_port
+3. ansible_user
+4. ansible_host = alias name
+5. ansible_private_key_file
+6. ansible_ssh_password
+7. become
+8. become_user
+9. become_method
+
+we can create these variables in the playbook either at host level or group level as shown below.
+hosts
+192.168.10.5 ansible_port=2222 ansible_private_key_file=~/.ssh/secret become=true
+	
+groupLevel
+[javaserver]
+192.168.10.5
+192.168.10.6
+	
+[javaservers:vars]
+ansible_port=2222
+ansible_private_key_file=~/.ssh/jkp
+
+hosts.yml
+-----------
+all:
+	hosts: 
+		192.168.10.5:
+			ansible_port: 2222
+			ansible_private_key_file: ~/.ssh/secret
+	children:
+		javaservers:
+			hosts:
+				192.168.10.6:
+        192.168.10.7:
+      vars:
+				ansible_port: 2222
+				ansible_private_key_file: ~/.ssh/secret
+------------------------------------------------------------------------------------------------------------------------
+User defined variables
+along with pre-defined variables we can declare our own user defined variables in the inventoryFile either at host level or group level as below
+
+hosts.yml
+all:
+	hosts:
+		192.168.10.5:
+			mysql_db_name: rconnectdb
+			mysql_login_user: rconnectuser
+			mysql_login_password: welcome1
+			
+
+
+mysqlmodule-playbook.yml
+---
+- name: mysql play
+	hosts: all
+	tasks:
+	- name: create database
+		mysql_db
+			name: "{{mysql_db_name}}"
+			state: present
+			login_user: "{{mysql_login_user}}"
+			login_password: "{{mysql_login_password}}"
+...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

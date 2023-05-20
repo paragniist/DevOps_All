@@ -1,0 +1,114 @@
+What is virtualization, what is the purpose of virtualization?
+Virtualization is a technic through which we can run multiple parallel isolated environments on a single machine through the help of hypervisor software
+
+purpose:-
+1. lower the cost of development and delivery of the IT infrastructure by reusing the infrastructure across multiple projects whenever/whereever its possible
+2. developers can use virtualization in creating production like env on their workstation, so that the problem of mycode works on my machine can be eliminated
+3. developers can setup multiple different env on the workstation to work on various different projects in-parallel
+4. organizations can bake their products and distributed them as virtualmachine images to the customers for trail or production usage, so that customers will have less time in quickly making the products running within their env
+
+
+Virtualization works ontop Hypervisor software, where each virtual machine running  will be installed with full blown operating system along with software packages & libraries. on which the software applications are going to run isolated from other
+
+What is containerization?
+Containerization is a technology through which we package software applications and their dependent libraries ad run within a container which is isolated from other software applications running on the same env which is called containerization.
+	
+In case of containerization we package the software application along with dependent software packages and run within a container. unlike the virtual machine a container will not be installed with full blow operating system	rather the containers are installed or baked with bins&libs which are used by the container to communicate with the underlying containerization engine in distribute/allocating the physical system resources across the containers running on the machine
+
+From the above we can understand, both these technologies helps us in running the software applications isolated from each other on a single computer, then which one should be used when, what are their advantages & dis-advantages of them
+
+Virtualization:
+advantages:-
+1. 	In case of virtualization we install full blown operating system on the virtual machine which works independent of the host operating system. due to which we can easily run different software applications on different operating system environments easily
+2. There are few sofware applications that requires dedicated operating system environment to run, such applications can be backed into virtual machines and can execute them isolated from another
+3. all the virtual machines are isolated from each other and runs independent of the host operating system as well. due to which we can achieve highest-level of security. If the host machine got compromised also, still the guest machines are not impacted as each vm runs on their own dedicated operating system
+4. virtual machines are suitable for deploying and running applications that are long-running process
+
+dis-advantages:-
+1. since each virtual machine is installed with a dedicated operating system and runs by its own, the amount of system resources being consumed in keep running these operatingsystems is very high due to which we cannot effectively utilize the system resources in running multiple env/applications
+2. virtual machines are heavy weight because of the full operating system being installed, so we cannot carry the virtulmachine disk images across the env and those are not portable
+3. we cannot easily achieve ci/cd through virtual machine images, because those are heavy weight anc cannot be carried across the env
+4. virtual machines takes huge amount of startup time in running, since the entire operating system needs to be bootup before running the application aspart of it, due to this those are not ideally suitable for achieving scalability
+
+From the above we can understand virtualization is suitable only for
+	1. creating and providing dedicated computer environments that can be used by different people isolated from another for e.g.. cloud providers effectively uses virtualization technic in sharing the underlying hardware resources of the computer increating dedicated environments for multiple people
+	
+	2. In an organization the administrators or ops engineers can create multiple virtual machines to provide dedicated environments for developing, testing and certifying the applications of different teams so that they can lower the IT infrastructure cost
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

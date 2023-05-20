@@ -1,0 +1,55 @@
+What is vagrant, why do we need to use it?
+vagrant is an virtualization workflow automation tool, used by developers, quality engineers and ops engineers during the time of development to delivery of an application.
+	
+To understand vagrant, we need know how does virtualization help us in the above aspects of developing and delivering the application.
+	
+Let us understand how can we use virtualization during the development of an application.
+while building distributed applications the developer need to setup 2 environments on his workstation to develop the application
+1. server environment
+2. client environment
+
+There are 2 ways a developer can setup the server/client environment to develop the application
+1. setup both server/client environment on the workstation of the developer
+2. we can setup the server environment centrally at one single machine, so that developer can develop the application on workstation and deploy, test his changes on the central server environment.
+
+
+#1. setup both server/client environments on the workstation of the developer
+1. In this approach each of the developers within the team has to setup both server/client on their workstation which will takes huge amount of time in setting up the environment itself. due to this it increases the cost of development of the application and time required for developing the application.
+	
+2. different developers has different workstation environments, so the process of setting up the server/client libraries differs from env to another and might encounter various different issues interms of installations/configurations of these environments. each individual developer has to spend lot of time in debugging and fixing the issues they encouter while setting up these env in their local workstation
+
+3. not all the developers in team are not playing the same role, there can be backend developers, ui engineers, sql/database engineers etc. Not everyone knows the entire process of setting up the server/client environments on their machines and they dont know even the technologies or libraries involved in installing/configuring. So they would often find it complex to configure and setup the environments locally on their system.
+	
+4. The development environment the developer setup locally on his workstation doesnt reflects the production like environment. so the developer might develop the application keeping in view of development environment, so that while deploying the code in production we might encounter few in-compatibilities or errors in deploying the application to the production.
+	
+5. "My code run on my machine", due to different environments across the developers, the code written by one developer may not works on another developers machine, due to which a huge amount o rework takes place across the developers in fixing the env issues
+
+6. if a developer is working on multiple projects, setting up different environments locally on the workstation is not possible for each project
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

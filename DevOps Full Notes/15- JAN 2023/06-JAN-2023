@@ -1,0 +1,85 @@
+What are docker objects?
+There are 2 types of docker objects are there
+1. docker image
+2. docker container
+
+#1. docker image
+docker image is a file packaged/compressed with application binary, dependent software packages/libraries, lib & bins required for communicating with underlying docker engine along with instructions in running the container put together.
+	
+Mostly developer of the application itself packages the application into docker image, publishes and distributes it through docker container registry. Through the help of docker images, the docker abstracts the delivery of an software application
+
+The docker team has provided an docker container registry called "docker hub", anyone can publish and distribute images through docker hub.
+We need to create an account in the docker hub and we need to create one repository for publishing one image in dockerhub. so an image is represent by an repository.
+
+There are 2 types of repositories are supported
+1. private repository = private to the user who has created the repo, and no one can pull or modify the images of the repository unless the permissions are granted. Per account only #2 private repositories are allowed, and if we need additional we need to upgrade the account to pro/team/business plan by paying money
+	
+2. public repository = public to the world, any one can pull the image or modify the image in the public repository. and there is no limit on number of public repositories to be created by an user
+
+The images that are published in the docker hub can be categorized into 4 types
+Trusted source
+1. docker official images
+2. verified images (partners)
+3. sponsored oss
+
+Not-Trusted and should be used at our own risk
+4. community images
+----------------------------------------------------------------------------------------------------------------------
+The docker images are layered and stackable and the docker images are read-only
+
+The possible ways of asking questions on the above?
+What do you mean by docker images are layered and stackable?
+How are docker images are light weight can you explain?
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

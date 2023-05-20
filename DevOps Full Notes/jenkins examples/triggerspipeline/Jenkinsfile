@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    triggers{
+        cron(1 H * * *)
+    }
+    options {
+        disableConcurrentBuilds()        
+    }
+    stages {
+        stage('cron stage') {
+            sh 'echo triggered through cron job'
+        }
+    }
+}

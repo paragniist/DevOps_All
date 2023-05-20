@@ -1,0 +1,180 @@
+Ansible Roles
+--------------
+While working on complex automations in achieving the desired system state, we need to write lot of software configuration management logic from the scratch to achieve the automation. it takes lot of time for developing the software configuration management automation and even the time required for testing and certify the code is also very high.
+	
+Instead of it, if we can reuse the code automation which is already developed/distributed by others, then we can reduce the amount of time/complexity in achieving the desired system state. 
+The Ansible has allowed us to reuse the existing playbook automations into our playbooks using import_playbook module declaration, so that we can reuse another playbook inside our playbook to achive quicker automation
+
+But there are lot of problems with import_playbook approach:
+1. While implementing an automation using ansible, the ansible developer has to write several configuration files like playbooks, variable files, jinja2 templates which has to be put together to execute the automation, so to reuse the ansible automation along with playbooks the developer has to distribute all the dependent configuration files also, but there is no effective way of distributing all the files for reusing by others
+2. different developers organizes the playbook and associate configuration files in different directory structure, so reusing he playbooks becomes complex for other developers since they need to understand the directory structure in which the files are organized
+3. The playbooks requires variable values as input to execute, identifying the variables being used wihtin the playbook to pass values to them seems very complex, because we need to read the playbook code and understand to identify what values should be passed for which variables
+
+From the above we can understand reusing a playbook has several challenges, how to overcome them?
+That is where Ansible roles are introduced 
+
+Ansible Roles
+Ansible Roles is an standardized and organized way of developing playbook or ansible automations and distribute it to ther others, so that people can reuse these roles in accomplishing their automations quickly
+
+Ansible Roles has defined an standardized directory structure into which we need to organize the files of our automation. There are 7 directories into which we organize our playbook/ansible automation in distributing them to other people for reusability
+
+rootdirectory (role)
+|-default
+	|-main.yml
+|-tasks
+	|-main.yml
+|-handlers
+	|-main.yml
+|-files
+|-templates
+|-meta
+	|-main.yml
+|-vars
+	|-main.yml
+	
+a role should be defined atleast with one these directories and if we dont have any files in other directories those can be ignored. In every directory a default file called main.yml will be there except files and templates directory.
+In the main.yml we need to write respective code required for achieving the desired system state
+
+1. default/main.yml = includes the default values for the variables of the role, these default values can be overridden by other methods
+2. files = contains static and configuration files if any required for that role to perform operation
+3. handlers = set of handler declarations that will be triggered by tasks
+4. meta = inclues metadata information about the role, author information, license, available platform etc
+5. tasks = A list of tasks to be executed as part of the roles
+6. templates = contains jinja2 template files
+7. vars = contains variables defined in the roles
+
+How to create a role?
+For creating a role with directory layout ansible has provided an tool called "ansible-galaxy".
+1. create an empty directory 
+2. go inside the directory and type ansible-galaxy init, this will creates the directory layout of the role into which we can write the code
+
+How to reuse a role inside a playbook?
+Ansible searches for references roles in common paths like 
+1. inside the playbook directory under roles/ directory
+2. roles_path in ansible.cfg 
+3. /etc/ansible/roles directory (default)
+	
+	
+playbook.yml
+---
+- hosts: all
+	roles:
+		- role: 'roleName'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

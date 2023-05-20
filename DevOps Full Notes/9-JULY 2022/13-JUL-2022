@@ -1,0 +1,170 @@
+There are 2 types of jar distributions are there
+1. Library Jar 
+The library jars are used for distributing the classes of an application to others, so that they can reuse these classes in building their application
+
+2. Application Jar
+A jar created for delivering an application to the enduser, so that enduser can directly run the application out of the Jar itself
+
+How does the structure of the Jar looks like?
+jarFilename.jar
+|-META-INF
+	|-manifest.mf
+|-packages
+	|-*.class
+
+How to create a jar file?
+The jdk distribution has provided an jar utility using which we can create jar files
+jar -cvf jarFilename.jar -C directory directory/
+		
+-c = create
+-v = verbose
+-f = filename
+-C = change to the directory and execute the command (optional)
+directory = contents to be included inside the jar
+
+#2. Application Jar
+ngconnecthealth
+|-src
+	|-com
+		|-ngconnect
+			|-tools
+				|-AppointmentManager.java
+			|-runner
+				|-Main.java
+|-bin
+	|-com
+		|-ngconnect
+			|-tools
+				|-AppointmentManager.class
+			|-runner
+				|-Main.class
+
+package com.ngconnect.tools;
+class AppointmentManager {
+	public String newAppointment(String patientName, String doctorName, LocalDateTime appointmentDate, String mobileNo) {
+		System.out.println("Your appointment with doctor:"+doctorName+" has been confirmed, please arrive 15 minutes prior to the appointment time");
+		return "93938";
+	}	
+}
+
+package com.ngconnect.runner;
+import com.ngconnect.tools.AppointmentManager;
+class Main {
+	public static void main(String[] args) {
+		AppointmentManager am = new AppointmentManager();
+		String appointmentNo = am.newAppointment("Mark", "Mathew", LocalDateTime.of(2022,07,14, 8,22),"998393783");
+		System.out.println("appointmentNo : "+ appointmentNo);
+	}
+}
+
+$HOME/workspace/ngconnecthealth$ javac -d bin src/com/ngconnect/tools/AppointmentManager.java
+$HOME/workspace/ngconnecthealth$ export CLASSPATH=bin
+$HOME/workspace/ngconnecthealth$ javac -d bin src/com/ngconnect/tools/Main.java
+
+$HOME/workspace/ngconnecthealth$ java com.ngconnect.runner.Main
+
+To deliver the above application to the enduser, we need to package the application as an Application Jar.
+In an Application Jar along with bytecode (.class files), the developer will add instructions that are required for jvm to run the application as well.
+For eg.. for jvm interpreter to run an application it requires Main class as an input, the developer while creating the Jar file will add the Main classname within the jar itself inside the manifest.mf
+
+How to add information about the jar inside the manifest file?
+1. create an manifest.txt file with all the information we want to include in manifest.mf while packaging the jar
+manifest.txt
+Main-Class: com.ngconnect.runner.Main
+
+2. package the application as a jar along with manifest.mf as below.
+jar -cvfm ngconnecthealth.jar manifest.txt -C bin com
+
+with the above command the jar will be created with manifest.mf added with Main-Class entry also. now deliver the jar to customer/enduser
+
+Now the enduser can quickly execute the java application by using below command
+java -jar ngconnecthealth.jar
+--------------------------------------------------------------------------------------------
+web application (tomcat)
+war
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

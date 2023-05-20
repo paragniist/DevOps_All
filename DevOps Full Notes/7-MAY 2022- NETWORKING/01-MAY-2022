@@ -1,0 +1,155 @@
+wap function to identify whether a given number is even or odd number?
+	
+evenorodd.sh
+------------
+#!/bin/bash
+NUMBER_TYPE=""
+function evenorodd() {
+	local NARGS=$#
+	if [ $NARGS -ne 1 ]
+	then
+		return 18
+	fi
+	local N=$1
+	local REM=$[N%2]
+	if [ $REM -eq 0 ]
+	then
+		NUMBER_TYPE="even"
+	else
+		NUMBER_TYPE="odd"
+	fi
+	return 0
+}
+
+# main block
+#read -p "n :" $N
+N=$1
+evenorodd $N
+STATUS=$?
+	
+if [ $STATUS -eq 0 ]
+then
+	echo $NUMBER_TYPE
+else
+	echo "error! argument missing"
+fi
+--------------------------------------------------------------------------------------------
+billcalculator.sh
+------------------
+#!/bin/bash
+GST_AMOUNT=0
+NET_PRICE=0
+
+function gstTax() {
+	local NARGS=$#
+	if [ $NARGS -ne 2 ]
+	then
+		return 100
+	fi
+	local CATEGORY=$1
+	local PRICE=$2
+	if [ $CATEGORY == "education" ]
+	then
+		GST_AMOUNT=$[(PRICE*8)/100]
+	elif [ $CATEGORY == "transport" ]
+	then
+		GST_AMOUNT=$[(PRICE*18)/100]
+	elif [ $CATEGORY == "food" ]	
+	then
+		GST_AMOUNT=$[(PRICE*5)/100]
+	else
+		return 101
+	fi
+	return 0
+}
+
+
+function marketPrice() {
+	local NARGS=$#
+	if [ $NARGS -ne 3 ]
+	then
+		return 200
+	fi
+	local TRANSPORT_TYPE=$1
+	local PRICE=$2
+	local GST_AMOUNT=$3
+	local TRANSPORT_AMOUNT=0
+	
+	if [ $TRANSPORT_TYPE == "local" ]
+	then
+		TRANSPORT_AMOUNT=$[(PRICE*8)/100]
+	elif [ $TRANSPORT_TYPE == "national" ]
+	then
+		TRANSPORT_AMOUNT=$[(PRICE*12)/100]
+	else
+		return 201
+	fi
+	NET_PRICE=$[PRICE + GST_AMOUNT + TRANSPORT_AMOUNT]
+	return 0
+}
+
+#main block
+# category price transportType 
+CATEGORY=$1
+PRICE=$2
+TRANSPORT_TYPE=$3
+
+gstTax $CATEGORY $PRICE
+STATUS=$?
+if [ $STATUS -eq 0 ]
+then
+	marketPrice $TRANSPORT_TYPE $PRICE $GST_AMOUNT
+	M_STATUS=$?
+	if [ $M_STATUS -eq 0 ]
+	then
+		echo "Net Price: $NET_PRICE"
+	elif [ $M_STATUS -eq 200 ]	
+	then
+		echo "error! arguments missing"
+		exit 5
+	elif [ $M_STATUS -eq 201 ]
+	then
+		echo "error! invalid transport type"
+		exit 6
+	fi
+elif [ $STATUS -eq 100 ]
+then
+	echo "error! arguments are missing"
+	exit 1
+elif [ $STATUS -eq 101 ]
+then
+	echo "invalid category"
+	exit 2
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,335 @@
+Inventory Files
+1. 2 formats in writing the inventoryFile [INI, YAML]
+2. working with groups
+	2.1 there are 2 default groups in every inventoryFile all, ungrouped
+3. host ranges
+------------------------------------------------------------------------------------------------------------------------
+4. inventory variables
+Variables are used for storing the data, by using variables we avoid hardcoding the values in a program, so that we can execute the program against different values just by modify the variable values within the program. The same applies even to ansible automation as well
+
+When we write an playbook for automation we wanted to use few configuration values pertaining to the software we are installing on the managed hosts. these values can be externalized and pass through variables so that the playbook can be reused in performing the automation with different values across the fleet servers
+
+We can declare variables at various different scopes:
+1. playbook
+2. inventoryFile
+
+#2. inventoryFile
+we can declare variables in inventoryFile at 2 levels/scope
+1. host-level
+2. group level
+
+There are lot of reasons why we need to declare variables at inventoryFile level
+1. the variables declared at inventoryFile acts as global variables and will be passed as inputs to all the playbooks executed against the host/group to whom these variables are binded to
+2. few variables carries more meaning when those are attached to host level rather than at playbook level, for eg.. we can attach a variable like stage=beta, app=appName 
+3. we can declare or attach variables to the group level which seems to common across all the machines of the group
+for eg..
+	for mysqlservers we install we need a common variables like mysql_port: 3306 which can be defined at group level so that the variable will be passed as an input for all playbook executions on the group of machines
+	
+How to declare variables in inventoryFile?
+There are 2 types of variables are there in ansible we can define at inventoryFile
+1. ansible pre-defined variables
+2. user-defined variables
+
+
+1. ansible pre-defined variables
+these are pre-defined variables provided by ansible, through which we can control the behaviour of how the controlnode server connects to the ansible host
+For eg.. the control node server connects to the ansible host using default sshport: 22, but if the managed servers are configured to listen on a different ssh port then we can define a variable at the inventoryFile at host-level or groupLevel dictating the usage of the SSH port for that machine
+
+~/hostvars
+------------
+192.168.10.11 ansible_port=2222
+	
+in the above inventoryFile we defined ansible_port variable with value 2222, which indicates the control node server should connect to the ansible managed node using ssh port: 2222 instead of 22
+	
+There are bunch of pre-defined variables that dictates the behaviour of how ansible control node server should connect to managed nodes	few of them are below and for more inputs [refer to ansible documentation]
+
+connection variables
+1. ansible_host = hostname or ip address
+2. ansible_port = ssh port to be used
+3. ansible_user = ssh username to be used while connecting to the ansible hosts
+4. ansible_password = ssh password to be used for connecting to the host (if passwordAuthentication: yes)
+	
+ssh variables
+5. ansible_ssh_private_key_file = the keyfile to be used for ssh into the nodes
+
+privilege escalation variables
+6. ansible_become: true = for the host or group execute the playbook/modules using sudo permission
+7. ansible_become_user: allows us to switch to a different user for privilege escalation to execute a module/playbook
+9. ansible_become_password: passwordto be used to switch
+	
+remote host environment variables:
+10: ansible_shell_type: by default ansible uses sh shell-type for executing modules, we can specify a different shell to be used for running the modules
+
+2. We can declare our own user defined variables in the inventoryFile
+~/hosts
+ipaddress/hostname variableName=value variableName=value
+for eg..
+	
+~/hosts
+192.168.10.11 tomcat_port=8080 applicationName=fithealth
+
+we can declare variables at group level also as below
+~/hosts
+[javaservers]
+192.168.10.11
+192.168.10.12
+	
+	
+[javaservers:vars]	
+tomcat_port=2022
+tomcat_admin_user=tomcat
+tomcat_admin_password=welcome1
+
+~/hosts.yml	
+javaservers:
+  hosts:
+    192.168.10.11:
+    192.168.10.12:
+  vars:
+	  tomcat_port: 8080
+		tomcat_admin_user: tomcat
+		tomcat_admin_password: welcome1
+		
+working with host aliases
+we can attach alias name for each host we declare in the inventoryFile for added readability as below
+
+~/hosts
+splunk_server ansible_host=192.168.10.11
+	
+here the splunk_server acts as an alias name for the machine so that we can easily identify the modules/playbooks are applied to which machines by reading through alias names printed during execution
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

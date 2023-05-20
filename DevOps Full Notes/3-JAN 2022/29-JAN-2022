@@ -1,0 +1,297 @@
+How many types of redirector operators are there?
+There are 2 types of redirector operators are there
+1. input redirector "<"
+if we want a shell command to read the input other than the STDIN we need to use input redirector operator.
+	
+2. output redirector ">"
+if we want a shell command to write/produce the output to a different destination than STDOUT, we can use output redirector
+
+How to create the file with data inside it?
+There are 2 ways are:
+1. echo
+2. cat
+#1. 
+echo "data"	> file.txt
+
+#2. 
+cat > filename.txt
+it will wait for the user to provide the input data through keyboard until we press ctrl+d and writes the data onto the file provided
+
+How to copy the files or folders from one location to a different location?
+1. copy file from source to destination directory
+cp fileName destination/
+	
+2. copy the directory and contents inside it to another directory
+cp -R sourceDirectory destinationDirectory/
+	
+3. copy the contents inside a directory to another directory
+cp -R sourceDir/\* destinationDir
+----------------------------------------------------------------------------------------------
+How to move files or directories into another location?
+1. how to move a file from source location to destination directory?
+/home/sriman:$
+library
+|-novels
+  |-greatsaints.txt
+	|-greatleaders.txt
+|-kids
+	|-funmaths.txt
+	|-harrypotter.txt
+	
+/home/sriman:$
+|-societylibrary
+
+To move a file from one location to another we need to use mv command.
+mv sourceFile destination/
+/home/sriman:$ mv library/novels/greatsaints.txt societylibrary/
+
+2. How to move the entire directory from source location to destination directory?
+mv sourcedir destinationdir
+/home/sriman:$ mv library/novels societylibrary
+
+3. How to rename a file?
+/home/sriman:$ greatstories.txt
+I want to change the name of the file from greatstories.txt to indianleaders.txt
+For renaming the filename there is no rename command, the mv command only works.
+	
+mv sourceFile dir/ = moves the file from source to destination
+mv sourceFile newFileName = if provide 2nd argument as new filename rather than directory/, mv renames the file
+mv dir1 dir2 = if the 2nd directory provide is non-existent, it renames the dir1 to dir2
+
+/home/sriman:$ mv greatstories.txt indianleaders.txt
+
+|-home/sriman:$
+	|-humpty.txt
+	|-library
+		|-kids
+			
+How to copy humpty.txt into library/kids/ with filename as kidsstories.txt
+cp humpty.txt /library/kids
+cd library/kids
+mv humpty.txt kidsstories.txt
+
+
+
+cp humpty.txt /libraries/kids/kidsstories.txt
+Now the contents of humpty.txt is copied into the give file by creating the file.
+-----------------------------------------------------------------------------------------------
+In windows when we are creating the files, along with filename we provide extension to the file of 3 characters as filename.ext
+for eg..
+accounts.txt
+aadhar.pdf
+balance-sheet.xls
+etc
+
+The windows operating system/programs running on windows relies on these extensions to identify the type of contents inside the file. So that operation system can associate a relevant program to handle the file which is called "File associations"
+For eg.. when we double-click on pdf file, automatically operating system opens it in pdf support programs, os determines which program to be used to handle/process the file based on extension.
+	
+Linux operating system, the file extensions are not required, because linux doesnt uses file extensions to determine the type of the file. It uses the contents/data inside the file to identify which type of file it is.
+	
+But how does an linux user can identify the file is of which type since there is no extension for the file.
+We can use a shell command file filename to identify the type of the file.
+	
+file filename
+displays the type of the file.
+	
+How to see statistics information about a file?
+statistics information means
+- who is the owner
+- memory location
+- last modified 
+- last accessed 
+- file size
+There is an stat filename which shows the statistical information about the file
+stat filename
+----------------------------------------------------------------------------------------------
+Regular expressions in bash commands
+-------------------------------------
+There are 3 characters we can use as expressions in shell commands
+* = for any character match
+? = single character match
+[] = given a range of characters with which a single character is matched
+
+/home/sriman:$
+accounts
+|-heritage-foods
+|-haritha-greens
+|-suryafisheries
+|-ganeshfoods
+|-pistahaleem
+|-priyapickles
+|-swagruhafoods
+|-street
+|-go
+|-away
+|-to
+
+/home/sriman:$ ls accounts
+/home/sriman:$ ls accounts/*foods = shows the list of files which are ending with foods
+ls accounts/*ri*
+ls accounts/?o
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,97 @@
+Software Application:-
+A Software Application is a bunch of lines of code written to be executed by a computer to produce an outcome.
+
+Why do we need Software Application?
+Software Applications are used for providing business services to the customers
+  1. quickly
+  2. accurately
+  3. eliminate fraud
+  4. high security
+  5. ease of access
+
+Who will develop the Software Application?
+Programmers / Developers are the people who writes the code in building an Software Application
+
+How do they develop the Software Application?
+The programmers/developers will learn programming language and write instructions/lines of code using that language, so that it can be executed by the computer
+There are lot of programming languages are there
+1. c
+2. c++
+3. java
+4. python
+5. .net
+6. groovy
+7. scala
+8. ruby
+
+Who will provide information/inputs in building the Software Application?
+The business owner/product owner will provide the requirements in helping the developer understand what should be built as part of the Application.
+  
+Upon developing the application, the developer cannot release the code to the customers / public world. because the code written by the developer may not work properly it can may have bugs due to which the enduser might get unexpected or wrong output of using the program. Due to which the business owner will loose the business.
+  
+To ensure the application works properly as per the requirement, it has to be verified before delivering the application to customer/public world.
+  
+Quality Assurance Engineer
+Quality Assurance Engineer are the people who will read the requirements carefully and understands the expected behavior of the system.
+  
+The quality assurance has to verify the sofware system build by the developer whether it is working as per the requirement or not.
+To verify, he/she has to run the program by passing inputs and verify the program has produced proper and expected output or not. if there is an deviation in the expected output, the qa will report it as a bug to the developer asking him to fix.
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

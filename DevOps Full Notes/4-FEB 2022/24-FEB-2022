@@ -1,0 +1,210 @@
+The Root user of the linux operating system can promote any other normal user as a sudoer. The sudoer can perform operations onbehalf of the Root user
+
+Root user vs Sudoer
+sudoer can act like an root user but can be restricted in many ways by the Root, but a Root user is an ultimate user who has full access to the entire linux machine
+
+How to promote an normal user as a sudoer?
+There are 2 ways are there
+1. make entry into /etc/sudoers file
+2. create an sudoers file with user entry under /etc/sudoers.d
+
+#1. /etc/sudoers file
+There are 2 ways we can promote users as sudoers.
+1.1 user level
+we can promote an individual user as a sudoer by making an entry in sudoers section
+/etc/sudoers
+username ALL=(ALL:ALL) ALL
+
+1.2 group level
+we can promote a specific group of users to act as sudoers using
+%group ALL=(ALL:ALL) ALL
+
+1st ALL = can execute sudo commands from any remote host
+2nd ALL = can execute sudo commands on all the users
+3rd ALL = can execute sudo commands on any group
+4th ALL = any commands can be executed on any group of users as above
+----------------------------------------------------------------------------------------------------
+#2. /etc/sudoers.d
+instead of adding an user/group entry into /etc/sudoers file we can very well promote an user as a sudoer by creating an file under /etc/sudoers.d for each user or group
+
+it is easy to add or remove users or groups as sudoers by creating/deleting the files rather than editing existing file
+
+For eg. if we want to promote user "tom" as sudoer in 2nd approach
+1. create a file with filename as "tom" under /etc/sudoers.d
+2. add the tom user entry into the /etc/sudoers.d/tom file to grant sudo access as defined below
+tom ALL=(ALL:ALL) ALL
+
+this will makes the user "tom" as sudoer, if we dont want "tom" as sudoer simply delete the tom file under /etc/sudoers.d
+
+note: it is recommended to create files under /etc/sudoers.d with filename as username because it would be easy to keep track of which users are promoted as sudoers quickly
+
+similar to individual user we can promote group of users also as sudoers by creating an file under /etc/sudoers.d with groupName
+for eg if we want to promote devopsgroup users as sudoers then we can create an file
+1. create a file with name devopsgroup under /etc/sudoers.d
+2. then add the group entry into /etc/sudoers.d/devopsgroup
+%devopsgroup ALL=(ALL:ALL) ALL
+with the above all the devopsgroup users becomes suoders.
+----------------------------------------------------------------------------------------------------
+While modifying the sudoers file we should be very careful, if in case if we have written sudoers entry wrongly/syntactical mistake , then all the users of the linux operating system will looose sudoers access
+
+In such case how can we validate the changes we made in sudoers file before apply?
+*** Follow the below process before applying the changes we made in sudoers file:
+1. copy the contents of the sudoers file into /tmp directory
+cp /etc/sudoers /tmp
+2. make the changes into the /tmp/sudoers file
+3. validate the changes we made are correct or wrong in /tmp/sudoers using
+visudo -cf /tmp/sudoers
+parsed ok
+4. copy the tmp file replacing the original file under /etc/sudoers
+
+-c = check
+-f = file to be checked
+---------------------------------------------------------------------------------------------------
+in case if we modify the sudoers file with a syntax mistake then everyone will loose sudoers access then how to fix the sudoers error?
+There is a command called pkexec visudo /etc/sudoers
+then it prompts for root/super user password and allows you to edit the sudoers file
+
+pkexec = is used for executing any command as another user, if username is not specified then the given program/command will be exeucted as an administrater super user or root
+
+pk stands for polkit
+
+
+sudo = executing a command onbehalf root only
+pkexec = executing any linux command onbehalf any user (even you are not sudoer)
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

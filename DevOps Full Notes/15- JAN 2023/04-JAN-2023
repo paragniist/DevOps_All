@@ -1,0 +1,143 @@
+How does the docker isolates the containers from each other and run them on the same machine?
+The docker inorder to run multiple containers on the same machine and keep them isolated from each other, it requires lot of enhancements and new features to be added aspart of the linux operating system. To make the containers run in isolated from other there are lot of sofware gaints especially the Google LLC has contributed greatly in adding new features to the linux operating system.
+	
+There are 3 major features of linux being used by docker in running the containers isolated from another container	
+1. Linux Namespaces
+The docker containers works on the concept of linux namespaces to isolate one container from another. The docker container will be executed within the namespace and limited to access the resources allocated to that namespace only. By using the namespaces we can run multiple containers isolated from each other
+
+Docker uses the below namespaces of the linux to run containers isolated
+1. pid = runs the container in a separate process namespace
+2. net = network namespace managing the network interfaces
+3. ipc = inter-process communication namespace
+4. mnt = filesystem mounts
+5. uts = unix timesharing namespace
+
+#2 CGroups (Control Groups)
+Docker engine users cgroups of linux operating system in sharing the physical resources of the computer and limiting their usage to the containers. Through the help of cgroups docker engine allocates fixed amount of system resources to a container enabling it to use upto the limit allocated.
+	
+#3. Union FileSystem
+docker container images are packaged and assembled based on union filesystem technic only
+------------------------------------------------------------------------------------------------------------------------
+docker architecture
+There are 3 parts in docker architecture are there
+1. docker engine
+2. docker registry
+3. docker cli
+
+1. docker engine
+docker engine is the core component of the docker echo system, which takes care of running the docker containers from an image on the docker host
+The docker engine has 3 more sub-components inside it
+1.1 docker daemon
+1.2 containerd
+1.3 runc
+
+2. docker cli
+a command line interface used for interacting with the docker engine. 
+	
+	
+3. docker container registry
+docker container registry is a repository where docker images are published and distributed across the environments/world.
+	
+oci specification
+open container initiative specification, has been formated and the goals is to standardize the way the containers images are packaged and how the containers are spawned and managed on the underlying operating system.
+	
+The oci specification has standardized
+1. oci images = standardized the way images are build
+2. oci runtime = standardized the way containers are created and managed on the underlying operating system
+
+
+The docker to enhance and support the oci standards it has been built on 3 componetns internally
+1. runc
+is a low-level component (it is a c language library), that interacts with the underlying operating system of our computer in creating, destroying, managing the containers based on the oci specification
+
+2. containerd
+is a component build by docker team. The containerd takes care of converting th docker images into oci image format and passes it as an input to the runc for running the docker containers on the underlying platform.
+Additionally containerd takes care of pulling the images from the container registry so that those can be converted and executed on the underlying runc. Along with this containerd takes care of building the docker images based on the docker image instructions we write in a dockerfile
+
+3. docker daemon
+docker daemon is an http endpoint through which the docker engine is exposed to the users. when we tried issuing a commands through docker cli, the docker cli sends these commands over the network using http procotocol to the docker daemon, so that docker daemon performs the respective operation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

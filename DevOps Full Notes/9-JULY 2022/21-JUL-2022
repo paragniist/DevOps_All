@@ -1,0 +1,183 @@
+What is persistency, why do we need it?
+Persistency is the process of permanently storing/writing the data on to a storage device or storage medium. The applications will permanently store the data for further processing or future use of the data.
+	
+There are many ways we can store data permanently on a computer system.
+1. Storing in Files of the Filesystem of the computer
+Every operating system supports filesystem technic in creating, storing the data in the File format. An application can be programmed to store, retrieve and process the data from a file.
+There are lot of problems with file based persistency
+1. programmers has to write lot of code in reading/writing the data into the file which takes huge amount of development time and cost of development
+2. performing data manipulation operations on the file data like inserting, updating, deleting is quite complex
+3. searching or traversing the data stored on a file is difficult and in-efficient way of storing the data results in performance problems
+4. The data stored on the files of the computer is not secured, any one can steal the data stored on the files
+5. There is no backup/restore mechanisms in place in the event of corrupt or failure of the filesystem
+6. The files cannot be accessed from a remote computer, (these are not distributed resources)
+	
+From the above we can understand application programs becomes complex to build and takes more time and cost in developing when those are using file as an persistence medium/technology in storing the data permanently
+
+Storing the data permanently on a storage device is a common required for any software application in the world, since it is something common, instead of everyone running into complexity of managing the in writing the data into Files of the computer, the database management system software has been introduced.
+	
+database management system (dbms) is software system, that abstracts/hides	the complexity in storing and accessing the data from the underlying files of the computer system.
+The database takes care of storing the data into the underlying filesystem of the computer in an efficient way, that it can process quickly when requested. The application developers dont have to write complex code in storing the data on the files, rather they need to talk to the database management system asking to store/retrieve the data for them.
+	
+There are lot of advantages of using database management systems over file-based persistency.
+1. no need to write complex logic in storing/processing the data on Filesystem of the computer, our applications should be coded towards the database which will take care of persisting the data on the underlying filesystem.
+Now the complexity in building the application, time required and cost involved in building the application goes down greatly
+2. databases are secured
+3. every database provides support for backup and recovery tools incase of crash or failure
+4. database are distributed systems, that can be accessed across the network, so we can distribute the load on the system by keeping application on one computer and database on another computer
+
+
+There are different types of database management systems are there
+1. Hierarchial databases
+2. Network databases
+3. Relational databases
+4. Object oriented databases
+5. No-Sql or semi-structured databases
+6. Object storage databases
+
+out of the above 6, right now 3 of the types of databases are actively being used in the market
+1. relation database management system (rdbms)
+2. no-sql, semi-structured database
+3. object storage database
+
+right now we want to explore relational database management system (rdbms)
+	
+Relational database management system	
+The relational database management systems allows us to store the data in a structured format interms of tables.
+	
+To store the data first we need to create a table representing the structure of the data we want to store inside the table by defining columns in the table
+Then we can insert data interms of records into the table by passing data for all the columns of the table
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

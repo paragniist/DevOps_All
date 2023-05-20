@@ -1,0 +1,64 @@
+High-level programming language
+High-level programming languages provides their own instructionset which is operating system independent instruction set. The programmer has to write software programs using HLL instructionset 
+advantage:-
+	1. These are english like language simple to understand and easy to learn
+	2. The syntaxes are developer friendly
+	3. portable across the operating platform
+	4. write-once run on any platform
+	
+dis-advantage:-
+	1. few of the instructionset supported by the High-level languages are operating system platform specific instructionset and may not be portable across the platforms.	
+	2. developers has to spend lot of time in achieving platform portability in developing the applications
+	3. The developer has to take extensive care while developing the program and perform unit testing to ensure the code he has written s working across all the platforms.
+	4. The qa engineers has to setup different environments and certify the application is working across all the platforms
+		- the time required for certifying the program is working across all the platforms
+		- the cost incurred for testing the application
+		- the delivery time required in delivering the application is quite high
+	5. we need to build,maintain and distribute different copies of the binaries of the application each per platform to release it to the customers/endusers of different platform
+	
+To overcome the problems with high-level programming languages the platform-independent high-level programming languages are introduced like
+1. java
+2. .net
+etc
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

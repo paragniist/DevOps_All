@@ -1,0 +1,153 @@
+loop control statements
+-----------------------
+if we want to execute a block of code repeatedly at a certain place within our program, then we can use loop control statements instead of repeatedly writing the same block code with our program
+
+There are 3 types of loop control statements are there
+1. while
+2. for
+3. unitl
+
+#1. while
+while loop executes the block of code written between do and done util the condition is true
+syntax:-
+while [ condition ]
+do
+done
+
+The loops can be written in 2 ways
+1. based on conditions
+2. based on number of iterations
+
+#2. if we are building a loop that should be iterated for "N" no of times then we need to write loop by considering 3 things
+	2.1 COUNTER = variable keeps track of the number of times the loop has been iterated
+	2.2 CONDITION = is used for breaking the loop when we met the iterations 
+	2.3 INCREMENT = keeping the counter increment to calculate the iterations
+	
+WAP to print fibinocci series upto N
+fibinocci series means: next number is the sum of previous 2 numbers
+1 1 2 3 5 8 13.... N = 20
+
+fibinooci.sh
+---------------
+#!/bin/bash
+read -p "n : " N
+P=0
+C=1
+NEXT = 1
+
+echo "$C"	
+while [ $NEXT -le $N ]
+do
+	echo "$NEXT"
+	P=$C
+	C=$NEXT
+	NEXT=$[P+C]
+done
+
+P=2, C=3, NEXT = 5
+------------------------------------------------------------------------------------------
+wap to print multiplication table from 1X10 of a given N number
+N=2
+1X2 = 2
+2X2 = 4
+3X2 = 6
+4X2 = 8
+5X2 = 10
+6X2 = 12
+7X2 = 14
+8X2 = 16
+9X2 = 18
+10X2= 20
+	
+multiplicationtable.sh
+----------------------
+#!/bin/bash
+read -p "n :" N
+COUNTER=1
+while [ $COUNTER -le 10 ]
+do
+	MUL=$[COUNTER*N]
+	printf "%2d x %2d = %2d" $COUNTER $N $MUL
+	COUNTER=$[COUNTER+1]
+done
+------------------------------------------------------------------------------------------
+wap to find whether a given number is prime number or not?
+prime: The number should be divisible by either 1 or by itself, it should not be divisible by any other number
+
+n = 7
+7/2 = 1
+7/3 = 1
+7/4 = 3
+7/5 = 2
+7/6 = 1
+2 to n-1 = to see any one number is dividing or not, it the n is not divisible by any number between 2 to n-1 means prime, atleast 1 number it is divisible means not a prime
+
+prime.sh
+---------
+#!/bin/bash
+read -p "n: " N
+COUNTER=2
+while [ $COUNTER -lt N ]
+do
+	REM=$[N%COUNTER]
+	if [ $REM -eq 0 ]
+	then
+		echo "$N is not prime number"
+		exit 0 #stop the program
+	fi
+	COUNTER=$[COUNTER+1]
+done
+echo "$N is prime number"
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

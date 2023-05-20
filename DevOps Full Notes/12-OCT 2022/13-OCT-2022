@@ -1,0 +1,58 @@
+Compute Domain
+The compute domain provides all the computing services required for running an application. There are 5 services provided aspart of the compute domain
+In-Short: compute infrastructure related services are provided aspart of the compute domain. 
+	
+1. elastic cloud compute (ec2)
+2. loadbalancer
+3. auto-scaling group
+4. elastic beanstalk
+5. lambda
+
+1. elastic cloud compute (ec2)
+elastic cloud compute in-short is called "ec2" is an compute machine provided by the aws cloud platform. we can use the machine for installing and running the software applications on it and we can expose them to the world aswell.
+	
+How to provision an compute machine?
+we need to provide/choose the below information in creating an ec2 instance
+1. instance name
+2. shape 
+3. AMI (it is an bootable diskimage installed with operating system and few utilities), can be used for quickly creating an machine out of it. we can image this as equal to an virtual disk image we use in virtualization to bringup the virtual machines quickly
+4. Networking
+	choose the network aspects like vpc, subnets and securitygroup based on the way we want the instance to be accessible
+5. by default an ec2 instance will be assigned with private ip address which is an local network address within the aws cloud platform. by using the private ip address we can access an ec2 instance from another one within the aws network (given if we have access)
+	incase if we wanted our ec2 instance to be accessible from external network here are things to do:
+	1. provision the ec2 instance on public subnet
+	2. we need to attach an public ip address to the ec2 instance this can be done in 2 ways
+		2.1 while creating the subnet we can select generate public ip for the resources within the subnet
+		2.2 while creating the ec2 instance we can explicitly choose to generate/create public ip address to the resource.
+6. create an new sshkey pair and attach to the machine
+	or
+	if keypair already generated choose the same to be attached to the machine
+7. select the security group
+8. review and finish for launching the instance
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

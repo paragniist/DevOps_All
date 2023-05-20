@@ -1,0 +1,7 @@
+[javagroup]
+192.168.10.[5:6:1]
+[javagroup:vars]
+ansible_private_key_file=~/.ssh/ansible
+
+[dbgroup]
+192.168.10.[7:8:1]

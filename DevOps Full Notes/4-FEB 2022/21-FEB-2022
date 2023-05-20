@@ -1,0 +1,123 @@
+#1. how to add a existing user into a group?
+sudo usermod -aG grp1,grp2,grp3	username
+
+#2. how to reset the groups of the user?
+sudo usermod -G grp1,grp2	username
+
+#3. how to change the login name of the existing user?
+sudo usermod -l newusername oldusername
+
+#4. how to change the home directory location of the user?
+sudo usermod -d newDirectory -m username
+
+#5. how to remove an user from the existing group
+sudo gpasswd -d username groupName
+
+#6 how to change the uid of an existing user?
+sudo usermod -u uid username
+---------------------------------------------------------------------------------------------------
+What are sudoers, why do we need them?
+There is only 1 Root user in the linux operating system, he has unrestricted access to all the resources of the linux machine. 
+Linux allows only one Root user to retain total control of the linux system with a single user for security restrictions
+
+In practical having one single Root user to carry administrative operations in a corporate world may not be feasible, so alteast it has promote or delegate few of the access permissions to the other normal users of the linux operating system, that is where sudoers are introduced.
+	
+sudoers = stands for super user do
+The few normal users of the linux operating system can be promoted as sudoers, so that they can act as Root and can perform operations onbehalf of the Root user on the linux operating system.
+	
+There is a different between Root and sudoer, a sudoer can act as an Root, but Root user can enfore restrictions on sudoer allowing him to perform certain operations only
+
+When we promote a normal user as a sudoer he can perform the below operations:
+1. he can act as a Root
+2. he can access the files and folders of the other linux users
+3. he can manage process of the other users
+4. he can execute all the super user commands which are in /sbin directory
+etc
+
+How to promote an normal user as a sudoer?
+There are 2 ways we can promote a normal user as a sudoer
+1. There is /etc/sudoers file in which we can make entry of an normal user to promote him as a sudoer
+2. We can create a new file on the name of the user with sudoers entry inside it under /etc/sudoers.d/ to promote a user as sudoer
+
+#1. /etc/sudoers file
+In this approach we can promote an individual user as a sudoer or a group of users as sudoers as well. it supports 2 ways of configuring the users as sudoers
+
+In this sudoers file there are 2 sections are there
+1. #user section
+2. #group section
+
+if we want to prompte an user as a sudoer go and add an entry of the user under user section, otherwise if we want to promote a group to grab sudoers then make an entry of the group under group section of the file
+
+syntax of promoting an normal user as a sudoer:
+username ALL=(ALL:ALL) ALL
+
+1st ALL = indicates the user can access the machine and can grab sudoers access from any where
+2nd ALL = indicates the user can perform command executions onbehalf of any user
+3rd ALL = indicates the user can perform commands on any group of users
+4th ALL = indicates the user can execute any commands on all the above
+
+any commands, from any where, on any user , and on any group = ROOT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

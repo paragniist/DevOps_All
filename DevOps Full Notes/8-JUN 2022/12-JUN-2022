@@ -1,0 +1,159 @@
+What is an web application, what is the purpose of it?
+Web applications are used for distributing information about a business/organization or an entity to the world. 
+An business organization wanted to provide the information about their business and the services to the world, there are several ways an organization could reach to the market for eg..
+	1. Through physical mediums
+		1.1 newspapers
+		1.2 pamplets
+		1.3 banners/posters/flexi
+		1.4. campaign
+	2. Through eletronic media
+		2.1 television
+		2.2 radio
+		2.3 internet
+			- the major/strong channel in providing the information about a business is through websites			
+These are called distributed applications, as they distribute information to the world.
+--------------------------------------------------------------------------------------------	
+How to build information and distribute to the world?
+To distribute the information, we need to build the information and hold it. In a computer we can create a file and store the data/information to distribute.
+	
+By keeping information in a text file and distributing it may not be effective in reaching to the large crowd of audience, because a text of content cannot be read and understand by everyone.
+	
+To present information in an formatted manner by using colors, fonts, tables, images, video and audio tools etc the w3c organization has introduced HTML Language
+
+HTML stands for Hypertext markup language, the HTML language has been introduced by Internet Standard organization (W3C Organization). using HTML Language we create HTML Pages which are also called "WebPages".
+The HTML language has provided lot of pre-defined tags using we create web pages to render information/data to the user in a formatted manner. 
+How does an HTML page looks like, what is the basic structure of an HTML Page?
+every HTML page is written with an extension ".html" only and has predefined tags written inside them
+
+home.html	
+----------
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<TITLE>Home page</TITLE>
+	</HEAD>
+	<BODY>
+		<H2>HOME PAGE</H2>
+		<P>
+			Written enquire painful ye to offices forming it. Then so does over sent dull on. Likewise offended humoured mrs fat trifling answered. On ye position greatest so desirous. So wound stood guest weeks no terms up ought. By so these am so rapid blush songs begin. Nor but mean time one over.
+		</P>
+		<P style="color: red;">
+			He moonlight difficult engrossed an it sportsmen. Interested has all devonshire difficulty gay assistance joy. Unaffected at ye of compliment alteration to. Place voice no arise along to. Parlors waiting so against me no. Wishing calling are warrant settled was luckily. Express besides it present if at an opinion visitor.
+		</P>
+		<P>
+			Sudden looked elinor off gay estate nor silent. Son read such next see the rest two. Was use extent old entire sussex. Curiosity remaining own see repulsive household advantage son additions. Supposing exquisite daughters eagerness why repulsive for. Praise turned it lovers be warmly by. Little do it eldest former be if.					
+		</P>
+	</BODY>
+</HTML>
+	
+To access and view the contents of the page in formatted manner, we need HTML tools called Web Browsers. Browsers are specialized softwares, they know how to read the contents of HTML page parse the tags and render the information in a presentable format
+
+So the business organization or an entity has to create a website containing multiple HTML or web pages describing the information about their business and distribute them over the internet.
+				
+These web applications can be classified into 2 types:
+1. static web application
+A static web application contains web pages or html pages which always displays the same information/contents to the enduser. 
+
+2. dynamic web application
+A dynamic web application allows the users to interact with application by passing data as an input, the application performs operation using the user data and returns the response.
+The dynamic applications requires an backend programming language to develop like
+1. java
+2. .net
+3. php
+4. python
+5. ruby 
+etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

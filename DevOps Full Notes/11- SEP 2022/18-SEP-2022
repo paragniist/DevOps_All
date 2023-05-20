@@ -1,0 +1,182 @@
+There are 2 types of control statements are there
+1. conditional control statements
+2. loop control statements
+
+#2. loop control statements
+loop control statements are used for repeatedly executing an ansible module/task over a fixedset of inputs or occurrences
+
+1. loop over a simple list of values
+we want to install bunch of software packages as part of our project setup
+1. jdk11
+2. maven
+3. git
+4. tree
+5. nettools
+6. vim
+
+how to write a playbook for installing the above software packages?
+---
+- name: loop play
+	hosts: all
+	tasks:
+	- name: install jdk
+		apt: 
+			name: "{{item}}"
+			state: present
+			update_cache: yes
+		become: yes
+		loop:
+			- openjdk-11-jdk
+			- maven
+			- git
+			- vim
+			- tree
+			- nettools
+---------------------------------------------------------------------------------------------------------------------
+loop over hashes
+we wanted to create a bunch of files on the managed node
+~/ledger-book.txt, 0640
+~/daily-cashbook.txt, 0600
+~/tally.txt, 0544
+				
+
+loop-files-playbook.yml
+---
+- name: loop through hashes
+	hosts: all
+	tasks:
+	- name: create file with permissions
+		file:
+			path: "{{item.filepath}}"
+			mode: "{{item.mode}}"
+			state: touch
+		loop:
+			- {filepath: "~/ledger-book.txt", mode: '0640'}
+			- {filepath: "~/daily-cashbook.txt", mode: '0600'}
+			- {filepath: "~/tally.txt", mode: '0544'}
+
+#3. looping through registered variable
+shopping-list.txt
+shampoo
+soap
+oil
+watch
+shoes
+handbag
+purse
+
+within the file whether a give product found then print
+
+---
+- name: loop through files
+	hosts: all
+	tasks:
+	- name: show list
+		shell: cat shopping-list.txt
+		register: shoppingList
+	- name:	show product
+		debug:
+			msg: "{{item}}"
+		loop: "{{shoppingList.stdout_lines}}"
+		when: "{{item in 'shoes'}}"	
+
+
+#4. loop until a condition has been met
+we want to loop until a condition has been met
+we want to run to shell programs using ansible playbook, upon the first program starts then only we want to run the 2nd program
+
+program1.sh
+sleep 10s
+echo "started" > program1.log
+
+program2.sh
+cat program1.log
+
+
+---
+- name: loop until
+	hosts: all
+	tasks:
+	- name: wait for program1.log
+		find:
+			paths: "~/"
+			patterns: 'program1.log'
+			recurse: false
+			use_regex: true
+		register: findstatus		
+		until: findstatus.matched == 1
+		delay: 1
+		retries: 10
+	- name: run program2
+		shell: "sh ~/program2.sh"
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

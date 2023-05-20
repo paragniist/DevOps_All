@@ -1,0 +1,80 @@
+What are the roles and responsibilities of a developer in developing and delivering an software application?
+#1 gather requirements from business/product owner and understand, analyze the requirements to build the software application
+
+#2 choose the programming language that is better suitable for the type of the application we are developing like
+	- java
+	- .NET
+	- php
+	- Python
+	
+#3 Setup the development environment required for developing Software Application
+	3.1 install the programming language software based on what we have choose above
+	3.2 install the development tools like ide, debugging etc
+	3.3 install the database server software like oracle, mysql server, db2 etc	
+	What is a database server software means?
+	It helps us in storing and accessing the data from an permanent storage of the computer easily. The programmer or developer has to write code for talking to database server only so application development becomes easy and quick.
+	3.4 install application server software to run software application on a computer.				
+#4 choose an process model for development and delivery the application
+	4.1 what is a process model?
+	- proven methodology or a step by step procedure that should be followed in developing and delivering a software application successfuly
+	
+	4.2 who will provide process models, where are these coming from?
+	There are experts in software engineering industry who has enormous amount of experience in developing and delivering an s/w application, so they identified and suggested procudures or methodologes or steps to followed which are called process models
+	
+	4.3 how many process models are there?
+	There are many process models are there but few of them are very popular and widely used as listed below.
+	1. waterfall
+	2. spiral
+	3. iterative or incremental
+	4. prototype
+	5. scrum methodology
+	
+What is a waterfall process model?
+It has 5 stages defined in which we need to follow developing s/w application. it is unidirectional model.
+	1. Requirement Gathering and Analysis
+	2. Design
+	3. Implementation
+	4. Testing
+	5. Production and Maintainance
+
+#5 code the software application using the language we have choosen.
+	to do collaborative application development with the team of developers, choose an scm repository
+	(scm: source code management repository), there are various source code management repository s/w are there
+	1. svn
+	2. wincvs
+	3. vss
+	4. git
+#6 build the software application and execute it.
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

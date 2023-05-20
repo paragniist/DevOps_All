@@ -1,0 +1,279 @@
+Ansible Jinja2 Template Engine
+Jinja2 template is a powerful python module used for creating dynamic output from an template file
+
+As part of the programs sometimes we wanted to create configuration files where most of the contents of the configuration file would be static with few values being changed, so if we write the program to generate whole configuration content including the dynamic values we will have lot of challenges
+1. the program becomes bulgier with lots of lines of code, where most the code is written for generating the configuration file, thus making the program difficult to understand
+2. each time we want to change the configuration file we need to modify the programming logic which is error prone
+3. the code written for generating the configuration is not readable and understandable because the configuration content is embeded inside the code and becomes difficult to understand
+
+Instead of writing the program to generate the whole configuration contents as an output, we can create an template file embedded with placeholders or tokens defined for dynamic values, so from the program we can substitute the tokens with dynamic values in generating the final configuration file
+for eg... we want to generate an apache2 site configuration file where most of the contents would be same so we can write an apache2-site.tmpl file in which we can write placeholders or tokens and substitute using the program to generate final file as below
+
+apache2Site.conf.tmpl
+<VirtualHost *:80>
+	ServerName [SERVERNAME]
+	DocumentRoot /var/www/[WEBDIR]
+</VirtualHost>
+
+apache2SiteGen.sh
+#!/bin/bash
+SERVERNAME=$1
+WEBDIR=$2
+sudo cp apache2Site.conf.tmpl /etc/apache2/sites-available/fithealth2.conf
+sudo sed -i 's/[SERVERNAME]/'$SERVERNAME /etc/apache2/sites-available/fithealth2.conf
+sudo sed -i 's/[WEBDIR]/'$WEBDIR /etc/apache2/sites-available/fithealth2.conf
+
+here programmer has to write the logic for substituting the tokens inside the template file while generating the configuration file. In the above example the configuration file we have choosen is simple and easy to generate, but there are few configuration files which seems to be complex to generate out of a template file
+
+for eg.. if we consider the below template file, we can write a shell program to substitute the values for the properties given the properties are fixed or constant in number.
+but if the properties we need to place inside the configuration file are not fixed and decided based on the user inputs, then we cannot write all the properties in the template file rather we need to generate the properties based on their availability.
+
+exchange-server.conf.tmpl
+<server-details>
+	<property name="connection.host">[HOST]</property>
+	<property name="connection.protocol">[PROTOCOL]</property>
+	<property name="connection.ssl">[SSL]</property>
+	<property name="connection.username">[USERNAME]</property>
+	<property name="connection.password">[PASSWORD]</property>
+	<property name="connection.trustedName">[TRUSTED_NM]</property>
+	<property name="connection.version">[VERSION]</property>
+</server-details>
+
+Now we need to write the program in which we need to evaluate the conditions in generating properties, so we are back to original problem. so again we are endup in writing the code for generating the configuration files 
+
+So to help us in quickly creating such configuration files with dynamic content even out of a template file the ansible has provided jinja2 templates.
+	
+Jinja2 template is not part of ansible, rather it is an python module used for templating and substitutions which is integrated into Ansible for generating configuration files
+
+How to work with jinja2 templates?
+#1. write the jinja2 template files embedded with jinja2 engine provided instruction set.
+There are lot of constructs provided by jinja2 engine like
+1.1 placeholders
+1.2 conditional statements
+1.3 loops
+etc
+which can be used for generating dynamic output from an template file
+instead of writing programming logic in generating the template files, we can write the logic inside the template files itself so that our application logic is clean from configuration file generation logic
+
+#2. write the program in computing the data and pass it as an input to the jinja2 template engine along with jinja2 template file asking to generate the configuration file
+
+Now the process of taking the values supplied and identifying the tokens and conditional/loop constructs in the template file executing it and generating the final configuration file lies with jinja2 engine
+
+Ansible has a great integration with jinja2 templates, it has provided an template module as part of ansible distribution which can be used for gneerating the configuration files out of jinja2 template files
+
+while working with ansible we might want to generate configuration files aspart of playbook automation pertaining to different fleet servers this can be done easily using jinja2 templates
+
+index.html.j2
+<html>
+	<head>
+	</head>
+	<body>
+		Hi, {{person}},
+		Welcome to Jinja2 Template engine.
+	</body>
+</html>
+
+---
+- name: jinja2 template
+	hosts: all
+	vars:
+		person: john
+	tasks:
+	- name: generate html
+		template:
+			src: index.html.j2
+			dest: index.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

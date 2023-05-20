@@ -1,0 +1,277 @@
+How to provision the aws cloud resources using terraform?
+To provision the infrastructure resources using terraform we need to write resource declarations in terraform configuration file. There are 2 formats in writing the terraform configuration file
+1. HCL format = Hashicorp language
+2. JSON format = Javascript object notation
+
+There are 2 types of declarations are there
+1. resource declaration
+2. datasource declaration
+
+#1. Resource declaration
+using the Resource declaration we tell the terraform to provision an resource on the cloud platform.
+syntax:
+resource "TYPE" "NAME" {
+	resource configuration
+}
+
+#2. Datasource declaration
+using the datasource declaration we can query the existing resources that are part of the aws account
+-----------------------------------------------------------------------------------------------------------------------
+How to write terraform configuration in provisioning an infrastructure?
+We provision the infrastructure for deploying an application, first in-hand we need to derive what infrastructure resources are required in deploying an application and list them.
+	
+for eg.. for deploying an fithealth2 java application we need
+1. java server 
+2. no need of cluster deployment as the traffic to the application is very less
+
+From the above statements we can derive the infrastructure needed for deploying the application as
+1. vpc network
+2. public subnet
+3. security group
+4. ec2 instance
+
+Now we can write the infrastructure code either within the project or can be written in a separate project. 
+Let us keep the infrastructure code along with the project code as below.
+	
+fithealth2
+|-src
+  |-main
+	  |-java
+		|-resources
+		|-config
+			|-terraform (terraform directory)
+				|-write terraform configuration files
+		|-webapp
+		  |-WEB-INF
+				|-web.xml
+|-pom.xml				
+
+The Terraform configuration files are written with an extension as ".tf" only. The preffered name with which we need to write the terraform configuration file is "main.tf", but we can write the file with anyname there is no mandatory rule in writing the filename
+
+We can declare all the resource declarations in one single terraform configuration file "main.tf" or we can modularize the resource declarations by distributing them into multiple terraform configuration files as well.
+for eg.. we can create
+vpc.tf
+subnet.tf
+ec2.tf
+securitygroup.tf
+per resource one configuration file or we can declare all of these resources in main.tf
+
+if we modularize the resource declarations into multiple terraform files, the identifying the resources and their dependencies becomes bit difficult as those are scattered across the files
+
+For one project, the relevant terraform configuration should be kept under one-single directory which is called terraform project directory. So when we execute the terraform asking to create infrastructure, it combines all the terraform configuration files together into a single configuration file by merging and applies 
+
+In addition to the resource declarations we need to define provider plugin configuration and credentails to let the terraform identify the cloud provider and account on which these resources should be created.
+
+~/.aws/credentails
+[default]
+aws_access_key = 
+aws_secret_access_key=
+	
+	
+d:\work\terraform:/>
+fithealth:/>
+|-main.tf
+
+main.tf
+-------
+terraform {
+	required_providers {
+		aws = {
+			source = "hashicorp/aws"
+		}
+	}
+}
+provider "aws" {
+	region = "ap-south-1"
+	profile = "default"
+}
+resource "aws_vpc" "fithealth2vpc" {
+	cidr_block = "10.0.0.0/16"
+	tags = {
+		Name = "fithealth2vpc"
+	}
+}
+resource "aws_subnet" "fithealth2subnet" {
+	cidr_block = "10.0.1.0/24"
+	vpc_id = aws_vpc.fithealth2vpc.id
+	tags = {
+		Name = "fithealth2subnet"
+	}
+}
+resource "aws_security_group" "fithealthec2sg" {
+	vpc_id = aws_vpc.fithealth2vpc.id
+	ingress {
+		from_port = 22
+		to_port = 22
+		protocol = "ssh"
+		cidr_blocks = ["10.0.0.0/16"]
+		
+	}
+	egress {
+		from_port = 0
+		to_port = 0
+		protocol = -1
+		cidr_blocks = ["0.0.0.0/0"]
+	}
+}
+resource "aws_key_pair" "fithealth2kp" {
+	key_nm = "jkp"
+	public_key = ""
+}
+resource "aws_instance" "fithealth2ec2" {
+	subnet_id = aws_subnet.fithealth2subnet.id
+	vpc_security_group_ids = ["aws_security_group.fithealthec2sg.id"]
+	instance_type = "t2.micro"
+	ami = "ami-39838"
+	key_name = aws_key_pair.fithealth2kp.key_nm
+}
+
+How to run the terraform configuration?
+1. goto the project directory where we have written the terraform configuration files (inshort terraform project directory)	
+2. terraform init
+when we run terraform init, the terraform CLI will gathers all the .tf files places in the terraform project directory and merges them into one single configuration file (in-memory) and validates the configuration.
+if the configuration produced is not valid, it returns error indicating it. if the terraform configuration file is valid, immediately it downloads the terrform provider plugin and stores under the project directory by creating another directory called ".terraform"
+	
+From this we can understand, per each project we need to run atleast once the terraform init to validate and download the provider plugin
+3. terraform plan
+terraform plan is a dry run by which we can easily identify the terraform configuration upon executing produces what infrastructure on the cloud account.
+when we run terraform plan, it connects to the cloud account and queries the existing resources of our account and compares with the terraform configuration we passed to identify the delta from which it derives
+1. how many resources should be provisioned newly
+2. how many resources should be deprovisioned
+3. how many should be modified
+and provides an summary of resources being created upon applying configuration to the user
+
+now user can see is this configuration is producing the expected infrastructure or not before applying and proceed for apply
+
+4. terraform apply
+executes the terraform configuration on cloud provider and displays the results
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

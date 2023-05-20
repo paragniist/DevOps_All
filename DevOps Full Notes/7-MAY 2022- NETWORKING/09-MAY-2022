@@ -1,0 +1,38 @@
+OSI Model Layer has 7 layers as part of it
+1. Application Layer
+2. Presentation Layer
+3. Session Layer
+4. Transport Layer
+5. Network Layer
+6. DataLink Layer
+7. Physical Layer
+
+1. Application Layer
+Any two applications inorder to exchange the data over the network has to define their own set of rules or messaging standards they should agreed upon in exchanging the data.
+The server application defines the message structure and semantics in exchanging the data with client. The client application has to adhere/follow the rules laid by the server in communicating with the server application.
+
+application protocols
+http
+smtp, pop3, imap
+ftp
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

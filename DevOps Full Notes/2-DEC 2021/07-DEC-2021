@@ -1,0 +1,91 @@
+What is the role of quality assurance engineer in developing and deliverying an software application?
+The quality assurance engineer has to verify whether the application is working as per the requirement provided by the product/business owner or not. in order to verify the quality assurance engineer has to run/execute the application, pass the input data and verify whether the application is producing the desired results / correct output or not.
+	
+To run/execute the software application and verify he/she requires an qa environment, and on top of it we need to install required s/w and tools for running the application to test.
+	
+How does the quality assurance engineer knows which tools or softwares has to be installed on the computer/machine to run the application?
+Since the developer has developed the application, he knows which tools or s/w are required for running the application	so he has to provide the information to the qa engineer by writing document describing the details.
+	
+QA dont know the details of how to install/configure the s/w on the qa environment, so the ops engineers has to help in the qa in providing
+- infrastructure
+install
+- softwares 
+- tools
+facilitating the qa to run the application.
+	
+Once the qa environment has been setup with all the things required, then qa has to pull the code from source code management repository and follow instructions provided by developer in executing the program using build instruction file.
+	
+#2. 
+qa has to prepare test plans and testcases for testing the application
+during the time the developers are developing the application, qa can understand the requirements and based on which they can start writing testcases and prepare test plan 
+
+#3. execute the software application and verify each testcase they prepared and capture the outcome, verify the test conducted is passed /failed and record all the test results. in addition report all the failures to the developers asking them fix.
+
+The whole process has to be continued incycle until we reach to zero bugs.
+	
+What is the role of ops engineers in developing and delivering the software application?
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

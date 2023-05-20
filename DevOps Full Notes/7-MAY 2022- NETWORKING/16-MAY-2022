@@ -1,0 +1,125 @@
+There are 7 layers are there in osi model layer protocol
+1. Application layer
+defines message structure and semantics using which 2 different applications are going to communicate
+	There are internet standard has defined application protocols for most popularly used applications on the internet
+	1. HTTP
+	2. SMTP/POP3/IMAP
+	3. FTP
+	4. RDP
+	5. SSH
+
+2. Presentation layer
+it presents the data in an transmittable format to the lower-level layers of the OSI
+1. Data Conversion
+2. Compression/UnCompression
+3. Encryption/Decryption
+
+3. Session layer
+is responsible for exchange of data between end-end applications
+1. authentication and authorization
+2. session management
+		- keeping track of the packets to be transferred
+		- reordering the packets to re-construct the message at the receiver side
+		
+4. Transport layer
+1. segmentation
+	- break the data into packets add receiver portno and seqno to it which are called "data segments"
+2. flow control
+	- instructs the sender to slow down when the reciever is running on low-speed network
+3. error control
+	- add checksum bits to the packets to detect the corrupted data at the receiver
+	
+5. Network layer
+is responsible for transferring the data between the computers which are located across the network
+1. logical addressing
+	- to the data segment append source/destination computer ip addresses which is called "ip packet" or "data packet"
+2. routing
+	- identifying the right network to which the packet has to be routed
+3. path determination
+	- computing the shortest-path in which the data packet can be sent from source to destination
+
+6. Datalink layer
+transferring the data between the computers within the network
+1. physical address
+	- adds the source/destination mac addrress to the ip packet it received from network layer with additional random bits appended to the head/tail of the packet which is called "data frames"
+2. media access control
+	- convert the data into a signal format that can be transmittable over the network channel
+3. error control
+	There are 2 types of error control mechanisms it performs
+	1. collision detection = to avoid any 2 computers data packets to collide each other
+	2. fault detection = due to hardware faiures the packets might recieved in corrupted state, so to detect these packets the head/tail bits added are used
+7. Physical layer
+responsible for transferring the data over the physical channel of communication
+--------------------------------------------------------------------------------------------
+Network topologies
+Topologies means the way the computers are inter-connected with each other 
+
+There are 2 types of topologies are there
+1. Logical Topology = refers to the way the messages are moved between the computers within the network
+
+2. Physical Topology = Indicates how the computers are physically arranged and interconnected with each other
+There are 5 topologies in which computers can be inter-connected with each other
+1. Bus topology
+2. Ring topology
+3. Star topology
+4. Mesh topology
+5. Hybrid topology
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

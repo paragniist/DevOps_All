@@ -1,0 +1,256 @@
+Cloud computing
+Cloud computing is on demand delivery of computing resources to the people or organizations around the world.
+	
+Upon building an software	application to offer business services over online to the world, to make the application accessible we need to host the application.
+	
+What is hosting?
+Hosting an process that involves several activities like
+1. procuring infrastructure resources
+2. hardware/networking
+3. installing & configuration the environments
+to run the application and make it accessible to the public world
+
+
+There are several ways we can host an application
+1. In-housing hosting
+An organization/individual byitself will setup all the necessary aspects in hosting an application to the public world which might involve:
+1. procuring infrastructure (office/building spaces etc)
+2. hardware resources
+3. networking devices
+4. high-speed internet lines
+5. 24/7 power backup
+6. aircooled environments 
+7. main power (administrators, network engineers, deployers, support engineers)
+in ensuring the application is deployed, maintained & monitored for its availability
+So that the business organization can offer business services to the public world over the online through this application
+
+In-house hosting has lot of dis-advantages:-
+1. huge investment cost in setting up the infrastructure/hardware/network devices
+2. huge amount of time is required setting up the infra/configuring the systems to host the applications
+3. experise resources are required to ensure the systems are not compromised
+4. huge maintainance cost involved in maintaining the infra & man-power resources
+
+From the above we can understand In-house hosting is not suitable for small-scale business vendors as investment and maintainance cost involved in hosting the applications is more than the amount of profits they derive from the business
+
+It is more suitable to enterprise business vendors especially backing and financial organizations where data/information security is highly required
+
+alternate to the above the shared hosting provides comes into picture
+
+#2. Hosting Providers
+The shared hosting providers procure large scale resources like 
+1. infra
+2. computing resources (hardware resources)
+3. networking devices
+4. manpower resources 
+etc
+required for hosting the applications and provide these to the clients/organizations who want to host their applications
+since the hardware resources are server-grade systems, an application will not fully utilize the computing capacity of the machine, so that same hardware resources are shared across multiple clients in enabling them to host their applications in parallel the same environment.
+	
+There are lot of advantages are there with hosting providers and hosting the applications using shared hosting services:
+1. Zero cost investment in procuring the infra/hardware resources to host an application
+2. no-wait or very less wait time since these enviroments are pre-configured/presetup by the hosting provider, we can request an hosting space for hosting our application
+3. these environments are pre-installed and configured with basic operation system & software utilities, no need to procure the software licenses and no need to install/configure them to host our application
+4. since the resources/manpower is shared across the people who are using the shared services, the cost of hosting an applicatin will be quite less
+
+
+From the above, we can understand the hosting providers are ideally suitable for small business vendors where they can start providing online services of their business with zero-investment and less maintainance cost
+
+but it is not suitable for moderate/enterprise large organizations since these are shared hosting services which are limited by
+1. computing capacity 
+2. no customizations or installations are allowed on the machines, since it is an shared environment
+3. no control over the environments
+4. data privacy and security is a big concern
+
+#3. Data Centers
+The Data Centers are the enterprise organizations who provides computing services to the moderate or large enterprise organizations. These people procure large scale resources like server-grade computers, high-end network devices, dedicated internet connections host and managed the infrastructure by their own. The data centers are responsible for managing these infrastructure and availability of them
+
+They offer dedicated computing resources to the enterprise organizations rather than shared hosting services. Now the enterprise has complete control over the infrastructure they procured from data centers
+1. install / configure operating system or software packages
+2. control over patching & upgradations
+3. restarts etc
+and has complete security and data privacy since these are dedicated environments.
+	
+These datacenters has their own dis-advantages as well
+1. cost of these hardware / computing resources are very high
+2. there is no flexibility of choosing the hardware resources by our own. the datacenter offers pre-packaged / pre-built share of these resources from which we need to choose, so we endup in paying more than what we need most of the time because of lack of flexibility
+3. the computer resources are procured based on fixed duration of time like 1 year, so even we dont use it still we need to pay
+4. if we need more computing resources, we can ask the data center to provide, but there is not guarantee they provide the additional resources requested
+5. most of the time the client has to anticipate the requirement and has to pre-procure and reserve the resources for future usage
+6. These data centers provides only computing resources, the client/organization has to procure software license and install/setup these hardware from scratch
+7. The time required for setting up the env in running the applications is very high, so we need to pay for this duration even though we dont use it for business
+
+To overcome the above problems in hosting & managing software applications, the cloud providers are introduced. The cloud providers offers 3 types of cloud services to the world
+1. IAAS = Infrastructure as a a service
+2. PAAS = Platform as a service
+3. SAAS = Software as a service
+
+
+1. IaaS = Infrastructure as a service
+All the computing resources like computer machine, network device, leased internet lines required for hosting the software applications are provided by the cloud provider itself.
+There are several advantages of using IaaS from cloud provider
+1. The shape of the machines are flexible enough and most of the time the client itself can choose what capacity of the machines they want for hosting their application. which is a bigger advantage, since I dont have to pay for something I dont use it
+2. The cloud providers offers these resources intantaneously within couple of minutes most of the time, we dont have to wait for having the resources for hosting our application
+3. There are no upfront commits or time reservations in using the resources. we can procure the infrastructure and use for couple of hours and release them and would pay for how much time we have used
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

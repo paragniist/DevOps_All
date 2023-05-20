@@ -1,0 +1,177 @@
+How does the data is stored on the storage device of our computer?
+The character or symbolic representation will be converted into decimal representation, there after will be converted into binary format and will be stored on the hdd of the computer.
+	
+How do we know which symbol has to be encoded with which decimal number?
+That is where to standardize the symbol/character to a decimal number in storing the data the character-set encoding standards are introduced.
+There are several char-set encoding standards are there like
+1. ASCII
+2. utf-8
+3. unicode
+4. utf-16
+5. utf-32 
+
+ASCII stands for american standard code for information interchange, the ascii defined symbol chart for the characters of english language, numbers and few special characters.
+The ascii has defined decimal values for total 127 characters/symbols which requires 7 binary bits for representing 127 decimal number and 8bit is used for indicating the signed integer as positive/negative number
+So to store the characters based on ascii values we need at max = 8 bits
+depends on the decimal value of the character the no of bits required for storing could vary from min = 2 bits to max = 8 bits. but while storing the data in HDD we need to store all the characters of 8bit length only to identify the characters and read it properly
+
+password = Ok!
+	
+O = 79	= 11001111
+k = 107 = 11101011
+! = 33  = 10100001
+
+let us store the above bits on to hdd
+10011111101011100001
+	
+Now for reading 1st character how many bits i need to retrieve from the hdd
+110011111110101110100001
+-----------------------------------------------------------------------------------------------
+ascii supports only english characters to support other languages there are other char-set standards are introduced
+unicode, utf-8, utf-32 etc
+To support more languages we need more decimal numbers -> which requires more bits of memory
+For eg..
+utf-32 requires 32 bits of memory for storing the each character  (max bits = 32) as it supports multiple langauges lets say english, hindi, telugu, chinese, japanese etc
+
+can we use utf-32, yes given if you want all the language characters to be stored. but let us say we want to store only english language, then can choose utf-32?
+dont use utf-32 because its going to waste the memory by storing every character 32 bits instead use optimal char-set that fits your language symbols like ascii
+that is the reason there are several char-set standards are there
+-----------------------------------------------------------------------------------------------
+From the above we can understand the characters or data is stored in binary format by storing either 0/1 in each memory unit/location of the harddisk
+
+we have several different information we want to store on the hdd of the computer, if we convert all the data into bits representation and scatter through the harddisk how do we know which bits are related to what data, and how can we access those bits
+
+That is where each memory location is identified by address which is assigned sequencial from 0 - n depends on the memory units/(size) of the harddisk
+
+let us say we are storing 2 different information
+#1 employeeno
+empc19 = convert each character into decimal -> decimal to binary and store binary bits on hdd
+#2 departments
+civil
+
+now when we store the employee no and department name by converting into binary format on th harddisk, how do we know where at which location on the harddisk the employee no data has been stored and where at which bits on hdd, the department name has been stored and how to identify which bits are related to what data?
+	
+So inorder to keep track of the memory bits of data related together and access it easy we need to store address locations of the data where is it stored on the harddisk,
+
+we cannot memorize the address locations of the memory bits, where our data is actually stored on the harddisk to access it back. so operating system itself will store the data into memory locations and stores the address of those memory locations where our data is stored in a data structure called "File"
+	
+File = File is an logical memory partition/data structure in which we keep the address locations of the memory where our actual data has been stored on the hdd of the computer. A file has additional attributes attached like
+FileName, created date, size, owner etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

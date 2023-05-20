@@ -1,0 +1,79 @@
+What are classloaders, what is the purpose of them?
+Classloaders are another java classes that are responsible for loading the bytecode of the java class into the jvm memory.
+	
+There are 3 built-in classloaders provided by the java platform as part of core jdk distribution
+1. bootstrap classloader
+2. extension classloader
+3. system/application classloader
+These classloaders work together in an hierarchial manner where one acts as parent for another class.
+#1. bootstrap classloader
+it is the native classloader written in languages like C and compiled to run on a specific platform. it loads all the core jdk classes that are shipped as part of $java_home\lib\rt.jar into jvm memory
+
+#2. extension classloader
+it is an immediate decendent or child of bootstrap classloader and loads the classes containing in jar files only as its core purpose is to extend the jdk capabilities by loading external libraries (where external libraries are shipped as jars).
+	
+it loads the classes from 2 different locations
+1. all the classes within the jar files that are placed under $java_home\lib\ext directory
+2. the java.ext.dirs system property pointed directory location container jar classes will be loaded by extension classloader
+
+-----------------------------------------------------------------------------------------------
+What is a system property?
+System properties are jvm level variables that can be passed as an input to the jvm so that all the applications running within the jvm can access those variables/values. 
+	
+jvm during the time of launching an application will extracts all the information pertaining to the environment on which it is running the application and populates into system properties to make this information accessible to the applications who are running inside jvm. So applications can quickly access the information related to env through system properties
+
+How to pass the system properties from command-line?
+java -Dkey=value fqnClassName
+
+How to read a system property within java program?
+System.getProperty("key");
+Properties props = System.getProperties();
+
+How to set System properties at runtime?
+System.setProperty("key", "value");
+----------------------------------------------------------------------------------------------
+The extension classloader loads the classes from 2 different locations
+1. $java_home\lib\ext directory container jar classes
+2. java.ext.dirs system property pointed directory location jar classes will be loaded
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

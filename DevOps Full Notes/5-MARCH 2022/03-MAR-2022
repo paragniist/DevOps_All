@@ -1,0 +1,157 @@
+How many levels at which we assign permissions to a file/folder in Linux?
+There 3 categories into which the permissions can be assigned to a File/Folder
+1. owner = The user who has created the file/folder becomes the owner
+2. group = The primary group of the user who created the file/folder becomes group for that file/folder
+3. others = any other linux users who are not an owner or not part of the group becomes others
+
+There are 3 types of permissions we can assign to a File/Folder
+File
+1. READ    (r) = can cat the contents of the file
+2. WRITE   (w) = can edit/modify the contents of the file
+3. EXECUTE (x) = applicable to only program files, and given an execute permission we can run the program
+
+Folder
+1. READ    (r) = can list the contents of the directory but cannot change into the directory (cd)
+2. WRITE   (w) = can add/delete/copy/move the files/folders inside the directory
+3. EXECUTE (x) = can cd into the directory
+
+By default when a user created a file/folder in linux operating system, the operating system itself will assign default permissions to a file/folder
+
+#1. How to see the permissions assigned to a File/Folder?
+ls -l
+ls -l = displays long list of files/folders in a given directory along with permissions defined for those files/folders
+
+#1 #2     #3  #4     #5      #6   #7          #8
+drwxrwxr-x 2 sriman sriman  4096 Jan 28 22:23 archives
+drwxrwxr-x 2 sriman sriman  4096 Feb  2 22:04 cmp
+drwxrwxr-x 3 sriman sriman  4096 Jan 26 22:42 coffeeshop
+drwxrwxr-x 3 sriman sriman  4096 Feb 14 22:15 compression
+drwxrwxr-x 2 sriman sriman  4096 Feb 23 22:01 d1
+
+#1 character indicates type of the File
+d = directory
+- = regular file
+l = link file
+b = block special file
+c = character special
+p = pipe files
+s = socket file
+
+#2 The next 9 characters defines the permissions assigned to that file/folder
+1. The 3 characters defines the permissions assigned to the owner
+2. The next 3 Characters for group
+3. last 3 characters for others
+r = read, w = write x = execute - = no permission
+
+#3 number indicates how many hardlinks are there for that file/folder
+#4 owner = user who created the file 
+#5 group = group to which file is associated with
+#6 size = size of the file or folder
+#7 last accessed date
+#8 file/folder name
+----------------------------------------------------------------------------------------------------
+How to grant access to a specific group of users of the operating system on File/Folder?
+Many of the times we create linux users with primary group as username group only, in such case the access permission for the file/folder will exists only for that user since he is the only user who exists in the username group.
+	
+if we want to grant access permissions on a File/Folder to other users of the linux:
+#1. create a group (if in case we dont have an group with users you want to share with)
+#2. change the group association for that file to the newly/existing group
+
+so that the file will be shared to group of users along with owner
+
+
+#1 we have user bob who belongs to primary group as "bob" only
+/home/bob$ touch machines.txt
+
+ls -l machines.txt
+-rw-rw-r--  bob  bob  
+
+#2 if we want to share the file to other specific set of users in linux operating system, first create a group
+sudo groupadd devopsgroup
+
+#3 add the specific set of users to the devopsgroup
+sudo usermod -aG joe devopsgroup
+sudo usermod -aG tom devopsgroup
+
+#4 Now change the owner/group to which the file belongs to using chown
+chown = stands for change ownership of the file / folder
+
+sudo chown user:group file/folder = change the file/folder to a specific owner and group
+sudo chown bob:devopsgroup machines.txt
+if we want to modify the owner/group of all the files in a directory we can use -R recursively switch
+sudo chown -R owner:group folder = change owner/group for all the files/directory recursively including the specified directory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

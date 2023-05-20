@@ -1,0 +1,59 @@
+What is an programming language, what is the purpose of it?
+Programming languages provides programmatic constructs or instructions using which the developer has to write programs, which can be executed for producing the desired output.
+
+There are 3 types of languages are there
+1. Machine-level language
+	- machine/hardware depenedent
+	- complex to program and tough to understand and debug
+	
+2. Low-level programming language
+	- even though these are portable across the hardwares, the programs are not portable across the operating system platform
+	- syntaxes are quite complex and not flexible for the developers to program
+	- complex to learn and take more learning time
+	
+3. High-level programming language
+The High-level programming languages provides their own instruction set in programming the applications.
+	1. The instructionset provided by the High-level programming languages are english like languages which are easy to read and program the application.
+	2. The syntax in writing the programs using these languages are developer friendly
+	3. since the programming instructions are not operating system executable, we need to translate the source code of the program into operating system executable using compilers. So the same program can be executed on any operating system platform by compiling onto various different operating systems
+	so the programs are platform independent.
+	
+The goal of high-level programming languages are "write once, run anywhere"
+write the program once, and run it on any hardware platform and operating system.
+
+There are problems with high-level programming languages:
+1. even though the programs can be written once and executed on any platform, it is the responsibility of the program to ensure the source code he has written is portable across the operating system platforms.
+	if he write operating system specific instructions in the source code, then it will not be portable across the operating system platforms.
+2. The time required for certifying the application to ensure it works across all the operating system platforms is high
+3. The cost required in certifying the applications works across all the operating system platforms is very high
+4. We need to maintain multiple platform executable codes and distribute to the customers of those platforms
+
+#4 generation languages
+To overcome the above problems the
+Platform independent high-level programming languages are introduced
+- java
+- .net
+- python
+- scala
+- ruby
+etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		

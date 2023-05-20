@@ -1,0 +1,186 @@
+What is a FileSystem?
+---------------------
+FileSystem is a technic or a methodology through which we can organize and store the data on a permanent storage device of a computer, so that we can quickly access the data from the storage device.
+	
+The operating system uses a File System technic in order to store and organize the data on the storage device of our computer.
+Whenever we want to store the data on the permanent storage device of the computer, pass the data an input to operating system of our computer, the operating system takes care of storing the data on the underlying storage device by using File System technic.
+	
+From the above we can under every operating system uses File System technic for storing/retrieving the data on the storage device. Different operating systems has different File System technics in persisting the data on the storage device
+For eg..
+	
+In windows operating system there are 2 popular FileSystem technics are there
+1. FAT32 = File allocation Table 32 (older filesystem technic)
+In FAT32 there is a limitation on the no of characters in a FileName along with we cannot create a File of big size 
+2. NTFS = New Technology File System 
+it is an modern File System technic introdued by microsoft in managing the persistence on storage device which supports Filenames of huge size and Files of huge size
+
+During the time of installing the operating system, The operating system prompts us to format the harddisk and choose FileSystem to be used for managing the storage, by which operating system will initialize the harddisk memory by creating appropriate datastructures based on the FileSystem we choosen for storing the data
+
+Similar to windows filesystem technics, the Linux operating also has defined their own FileSystem methodologies or technics in organizing the data on the storage device.
+Linux FileSystem technics are:
+1. Ext     = old one and no longer being used due to limitations
+2. Ext2    = allows storing the data upto 2 terabytes 
+3. Ext3    = came from Ext2 which supports managing larger storage capacity, it is not used in 							server systems, because it doesnt support data recovery and snapshots incase of 							 crash
+4. Ext4    = fast and allows large files with significant speed. it is default filesystems for 							all the linux distro
+5. JFS     = old file system made by IBM. but if failed and files are corrupted after long 								 usage
+(Journaled File System)
+
+6. XFS     = old file system works slowly for small files
+(Extents File System)
+7. Btrfs   = made by Oracle, it not stable as Ext in some distros.
+(B-Tree File System)
+-----------------------------------------------------------------------------------------------
+All the Linux Filesystems stores and manages the data in Hierarchial model, so these are called Hierarchial FileSystem technics.
+	
+Hierarchial representation means?
+Anything that is expressed interms of parent/child relationship is called hierarchial model, where always the hierarchical representations will start with one root node at the top and can have any number of childrens under it.	
+A parent can have any number children, but a child can have only one parent. and this model exbhits an upward-down tree representation
+
+We store the data on Files, if we start keeping all the Files linearly on the storage device, identifying and accessing the Files becomes very difficult. So to manage or organize the Files into groups to quickly access them Hierarchial FileSystem technic will help you
+
+We group related set of files into Folder/directory
+What is directory/Folder?
+Directory/File is a special type of File only in which it holds the File block address of all the other files to quickly access.
+	
+Linux FileSystems always starts with a root and contains several folders/directories inside which Files are placed, so it is called hierarchial.	
+-----------------------------------------------------------------------------------------------Linux FileSystem directories:
+Linux operating system to work requires several program files, configuration files and data files to be stored on the harddisk of the computer, so that during the bootup operating system will be loaded from harddisk of computer itself
+
+The linux operating organizes the files of it by keeping them into several directories to organize and distinguish them easily. The directories into which operating system files are organized is called Linux FileSystem directories
+
+Always the Linux Filesystem starts with root ("/"), for each linux distro more or less the directories would same.
+/
+|-bin   = linux core commands are placed in bin directory
+|-boot  = all the boot loader and boot files are located here
+|-dev   = each hardware device is also an File on linux operating system and their device 							information is placed under dev folder as files
+|-etc   = configuration files of installed software packages
+|-home  = 
+|-lib   = libraries of the installed packages are placed here
+|-media 
+|-mnt
+|-opt
+|-proc
+|-root
+|-sbin
+|-tmp
+|-usr
+|-var
+
+	
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

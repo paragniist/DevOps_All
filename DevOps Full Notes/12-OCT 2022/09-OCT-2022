@@ -1,0 +1,19 @@
+How to create a hybrid subnet within a vpc?
+In an hybrid subnet, only the outbound network traffic to the external or public network is allowed, but an inbound network traffic from external/public network towards the subnet resources is not allowed, is called an Hybrid Subnet
+
+To create an Hybrid subnet we need to use an NAT gateway. NAT Gateway is an special type of network device that allows only outbound network traffic from the subnet resources, but will not permit in-bound traffic towards the resources
+
+5. Security Groups
+security group is an firewall that is enabled at the resource level, controlling or enforcing the traffic rules on an individual resource of an vpc
+
+we define security group at the vpc level and attach to individual resources while creating the resources.
+A security group will be created by defining 2 rules
+1. inbound = inbound rules states how the external network resources can connect to the resource
+
+2. outbound = how can the resource can communicate with external resources
+by default the outbound rule will allow full access to the external resources
+
+
+
+
+	

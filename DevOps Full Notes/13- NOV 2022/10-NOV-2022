@@ -1,0 +1,277 @@
+Terraform Modules
+-----------------
+What are terraform modules, why do we need to use terraform modules?
+Terraform modules are the group of resources that can be imported in various terraform configurations in creating the infrastructure. Modules are the way through which we can reuse the terraform resource declarations or configurations across the projects
+
+We can create modules of our own locally and can be reused across various projects we build or there are lot of published modules available in the market which can be imported and reused in building the infrastructure
+
+The terraform configuration and the resource declarations we have written remains same, but the way we are writing or organizing them will change when working with modules
+
+How to work with modules?
+while working with modules we need to organize the directory structure of our project in differentiating modules from main terraform configuration. Each resource/group of resources that can be reused should be defined as one module
+
+tomcatec2
+|-modules
+  |-services
+		|-network
+			|-vpc
+				|-variables.tf
+				|-main.tf
+				|-outputs.tf
+			|-subnet
+				|-variables.tf
+				|-main.tf
+				|-outputs.tf
+			|-ig
+				|-variables.tf
+				|-main.tf
+				|-outputs.tf
+			|-securitygroup
+				|-variables.tf
+				|-main.tf
+				|-outputs.tf				
+		|-compute
+			|-ec2
+				|-variables.tf
+				|-main.tf
+				|-outputs.tf
+|-global [terraform configuration]
+	|-main.tf
+	|-inputs.tfvars
+	|-variables.tf
+	|-outputs.tf
+	
+tomcatec2/modules/services/network/vpc
+variables.tf
+------------
+variable "vpcconfig" {
+	type = object({
+		vpc_cidr = string
+		vpc_name = string
+	})
+}
+
+main.tf
+-------
+resource "aws_vpc" "vpc" {
+	cidr_block = var.vpcconfig.vpc_cidr
+	tags = {
+		"Name" = var.vpcconfig.vpc_name
+	}
+}
+
+outputs.tf
+----------
+output "vpc_id" {
+	value = aws_vpc.vpc.vpc_id
+}
+-------------------------------------------------------------
+tomcatec2/modules/services/network/subnet
+variables.tf
+------------
+variable subnetconfig {
+	type = object({
+		subnet_cidr = string
+		vpc_id = string
+		subnet_name = string
+		availability_zone = string
+	})
+}
+
+main.tf
+-------
+resource "aws_subnet" "subnet" {
+	vpc_id = var.subnetconfig.vpc_id
+	cidr_block = var.subnetconfig.subnet_cidr
+	availability_zone = var.subnetconfig.availability_zone
+	tags = {
+		"Name" = var.subnetconfig.subnet_name
+	}	
+}
+
+outputs.tf
+----------
+output "subnet_id" {
+	value = aws_subnet.subnet.id
+}
+-------------------------------------------------------------------------
+tomcatec2/modules/services/network/ig
+variables.tf
+------------
+variable "igconfig" {
+	type = object({
+		vpc_id = string
+		vpc_subnet_ids = list(string)
+		route_cidr = string
+		ig_name = string
+	})
+}
+
+main.tf
+-------
+resource "aws_internet_gateway" "ig" {
+	vpc_id = var.igconfig.vpc_id
+	tags {
+		"Name" = var.igconfig.ig_name
+	}
+}
+
+resource "aws_route_table" "igrt" {
+	vpc_id = var.igconfig.vpc_id
+	route {
+		cidr_block = var.igconfig.route_cidr
+		gateway_id = aws_internet_gateway.ig.id
+	}
+}
+resource "aws_route_table_associate" "igrtassociation" {
+	route_table_id = aws_route_table.igrt.id
+	subnet_ids = var.igconfig.vpc_subnet_ids
+}
+--------------------------------------------------------------------------
+tomcatec2/global
+variables.tf
+variable "vpc_cidr" {
+	type = string
+}
+variable "vpc_name" {
+	type = string
+}
+
+main.tf
+-------
+terraform {
+	required_providers {
+		aws = {
+			source = "hashicorp/aws"
+		}
+	}
+}
+provider "aws" {
+	region = "ap-south-1"
+	profile = "default"
+}
+
+module "tomcatec2_vpc_module" {
+	source = "../modules/services/network/vpc"
+	vpcconfig.vpc_cidr = var.vpc_cidr
+	vpcconfig.vpc_name = var.vpc_name
+}
+
+module "tomcatec2_pub_sn1" {
+	source = "../modules/services/network/subnet"
+	subnetconfig.vpc_id = tomcatec2_vpc_module.vpc_id
+	subnetconfig.subnet_cidr = var.subnet_cidr
+	subnetconfig.subnet_name = var.subnet_name
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

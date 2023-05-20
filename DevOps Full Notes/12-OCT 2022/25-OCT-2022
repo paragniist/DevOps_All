@@ -1,0 +1,72 @@
+Terraform
+----------
+upon building an application to deploy and make the application available to the public world we need to host it, which requires infrastructure. 
+There are 2 ways we can get the infrastructure
+1. virtualization
+2. cloud platforms
+
+It is preferred to create infrastructure on the cloud platform over virtualization as there are many benefits of using cloud services.
+
+There are many cloud providers are there like AWS, Microsoft Azure, GCP, Oracle Cloud Infrastructure etc and they offer different services for hosting our application.
+So to deploy our application we need to provision the required infrastructure on these cloud platforms. How to provision the infrastructure on these cloud platforms?
+
+Each cloud providers provides an cloud console web applications using which we can login and access our cloud account services. The cloud developers can use the cloud services and can provision the resources on that platform. they need to fill the webforms with the data, navigate through the links in creating the resources for deploying the application.
+
+Manually browsing the services & filling out the forms in creating the cloud resources is going to take lot of time and has many dis-advantages:
+1. it takes too much time in provisioning the resources required for deploying the application
+2. as it is an manual process, humans errors can creep up in creating the infrastructure 
+3. we need to recreate the same infrastructure across various different environments which is a repeatitive process and might take too much time and lead to errors as discussed above
+
+Instead of using cloud consoles for creating the infrastructure manually, every cloud provider offers api/sdks for managing the infrastructure
+For helping us in automating the cloud infrastructure management each cloud provider provides api or sdks 
+1. api 
+http endpoints which are inter-operable, irrespective of platform or language we can implement our programs to invoke the apis provided by the cloud vendor to create the infrastructure
+
+2. sdks
+each cloud provider provides language libraries written in specific programming language, these libraries can be used in our programs in creating the infrastructure
+
+so that we can eliminate the manual process of creating the infrastructure, each time to provision the infrastructure we just need to run the programs we wrote which eliminates all the problems we discussed earlier
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

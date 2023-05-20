@@ -1,0 +1,68 @@
+NACL rules
+----------
+NACL stands for network access control list rules, it is an firewall setup at the subnet level. It helps us in enforcing traffic rules global to all the resources at the subnet level.
+	
+There are 2 differences between NACL and Security Groups
+1. NACL is at the subnet level, but security groups is at the resource level
+2. NACL Rules are stateless, whereas security group are statefull
+----------------------------------------------------------------------------
+#2. compute domain
+------------------
+all the computing resources required in running the applications are placed at compute domain. There are 5 different services are available under compute domain
+1. ec2
+2. load balancer
+3. auto-scaling group
+4. elastic beanstalk
+5. lambda
+
+we are going to learn 2 of the services
+1. ec2
+2. loadbalancer (application loadbalancer)
+	
+1. ec2 (elastic cloud compute)
+ec2 is an bare metal machine provisioned by the aws with an operating system provided as part of iaas layer.
+aws cloud infrastructure takes care of lifecycle operations on the ec2 instance like
+1.provisioning
+2. deprovisioning
+3. scaleup/scaledown
+4. scaleout/scalein
+5. back/restore
+6. start/stop/restart etc
+
+so that we can take care of installing and running the software applications on the ec2 instance
+
+How to provision an ec2 instance?
+1. during the provisioning of an ec2 instance we need to choose the below options
+1.1 name
+1.2 choose the AMI (Amazon Machine Image) (operating system platform)
+1.3 Instance Shape (t2.micro)
+1.4 keypair (ssh keypair)
+1.5 networking
+		-> vpc
+		-> subnet
+		-> sg
+    -> assign public ip
+1.6 storage
+1.7 launch
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

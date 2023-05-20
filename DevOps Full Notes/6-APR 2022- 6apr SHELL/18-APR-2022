@@ -1,0 +1,137 @@
+There are 2 types of conditional control statements are there
+1. if statement
+2. case statement
+
+#2. case statement
+case is also another conditional control statement like if. based on the condition we want to execute a line/bunch of lines of code.
+	
+case statement and if statement are both used as conditional control statements then, what is the difference between them?
+#if statement has to used
+if we want to execute an conditional expression over a range of values to determine the truthness, then use if statement
+whereas, the case statement has to be used for matching one of the possibles outcomes of an input only, it can work with range conditions.
+	
+In-Short:- The outcome of expression we passed as an input to the case will be matched with one of the possible outcomes to execute the block of code
+
+looks like from the above we can understand if statement is more powerful/flexible in writing the conditional statements rather than case, since case doest support range of matching expressions.
+	
+But still it is preffered to use case staetement only for pickuping a block of code to executed based on matching outcome, since there is a performance optimization while using case statement.
+	
+ONROAD_PRICE = EX_SHOW_PRICE (23% tax) + 	9% INSURANCE
+
+psuedo code or algorithm
+
+read -p "model: " model
+if $model == "activa"
+then
+	echo "honda activa 3.0, with abs breaking system"
+	echo "ROAD PRICE"
+elif $model == "shine"
+then
+	echo "spec shine"
+	echo "on road price of shine"
+elif $model == "unicorn"
+then
+	echo "spec unicorn"
+	echo "on road price of unicor"
+elif $model == "dio"
+then
+	echo "spec dio"
+	echo "price"
+else
+	echo "worest fellow choose correct bike model"
+fi
+
+in the above algorithm we used if condition where it takes in the worest case it takes 4 comparisions to determine the right block of code to be executed.
+
+case (model)
+	"activa");
+		echo "activa"
+	"shine");
+		echo "shine"
+	"unicorn");
+		echo "unicor"
+	"dio");
+		echo "dio"
+	default);
+		worest fellow
+		
+whereas when use case statement, it directly jumps to the matching block of code without any comparisions in executing the block of code.
+case internally uses lable/goto mechanism to jump to the respective case in executing the block of code.
+			
+syntax:-
+
+case $INPUT in
+1)
+	statements
+	statements
+	;; // break
+2)
+	statements
+	statements
+	;;
+3)
+	statements
+	statements
+	;;
+*)
+	defaut statements
+esac
+
+hondakiosk.sh
+--------------
+#!/bin/bash
+read -p "bike model" MODEL
+EX_SHOWROOM_PRICE=0
+ONROAD_PRICE=0
+INSURANCE_AMOUNT=0
+	
+case $MODEL in
+"activa")
+	EX_SHOWROOM_PRICE=125000
+	;;
+"shine")
+	EX_SHOWROOM_PRICE=135000
+	;;
+"unicorn")
+	EX_SHOWROOM_PRICE=185000
+	;;
+"dio")
+	EX_SHOWROOM_PRICE=90000
+	;;
+*)
+	echo "invalid option"
+	exit 1 // terminate the program
+esac
+
+INSURANCE_AMOUNT=$[(EX_SHOWROOM_PRICE*9)/100]
+ONROAD_PRICE=$[EX_SHOWROOM_PRICE + (EX_SHOWROOM_PRICE*23)/100 + INSURANCE_AMOUNT]	
+echo "model: $MODEL, EX_SHOWROOM_PRICE: $EX_SHOWROOM_PRICE, ONROAD_PRICE: $ONROAD_PRICE"
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			
+
+
+
+
+
+
+
+
+

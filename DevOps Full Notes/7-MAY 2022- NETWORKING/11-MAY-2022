@@ -1,0 +1,54 @@
+There are 7 layers are there in OSI Model protocol
+1. Application layer
+2. Presentation layer
+3. Session layer
+4. Transport layer
+5. Network layer
+6. Datalink layer
+7. Physical layer
+
+#1. Application layer
+defines set of rules in exchanging the data between the 2 network applications
+
+The internet standard organization has identified most frequently used applications over the internet and to ensure vendor portability they have standardized the protocols and portno over which these applications will communicate
+
+Web/HTML = HTTP/HTTPS (80)
+File Transfer = FTP (20/21)
+Email Exchange = SMTP (25), POP (110), IMAP (143)
+RemoteDesktop = RDP (3389)
+RemoteLinux computer access = SSH (22)
+-------------------------------------------------------------------------------------------
+#2. Presentation Layer
+Application Layer is responsible for structuring the data based on the agreed protocol standards by both the applications, but the data is not in transmittable
+
+The Presentation layer takes the structured data from application layer and converts into transmittable format and presents it to the lower-level layers of the osi model. It does 3 reponsibilities
+1. Data Conversion = convert the data into bits/bits using charset encoding standards
+2. Data Compression/Decompression = compress/decompresses the to reduces the size of the data to be transmitted over the network
+3. Data Encryption/Decryption = apply encryption algorithms to secure the data over transmission
+--------------------------------------------------------------------------------------------
+#3. Session Layer
+End-to-End application communication will be taken care by the Session Layer, it does 2 reponsibilities
+1. Authentication & Authorization
+2. Session Management
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

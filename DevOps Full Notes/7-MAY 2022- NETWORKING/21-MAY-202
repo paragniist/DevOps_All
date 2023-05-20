@@ -1,0 +1,143 @@
+There are 7 types of network devices are there
+1. Repeater
+2. Hub
+3. Switch
+4. Bridge
+5. Router
+6. Modem
+7. Firewall
+
+#4. Bridge
+Bridge is an network device used for inter-connecting 2 different networks together. bridges operate at physical layer of the OSI Model. A bridge device has only 2 ports and can inter-connect only 2 networks
+
+All the traffic that arrives to the bridge in one port will be copied to the another port of the bridge, enabling the traffic between the networks
+
+drawbacks:-
+	1. only 2 networks can be interconnected
+	2. huge bandwidth consumption across these networks and slows down the network performance heavily
+	3. not recommended to use for interconnecting large computer networks
+	4. less secured
+	5. no control on the traffic patterns (routing rules are not supported)
+	
+#5. Router
+Router is an intelligent device than Bridge, it is also used for inter-connecting various different networks together. Router operates at Network layer OSI Model.
+Whenever the data packet arrives to the Router, it identifies the packet belongs to which network based on the destination ip address within the data packet and routes the data packet only to that specific network of computers.
+	
+An router maintains routing table, in which we can configure the traffic patterns in controlling the flow of data between the networks
+
+advantages:-
+	1. connect multiple networks together
+	2. no unnecessary bandwith consumption, results to high performance network
+	3. very secured since the data packet is delivered to the right destination network only
+	4. controlling in transferring the data between the networks
+	
+dis-advantage:-
+	1. very costly
+	
+#6. Modem
+Modem is a device capable of performing modulation and demodulation in coverting analog signals to digital signals and viceversa. It is used for connecting computers over the dial-up network
+
+#7. Firewall
+Firewall is used for controlling, restricting and monitoring the network traffic on a computer. The firewall keeps track of the information about trusted applications, which programs are opening which ports and which programs are allowed/deny to communicate over which ports and protocols are maintained by the firewall to ensure security over the network
+
+The firewalls operate at 2 levels
+1. Host Firewall = it is a software that is installed on the computer, through which we can monitor, control and restrict the network traffic to the programs of our computer
+
+2. Network Firewall = it is an hardware device installed on the computer network through which we can control the network traffic to the group computers of our network centrally rather than configuring firewall restrictions on each computer.
+--------------------------------------------------------------------------------------------Ip addressing (important)
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+What is an ip address, why do we need it?
+ip address is an unique identity of a computer connected to the network inorder to access the computer over the network.
+	
+ipv4 address is of 32-bit in length	using which we can represent 4.1 billion computers to be connected. ip address has been designed to be hierarchial representation it is not an sequenceno
+The 32-bit length ip address is broken down into 4 octets each of 8-bit in length.
+By using the hierarchial addressing schema we can easily represent group computers in a network and manage them easily
+So an ip address can range anything between 0.0.0.0 to 255.255.255.255
+	
+From the above we can understand an ip address contains 2 parts
+1. network address = The network address is nothing but the computer is connected/part of which group of network computers
+2. host address = the address of the computer within the given network
+
+How do we identify for an given ip address, what is the network address and host address of it?
+For a given ip address by default we cannot identify how many octets are given for network address and how many octets are given for host address. To help us in identifying the network adress and host address the Classfull ip addressing schema has been introduced.
+	
+
+The classfull ip address has classified the ip address schema in 5 classes A, B, C, D, E respectively. based on the higher 3-bit values in the first octet we can determing the ip address belongs to which class, based on which we can derive the network address and host address from the given ip
+
+Range        Ip Class        Network Bits   Host Bits
+1   - 126        A              8              24
+128 - 191        B              16             16
+192 - 223        C              24              8
+224 - 239        D              used for multicasting and the bits are not classified
+240 - 254        E              reserved for experimental use for future
+
+always 
+0 = is assigned for gateway
+127.*.*.* = is a loopback ip address that a computer can refer itself
+255.* = represents broadcast ip address which indicates the data goes to all the computers on the network
+
+To identify from an given ip the network address and host address 
+#1. identify the ip address belongs to which class
+#2. based on that derive the number of network bits and host bits
+from which we can drive network address and host address
+
+ip: 192.168.1.29, it belongs to class C, so 24bits are network, 8 bits are host, so the
+network address: 192.168.1.0
+host address: 29
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

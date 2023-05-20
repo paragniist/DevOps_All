@@ -1,0 +1,229 @@
+what are the options available with diff command?
+There are 2 options are there
+-c = context mode, it displays the symbols indicating what lines has to modified to make both the files identical using + = add line, - = delete line and ! = missing lines
+
+-u = unified mode = it provides unified list of recommendations telling us what operations has to be performed on the file1 to make it identical with file2 using symbols
+"double space" = same in both files
++ = add a line
+- = remove a line
+-----------------------------------------------------------------------------------------------
+how to know the current logged in user in linux?
+whoami = displays the current logged in user in linux operating system
+
+How to all the users who are currently logged into the linux?
+who = shows all the users who are currently logged-in to the linux
+
+How to know the number of users registered in linux operating system?
+all the users registered in linux are recorded/stored in /etc/passwd we can see the contents of the file using cat /etc/passwd
+-----------------------------------------------------------------------------------------------
+How to count the number of characters, word and lines in a given file?
+wc = word count is a shell command that displays characters, words and lines in a file
+
+wc filename = count of characters, words and lines
+wc -c filename = characters count
+wc -l filename = lines count
+wc -w filename = words count
+-----------------------------------------------------------------------------------------------
+Working with Pipes and Redirections
+
+Pipe (|) = is used for joining linux commands together. We can send the output of a linux command as an input to another linux command by using pipe(|) symbol. This is one of the powerful feature of the Linux operating system which allows to create infinite combinations of linux command use them
+command1 | command2
+
+1. how to know the number of files/folders within a give directory?
+ls | wc -w
+2. how many users are currently logged in into the linux operating system?
+who | wc -l
+3. total number of users in linux system
+cat /etc/passwd | wc -l
+4. how to see the top 5 files/folders in a give directory?
+ls -l | head -5
+5. how to see the bottom 5 files/folders in a give directory
+ls -l directory | tail -5
+	
+When we use pipes we can combine any number of commands together there is no limitation.
+all the commands are evaluated from left to right direction.
+----------------------------------------------------------------------------------------------
+Redirection
+Redirections are meant for reading or writing the input/output from an different source/destination rather than from STDIN/STDOUT
+
+> = output redirection
+< = input redirection
+
+What is the difference between pipe and redirection?
+1. In case of pipe (|) = always the 2nd part, that appear after the pipe should be an another shell command.
+	shcommand1 | shellcommand2
+
+ls -l | favourite.txt = here the 2nd part of the | is not an shell command it is an filename we passed where shell will tries to execute the favourite.txt as a command which results in failure.
+	
+ls | wc -w = is valid because the output of ls will be passed an input to wc command to could number of words in the output ls
+
+2. In case of redirection (<,>) 
+	1. input redirection = always the source should be a file or any other device from where the command should take the input from and we cannot pass an shell command as an input in redirection
+	2. output redirection = the destination should be a file into which we want to write the output to we cannot use another shell command
+	ls -l > wc = here after > there should be an destination to write the output it cannot be another shell command	
+----------------------------------------------------------------------------------------------find
+-----
+find is a quite useful command to find/search for files/folders using their names. find help us in locating the files/folders within a specified directory including the subdirectories also of a given name.
+	
+library
+|-literature
+	|-english-grammer.txt
+	|-easy-english.txt
+	|-phonetics.txt	
+|-novels
+	|-harryporter.txt
+	|-marvels.txt
+	|-girlnextdoor.txt
+	|-godman.txt
+|-magzines
+	|-times.txt
+	|-dailybytes.txt
+	|-outlook.txt	
+|-comics
+	|-spiderman.txt
+	|-titin.txt
+|-finance
+	|-budget.txt
+	
+We want to find under the library directory whether a specific file/folder exists with a given name or not. to find the given file exists are not we need navigate into directories/sub-directories and list down the files in each directory to search for a file/folder which is tedious job.
+	
+Instead of navigating into each of the directories in search of a file/directory we can use find command.
+	
+find = has many options in searching and locating the files and folders.
+	
+1. find directory -name "pattern"
+directory = refers to under which directory we want to search for the file/folder
+-name = indicates the filename pattern to be used for matching the filename/directory name.
+The find command displays the matching files/folders by listing one in each line
+
+2. find directory/ -name "pattern" -print
+-print = is an default option that applied while using find, which means display matching files/folders one per each line
+
+3. find directory/ -name "pattern" -print0
+print0 = displays all the matching files/folders in one single line
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

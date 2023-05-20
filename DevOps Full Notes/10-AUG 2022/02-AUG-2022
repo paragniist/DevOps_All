@@ -1,0 +1,213 @@
+senior software engineer (aws,devops)
+1 lac joining bonus
+
+exit code
+symbolic links
+apt
+umask
+default: file permissions / directory
+firewall (ufw)
+
+#shellscripting vs ansible
+#shell program to find the file within the system
+service status
+initd system
+
+#networking
+class B ip range
+static ip / dynamic ip address
+private ip / public ip
+private ip / empheramal ip / elastic ip
+
+#vagrant
+purpose of vagrant
+what is virtualization
+
+#ansible
+vault
+adhoc and playbook
+handlers
+jinja2 templates
+roles (galaxy)
+inventory (how to write inventory)
+variables
+
+#terraform
+write terraform for ec2 instance creation
+terraform state file management 
+modules
+terraform input/output variables
+resource declarations
+
+
+#java
+how to create jar/war?
+maven lifecycle
+clean verify in maven
+
+git
+ pull/fetch
+ pull/clone
+ workflow
+ few commands in git
+ merge/rebase
+ cherrypick
+ merge conflicts, how to resolve?
+ 	
+#aws
+networking 
+asg/loadbalancer
+lamdba
+ebs
+s3 (storage classes, bucket policies)
+efs
+rds
+dynamodb
+iam
+roles & policies
+Route53
+SMS
+SQS
+SNS
+Cloud Watch
+Cloud Front
+Storage Gateway
+Glacier
+Snowball
+
+#docker
+architecture
+directives
+networking
+
+#kubernetes 
+architecture
+kubectl
+objects
+how to write manifest file
+how to setup kubernetes cluster
+
+#jenkins
+ci/cd
+jenkins pipeline stages
+jenkins jobs
+How many types of pipelines are there?
+workflow jenkins
+plugin
+secret
+integrate jenkins with external software (git)
+
+what is devops, why do we need?
+	
+#elk
+#nagios
+------------------------------------------------------------------------------------------------------------------------
+#tools
+6 pm = your attendence is mandatory 
+#20 days
+
+1. ANT = 5 days
+2. MAVEN = 10 days
+3. SVN/GIT = 7 days
+4. SONARCUBE/COBERTURA/JACOCO = 1/2 days
+5. JUNIT (INTRODUCTION) (INTEGRATE JUNIT + MAVEN) = 1/2 days
+6. LOGGING BASICS = 1 day
+
+#August (Target)
+	- vagrant #7 days
+	- ansible
+	- aws major
+	- terraform
+
+jfrog
+docker
+kubernetes
+jenkins
+
+DEVOPS PEOPLE = IF YOU WANT FULL TOOLS = 2k
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

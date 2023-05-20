@@ -1,0 +1,118 @@
+SSH
+---
+SSH stands for Secure Shell, it is used for accessing the remote shell of a linux machine, so that we can issue commands over the network to perform operations like
+- installing/uninstalling the software
+- performing administrative activities
+- configuration management etc
+
+The other way to access the remote shell of a linux machine is using Telnet, telnet is not secure the conversation between the client/server will be taken place in plain/text format so that information will not be secured.
+	
+SSH uses cryptographic technic in securing the communication. one of the form of cryptography is encryption/decryption
+The SSH uses 3 types of encryption technics in securing the communication
+1. symmetric encryption
+2. assymetric encryption
+3. hashing
+
+#1. symmetric encryption
+In Symmetric encryption, a single key is used for both encrypting and decrypting the data 
+
+#2. assymetric encryption
+There are 2 different keys are used for encryption/decryption
+1. public key = The public key is used for encrypting the data
+2. private key = The data that is encrypted using public key can be decryptable only by using the private key
+As there are 2 keys being used it is called assymetric encryption
+
+The key generation algorithms uses mathematical technics in generating the public/private key pair, such a way
+ #1. from one key we cannot derive the another one
+ public key, we cannot compute the private key for that public key
+ #2. The data encrypted using public key can be decryptable only through using the private key
+To ensure the security always the private key should be kept private.
+	 
+#3. hashing
+hashing is a technic that is used for verifying the integrity of the data. 
+The hash is a special mathematical function where always an 
+hash(data) = unique value
+always hash(samedata) = results in same unique value. but by using hash value we can compute original data
+so we can easily identify at the received end, whether original message that is send by the sender has been tampered or not by recomputing the hash value on received data matching with original hashvalue
+
+How does SSH works?
+SSH communication takes place between the computers in 2 stages
+1. establishing the session by generating an session key for exchanging the data
+2. authenticating the remote user in granting the access to the remote machine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

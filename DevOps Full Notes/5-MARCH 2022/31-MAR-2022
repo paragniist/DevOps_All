@@ -1,0 +1,130 @@
+Linux text processing commands
+-------------------------------
+There are few text processing shell commands are there in linux through which we can perform the below operations/actions on the text content like
+1. searching for a specific text in a given text of information
+2. extracting a portion of data
+3. extract few fields of information from given text
+4. merging 2 different text content together
+5. replace/substituting the text content
+6. delete a portion of the text
+these commands takes input data from the STDIN or file and perform the operation and provides the output
+1. cut
+2. paste
+3. sort
+4. awk
+5. sed
+
+#1.
+cut = is a command that takes the data as an input from STDIN or a file breaks the data based on delimeter and extracts the fields of data and prints the output on the STDOUT by default
+	
+accounts.txt
+-------------
+01,0020150675,greg,sbi bank,1000
+02,9893839393,paul,hdfc bank,2000
+03,9283930872,james,icici bank,3000
+	
+delimeter = means field separator
+In the above file we can consider delimeter as "," which indicates field separator, so that each line as #5 fields
+
+now we can ask cut command to delimite the fields based on "," and extract 2 field of data from the file
+
+cut -d delimeter -f fieldNo fileName
+cut -d "," -f 2 accounts.txt
+cut -d "," -f 2-4 accounts.txt
+
+here -f stands for field position
+------------------------------------------------------------------------------------------
+#2. paste:
+-----------
+paste is used for merging the contents of a 2 different files based on a delimeter
+
+players.txt
+------------
+01,virat kohli,captain
+02,dhoni,skipper
+03,andre russel,all rounder
+04,raina, all rounder
+05,dravid,skipper
+
+players-details.txt
+-------------------
+03,0383933,virta@gmail.com
+05,9383944,dhoni@gmail.com
+34,9838444,andre@gmail.com
+78,6273494,raina@gmail.com
+10,7384944,dravid@gmail.com
+
+using paste we can merge contents of 2 different files line by line into onesingle output by using delimeter
+
+paste -d delimeter file1 file2
+paste -d "," players.txt players-details.txt
+
+01,virat kohli,captain,03,0383933,virta@gmail.com
+02,dhoni,skipper,05,9383944,dhoni@gmail.com
+03,andre russel,all rounder,34,9838444,andre@gmail.com
+04,raina, all rounder,78,6273494,raina@gmail.com
+05,dravid,skipper,10,7384944,dravid@gmail.com
+------------------------------------------------------------------------------------------
+#3. awk
+awk is an utility that is used by the programmers in performing actions or operations on the text content as 
+1. print all the lines of text in a file
+2. extracts the specific fields of data based on delimeter
+3. filter the data based on the matching patterns
+4. apply actions on the text content line by line like transformations etc
+
+syntax:-
+awk [options] 'selection-criteria {action}' file/input text
+
+How does awk works?
+when we run awk command by passing a file as an input, 
+1. The awk reads the file line by line
+2. it applies the selection criteria to filter the lines
+3. it applies the action specified
+
+awk has pre-defined variables to identify and process the text in a file
+1. NR = represents the current row it is processing
+2. NF = no of fields of the current row
+3. FS = field separator and by default the field separator is "space"
+4. RS = record separator and default record separator is "new line"
+5. OFS = output field separator while displaying the output
+6. ORS = output record separator while displaying the output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

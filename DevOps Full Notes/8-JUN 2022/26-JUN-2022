@@ -1,0 +1,92 @@
+There are 2 tools available at client-side for ssh connection to the server.
+#Server
+seed the public key to the remote machine user onbehalf of whom we want to SSH
+For eg.. if it is joe user then copy the public key into joe user authorized_keys
+which means:- /home/joe/.ssh/authorized_keys
+
+How to copy the public key onto the remote user?
+There are 3 ways are there
+1. manually copy/paste
+--------------------------------------- 
+we need to have access to the remote machine over ssh protocol
+
+2. scp the key to the remote machine
+scp stands for secure copy which is used for copying the files onto the remote computer over ssh protocol
+syntax:-
+scp sourcefile user@ip:/path (location where you want to copy the file)
+scp ~/.ssh/id_rsa.pub joe@192.168.1.113:/home/joe/.ssh/
+	
+you are on host machine:	
+scp user@ip:/path file
+     vm           local
+now the file will be copied to /home/joe/.ssh/ directory with the above command. now place (add) it into authorized_keys
+
+~/.ssh:$
+cat id_rsa.pub >> authorized_keys
+
+
+3. ssh-copy-id 
+directly copies the key on to the remote user authorized_keys file
+ssh-copy-id -i keyfile user@ip
+for eg..
+	ssh-copy-id -i id_rsa.pub joe@192.168.1.113
+
+The remote server always require public key only under authorized keys file of the remoteuser.
+-------------------------------------------------------------------------------------------
+Client-Side
+Windows platform:
+-----------------
+putty: software to ssh onto the remote server
+gitbash/powershell: ships bash ssh-client utility (similar to linux)
+
+Mac/Linux platform:
+---------------------
+bash ssh-client utility 
+
+To ssh onto the remote machine based on passwordlessAuthentication we need to generate keys. there are 2 technics are there in generating keys
+1. ssh-keygen = linux bash utility
+2. puttygen = windows tool
+
+#1. ssh-keygen
+It is an linux bash utility that most of the people uses for generating the keypair. the ssh-keygen generates a .pub/.pem file
+.pub = public key which we can seed to the remote user
+ openssh private key file without extension
+
+The pem file should be used for ssh into the remote server while using ssh-client utility
+ssh -i ~/.ssh/id_rsa joe@192.168.1.113
+          
+
+
+#2. puttygen
+it is an windows utility that is used for generating rsa and other algorithm specific public/private keys
+it generates 2 keys
+.ppk = private key
+.pub = public key
+
+so the above 2 keys cannot be used to ssh onto the remote server using bash ssh-client tool
+because ssh-client requires .pem file only
+
+we need putty only. putty tool takes .ppk and exchanges the key-based authentication and grants access to remote server
+
+aws:
+.pem = privacy enhanced mail
+In cloud environments the cloud providers provides .pem file to us
+we need ssh-client (bash) utility to connect to aws compute instance (remote server)
+
+But if we want to connect to remote machine using putty (on windows) then we need .ppk/.pub, we can generate these 2 from .pem file using puttygen
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+There are lot of 3rd party vendors produces the httpd servers and distribute to the world. few are opensource and few are commercial servers available
+1. apache2
+2. nginx
+
+How many ways we can host an web application?
+There are 2 ways we can host an web application
+1. intra-net or within the organization
+2. public network
+

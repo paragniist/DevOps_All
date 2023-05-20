@@ -1,0 +1,114 @@
+How to deploy the fithealth application?
+#1. install the git package
+sudo apt update -y
+sudo apt install -y git
+
+#2. clone the project into the workstation/machine, you want deploy the code
+mkdir workspace
+cd workspace
+git clone https://github.com/techsriman/fithealth.git
+
+#3. install mysql-server-8.0 and configure the secure access
+#4. install openjdk-11-jdk and tomcat server 10 on the machine
+
+#5. create the dbschema by running/executing the sql scripts provided by the developer as part of the project
+location: src/main/db/db-schema.sql
+mysql -uroot -proot < src/main/db/db-schema.sql
+The above sql file creates an fithealthdb schema/database on mysql server.
+	
+#6. add an mysql server user granting the access to the fithealthdb, remotely
+1. mysql -uroot -proot
+2. sql: create user 'fithealthuser'@'%' identified by 'welcome1';
+3. sql: grant all priviliges on 'fithealthdb'.'*' to 'fithealthuser'@'%';
+
+#7. update the project configuration files reflecting the deployment environment
+1. goto src/main/java/db.properties, here update the dbserver ipaddress, port, username and the password the java application should use to connect to database
+
+db.properties
+--------------
+db.driverClassName=com.mysql.cj.jdbc.Driver
+db.url=jdbc:mysql://10.0.2.15:3306/fithealthdb
+db.username=fithealthuser
+db.password=welcome1
+
+#8. compile and package the application and deploy on the server
+~/workspace$	
+fithealth
+|-src
+  |-main
+		|-java
+			|-*.java
+			|-db.properties
+		|-db
+			|-db-schema.sql
+		|-WebRoot
+			|-*.jsp
+			|-*.css
+			|-WEB-INF
+				|-lib
+					|-*.jar
+				|-web.xml
+|-build
+	|-classes
+	|-dist
+	
+	
+1. compile the project
+export CLASSPATH=~/workspace/fithealth/src/main/WebRoot/WEB-INF/lib/servlet-api.jar:~/workspace/fithealth/src/main/WebRoot/WEB-INF/lib/mysql-connector-java-8.0.26.jar:~/workspace/fithealth/src/main/WebRoot/WEB-INF/lib/jsp-api.jar
+	
+2. 
+~/workspace/fithealth$
+javac -d build/classes "src/main/java/*.java"
+cp src/main/java/db.properties build/classes
+
+3. create the war file
+goto the dist directory and create war structure
+
+mkdir -p fithealth/WEB-INF/lib
+mkdir -p fithealth/WEB-INF/classes
+cp -R src/main/WebRoot/assets build/dist/fithealth
+cp "src/main/WebRoot/*.jsp" build/dist/fithealth
+cp -R build/classes/* build/dist/fithealth/WEB-INF/classes/
+cp src/main/WebRoot/WEB-INF/lib/*.jar build/dist/fithealth/WEB-INF/lib
+cp src/main/WebRoot/WEB-INF/web.xml build/dist/fithealth/WEB-INF/
+
+cd build/dist/fithealth
+jar -cvf fithealth.war *
+mv fithealth.war ..
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

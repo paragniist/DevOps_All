@@ -1,0 +1,81 @@
+What are bash profiles, what is the purpose of them?
+To launch the bash shell with various different configurations/settings we use bash profile. There are bunch of configuration files are available which allows us to customize the bash shell based on the user login into the terminal
+
+There are 2 types of shells are there
+1. interactive shell
+2. non-iteractive shell
+
+For both of these shells there are different configuration files provided at user level for customizing the conigurations/settings with which the user launches the bash.
+1. /etc/profiles = only the root user can modify the configuration file and the settings applied here are applicable to all the users of the linux system
+2. ~/.bash_profile = for interactive shell logins the settings/configurations written in this file are applied (ssh logins)
+3. ~/.profile = in the absense of ~/.bash_profile the settings in this file are applied
+4. ~/.bash_login = same as ~/.bash_profile but will be applied only in absense of ~/.bash_profile
+5. ~/.bashrc = for non-interactive login
+-----------------------------------------------------------------------------------------
+Symlinks
+What are symlinks what is the purpose of them?
+Symlinks are the pointers to the original file of the filesystem which are similar to the shortcuts in windows operating system.
+There are 2 types of symlinks are there
+1. softlinks
+	1.1 The softlink can be created both for a file or a directory
+	1.2 The permissions of the softlink file is different from original file, always the softlink file is created with full access/all permissions. irrespective of the original file permissions
+	but the user can access the original file or modify it based on the permissions of the original even there are trying to access through symlink
+	The permissions for the symlink are defaulted to (rwxrwxrwx) and cannot be changed as there is no importance/use of these permissions as end of the day only the original file permissions are applied
+	1.3 We can create softlinks for the files across the filesystem 
+	1.4 inode address of the original file and the symlink file are different
+	1.5 the softlinks are broken when the original file has been modified
+	
+2. hardlinks
+	2.1 hardlinks can be created only for files and cannot be created for directories
+	2.2 hardlinks can be created for only the files of the local filesystem and cannot be created for remote files of the other file system
+	2.3 The file permissions of the hardlink files are same as the original file and if we modify the original file permissions it reflects on hardlink as well
+	2.4 inode adress of the hardlink file and original file is same
+	2.5 if we move/rename the original file to a different directory, the hardlink will not be broken
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

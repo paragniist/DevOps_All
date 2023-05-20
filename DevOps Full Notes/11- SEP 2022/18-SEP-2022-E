@@ -1,0 +1,245 @@
+5. looping through dictionaries
+
+- name: looping through dictionaries
+	hosts: all
+	vars:
+		stories:
+			story1: 1
+			story2: 2
+			story4: 5
+	tasks:
+	- name: loop over dictionary
+		debug:
+			msg: "story no: {{item.key}}, story points: {{item.value}}"
+		loop: "{{stories | dict2items}}"
+-----------------------------------------------------------------------------------------------------------------------
+Ansible Vault
+--------------
+While working with Ansible we write playbooks in which we declare tasks/modules to be applied on the fleet servers to accomplish the desired state of the system. For these modules we need to pass configuration values pertaining to the managed node environments interms of variable declarations in playbooks or inventoryFiles
+
+For eg.. we need to configure and pass mysql server login username/password to mysqldb module to let it connect to the mysql server running on the managed node and create an database. similarly we need to configure credentails information about an java application server to let the playbook modules to connect and perform operation
+
+these playbooks or inventoryFiles are versioned through repositories and distributed to the whole team, so that everyone in the team can access the files and see the production machine credentials information thus making the environments in-secured. to address this problem in securing the credentails written as part of playbooks or inventoryFiles ansible has provided ansible vault
+
+In general we dont encrypt the playbooks for facilitating the development, rather we externalize the configuration values either into vars_files or inventoryFiles and pass them as an input to the playbook while execution by unencrypting during execution
+
+Ansible vault is an CLI tool using which we can encrypt the playbooks/inventoryFiles using AES256 encryption algorith and keep the encrypted files on FileSystem or scm repository
+
+1. How to create an encrypted playbook?
+ansible-vault create playbook.yml 
+the above command opens an vim/text editor and allows us to write the playbook/inventoryFile into it. once we save and closed the editor, it asks for password. upon entering the passwords using the password it encrypts the contents and stores the encrypted playbook/inventoryFile onto the Filesystem
+
+2. How to encrypt an existing playbook?
+ansible-vault encrypt playbook/inventoryFile.yml
+it prompts for password, ecrypts the contents and generates the encrypted files onto the disk
+
+3. How to view the contents of an encrypted file?
+ansible-vault view playbook/inventoryFile.yml
+prompts for password and displays the filecontents in an editor
+
+4. How to run an encrypted playbook or an inventoryFile ?
+There are 2 ways we can execute
+[development]
+decrypt the playbook or inventoryFile onto the disk and pass them as an input to the control node server asking to execute
+ansible-vault decrypt playbook/inventoryFile.yml
+prompts for password decrypts onto the disk
+
+then execute them asusual
+
+--------------------------------------------------------------
+[production]
+while running the playbooks or inventoryFile during production we should not decrypt them since they contain sensitive information and prone to security breach. instead we can ask control node server to decrypt onfly and execute them using
+
+ansible-playbook -i inventoryFile --ask-vault-pass playbook.yml
+while execution it prompts for password then decyrpts in-memory and executes the playbook/inventoryFile
+
+There is a problem with this approach, we cannot achieve non-interactive or touchless automation so to overcome this problem ansible has provided an solution
+1. create a password file and write password to decrypt the playbook/inventoryFile
+2. keep the passwordFile in the same location of the playbook
+3. give the permissions of the file as 0600 (no one else can see)
+	
+now while running the playbook instead of prompting for password pass the password file as an input
+ansible-playbook -i inventoryFile --vault-password-file=passwordFile playbook.yml
+------------------------------------------------------------------------------------------------------------------------
+Ansible Handlers
+by default all the tasks/modules written inside the playbook are executed sequentially from top-bottom on the fleet servers. few times we wanted to execute a task or a module based on the outcome of executing an parent/other module of the playbook, that means immediately upon successful execution of a task/module we want to execute another module, this can be achieved through handlers
+
+For eg.. when we modified the configuration of a server on the fleet we want to immediately restart the server to make the changes reflected, this can be done through handlers
+
+Handlers are the special type of tasks, but these handler tasks by default will not be executed during the playbook execution like other tasks, these handlers only gets executed when an task has notified for execution
+
+---
+- name: handlers playbook
+	hosts: all
+	tasks:
+	- name: task1
+		module:
+			arg1: val1
+			arg2: val2
+	- name: task2
+		module:
+			arg1: val1
+			arg2: val2
+		notify:
+			- handler1
+	handlers:
+	- name: handler1
+		module:
+			arg1: val1
+
+In the above playbook all the tasks will be executed sequentially from top to bottom, but the handlers will not be executed by default unless an task has notifies the handler1 to execute.
+A task can notify multiple handlers to be executed so we can define list of handlers under notify
+note: 
+1. an handler of a task will be executed only when the task has reported the status as : "changed"
+2. all the handlers which are notified are executed at the last after all the tasks in playbook are completed 	
+	
+In-Short
+1. Handlers are also tasks only, but those are only executed upon notifying by a task
+2. an handler gets executed only when a task has "changed" the state of the fleet server
+3. we dont need to duplicate the tasks repeatedly in playbook rather we can reuse the task across the playbook by keeping it as handler and notify across several places
+------------------------------------------------------------------------------------------------------------------------
+jinja2 templates
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			

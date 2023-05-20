@@ -1,0 +1,48 @@
+There are 2 architectures based on which software configuration management tools works
+1. pull-based architecture
+2. push-based architecture
+
+There are lot of software configuration management tools are provided by various different vendors in the market on both of these architectures
+1. pull-based architecture
+	- chef
+	- ansible-tower
+2. push-based architecture
+	- Ansible
+	- Puppet
+	- Salt-Stack
+-----------------------------------------------------------------------------------------------------------------------	
+What is Ansible, how does it works?
+What is the Architecture of Ansible?
+Ansible is an push-based Software Configuration Management tool	and it has 5 core components of it.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

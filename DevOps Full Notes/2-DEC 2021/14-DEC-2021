@@ -1,0 +1,87 @@
+#4 choose a process model in developing and delivering an software application
+What is a process model, why do we need to use a process model?
+Its is an proven methodology or procedure or step by step process that is provided by the experts in the industry, that should followed for successful development and delivery of a software application
+There are lot of process models are available like
+1. waterfall
+2. prototype
+3. incremental/iterative
+4. spiral
+5. agile methodology, scrum process model
+
+DevOps recommends us to use one of the process models of the agile methodology and most popular used process model in the market is Scrum
+
+
+Scrum "principle":
+The basic principle on which scrum works is fail-fast approach. let there be a failure in developing an software system, but let us have the failure at earliest possible so that the lose incurred due to the failure will be minimal or negligible
+
+In Scrum methodology there are 3 roles of people are there
+1. Product Owner
+2. Scrum Member
+3. Scrum Master
+
+#1 Product Owner
+The product owner is nothing but the business owner for who we are building the system, he can be the owner business or an representative who is representing business, he is responsible for providing the requirements helping the team in building the software system. He is involved right from the scratch or commencement of the project util the final system is build and delivered.
+	
+The product owner will create product backlogs, backlogs are nothing but requirements that the scrum team has to work on in building the software system.
+In Scrum the whole system requirements are not captured initially, based on the scope and understanding the system , the product owner will create initial product backlogs and over the time while progressing the software system he will add up more backlogs to the system.
+From the above we can build complex software systems also progressively
+	
+What is a Sprint?
+The Scrum Team will build the software application/system in Sprints. Sprint is an smallest/shortest duration of time where the scrum team can build and deliver a product increment to the product owner.
+Usually the sprint will be of a duration of minimum 1 week and a max of 4 weeks. The sprint duration will be decided at the begining of the project and will remains constant through the project delivery
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

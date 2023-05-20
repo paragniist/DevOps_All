@@ -1,0 +1,190 @@
+Why does different distros of the linux operating system has provided different software packaging standards and package manager tools?
+The Linux kernal or as part of its core distribution there are no packaging standards or package managers provided, so endusers has to manually install/execute the software packages on the operating system of the computer. To eliminate the difficulties in using the software applications on the linux platform the linux distro vendors provided their own packaging standards and package manager tools for installing/configuring the software packages.
+	
+
+distribution  packaging standard      package manager tool
+debain        .deb                    dpkg, apt
+redhat        .rpm                    yum
+arch          .pac                    pacman
+------------------------------------------------------------------------------------------
+How many ways software packages are distributed as part of linux operating system?
+There are 3 ways the software packages are distributed as part of linux system
+1. repository based software package distribution
+2. direct downloadable packaged software
+3. binary distribution
+------------------------------------------------------------------------------------------
+#1. Repository based Software package distribution
+What are software package repositories?
+Linux is an opensource operating system, that is freely modifiable, distributable. There are lot of opensource contributors who wants to promote linux operating system, they build software utilities and tools that can be installed on the operating system of the computer so that endusers can use the linux operating system sophisticatedly
+for e.g..
+	1. music players
+	2. video players
+	3. file managers
+	4. text editors
+etc
+
+But how does these opensource contributors will distribute their software packages or utilities or tools they build, and how does the people around the world can discover and use these software packages
+
+To help in distributing and discovering the opensource software tools and packages the linux has introduced software package repositories where contributors can distribute/publish their software packages/utilities by placing them in repositories
+
+endusers/people around the world can browse, search and download software packages and install them as part of the linux operating system of their computer
+
+since different linux distros has their own packaging standards and package manager tools for installing and configuring the software packages, the opensource software contributors has to package and distribute their utilities/tools for each distro
+
+So each linux distro has comeup with their own software package repositories into which the software contributors can publish the respective software tools/utilities of the distro.
+
+In addition they can be commercial software manufacturing vendors who might produce commercial software libraries and distribute them as part of their own organizational repositories.
+	
+From the above we can understand there are 2 types of repositories are there
+1. distro repositories
+2. software vendor repositories
+
+There can be startups/small-scale manufacturing vendors who might manufacture commercial software libraries, inorder to distribute them they need to host their own software repositories. but hosting, maintaining these software repositories is a costly effort and requires huge maintainance, instead they can publish their commercial, licensed libraries in distro repositories as well.
+	
+In such case how does the enduser/people around the world differentiate the software packages that are published into the repositories?
+To help the people distinguish the various software libraries coming from different sources the repositories are classified/categorized into 4 types
+1. main        = canonical distribution / opensource software packages verified by the distro vendors
+2. universe    = community maintained / opensource / freely distributed software
+3. restricted  = device driver softwares, proprietory vendor softwares are placed in restricted
+4. multiverse  = packages with copy rights and legal restrictions are published under multiverse
+-----------------------------------------------------------------------------------------
+
+How to install these software packages in ubuntu?
+The ubuntu operating system has provided an tool called "apt" which stands for advanced packaging tool, through which we can browse, search and download s/w packages and install them on the operating system of our computer 
+
+What is the difference between installer and a pakage manager?
+Installer is a tool that takes are of installing an software package available on the system. whereas a package manager is a tool that takes care of browing, downloading and installing the software package on a computer
+	
+The ubuntu has provided 2 tools to us
+1. dpkg = debain package manager = installer, if you have downloaded an .deb file manually you can install it using dpkg
+2. apt = apt is an package manager which contains internally dpkg which takes care of downloading the software packages from repositories and install them by internally using dpkg.
+	
+	
+
+	
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

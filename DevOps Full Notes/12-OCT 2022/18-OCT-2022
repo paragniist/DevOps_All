@@ -1,0 +1,59 @@
+What are policies, what is the purpose of it?
+Policy is an standard language written in Json format, contains collection of permissions applicable for a resource or service that can be assigned to a IAM User or group in enforcing the restrictions
+
+There are 3 types of policies are there
+1. AWS Managed Policies
+2. Customer Managed Policies
+3. Inline policies
+
+How to define our own policy definition?
+A policy definition contains 5 sections
+1. sid = unique name assigned to a policy to identify or distinguish from other
+2. principle = this policy can be applied to whom (arn of a user or group)
+3. action = permissions to be granted to a user/group
+4. effect = allow/denied
+5. resource = it can be applied to which resource/service
+
+{
+	"Version": "",
+	"Statement": [
+		{
+		"Sid": "",
+		"Effect": "",
+		"Action": [
+		
+		],
+		"Principle": "",
+		"Resource":""
+		}
+	]
+}
+
+
+What are roles?
+Roles are used for granting access to an aws resource/service to access another aws resource or service of an account.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

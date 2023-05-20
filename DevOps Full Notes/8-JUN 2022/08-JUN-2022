@@ -1,0 +1,184 @@
+What is systemd init service, why do we need it?
+systemd init service is a software package that is distributed as part of the major linux distros, it takes care of managing and launching the mandatory programs that has to be executed during the boot of the kernal itself.
+	
+How many ways the programs are registered with initd system?
+There are 2 ways the programs are registered with initd system
+1. through packaged installations
+2. administrator might wanted to register few programs manually, to be executed during the bootup of the kernal/operating system
+
+How to register the programs with initd system?
+Each program to be managed by the initd system is called an Service Unit, describing the details of the program to be executed we need to write Service Unit definition file. To be able to pickup the definition files, we need to place them under predefined directory location 
+1. /usr/lib/systemd/system = packaged software service unit file locations
+2. /etc/systemd/system = administrator programs to be registered by placing their service unit definition files here
+
+How to write the service unit definition file, and what information about the software program needs to be provided as an input to the initd system?
+describing the details of the program we wanted to manage through initd system, we need to write service definition file, and the file should be named with an extension of ".service" and should be placed under /etc/systemd/system directory
+
+The initd system upon looking at the files with the extension ".service" under the /etc/systemd/system, would automatically pickup and register them as Ubuntu Service and manages.
+The service definition file is broken down into sections and a section is represented by square brackets by writing the name of section inside them. There are 3 sections are there in a service definition file, and we can write these sections in any order
+1. Unit
+2. Service
+3. Install
+Each section contains predefined directives (key/value pairs) describing the information about the program to be managed.
+	
+#1. Unit section
+In the Unit section, we need to describe the basic information about the program and the hard/soft dependencies it has in order to run/manage are placed here
+[Unit]
+Description="documentation or description information about the service to be written here"
+After=we may have our service being dependent on another service, unless the dependent service has been started successfully we dont want our service to be started.
+For eg.. the program we are registering as a service use network for performing operation, so we wanted our service to be executed only after network.service has been started, this can be expressed using After
+
+After=Network.service
+The service dependency we expressed here is called "hard dependency" where in if the dependent service we specified has failed, then our service will not be executed.
+	
+Requires=what are all the other services must be installed and available mandatorily to have this service being registered
+
+Wants=expresses the soft dependencies between the services, run the service after these services has been started, but the dependent service expressed in Wants is failed or not available also ignore it and run the service.
+
+program
+-> #10 features 
+ [
+   After=keyboard.service, Network.service
+	 Wants=ufw.service
+ ]
+
+[Unit]
+Description=
+After=
+Require=
+Wants=
+	
+#2. Service section
+here we describe the information about how to start/stop/restart the program
+[Service]
+ExecPreStart=The commands that should be executed before the actual service program is launched or executed
+ExecStart=command to run the program
+ExecStartPost=command to run after starting the program
+Restart=always
+ExecStop=command to stop the program
+Type=Indicates the Type of the Service
+There are 5 different service types are there
+1. simple = Simple Service that can be launched by running ExecStart
+2. forking=The ExecStar command launches another process from the current process and that has to be managed initd system
+3. dbus=The service is registed as a daemon process with name
+4. oneshot=run the service only once and upon completion dont start
+5. notify=our service notifies other service to be started
+
+#3. Install
+How does this service need to be installed on the initd system
+WantedBy=multi-user.target
+
+multi-user.target = indicates our service should be installed and started immediately after the runLevel=3 which is nothing but once the console has been up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+

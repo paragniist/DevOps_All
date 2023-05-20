@@ -1,0 +1,90 @@
+Terraform remote state management
+----------------------------------
+By default terraform generates and stores the terraform state file within the project directory. To support collaborative development we need to version the terraform source code into the vcs repository. But it is no enough to distribute only the terraform configuration (sourcecode) to the team members, along with that we need to distribute terraform state file as well unless otherwise always terraform treats the execution as new on each new terraform workstation on which we running and creates new resources.
+	
+one way to distribute the terraform state file is to push into along with sourcecode, the state file also into the vcs repository and distribute it to the team, but it has few problems.
+	1. terraform state file doesnt require any versioning, the developer or the ops engineer dont modify this file directly to version it or rather we never directly rollback the changes of the file. The only way this file will gets modified is by applying terraform configuration, by which we can understand it doesnt require versioning
+	2. if multiple developers are trying to parallely execute the terraform configuration file against the same state file, due to parallel execution un-predictable outcome will be resulted and might even corrupt the state of the system. by storing terraform state file into vcs repository we cannot prevent this
+		
+From the above we can understand we need a solution where we wanted to distribute state file without any versioning and want to avoid multiple people running the terraform configuration on the same state parallelly
+This can be achieved through terraform remote state management
+
+Remote State management means, instead of keeping the terraform state local to the controlnode of the terraform, we can place the terraform state file globally on backed like database, network filesystem or storage location that can be accessible over the network.
+		
+Now whereever we run the terraform configuration, the terraform cli refreshes and updates the same state file that is stored on the backend
+
+In addition to avoid parallel terraform execution on the same state file we need to implement locking mechanism where while one terraform execution is under progress, no other person can acquire the lock on the statefile to run the terraform configuration in parallel
+
+The above can be acieved by using
+1. S3 as a backend
+3. dynamodb for locking
+
+
+To support this terraform has provided backend configuration, we dont need to write the code for refreshing or updating the terraform state on the remote backend or we dont need to acquire the lock before applying the terraform configuration.
+Terrform automatically does this for us when we configure remote backend in terraform
+
+How to perform remote state management?
+1. IAM user we are using for provisioning the infrastructure through terraform should have bucket and dynamodb access policies
+2. we need to create an S3 storage bucket
+3. we need to create an dynamodb table with partition key as LockID (name should match)
+4. In terraform configuration file we need to add the backend declaration as shown below.	
+	
+
+main.tf
+terraform {
+	required_providers {
+		aws = {
+			source = "hashicorp/aws"
+		}
+	}
+	backend "s3" {
+		bucket = "bucketname"
+		key = "statefilename"
+		region = "region"
+		dynamodb_table = "locktable"
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

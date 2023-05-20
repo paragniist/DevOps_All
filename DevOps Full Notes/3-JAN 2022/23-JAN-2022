@@ -1,0 +1,202 @@
+Defining "changed"
+-------------------	
+Ansible control node marks an task execution as "changed", when the underlying module executing as part of the task has return exitcode as "0", but few cases we want to determine the change by conditional evaluate rather than exitcode, then we can redefine the change using changed_when: statement.
+	
+Write a playbook that will start the apache tomcat server, and mark the task status as changed only when the tomcat has been started.
+	
+---
+- name: run apache tomcat server
+	hosts: all
+	tasks:
+		- name: start apache tomcat
+			shell: ~/apache-tomcat-9.0.58/bin/catalina.sh run 2>&1 | grep "java.net.BindException"
+			register: tomcatstatus
+			changed_when: "'Address already in use' not in tomcatstatus.stdout"
+...
+-----------------------------------------------------------------------------------------------
+Working with "when" condition	
+if we want to execute a playbook tasks based on the conditional evaluation then we need to use when condition at task level.
+	
+we can write when condition with
+1. ansible_facts
+2. register variables
+3. based on variables
+
+1. conditions based on ansible_facts
+we want to install a software package or execute an shell command depends on the distribution on which we are running the playbook, this can be by writing when condition on ansible facts
+
+install-atom-playbook.yml
+--------------------------
+---
+- name: atom installation playbook
+  hosts: all
+	tasks:
+		- name: download atom (.deb) for debain distrition
+			get_url:
+				url: https://github.com/atom/atom/releases/download/v1.58.0/atom-amd64.deb
+				dest: /tmp
+			when: ansible_facts['os_family']	== "Debain"
+		- name: download atom for RedHat
+			get_url:
+				url: https://github.com/atom/atom/releases/download/v1.58.0/atom.x86_64.rpm
+				dest: /tmp
+			when: ansible_facts['os_family'] == "RedHat"				
+...
+
+				
+2. condition based on register variables
+Based on the outcome of executing a task we want to execute another task by writing condition on register variables
+
+we want to download a file if it is not present on the destination location, which can be done by writing condition on register variables
+
+download-tomcat-playbook.yml
+----------------------------
+---
+- name: download tomcat server
+	hosts: all
+	tasks:
+		- name: check tomcat already installed
+			find:
+				paths: "~/middleware"
+				file_type: directory
+				recursive: no
+				patterns: "^apache-tomcat.*"
+				use_regex: true
+			register: tomcatavailable
+		- name: download tomcat9
+		  get_url:
+        url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.58/bin/apache-tomcat-9.0.58.tar.gz
+        dest: "~/middleware"
+		  when: tomcatavailable.matched == 0
+...
+
+#3. conditional based on user defined variables
+hosts
+javaserver1 ansible_host=192.168.10.12 env=dev
+
+install-jdk.yml
+---
+- name: install jdk
+  vars:
+    jdk_pkg: openjdk-8-jdk
+  hosts: all
+	tasks:
+		- name: determine jdk version by env
+			set_fact:
+				jdk_pkg: openjdk-11-jdk
+				db_pkg: mysql-server-8.0
+			when: env == "dev"				
+		- name:
+      debug:
+				msg: "{{jdk_pkg}}"
+...
+-----------------------------------------------------------------------------------------------
+Ansible loops statements
+-------------------------
+General: Loops are the control statements that are meant to perform an operation multiple times without duplicating the code.
+In Ansible we can execute a task/module over a set of values multiple times using loop statements
+
+There are 2 ways we can work with loops in ansible
+1. loop keyword
+2. with_* loops
+The loop keyword is deprecated for usage and is migrated over with_* loops in ansible
+
+#1 look keyword
+1. How to build a loop to iterate over list of values
+
+tasks:
+	- name: loop over values
+	  debug: 
+			msg: "{{item}}"
+		loop:
+			- apple
+			- grapes
+			- banana
+			- papaya
+the above loop statement indicates execute the debug module for all the list of values given, where each iteration take the list item and place in an variable named : "item"			
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				
+				
+							
+				
+				
+				
+				
+				
+				
+				
+				

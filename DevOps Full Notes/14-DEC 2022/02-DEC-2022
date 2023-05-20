@@ -1,0 +1,97 @@
+Jenkins Architecture
+--------------------
+Jenkins follows the master & slave architecture. 
+The jenkins will be installed on central server machine, it provides an console access where users can login and create jobs and schedule them for execution. The jenkins master stores the information about the jobs within it. To the jenkins master we can attach salve nodes, each slave node will be installed with an agent software through which the jenkins master communicates with slave for running the jobs.
+	
+when we ask jenkins master to execute a job, it distribute the job and ask one of the slaves to execute it.
+Features:
+1. highly scalable = because of its master/slave architecture it is highly scalable we can attach any number of slave nodes to the master in scheduling and distribute the jobs on the slaves.
+	
+2. scripted pipelines
+The build steps/activities we wanted to conduct/perform in building, deploying and delivering the project can be scripted and versioned aspart of the sourcecode repositories, upon asking the jenkins to execute the project, jenkins will pull the scripted code from the git and executes it directly.
+The advantage of scripted pipelines are
+2.1. the pipeline code can be versioned so that we can easily keep track of the changes that has happened to the pipeline code and we can understand how does the project has been evolved to the current state by looking through the versions
+2.2. developers can share and colloborate in writing the pipelines and execute them
+2.3. we can use the IDE of our choice in writing the pipeline since we are not forced write it on management console
+2.4. we can take the code from the sourcecode repository and can execute on any env by quickly creating the jobs
+
+3. plugin-based architecture
+we can add new features into the jenkins by installing new plugins to support different types of builds 
+4. we can establish parent and child relationship between the jenkins jobs
+5. we can run multiple pipelines in parallel for faster builds and deliveries
+
+How to install the Jenkins?
+---------------------------
+To install and configure jenkins env we need 3 machines at a minimum. 1 machine for master and 2 slave nodes.
+These machines can be either physical servers or cloud compute instances or virtual machines. let us setup the jenkins on the our local machine by creating virtual machines
+
+To quickly setup the virtual machines in running the jenkins let us make use of Vagrant
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

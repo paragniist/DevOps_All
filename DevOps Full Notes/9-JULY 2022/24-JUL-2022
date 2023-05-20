@@ -1,0 +1,127 @@
+#1. mysql server is an packaged distribution upon installing will be configured as an initd service. So we need to install through package manager.
+
+sudo apt update -y
+sudo apt install -y mysql-server-8.0
+
+#1.2 change the root user password by connecting to the sql server and running the below query
+sudo mysql -uroot
+alter user 'root'@'localhost' identified with mysql_native_password by 'newpassword';
+
+1. both server and client-tools are installed.
+2. the root user will be created with no password.
+
+#2. configure the mysql server
+run the mysql_secure_installation, it is an shellscript shipped as part of mysql-server package upon running will configure the mysql server
+sudo mysql_secure_installation
+
+The above script would ask few questions for configuring the mysql server:
+1. Do you want to enforce password validation: No
+2. Enter password for root user: root
+   Re-enter password: root
+3. Remove Anonymous users: Yes
+4. Remove test databases: Yes
+5. Allow Remote Access for root Disabled: Yes
+6. Reload Privilege tables: Yes
+
+#3. by default remote access to the mysql server is disabled, we need to enable it 
+There are 2 things todo for enabling remote access
+1. mysql-server is installed and configured to listen for bind-address: localhost only, so it cannot access any requests for connecting it from remote computer, this can be changed by modifying the /etc/mysql/mysql.conf.d/mysqld.conf file
+search for the property bind-address and modify it to 0.0.0.0
+
+#bind-address=127.0.0.1
+bind-address=0.0.0.0
+
+sudo systemctl restart mysql
+
+2. the root user cannot be granted remote access, so for each application to access the database remotely we need to create an mysql server user and grant permission for accessing the schema remotely by using the below sql queries.
+
+2.1 connect to mysql server using the client-tool
+sudo mysql -uroot -proot 
+
+2.2 create the user by running the below query
+create user 'username'@'%' identified by 'password';
+                  user@location = allowed to login from which location
+									
+grant all privilieges on '*.*' to 'username'@'%';
+                     schema.table       user@location = access from which location										 
+-------------------------------------------------------------------------------------------------------------------
+#working with basic sql queries in mysql server
+1. create a new database
+create database crazyeatsdb;
+
+2. see existing databases;
+show databases;
+
+3. switch to database
+use crazyeatsdb;
+
+4. create a table
+create table menu(menu_id int primary key, menu_type varchar(25), available_timings varchar(100));
+
+5. desc menu;
++-------------------+--------------+------+-----+---------+-------+
+| Field             | Type         | Null | Key | Default | Extra |
++-------------------+--------------+------+-----+---------+-------+
+| menu_id           | int          | NO   | PRI | NULL    |       |
+| menu_type         | varchar(25)  | YES  |     | NULL    |       |
+| available_timings | varchar(100) | YES  |     | NULL    |       |
++-------------------+--------------+------+-----+---------+-------+
+
+6. How to insert the data into the above table?
+insert into menu values(1, 'starters', '6:00 pm - 11:00 pm');
+
+7. How to see the data in table?
+
+select * from menu;
++---------+-----------+--------------------+
+| menu_id | menu_type | available_timings  |
++---------+-----------+--------------------+
+|       1 | starters  | 6:00 pm - 11:00 pm |
+|       2 | chinese   | 6:00 pm - 11:00 pm |
+|       3 | breakfast | 7:00 am - 11:00 am |
++---------+-----------+--------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

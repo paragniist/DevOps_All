@@ -1,0 +1,73 @@
+An ip address contains 2 types of addresses
+1. network address
+2. host address
+
+How do we identify within a given ip what is the network address and host address?
+To help us in determine, the ip classes are introduced. The ip addresses are classified into 5 classes [A, B, C, D, E]
+We identify a given ip address is in which class based on the top 3 bits in the first octet.
+	
+FIRST_OCTET        CLASS      NETWORK BITS      HOST BITS
+1   - 126            A            8                 24
+128 - 191  	         B            16                16
+192 - 223            C            24                 8
+224 - 239            D            no classification of bits, and used for multicasting
+240 - 254            E            reserved for experimental and future usage
+
+0 = belongs to gateway
+127.*.*.* = loopback ip address
+255.*.*.* = broadcasting
+
+ip: 110.10.23.222 [Class A]
+network address: 110.0.0.0
+host address:    0.10.23.222
+
+In order to computer the network address and the host address from a given ip address, we need subnet mask.
+	
+CLASS
+A : 255.0.0.0
+B : 255.255.0.0
+C : 255.255.255.0
+--------------------------------------------------------------------------------------------
+Class-less inter-domain routing (CIDR)
+
+255 computers in 1 network = CLASS C
+1000 computers [ 200 networks] = CLASS B
+
+2500 computers   [7500 networks]             16 + 4      16 [12 bits]
+ ------------    --------------- = CLASS B   [65000]       [65k]
+   1 network
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

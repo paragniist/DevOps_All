@@ -1,0 +1,66 @@
+Managing the infrastructure manually through cloud console applications is very difficult, instead we need to implement automation in recreating the repeatitive infrastructure.
+The cloud providers has provided 
+1. apis
+2. sdks
+which can be used for provisioning and managing the cloud infrastructure.
+	
+1. Http Endpoints/API = every cloud provider exposes http endpoints or rest apis which are interoperable, we can build software programs with relevant logic for invoking the http apis exposed by the cloud vendor to create/manage the infra
+
+2. sdks = sdks stands for software development kit, these are libraries shipped by the cloud vendor for multiple programming languages, now devops engineers/programmers can build application programs in their respective programming languages which makes use of these apis in creating/managing the infrastructure
+
+So everytime we need to provision infra for hosting application we just need to run these programs we build, thus achieving repeatitive infrastructure easily
+
+From the above we can understand to achieve infrastructure automation we need to build software programs, which requires significant amount of programming knowledge in addition there are lot of drawbacks in managing the infrastructure by build software programs
+1. The efforts involved in building the code to achieve infra automation is very high
+2. manpower required in building the automation code is high
+3. the time required for developing the automation code is more
+4. huge cost involved in achieving this automation
+5. testability of the code takes huge time and quite difficult
+
+from the above we can understand building infrastructure for deploying the application by writing software programs seems to be not an viable solution
+
+To overcome all the above problems in building and achieving infrastructure automation, the iac tools are introduced
+iac stands for "infrastructure as code", where each resource or service we want to provision is expressed interms of code which can be executed to reproduce the infrastructure quickly.
+There are lot of iac tools available in the market
+1. terraform
+2. openstack heat
+3. cloud formation
+etc
+
+What are the benefits of using iac tools?
+The applications that adopts the iac tools for provisioning the infrastructure has better rate of delivery of the application when compared with others since the efforts of managing the infrastructure is very less
+There are lot of advantages of adopting iac tools for provisioning the infrastructure
+1. self-service
+2. documentation
+3. versioning
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

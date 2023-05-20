@@ -1,0 +1,213 @@
+Database domain
+The database domain provides all the services related to databases in storing the data for an application. It provides database services for both no-sql and sql databases as well
+There are 5 services are provided as part of database domain
+1. Relational database service (RDS)
+is an managed service, that takes care of managing the third-party databases available in the market on aws cloud platform.
+	
+2. AuroraDb
+it is an RDBMS provided by aws cloud platform. it is an database built on-top of mysql database and claimed to be 5x faster than mysql database
+	
+3. DynamoDb
+No-Sql database provided by aws cloud platform
+
+4. Elastic Cache
+For implementing cache functionality on the serverside of the application. 
+	
+5. Redshift
+dataware house tool
+------------------------------------------------------------------------------------------------------------------------
+Relational database service (RDS)
+Relational database service is not an database product, rather it is an managed service provided by aws that takes care of managing the cloud lifecycle operations
+1. provision
+2. deprovision
+3. scaleup
+4. scaledown
+5. scale-out
+6. scale-in
+7. start/stop/restart
+8. backup/restore
+on the popular RDBMS products available in the market
+
+Now we dont need to take care of hosting, installing, configuring the database products manually on the cloud platform. we can provision an RDS instance with one the database products supported in storing the data
+
+The RDS Service supports the below database products
+1. MYSQL
+2. Oracle
+3. Postgres
+4. MSSQLServer
+5. Maria Db
+
+How to provision an RDS Service?
+it is recommened to provision an RDS Service on private subnet only, so that databases will be secured and can be accessed only through the applications running on the same vpc
+We need to provide required information to the AWS RDS Service asking to provision the database on the cloud platform, the cloud platform itself takescare of provisioning, scaling and monitoring the database for us
+------------------------------------------------------------------------------------------------------------------------
+IAM Service
+IAM Stands Identity and Access Management service, it is a global service of aws cloud platform. It is used for delegating the access to the resources/services of an aws cloud platform to the other aws users or resources of an account.
+	
+1. users
+2. groups
+3. policies
+4. roles
+
+#1. users
+There are 2 types of users are there in aws cloudplatform
+1. Root User
+The Root User is the aws account owner who has created the aws account, he has complete access to all the services of the aws cloud platform and by default has has access to the resources of his account.
+	
+
+2. IAM User
+In an organization, they can be many teams across business units or domains. they need aws services to host and build their applications. Having an aws root user cannot manage in providing the services for all of the projects in an organization.
+So an aws root user can create additional users delegating access to individual projects, domains or business unit representatives in managing their own infrastructure/services individually
+These users created by the root user in granting access to the cloud services/resource are called IAM users.
+
+There are 2 types of access can be granted to an IAM user
+1. programmatic / api access
+The IAM user can access the cloud platform services through API exposed by the aws cloudplatform, he/she can write programs in accessing the cloudplatform services through apis of aws.
+	
+To authenticate and access the api services of aws cloudplatform we need apikey/secret, now in the program we use apikey/secret to authenticate in accessing the services.
+	
+There are advantages of apikey/secret:
+1. we can create different apikeys/secrets in providing access to different programs and we can revoke the access anytime by simply deleting the keys
+2. our account credentails are not compromised
+
+note: through apikeys/secret we cannot access management console
+by default IAM user will have api access only unless explicitly granted management access
+
+2. management console access
+The IAM user can login into the cloud console and can manage resources through GUI or webconsole
+
+Inorder to login into management console, in the login page we need to choose login type Root or IAM. upon choosing IAM it promps for 12 root account number.
+The #12 digit root account number is used for identifying the aws account and it is available with root user. Now the root user has to share his 12 digit account number to IAM user along with username/password of the IAM user he has generated while creating.
+Now IAM user at the first login will be prompted to change password, for security.	
+
+#2. Groups
+While adding an IAM user to the aws account, the root user can grant access to the services of the account by attaching policies to the user.
+policies are group of related permissions that can assigned to an user in granting access to the account services.
+	
+granting or binding policies to each IAM user individual takes lot of time and difficult to manage. instead we can group users into Groups (developers, testers, deployers)	 and grant/bind policies to the group instead of individual
+
+Note: an IAM user can be associated to multiple groups as well.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

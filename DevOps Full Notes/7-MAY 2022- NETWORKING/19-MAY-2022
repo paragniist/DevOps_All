@@ -1,0 +1,181 @@
+How many network topologies are there
+1. bus topology
+2. ring topology
+3. star topology
+4. mesh topology
+5. hybrid topology
+
+3#. star topology
+we have an central hub to which all the computers are connected to form an network
+advantages:
+	1. less hardware devices are required for establishing the network and cost of setting up the network is very less
+	2. quick to setup
+	3. no data collision arises
+	4. troubleshooting is easy
+	5. easy to add/remove a computer on the network
+	6. when a node/computer only that node will be impacted not on whole network
+	
+dis-advantage:
+	1. if hub goes down the entire network will fail
+	
+#4. Mesh topology
+each computer on the network is inter-connected with n-1 computers on the network forming a robust network, usually used for interconnect WAN
+
+advantages:-
+	1. robust network
+	2. no network congession and suitable for large networks
+	3. very less chances of data collision
+	
+dis-advantage:-
+	1. more hardware resources are required to setup the network, so that the cost of setting up the network is very high
+	2. more complex in setting up the network and takes more time 
+	3. troubleshooting the network is very difficult
+	4. Not suitable for small network of computers
+	
+#5. Hybrid Network
+interconnecting various different networks together is called hybrid network
+--------------------------------------------------------------------------------------------
+Network devices
+There are various different devices that we use while inter-connecting the computers over the network, few of them are listed below
+1. Repeater
+2. Hub
+3. Switch
+4. Bridge
+5. Router
+6. Firewall
+7. Modem
+
+#1. Repeater
+Repeater is an network device used for amplyfing/regnerating the signals over the carieer to send it to the destination computer.
+When the distance between the source and destination is more, the data packets that are being transported by the source may not be recieved by the destination as the signals will gets weak over the transmission and results in data loss
+
+A repeater is a device that can be installed between the source and destination somewhere else in the middle which receives the data from source, amplifies or regenerates and forward to the destination
+
+#2. Hub
+Hub is an device used for inter-connecting multiple computers forming a network. Using the hub device we can create a star topology network. The hub device operates at Physical layer within the OSI Model layer protocol
+
+When a computer sends the data to another computer on the network, the data will be received by the hub and copies the signals/data it received to all the other ports/computers which are connected to the hub
+Since the hub sends the data to all the computers connected, the bandwidth consumption of the network is very high and results in poor performance
+
+There are 2 types of hub devices are there
+1. Passive Hub = recieves the data from one of the computer and copies it to all the other computers on the network
+
+2. Active Hub = are plugged into the powersupply and upon receving the signals, it regenerates or amplifies and copies the data to all the ports/computers connected
+
+#3. Switch
+Switch is an intelligent Hub that works at datalink layer and is used for transmitting the data between the computers connected within the network
+The switch will maintain an internal datastructure which is mac addres table populated with each port and the relevant computer mac address connected to that switch, during the time of booting up the switch
+So that when the data arrives to the switch, it identifies the destination macaddress computer to which the data should be sent to by reading dataframe. the by taking mac address it lookups into mac address table to identify the data should be routed to which port of the switch and forwards the data only to that specific port in transmitting the data rather than all.
+Thus switch is efficient in routing the data in a network and supports high-speed data transfer and consumes less network bandwidth
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

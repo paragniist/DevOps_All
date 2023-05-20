@@ -1,0 +1,141 @@
+How many loop control statements are there?
+There are 3 types of loop control statements are there
+1. while
+2. for
+3. util
+
+#2. for loop
+for loop is an loop control statement which is used for executing a block of code repeatedly. For loop is majorly used for iterating a block of code over a fixed list of values.
+
+There are 2 forms of for loop are there
+1. iterate over fixed list of values
+2. counter based for loop
+
+1. iterate over fixed list of values
+syntax:-
+for VAR in LIST
+do
+done
+
+what is exit statement?
+exit is a instruction/statement which is used for terminating/stopping the execution of a shellprogram. and to the exit we need to pass integer number indicating succcessful/failure termination of the program
+
+if we dont write any exit statement and if shellprogram completed execution by executing till the last line, then the program by default will be exited with status "0" indicating success
+
+
+wap to print only the non-empty files within a given directory?
+for eg.. if we provide ~/libraries, display all the non-empty files inside that directory
+
+lsemptyfiles.sh
+----------------
+#!/bin/bash
+NARGS=$#
+if [ $NARGS -ne 1 ]
+then
+	echo "ERROR! directory is required"
+	exit 1
+fi
+
+DIR=$1
+if [ ! -d $DIR ]
+then
+	echo "ERROR! directory not found"
+	exit 2
+fi
+
+for F in "$DIR/*"
+do
+	if [ -f $F -a -s $F ]
+	then
+		echo $F
+	fi
+done
+
+
+
+chmod u+x lsemptyfiles.sh
+./lsemptyfiles.sh file.txt
+echo $?
+-----------------------------------------------------------------------------------------
+wap to delete all the empty files in a given directory
+
+delemptyfiles.sh
+----------------
+#!/bin/bash
+NARGS=$#
+if [ $NARGS -ne 1 ]
+then 
+	echo "error! directory is required"
+	exit 100
+fi
+DIR=$1
+if [ ! -d $DIR ]
+then
+	echo "error! not a directory"
+	exit 101
+fi
+for F in "$DIR/*"
+do
+	if [ -f $F -a -z $F ]
+	then
+		rm $F
+	fi
+done
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

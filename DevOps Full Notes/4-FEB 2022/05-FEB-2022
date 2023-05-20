@@ -1,0 +1,97 @@
+1. Pipes and Redirections
+What are pipes (|) what is the purpose of it?
+Pipe (|) is used for joining 2 different linux command. by using pipe we can send the output of a shell command as an input to another shell command, so that we can create infinite posibilities of using linux commands
+
+shcommand1 | shcommand2
+both the parts of the pipe must be shell commands only. The evaluation of the commands will begin from left to the right and we can join any number of shell commands using pipe
+
+1. how to count the number of text files under a directory library/
+find library/ -name "*.txt" | wc -l
+
+
+2. Redirection
+We can do input redirection (<) and output redirection (>) using redirection operators.
+In case of redirection operators there will only one source for input redirection and only one destination for output redirection.
+we cannot use shcommands with redirection operators.
+
+find library/ -name "*.log" > logfiles
+----------------------------------------------------------------------------------------------
+2. find
+--------
+find is a shell command using which we can search for files/folders within a given directory matching with a filename/pattern.
+	
+There are multiple options of searching files/folders using file command let us explore all possibilities:
+
+1. find directory/ -name "pattern"
+it searches for the file pattern under the specified directory/ including its sub-directories and displays the list of matching filenames along with path each per line
+
+2. find directory/ -name "pattern" -print
+-print = displays the matching files each per line and its the default option in find command
+
+3. find directory/ -name "pattern" -print0
+display all the matching files/folders in a single line
+
+note:- The find command searches for files and folders matching with given pattern and display along with path
+
+4. find directory/ -type f -name "pattern"
+-type f = stands display only the matching files of the pattern ignore directories
+-type d = only matches with directory names and ignores files
+
+5. find directory/ -name "pattern" -empty
+displays all the matching files/folders of the pattern which are empty (no contents inside them)
+
+6. How to search for files/folders of multi-pattern match
+either matches with pattern1 or matches with pattern2
+find directory/ -name "pattern1" -o -name "pattern2"
+displays all the files/folders that are matching with either patter1 or pattern2
+
+find directory/  -name "pattern1" -empty -o -name "pattern2" -empty 
+
+7. find directory/ -name "pattern" -exec command {} \;
+-exec = is an option used for executing an shell command for each matching file as a output one by one
+
+
+find library/ -type f -name "*.log" -exec cat {} \;
+find library/ -type d -name "m*" -exec ls {} \;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

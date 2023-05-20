@@ -1,0 +1,53 @@
+What are the roles of people involved in developing and delivering a Software Application?
+There are 3 roles of people involved in developing and delivering the Software Application
+1. developer
+2. quality assurance engineer
+3. operational engineer
+
+There are group of people of different areas of expertise working together in running an software application into production
+  3.1 network engineer
+  3.2 system administrators
+  3.3 application deployment engineers
+  3.4 support engineers
+  3.5 monitoring engineers
+  3.6 security admins
+  
+How many stages in which an application is delivered into production?
+There are 4 stages in which the application is developed and delivered
+1. development environment
+2. quality assurance environment
+3. uat (user acceptancy testing) environment
+4. production environment
+
+What is devops?
+devops is a change in culture and adoption of new tools and technologies in quickly building and delivering an software application
+
+3 roles
+development team
+qa team
+operational engineering team
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

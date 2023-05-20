@@ -1,0 +1,177 @@
+What is virtualization?
+Virtualization is a technic/mechanism through which we can run multiple different environments isolated from each other in parallel on a physical computer machine
+
+Why do we want to run multiple different environments on a physical computer?
+There are various different reasons in running multiple environments on a physcial computer
+1. It lowers the cost of hardware in running the different environment applications by keeping them on same machine
+For eg.. within an organization there can be multiple projects build and work on different environments, to facilitate the testing and release process of these applications we need sandbox (qa/test/stage) environments to certify these applications.
+To setup the various different environments in ceritfying an application we need several physical computer machines where most of the system resources are under utilized and increases the cost of delivery of the application.
+Instead if we can share the same physical computer to multiple different projects by running parallel isolated environments on the same computer we can reduce the cost of hardware required in deliverying the application
+
+2. We can effectively utilize the hardware resources of the computer by keeping multiple environments running on the same machine
+
+3 A developer can maintian and setup multiple different development environments on the same machine by using virtualization
+-------------------------------------------------------------------------------------------
+The virtualization works ontop hypervisor technology, where a hypervisor can be a hardware or a software that takes care of distributing the physical system resources across various different environments that are running ontop of the computer.
+	
+Software hypervisors:-
+These are installed ontop of host operating system as a software that distributes the physical resources of the computer
+advantages:-
+	1. less costly and opensource options are also available in the market
+	2. best suited for personal desktop usage
+dis-advantages:-
+	1. As these hypervisors works ontop of host operating system, the host operating system eats up most of the physcial system resources in running the hypervisor software so that effective usage of h/w of the computer is not possible
+	2. not suitable for enterprise environment
+	
+hardware hypervisors:
+The hardware hypervisor directly sits as an hardware component on the computer eliminating the host operating system, the bootup time and the performance at which the virtual machines run on these hypervisors are very fast
+
+advantages:-
+	1. since it eliminates the host operating system the effective usage of system resources is possible
+	2. suites for enterprise and cloud environments
+dis-advantage:-
+	1. very costly to adopt and implement
+	
+There are lot of software hypervisor providers are available in the market
+1. Oracle Virtualbox (opensource)
+2. Microsoft Hyper-v
+3. VMWare Desktop
+4. VMWare Workstation
+5. Parallelx
+
+Hardware hypervisor providers are:
+1. Microsoft Hyper-V machines
+2. Oracle VM Server
+3. VMWare ESXi
+4. Xen Server
+
+Virtual Networking
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+#new terraform configuration
+---------------------------------
+#2.
+#change the terraform configuration (by adding new resources) = ?
+	
+#3.
+#change existing resource ?
+	
+#4. after apply, go and remove the resource on cloud provider and reapply
+

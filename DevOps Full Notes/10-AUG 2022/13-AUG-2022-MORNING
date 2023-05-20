@@ -1,0 +1,50 @@
+How to create our own vagrant boxfile?
+1. create the virtual machine with oracle virtualbox
+	1.1 disable audio
+	1.2 disable usb
+	1.3 increase ram and cpu
+	1.4 configure nat network with port forwarding host: 2222, guest: 22
+2. start the virtual machine
+	2.1 it prompts for installing the operating system, choose the iso image and install the operating system
+	2.2 during installation of the o.s configure root user and password as vagrant/vagrant
+3. install the guest editions 
+4. install open ssh server and configure vagrant insecure public key and disable passwordAuthentication
+5. configure passwordless sudoers access
+6. install the required softwares for running the project
+7. shutdown the machine and package it as an vagrant boxfile
+
+What are the contents of the vagrantbox file?
+by default vagrant packages by compressing the virtual machine disk image file into package.box file when we run vagrant package --box "virtualmachine"
+
+if we want to generate the boxfile with a different name we can use --output filename 
+vagrant package --box "virtualmachine name" --output file.box
+
+The vagrant boxfile contains the below list of files inside it
+package.box
+|-vdi
+|-Vagrantfile (all the current virtual machine configurations will be exported into Vagrantfile and place in box file)
+|-metadata.json
+
+vagrant box list = show the list of boxfiles available on our local machine
+vagrant box remove boxfilename = removes the boxfile from local cache
+vagrant box add boxname vbox.box = adds the boxfile into local cache
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

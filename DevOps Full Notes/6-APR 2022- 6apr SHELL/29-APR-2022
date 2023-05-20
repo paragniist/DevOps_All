@@ -1,0 +1,178 @@
+functions
+-----------
+functions are used for executing a block of code at different places within our shell program.
+
+while working with functions, our shell program is divided into 2 blocks
+1. main-block
+2. function block
+
+by default the function blocks will not be executed automatically and always the program execution starts from main-block only. within the main block we need to call function to transfer the control and execute the function
+
+syntax:-
+function functionName() {
+	#block of code
+}
+
+How does our program looks like while we are working with functions?
+program.sh
+-----------
+#!/bin/bash
+function functionName() {
+	#block of code
+}
+#main block
+# lines of code
+functionName #function call
+------------------------------------------------------------------------------------------
+wap to add 2 numbers using functions
+
+addNumbers.sh
+--------------
+#!/bin/bash
+function add() {
+	A=10
+	B=20
+	SUM=$[A+B]
+	echo "sum : $SUM"
+}
+
+#main block
+#100 lines of code
+#10
+add
+
+#50 line
+add
+
+
+chmod u+x addNumbers.sh
+./addNumbers.sh
+
+In the above code we are calling add function() at different places in our program, always the add() adds A=10, B=20 only. but at various different places in our program we have different set of values with which we want to use the add function, this can be done by using "function arguments"
+	
+function arguments: function arguments are the input values we can pass to the function while calling the function, so that it be reused at different places by taking different inputs in performing the operation
+
+
+addNumbers.sh
+--------------
+#!/bin/bash
+function add() {
+	NARGS=$#
+	if [ $NARGS -ne 2 ]
+	then
+		echo "error! required 2 inputs"
+		exit 1
+	fi
+	
+	X=$1
+	Y=$2
+	SUM=$[X+Y]
+	echo "sum : $SUM"
+}
+	
+#mainblock
+F="y"
+until [ $F -eq "n" ]
+do
+	read -p "a: " A
+	read -p "b: " B
+	add $A $B #function arguments
+	read -p "want to add more numbers (y/n): " F
+done
+------------------------------------------------------------------------------------------
+scope of variables in shell program
+
+
+program.sh
+-----------
+#!/bin/bash
+function f1() {
+	local C=10
+	B=20
+	echo $A
+	A=$[A+1]
+	echo $C
+}
+
+#main block
+A=10
+f1
+echo $A
+echo $B
+echo $C
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

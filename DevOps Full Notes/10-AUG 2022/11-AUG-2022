@@ -1,0 +1,216 @@
+1. why do we need virtualization, how does it helps us in developing and delivering an application?
+	1.1 developer needs virtualization for development of the application
+	1.2 devops engineer needs virtualization to setup cloud/production like env to test his automation scripts
+	1.3 we can quickly release the code for qa for testing through virtualizations	
+2. why vagrant, what is the purpose of it?
+3. architecture of vagrant
+4. vagrant boxfiles and vagrant cli
+5. vagrant configuration file and flow of booting an vagrant machine
+6. Features
+	6.1 synced_folders
+	6.2 networking
+	6.3 vagrant ssh
+	6.4 switching between hypervisor provider
+	6.5 provider customizations
+-----------------------------------------------------------------------------------------------------------------------
+How to write vagrant configuration file to customize the machine based on hypervisor provider?
+We need to use provider blocks in Vagrantfile to apply/enable provider features
+
+Vagrant.configure(2) do | config |
+	config.vm.box = "boxname"
+	config.vm.provider "providername" do | providerobject |
+		providerobject.property = "value"
+	end
+end
+
+For an virtualbox provider:
+Vagrant.configure(2) do | config |
+	config.vm.box = "boxname"
+	config.vm.provider "virtualbox" do | vb |
+		vb.cpus=4
+		vb.memory=2048
+		vb.gui=true
+		vb.name="dbserver"
+		vb.customize ["modifyvm", :id, "--vram", "16"]
+	end
+end
+------------------------------------------------------------------------------------------------------------------------
+What is vagrant boxfile, how to create our own vagrant boxfiles?
+vagrant boxfile is pre-packaged and compressed virtual disk image file that can be imported quickly to create an virtual machine on the underlying hypervisor.
+The vagrantbox file contains
+	1. operating system (may be installed through an iso)
+	2. software utilities and packages
+	3. configurations
+	
+There are lot of prepackaged vagrantbox files that are published as part of vagrant cloud which can be used by the people around the world. The box files are distributed by
+	1. vagrant team = these are the official vagrantbox files that are baked/created by vagrant team and distributed to us through vagrant cloud, as these pass through all the checks and provided to us these are safe to use
+	2. third-party vendors = there are third-party software manufacturing vendors are there who packages their softwares and distributes them as vagrantbox files. we need to be careful in using the third-party vendor distributed vagrantfiles. we need to verify authenticity and trust of the third-party vendor before using their boxfiles
+	3. community developers = there are people who want to contribute for opensource software development, they might build/package their own boxfile and publish to vagrant cloud. these should be used at your own risk
+	
+even though there are lot of vagrant boxfiles available for usage, we might have to create our own boxfiles for usage within our project.
+There are 2 reasons for why we need to create our own boxfiles
+1. while working on a project, if we create an vagrant machine by using the pre-defined vagrantbox files from the vagrant cloud. these machines contains only operating system, ssh server and network configurations only. but to develop and delivery an application we need additional software libraries/packages to be installed and configured which are not part of the default boxfile.
+Now we need to endup in manually installing and configuring the software packages/utilities required for running the project, which will leads to the original problem of manually creating the virtualmachine
+Instead we can create our own virtual machine, install required libraries/packages needed for running the application and package them as vagrant boxfile, which can be throughly distributed across the team to quickly bringging up the required environment
+
+2. our organization policies may not permit us to use the pre-built boxfiles published by others into the vagrant cloud, because of legal and licensing issues. So, we need to create our own boxfiles to use within our organization
+------------------------------------------------------------------------------------------------------------------------
+How to create an vagrant boxfile?
+There are 2 ways we can create an vagrantbox file
+1. create an vagrant boxfile from an existing boxfile (personal/experimental usage)	
+2. create an vagrant boxfile from scratch (using an operating system iso) (recommended for organizational usage)
+use operating iso and manually create the boxfile from scratch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

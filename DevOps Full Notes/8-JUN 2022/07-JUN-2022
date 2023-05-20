@@ -1,0 +1,176 @@
+What is ubuntu service, how can we manage them using systemd init system?
+There are few mandatory activities that has to be carried by the administrator of the linux operating system upon booting the kernal/operating system like
+	1. disk management
+	2. networking service
+	3. memory management
+	4. monitoring
+To perform these activities the administrator of the linux system has to build utility programs or scripts that has to be started upon the boot of the operating system and should continue to stay until the shutdown of the computer
+
+How to run these programs upon the boot of the kernal and manage them until the system is being shutdown?
+#1. Let the administrator launch them as background processes	upon the boot of the operating system
+There are lot of difficulties or challenges involved in this approach
+	1. The administrator has to make a list of such programs or jobs to be launched manually and determine the order of their execution based on their dependencies
+	2. manually running these programs upon boot of the system takes lot of time
+	3. since these programs are mandatory to be running, the administrator has to continously monitor and restart the incase of crash, which is a very difficult task
+	4. managing these process like start, stop, restart is tedious job
+	
+To overcome the above problem in managing the mandatory programs, the linux has introduced systemd init service 
+
+The systemd init service is a software package that helps us in managing the programs to be as services within linux system. systemd init service package has been adopted almost by all the linux distro and is made available
+
+The systemd init system allows us to perform 2 things:
+1. We can register our programs with systemd init service asking to monitor, manage and keep them running 
+2. systemd init service has provided easy utilities that help us in managing these services
+
+How to register our program as service to systemd init system?
+There are 2 ways a program or a process will be registered with systemd init system.
+1. Through packaged software installations, the manufacturers they themself ships the service unit definition files along with software binaries in their packaged software distribution. The package managers while installing the software package will read the definition file and register the software program/package with systemd init system automatically
+	
+2. The administrator might write few utility software programs that he wanted them to be managed through systemd init system, so he/she has to write service definition files describing the details of the program, and how it has to be executed and passed it as an input to systemd manually
+
+How to register a program with systemd init system?
+The systemd init system consider each program to be managed as a service unit, the user/administrator has to write unit definition file describing the details of the program to be managed by initd system
+To let the initd system pickup and read the service definition files these has to be placed in a standard (predefined) directory
+There are 2 directories in which the service definition files are being read from
+1. /usr/lib/systemd/system = all the packages software service unit files are placed under this directory by the package managers
+2. /etc/systemd/system = the administrator unit definition files should be kept under this directory
+
+How to write the Service Unit definition files?
+The service unit or definition files are written with an filename followed by an .service extenstion. There are lot of extensions supported by the initd system, but most of the time .service extension should be good enough in registering our programs.
+
+For eg we want to register a tomcat server software as a service in initd system then we need to write a service unit file with name "tomcat.service" describing the details of running the program and should be placed in /etc/systemd/system
+
+The initd system has defined standard unit sections and directives allowing us to define the information about the program to be executed.
+There are 3 standard sections into which we need to describe the information about our program. The Unit sections are identified are written in the file using [sectionname]
+The [SECTIONNAME] indicates the start of the section followed by directives describing the details of the program.
+The directives are standard key/value pairs provided by initd system to describe the details of the program.
+
+There are 3 unit sections are there
+1. Unit
+2. Service
+3. Install
+
+tomcat.service
+[Unit]
+key=value
+key=value
+
+[Install]
+key=value
+key=value
+
+[Service]
+key=value
+key=value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

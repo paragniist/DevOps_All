@@ -1,0 +1,54 @@
+#1. what is package declaration in java program, why do we need it?
+#2. how can we modularize the java program and execute?
+#3. what is classpath, how to set a classpath in compiling and running a java application?
+-------------------------------------------------------------------------------------------
+CLASSPATH = is an environment variable, we need to point to the directory locations of the .class files of our application. The java compiler and java interpreter looks for the classpath variable pointed directory locations to locate the bytecode (.class files) while compiling and running the java programs.
+	
+if we dont set any classpath variable,the java compiler and java interpreter looks for the .class files under the current working directory from where we are compiling and executing the java programs
+--------------------------------------------------------------------------------------------
+Working with jar files in java language
+
+excel sheet in my project for generating reports
+mobile bill
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

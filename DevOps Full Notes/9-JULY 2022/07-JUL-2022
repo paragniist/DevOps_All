@@ -1,0 +1,67 @@
+#1. create an empty directory for writing java program
+mkdir chatbox
+
+#2. create Messenger.java program
+package com.chatbox.runner;
+import java.util.Scanner;
+public class Messenger {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Ready!");
+		String message = scanner.nextLine();
+		System.out.println("sending message : "+ message +" over messenger....");
+	}
+}
+
+#3. compile the program
+javac -d . Messenger.java
+after compiling we should see a .class file generated 
+.
+├── com
+│   └── chatbox
+│       └── runner
+│           └── Messenger.class
+└── Messenger.java
+
+#4. run the java program
+java com.chatbox.runner.Messenger
+
+output:-
+Ready!
+Hey! How u doing today
+sending message : Hey! How u doing today over messenger....
+-------------------------------------------------------------------------------------------
+package com.minicalc.runner;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("a : ");
+        int a = scanner.nextInt();
+        System.out.print("b : ");
+        int b = scanner.nextInt();
+        int sum = a + b;
+        System.out.println("sum : " + sum);
+    }
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

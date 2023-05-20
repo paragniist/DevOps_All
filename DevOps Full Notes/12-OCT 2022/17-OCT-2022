@@ -1,0 +1,184 @@
+IAM
+Identity and Access Management, is used for delegating access to the resources or services of an aws account to the other AWS Users or resources
+
+There are 4 main aspects provided by IAM
+1. user management
+2. groups
+3. policies
+4. roles
+
+1. user management
+There are 2 types of users are there 
+1. Root User = full access to all the services and resources of the aws account
+2. IAM User = delegated access of the root account services or resources to another user 
+There are 2 types of access are there for aws services to an IAM User
+1. programmatic/api access = aws provides apikeys/secrets using which we can access the aws cloud services through their Rest Endpoints
+2. console access = web console access using un/password
+The IAM user has to use 12 digit account number of the root user account to login into console
+
+2. groups
+we can create groups and add users to the groups and bind policies in managing users easily
+
+3. policies
+policies is an json language provided by aws, which groups multiple permissions to be granted on an aws resource/service to an another AWS Iam User
+
+There are 1000+ permissions are defined at a very granular level by aws developers for managing each and every individual service/resource. while creating an IAM User or group we need to assign these permissions granting the access to the resource/services, but browing through the lengthy list of permissions in granting the access is an tedious job and takes lot of time
+
+Instead aws developers has compiled list of relevant permissions that can be granted to a type resource/service and created policies.
+For each type of service, the aws developer identified relevant permissions based on the type access to be granted and created multiple policies for each resource type. For eg.. for an ec2 instance the aws developer has defined several policies like
+1. AWSEc2FullAccess
+2. AWSEc2ReadOnlyAccess
+etc
+
+now depends on the requirement we need to search through the policies and assign policies directly to the users or groups in granting the access, there are around 200+ policies defined by the aws developers and made it available for usage.
+	
+These policies can be categorized into 3 types/levels
+1. AWS Managed Policies
+These are the predefined policies created by the aws developers itself and made it available for each aws account. The root users or others can quickly attach policies to the users or groups
+These policies are maintained by aws developers itself, for eg.. in future if there is a new service introduced or a new feature added to the existing services, the permission would be added or modified. now the aws developers take care of modifying the policies based on new features and keep them updated always
+
+	
+2. Customer Managed Policies
+If the pre-defined policies provided by the aws developers are not sufficient for your requirement, then the customer can build their own policies through policy wizard tool provided by the aws
+
+3. Inline Policies
+These are also similar to customer managed policies only, but rather than defining at account level, these policies are defined local to the resource level
+
+How to create our own custom policy?
+Policy definitions are written in Json format and has pre-defined sections within it. There are 4 important sections are there in policy definition
+
+1. sid
+sid is the unique name we assign to our policy to identify and distinguish from other policies.	
+2. priciple
+principle is the arn (amazon resource name) of the IAM user to whom we are granting the permission of the resource, if we want to apply this policy to all the users who has been assigned to then we can define the principle as "{*}" or ignore writing the principle
+3. action
+the list of permissions we want to grant to a resource/service
+4. resource
+to which resource of the aws account we want to grant the access is specified in resource.
+5. effect
+tells you about the actions listed above are allowed/denied
+
+syntax: policy definition
+{
+	"Version": "2022-10-17",
+	"Statement": [
+	{
+		"Sid": "EC2ReadOnlyRestartPolicy",
+		"Effect": "Allow",
+		"Action": [
+			"start",
+			"stop",
+			"restart"
+		],
+		"Principle": "{*}",
+		"Resource": "ec2:*"
+	}, 
+	{
+		// statement2
+	}
+	]
+}
+
+4. Roles
+Roles are assigned to resources granting access to the other resources of the aws account
+Kubernetes service (eks cluster) -> worker node instances (to run docker application)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

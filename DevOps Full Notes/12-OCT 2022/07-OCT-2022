@@ -1,0 +1,137 @@
+what is an subnet?
+vpc is a large network that spreads across all the availability zones of a region, to further breakdown the vpc into smaller group networks and to apply different network access rights and security restrictions on the resources we need to use subnets
+
+1. A subnet is a small network within the vpc network that is scoped or created within the availability zone of the vpc
+2. it is recommended to create atleast 2 subnets across the AZs of an vpc to ensure high availability of resources
+3. within the vpc we can create at max 200 subnets (softlimit)
+	
+There are 2 reasons why we create subnets within the vpc
+1. to enforce traffic restrictions or network access rights to a group of resources within the vpc we can create a subnet, place the resources within the subnet and apply security/network restrictions on the subnet level
+2. To distribute resources across the AZs of the vpc we use subnets
+
+
+How to create an subnet?
+A subnet is created within the vpc of an availability zone, so while creating the subnet we need specify 
+1. vpc in which we want to create
+2. choose the AZ of the vpc in which we want to create the subnet
+3. subnet name
+4. cidr notation defining the subnet range
+
+There are 3 types of subnets are there
+1. private subnet
+2. public subnet
+3. hybrid subnet
+
+#1. private subnet
+by default when we create a subnet within the AZ of a vpc, it acts as an private subnet. all the resources within a private subnet are accessible within the vpc only and cannot be accessed from the external/public or other vpc network
+
+
+#2. public subnet
+the resources within a public subnet are accessible from anywhere it could be within vpc or from external network as well. if we wanted our resources to be made publicly accessible to the clients or enduser then we need to create public subnet and associate resources within the public subnet 
+
+by default when we create an subnet within the vpc, it acts as an private subnet only. so to make an subnet of the vpc as public subnet we need to associate with the internet gateway.
+
+
+3. Route Table
+by default the resources within a network can communicate with only the other resources of the same network, but if we want to let the resources communicate with a different network of resources
+1. we need to have route flowing the traffic across the network
+2. we need to define a routing rule allowing the traffic to be passed between those 2 networks
+
+So when we create an vpc, the resources across the subnets within the vpc can communicate with each other, because aspart of the vpc the aws will create a default route table
+
+This route table is associated with all the subnets of the vpc (by default), and has added with a route rule indicating the resources of vpc can communicate across the subnets
+
+cidr vpc -> local
+
+
+
+
+4. Internet Gateway
+Internet gateway is a network device provided by the aws cloud platform which is attached always attached to the public or internet. we need to provision an internet gateway and attach to the vpc network and route the public network traffic through the internet gateway
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

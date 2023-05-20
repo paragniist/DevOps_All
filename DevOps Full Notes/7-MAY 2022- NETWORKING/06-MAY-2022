@@ -1,0 +1,145 @@
+The programs who wishes the other programs to connect over the network and communicate with him requires an portno (logical address). The portno is an logical address assigned by the operating system of the computer to a program, to identify it over the network communication uniquely
+
+There are 2 types of programs
+1. server program = server program opens up a port and allow clients connect and communicate by exchanging data over the network
+2. client program = client program connects to the server program using ip address and portno of the server program in accessing data or functionality offered by the server
+
+A program running on a computer should not be allowed to open a portno with that operating system of the computer, as the machine/resources/data will be exposed to the world through that program. 
+To protect and control the way the programs open the port on a machine firewall comes into picture.
+Firewall is an software that is installed on the operating system of our computer which will control allowing the programs to open the portno on the machine. There are various parameters based on which the firewalls allows the program to open a port
+1. trusted ip address range
+2. trusted vendor application
+etc
+--------------------------------------------------------------------------------------------
+What is a protocol, what is the purpose of it?
+Protocols are set of rules/guidelines that allows application/computed connected over the network to exchange the data effectively. protocol guarantees 3 different activities
+1. The data send by a sender always will be received by the intended receiver only
+2. even though the physical tranmission channel is shared a group of computers, protocol gives an illustion that everyone who has connected over the network has their own dedicate channel for communication
+3. protocol ensures no 2 people data will collide with each other over the channel of communication
+4. end-end guaranteed delivery of the data is taken care by the protocols.
+
+From the above we can understand if any 2 computers/programs connected over the network inorder to communicate with each other requires an protocol. That is where OSI Model Layer protocol is introduced.
+--------------------------------------------------------------------------------------------
+OSI Model Layer protocol
+OSI stands for open system interconnection standard which allows any 2 computers irrespective of their hardware platform or underlying operating systems there are using will allow them to communicate with each other.
+	
+The opensystem interconnection standard has been defined with 7 layers
+1. Application Layer
+2. Presentation Layer
+3. Session Layer
+4. Transport Layer
+5. Network Layer
+6. Datalink Layer
+7. Physical Layer
+
+These 7 layers defines various different responsibilities that has to be followed by programs/computers in a sequential manner in exchanging the data effectively with other programs running on another computer.
+	
+	
+#1. Application Layer protocol
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

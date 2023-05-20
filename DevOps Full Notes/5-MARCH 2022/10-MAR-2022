@@ -1,0 +1,184 @@
+utility commands as part of linux operating system
+---------------------------------------------------
+saturday: 8:30 pm - 10:30 pm (only this saturday)
+	
+1. How to find the user in which we are are executing the shell commands?
+whoami
+
+2. how to find the logged-in user of the linux operating system?
+logname
+
+3. How to get the list of users who are currently logged-in to the linux?
+who
+
+4. How to know the name of the operating system?
+uname 
+uname -a prints all the information about the operating system.
+lsb_release -a
+
+5. How to find the hostname of the linux computer?
+hostname = displays the name of the computer
+hostname -i = prints the loop back ip address
+hostname -I = displays ip address of all the network adapters plugged into to the computer
+
+6. How to change the name of your computer?
+linux will store the name of the computer under /etc/hostname, we can modify the name of the computer by changing within this file
+
+sudo vim /etc/hostname
+
+7. How to find all the network adapters and their physical and logical ip address of the adatpers on the machine?
+in windows we can get all the network adapters and their mac/ip address using
+ipconfig
+ipconfig /all
+
+in linux we can use ifconfig, by default if config is not available we need to install net-tools package in linux system
+how to install net-tools package?
+sudo apt update -y
+sudo apt install -y net-tools
+
+we can run ifconfig command to showup all the adapters along with addresses
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::9510:7c8:d801:8ae9  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:0b:5c:21  txqueuelen 1000  (Ethernet)
+        RX packets 7781  bytes 11595737 (11.5 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 3052  bytes 201102 (201.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.191.4  netmask 255.255.255.0  broadcast 192.168.191.255
+        inet6 fe80::e354:41cc:9a3d:1216  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:9e:98:65  txqueuelen 1000  (Ethernet)
+        RX packets 10  bytes 1789 (1.7 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 55  bytes 6646 (6.6 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+------------------------------------------------------------------------------------------
+8. How to check whether another computer is reachable or not?
+ping ipaddress 
+
+9. How to list down all the hardware devices of our computer?
+lshw
+
+10. How to get the cpu information of your computer?
+linux stores the information about the cpu in a file called
+/proc/cpuinfo
+
+11. how to reboot/shutdown the linux operating system?
+poweroff  = shutdown
+reboot    = normal restart = waits for process to be terminated to restart
+reboot -f = fast restart = it force terminates the process and restarts the operating system quickly
+
+12. What are init levels or run-levels in linux operating system?
+There are total 0 - 6 run levels are there in linux operating system
+init levels = indicates how you wanted the linux operating system to initialize or start/boot
+
+init 0 = shutdown
+init 1 = single user mode, with no network, not multi-tasking and only root access
+init 2 = no network, but multi-tasking support 
+init 3 = network, with multi-tasking but no gui (headless)
+init 4 = it is same as init 3, but reserved for research purpose
+init 5 = network, multi-tasking with gui and sound
+init 6 = restart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

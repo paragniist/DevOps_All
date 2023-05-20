@@ -1,0 +1,112 @@
+Computer Networking
+-------------------
+A computer in order to communicate with another computer we need an cable/wire inter-connecting those 2 computers to enable transmission physical data over the channel
+
+Each computer to connect over the network requires an network interface card attached to the computer. We need to plugin the RJ45 Socket (connected wire) into the Network interface card to establish communication with another computer.
+	
+How many network interface cards can be there for a computer?
+A computer can have multiple network interface cards, by default most of the modern computers come with 2 nic cards on the motherboard of the computer. In addition we can add any number of external network cards by plugging into the PCI slot of the computer. Based on number of computers you wanted to connected to your machine may need more network interface cards.
+	
+A computer is sending the data over the network, by default all the other computers attached to that network will receive the data. To let a computer send the data to a specific computer on the network we need unique identification for a computer.
+	
+A computer on a network has 2 unique identifications
+1. ip address
+ip address is an logical address assigned to a computer by the network administrator to uniquely identify and communicate with the computer on the network.
+	
+2. mac address
+mac address is a physical address given to the network interface card by the manufacturer and remains static and will no change over the course of time.	
+To locate uniquely and access another computer over the network we need ip address only
+--------------------------------------------------------------------------------------------
+What is port no, why do we need it?
+No 2 computers directly communicate with each other, only the programs running within the computers will communicate with each other.
+	
+A program of one computer to communicate with a program running on another computer, the ip address of another computer is not sufficient.
+Because there can multiple programs running on another computer and identifying the program to whom we wanted to communicate is not possible only by using "ip address".
+	
+So each program to uniquely identify on the computer to communicate with requires an portno. A portno is a integer number assigned by the operating system of the computer to uniquely identify the program on that computer.
+	
+Here we can classify the programs into 2 types
+1. client program
+Client program is a program who is the initiator of the communication, requesting some information or functionality from another program.
+
+2. server program
+Server program is the one who receives the request send by a client program, perform operation and sends the response back to the client program. Since it is serving the data/functionality to the client program requested, it is called "server program"
+	
+Every program that is running on a computer doesnt requires a portno, only the network programs who wishes to be communicated by other programs over the network (server programs) only requires portno to identify themself on the computer and to recieve the request from the network
+
+The program byitself goes to the operating system asking for granting a portno, the operating system ensures that no 2 programs are using the same portno to uniquely identify the programs.
+portno are unique across the programs that are running on a computer
+	
+So inorder to communicate to another program running on a another computer over the network we need 2 things
+1. ip address = to locate the computer
+2. portno = to identify the program on that computer to whom we want to communicate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

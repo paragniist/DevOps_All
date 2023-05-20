@@ -1,0 +1,43 @@
+Working with output variables
+-----------------------------
+Output variables are similar to function/method calls in programming language. when we invoke a method we pass input parameters, upon completing the execution it produces the output that can be taken as an input to another function. Similarly while working on terraform we pass inputs for terraform configuration file during execution. 
+	
+While executing the terraform resources may produce/generates output upon computing which can be captured as an output using output variables
+For eg.. while provisioning an ec2 instance we dont know what is public/private ip address associated for that instance, upon completing the execution we can look for the ip address by going through cloud console, instead we can capture such data that is generated during provisioning the instance by using output variables
+
+we can declare output variables in terraform configuration file inside main.tf but it is not recommended to declare output variables inside main.tf, rather recommended place in separate file and standard convention people use in writing the filename is outputs.tf
+
+How to delcare an output variable?
+we declare output variable using output variable block declaration as below:
+outputs.tf
+
+output "variableName" {
+	value = "expression pointing to the one of resource attribute which we want to capture"
+	description = "information about the variable"
+	sensitive = true/false
+}
+for eg.. value = ${aws_instance.varsec2.public_ip}
+the default behaviour is every output variable will be displayed to the console, if we mark it as sensitive it will capature but will not display as output to the console
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

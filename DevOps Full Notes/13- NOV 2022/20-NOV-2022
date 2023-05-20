@@ -1,0 +1,59 @@
+How to mock the final methods of a class using mockito?
+
+class Random {
+	public final int random() {
+		return new SecuredRandom.nextInt(100);
+	}
+}
+
+class PasswordGenerator {
+	Random random;
+	public PasswordGenerator(Random random) {
+		this.random = random;
+	}
+	public String generatePassword(int len) {
+		StringBuffer buffer = new StringBuffer();
+		for(int i=0;i<len;i++) {
+			buffer.append(random.random());
+		}
+		return buffer.toString();
+	}
+}
+
+@ExtendWith(MockitoExtension.class)
+class PasswordGeneratorTest {
+  @Mock
+	Random random;
+	
+	@InjectMocks
+	PasswordGenerator passwordGenerator;
+	
+	void testGeneratorPassword() {
+		int expectedLength=6;
+		int n = 6;
+		when(random.random()).thenReturn(anyString());
+		String password = passwordGenerator.generatePassword(n);
+		assertEquals(expectedLength, password.length);
+	}
+}
+To mock the final method we need to add a dependency mock-maker-inline
+src/test/resources/mockito-extensions
+|-org.mocktio.plugins.MockMaker
+mock-maker-inline
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

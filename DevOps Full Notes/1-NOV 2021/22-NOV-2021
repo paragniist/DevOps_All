@@ -1,0 +1,43 @@
+developer
+developer is the person who uses programming language in writing the instruction/code in building the software application.
+
+The code/application developed by the develper cannot be delivered to the enduser/customer/world, because the code may have errors/bugs.
+There are 2 types of errors are there
+1. Programmatical errors = These are syntax errors because of wrong way of writing the code. If the code has programmatic errors it will not even execute. The developer by himself can verify his code is executing or not and can fix the programmatic errors
+
+2. Logical|Functional errors
+The application will not produce the desired output as per the requirement
+
+To avoid logical errors we need verify the application, which will done by Quality Assurance Engineers.
+  
+Quality Assurance Engineer
+--------------------------
+QA Engineer is responsible for verifying the application whether it is working as per the requirement or not, and report bugs to the developer asking him fix.
+  
+In order to test/verify the code, the QA Engineer has to run/execute the software application pass the inputs and verify the application is producing the correct/expected output or not. If the application produces wrong output, then the qa engineer will report/log a bug on the developer.
+  
+
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

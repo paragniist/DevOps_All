@@ -1,0 +1,37 @@
+failed_when & changed_when
+--------------------------
+By default ansible control node server marks an module execution as failed or changed based on the exitcode of the module execution, but if we want to mark the failed or changed status of a module based on evaluating a condition on the module outcome then we need to use failed_when & changed_when.
+	
+For eg.. we want to verify sufficient disk_space is available before installing an software. we can execute an shell command to grab the diskspace but upon executing the shell it marks the module as changed, but we want to evaluate an conditional check on the outcome of the module and want to mark as failed if sufficient diskspace is not available. this can be achieved by using failed_when
+
+- name: check diskspace
+	shell: "df /dev/sda1 | tail -1 | awk '{print $4}'"
+	register: diskspace
+	failed_when: "diskspace.stdout | float < 348585"
+
+changed_when:
+Ansible control node server marks an module execution as "changed" when the module has return the exitcode as "0", but few times we wanted to evaluate the condition based on the outcome to mark an module has been changed or not, this can be done by using changed_when
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

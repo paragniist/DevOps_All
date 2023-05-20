@@ -1,0 +1,20 @@
+---
+- name: mysql play
+  hosts: all
+  tasks:
+  - name: add sql user
+    mysql_user:
+      name: rconnsqluser
+      state: present
+      password: welcome1
+      priv: '*.*:ALL'
+      host_all: yes
+      login_user: root
+      login_password: root
+  - name: new mysql database
+    mysql_db:
+      name: rconnectdb
+      state: present
+      login_user: root
+      login_password: root
+...

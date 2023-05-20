@@ -1,0 +1,177 @@
+Ansible facts or Ansible Magic Variables
+------------------------------------------
+How does an ansible playbook will be executed by the control node server?
+When we pass the playbook as an input to the ansible control node server asking to execute the playbook, it performs the below actions in executing the playbook
+1. The playbook will be validated to verify whether it is syntactically correct or not, verifies the module declarations and arguments supplied to the modules if found any error the control node server returns an error indicating the failure
+2. if it is valid the control node server picks each module one by one from top to the bottom transfers it over ssh connection on to the managed nodes by replacing the variables with the provided values and executes on each managed node
+3. then transfers the output out of executing the module on the managed node back to control node server by deleting the modules from the managed node
+
+sometimes we wanted to know the environment information of the managed node inorder to execute a module on it. we might want to know the hardware configuration, network adapters or operating system information of the managed node. For eg.. while installing an software package like tomcat9 we wanted to evaluate the managed node qualifies the minimum hardware requirements in installing the tomcat server. if the machine fails to meet the pre-requisite we wanted to skip or fail the execution of the module/playbook. we can only achieve this when we know the information about the environment of managed nodes
+
+From the above we can understand, many of the times we wanted to apply conditional checks before applying a module or a playbook, but to do this we need information about the managed nodes, who should be responsible for collecting the env information about the managed nodes and make it available for playbook execution?
+	
+The responsibility of collecting the env information about the managed nodes before executing the playbook or modules lies in the hands of control node server only
+
+How does the ansible control node server gathers the env information about the managed node servers?
+when we pass a playbook for execution, post completion of the validation of the playbook, the control node server implicitly executes an module/task which is gather_facts
+
+The gather_facts is an python module/script that would be executed on all the managed nodes across the cluster before begining the execution of the modules of playbook and stores the information about the managed nodes and made it available for playbook execution while running on the node.
+	
+Now these fact variables works in the same way as ansible variables and we can refer them in our playbook modules in perfoming the conditional checks etc
+
+since we didnt declared these variables, rather these are implicitly populated and available for playbook execution these are called "magic variables"
+	
+Note:
+For a managed node to participate in the ansible cluster we dont need to have python installed on it, but to execute gather_facts task/module on the managed node the python installation is mandatory
+
+By default when we run a playbook on the managed node, the control node server implicitly executes the gather_facts module which takes considerable amount of time in populating the env information for each fleet server on the cluster. If in case we are not going to use these env information in our playbooks we can explicitly turn off the gather_facts module execution to improve the performance of the playbook execution
+
+---
+- name: play1
+	hosts: all
+	gather_facts: no
+	tasks:
+	- name: task1
+		debug:
+			msg: no gather facts
+...
+	
+From the above we understood the gather_facts module/task gathers the env information and returns as a json, we need to know the properties of the json being returned to use them as variables in writing the playbook
+it can be done by manually running the module on the fleet using adhoc task
+
+ansible -i inventoryFile group -m moduleName
+
+ansible -i gatherFactsHosts all -m gather_facts
+
+There are 2 syntaxes of using these variables in playbook
+1. {{ansible_memory_mb.real.total}}
+2. {{ansible_memory_mb[real[total]]}}
+
+here the prefix ansible is not mandatory while referring the variables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

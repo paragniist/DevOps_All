@@ -1,0 +1,180 @@
+Control Statements
+------------------
+Control statements are used for controlling the flow of execution of a program. By default a program is executed from top to bottom sequentially.  If we want to change the flow of execution of the program then we need to use Control Statements.
+	
+There are 2 types of control statements are there
+1. conditional control statements
+2. loop control statements
+
+#1. Conditional Control Statements
+Based on the outcome of an conditional/relational expression we will decide a specific block of code to be executed or not using Conditional Control Statements. There are 2 types of Conditional control statements are there
+	1.1 IF-FI
+	1.2 CASE
+	
+1.1 IF Statement
+IF statement is used for evaluating an relational expression, and based on the truthness of the expression we execute a block of code.
+Syntax:-
+	IF [ RELATIONALEXPRESSION ]
+	THEN
+		#STATEMENTS
+	FI
+	
+There are other variants of IF condition are available to write the code in much optimized way.
+1.1 IF-ELSE-FI Statement
+
+Wap to find biggest of 2 numbers?
+	
+bigNumber.sh
+-------------
+#!/bin/bash
+A=$1
+B=$2
+
+if [ $A -gt $B ] 
+then
+	echo "$A is big"
+fi
+
+if [ $B -gt $A ] # this if condition evaluation is waste when $A is already big
+then
+	echo "$B is big"
+fi
+
+./bigNumber.sh 20 10
+In the above program we wrote 2 if conditions to find which of the 2 given numbers are big. when we find one of it is big, there is no need of checking for other way as we have only 2 inputs. But here we are checking 2nd if condition also even though A is declared as big to find whether B is big are not
+
+instead of writing 2 if statements we can use if-else statement as below.
+	
+	
+bigNumber.sh
+-------------
+#Assumption the user will not input both numbers as same
+#!/bin/bash
+A=$1
+B=$2
+
+if [ $A -gt $B ]
+then 
+	echo "$A is big"
+else
+	echo "$B is big"
+fi
+------------------------------------------------------------------------------------------
+#2 wap to calculate taxable amount based on gross salary of an employee
+gross amount: 100000
+gender: male   = 15% (tax) = 15000
+	      female = 12% (tax) = 12000
+	
+male: ga * 15 / 100
+female: ga * 12 / 100
+	
+taxableamount.sh
+-----------------
+#!/bin/bash
+read -p "gross income:" GROSS_INCOME
+read -p "gender:" GENDER
+TAX_AMOUNT=0
+
+if [ $GENDER == "male" ]
+then
+	TAX_AMOUNT=$[(GROSS_INCOME*15)/100]
+else
+	TAX_AMOUNT=$[(GROSS_INCOME*12)/100]
+fi
+echo "gross income: $GROSS_INCOME and tax amount to be paid: $TAX_AMOUNT"
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

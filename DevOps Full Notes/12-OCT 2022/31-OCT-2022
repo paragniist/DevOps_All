@@ -1,0 +1,85 @@
+How to pass the api key & secret access key of the IAM user to terraform CLI?
+There are 3 ways 
+1. shared file
+2. env variables
+3. terraform configuration file
+
+vpc
+types subnets
+nat network
+bastion host/jumpbox
+
+loadbalancer (sticky session) 
+scale-up / scale-out 
+s3 bucket
+hosting static applications on S3
+IAM and Policy
+Lambda
+sqs/sns
+-------------------------------------
+docker directivies
+ADD
+CMD
+ENTRYPOINT
+COPY
+RUN
+WORKDIR
+
+docker cli commands
+ci/cd pipeline
+why vagrant when cloud is there?
+cloud advantage?	
+
+kubernetes
+ - deployment strategies
+ - blue/green deployments
+ - rolling updates
+how do you scale-out the application?
+what is the purpose of ansible?
+linux:
+systemd services
+linux basic commands
+
+git
+-rebase
+-cherrypick
+-stash
+-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

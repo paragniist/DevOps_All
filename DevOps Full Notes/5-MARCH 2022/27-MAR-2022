@@ -1,0 +1,176 @@
+/home/sriman/programs/netbanking:$
+wifiprint
+#!/bin/bash
+echo "printing over wifi printer"
+	
+How can we run the above program without navigating to the directory location where the program file exists or without specifying the complete path pointing to the file location?
+We need to set PATH variable pointing to the directory location of the program file, so that we run the program without navigating or use complete filepath.
+export PATH=$PATH:/home/sriman/programs/netbanking
+
+wifiprint
+------------------------------------------------------------------------------------------
+The environment variables that we create are local to the terminal and are temporary if we close the terminal and reopen all the user-defined environment variables are lost.
+	
+How to make these environment variables permanent on linux system?
+That is where bash profiles are used:
+
+profiles are nothing but different settings or features with which we want to use our machine. for eg.. in a mobile phone we configure different profiles like office profile, night profile which has different settings like wallpaper, ringtones, themes etc
+
+similarly we want to launch a bash terminal with various different configurations which are called bash profile
+
+There are lot of settings/configuration files available as part of the linux operating system allowing the user to customize the way he wanted to launch terminal. Based on the way user is lauching the terminal different configuration files are executed to configure the settings
+
+There are 2 types of terminals are there
+1. interactive terminal
+For eg while ssh into a remote computer we will enter user/password inorder to grab access to the remote computer shell which is called "interactive shell" and has to be lauched with a different set of configurations/settings
+
+2. non-interactive terminal
+within an existing shell we are lauching a new shell which is called non-interactive shell which should opened with a different set of configurations/settings
+
+so to handle different settings for different types of shells/terminals linux has provided bunch of configuration files in which we can create settings as below.
+
+1. /etc/profile = The root or super user of the linux can configure the settings here and will be applied to all the linux users of the computer (restart)
+2. ~/.bash_profile = the settings configured here will be applied only for interactive shells only and executed for each user and file is local to user home directory of each other
+3. ~/.profile = in the absence of ~/.bash_profile this file is executed
+4. ~/.bash_login = interactive login shells which is executed when we dont have ~/.bash_profile
+5. ~/.bashrc = non-interactive terminals the basrc is executed
+
+For the above program to run we need to set the PATH, and if we want the PATH to be configured permanently add the PATH variable in ~/.bashrc
+vi ~/.bashrc
+export PATH=$PATH:/home/sriman/programs/netbanking
+------------------------------------------------------------------------------------------
+#3. binary distributable softwares
+These are the software packages distributed by the vendors directly which are not installable. The software programs are distributed directly by packaging as a tar.gz or zip files based on platform.
+The programmers has to download the software program file directly, extract the software and run the entrypoint program directly to launch, there is no installation required for using this software
+
+To avoid repeatedly entering into respective directory location in lauching the program we can set PATH pointing to the directory of the software.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

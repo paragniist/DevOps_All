@@ -1,0 +1,99 @@
+Those who are not able to setup on oracle virtualbox can practise Ubuntu linux on aws cloud platform:
+preferrable: use oracle virtual machine only for practise
+we can use ec2 instance (elastic cloud compute) of aws cloud platform for practicing linux
+
+If you are creating an new aws account, then your account will under free-tier for 12 Months
+(if it is an existing account and older than 12-month, your free-tier will be expired and from day one usage charges for all the services are applicable)
+
+For ec2 pricing:
+750 hours per month
+Free for 12 months
+t2 micro = shape, linux operating system
+-----------------------------------------------------------------------------------------------
+ec2 = Elastic Cloud Computer
+Virtual Machine provisioned by aws cloud platform and will be provided access to us remotely over the network
+
+#1
+----------------------------------------------------------------------------------------------
+To use aws cloud platform services we need an aws account
+1. goto http://console.aws.amazon.com
+2. click on create new AWS account
+	Its an total 5 step process and asks for debit/credit card number and deducts 2 rupees for validation and reverts the money back with 3/5 days.
+	follow on-screen instructions and create an account
+	The account we have created right now is called "aws root account"
+3. important! dont share your aws account username and password to anyone
+4. login into aws cloud account
+5. goto top-right profile menu and click on Security Credentials
+	1. choose Multi-factory authenticator (slider)
+	2. click on Activate MFA
+	3. install on your moble 2FA Authentiator mobile app (andriod)
+	4. choose the device as Virtual MFA
+	5. scan the bardcode show on consle in your mobile app and verify 2 mfa code and register
+----------------------------------------------------------------------------------------------
+#2 how to provision/create an ec2 instance
+1. choose the aws region (india: preferrable ap-south-1 [mumbai])
+2. search in top searchbar for ec2 and click on ec2
+3. click on launch instances
+	1. quick start bar choose free-tier checkbox
+	2. choose ubuntu ami
+	3. choose instance type (t2.micro)
+	4. Configure Instance Details
+		1. instance = 1
+		2. choose subnet as either ap-south-1a or ap-south-1b
+		3. auto assign public ip: enable
+	5. Add storage (default)
+	6. Add Tags(key: Name, value: odwa2ubuntu)
+	7. Configure Security Group (default) (click on review and launch)
+	8. Review Instance Launch -> scroll down and click launch
+	9. In popup choose create a new keypair
+	10. keypair name
+	12. download the key and keep it, if you lost you cannot regenerate and you lost the access to your computer
+
+	
+#3 Secure the key we downloaded
+cut/paste the key downloaded from aws cloud into c:\Users\$USER\.aws and place it here
+---------------------------------------------------------------------------------------------
+How to see the ec2 computer created?
+1. goto again searchbox and type ec2 and click on ec2
+2. in the instance list screen your ec2 computer should be visible with running status
+3. click on instance id you will see public ip address
+---------------------------------------------------------------------------------------------
+How to access the computer from our local machine?
+1. Download and Install gitbash software on your windows
+https://github.com/git-for-windows/git/releases/download/v2.34.1.windows.1/Git-2.34.1-64-bit.exe
+2. open gitbash from start menu
+3. ssh into the ec2 instance using pem file and public ip address by typing below command
+ssh -i ~/.aws/filename.pem ubuntu@publicip
+(firstime verify fingerprint yes)
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

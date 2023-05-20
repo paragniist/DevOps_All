@@ -1,0 +1,138 @@
+Ansible
+-------
+Vagrant is an virtualization workflow automation tool, using the vagrant the vagrant we create virtual machines on which we install software packages and deploy applications.
+	
+Instead of using virtual machine environment, we can use cloud platforms as well for creating the infrastructure and rolling the applications.
+Terraform is used for automating the provision of infrastructure resources on the cloud platforms
+The vagrant and terraform are called iac tools (infrastructure as code). Using these tools we can achieve automation in setting up the infrastructure either on virtualization env or cloud env
+
+By having the infrastructure ready, we cannot deploy or run our software applications on them, we need to install software packages, libraries and apply configurations to get the env ready for deploying and running the software applications
+
+How to install, configure software packages on the infrastructure we provisioned?
+There are many ways to install and configure software packages let us explore each of those ways and understand the challenges involved with each approach
+
+#1. manually install and configure
+Let the devops engineer upon provisioning the infrastructure, connect to the machine over ssh, download the software packages and manually install and configure on the machine. this approach has several drawbacks
+dis-advantages:
+1. manually installing and configuring the software packages is going to take lot of time
+2. in a clustered deployments, we have to create similar environment to facilitate deployment and load balancing the applications across the machines of the cluster. Setting up multiple machines with same configurations/packages will multiplies the efforts of setting up the environments which will delays the overall project delivery
+3. For running/deploying an application, there can be bunch of software packages to be installed and handful of configurations to be made on the targeted environment. it would be hard and quite complex for the ops engineers in memorizing the packages/configurations and their order of installations/configurations on these environments.
+4. it would be hard and difficult to keep track of the information regarding which software packages are installed on which machines within our organization since we are managing the infrastructure manually
+5. upgradation and patching the exiting infrastructure/softwares manually is quite complex to handle and takes lot of time
+6. installing the software packages and configurations is not an onetime job, rather it is a repeatitive job that has to be performed several times across various different projects we are working on,and achieving the highest level of consistency by manually carrying these operations is highly difficult and each failure cause huge amount of lose in time
+
+
+To overcome the above problems we need software configuration management automation. The software configuration management is the process of installing and configuring the software packages to make the env ready for deploying and running the applications.
+There are several possibilities in accomplishing automation in software configuration management.
+1. Shellscripting
+The devops engineer can write shellscript programs with instructions to install and configure software packages on the targeted env. So he/she can run these touchless shell automation scripts on the targeted environments to make them ready for deployments
+
+
+	
+# shellscript apache2 server (hosting static application)	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,239 @@
+How many types of users are there in Linux operating system?
+There are 2 types of users are there
+1. Root user
+by default during the install of the linux operating system, the root user will be created by the linux with the password we supplied. Root user has unrestricted access to all the resources of the linux operating system
+
+2. Normal user
+The Root user will create/add a normal user into the operating system to provide access to the linux machine to others. The normal user has access to the files/folders of home directory location and he can manage process of his own
+-----------------------------------------------------------------------------------------------
+What are the attributes?
+1. user
+	username, uid and password with which the user is created or added in linux operating system
+2. group
+	group and gid are the attributes of a group
+	
+How does an user is added into the linux operating system?
+1. each linux user has to must and should be associated with a group, so while adding the user the linux will creates a group with same name as username by generating gid of the group as last group id + 1
+2. it creates an user with uid by generating uid by incrementing last user id+ 1
+3. associates the user to the group created above
+4. creates an home directory location for that user under /home/$USER
+5. assigns an default shell to the user
+
+Where does linux operating system stores the information about the users and groups of the system?
+all the users information is stored in /etc/passwd file 
+all the groups information is stored inside /etc/groups files
+
+More things about Root user?
+1. uid = 0 and gid = 0
+2. The root user is always named with "root" only and will be created during the time of installation.
+3. The home directory location of the Root user is /root
+4. due to security restrictions, always we will not be allowed to login as root directly, upon logging as an normal user which we have created during install, we can switch to the root user using sudo su - or sudo su 
+5. The prompt will display the username as root with # indicating we are under root user
+6. always recommended to stay away from using root since it is dangerous
+----------------------------------------------------------------------------------------------
+How to add a user into the linux operating system?
+only root user can add other users into the linux operating system, because all the commands related to managing the users are part of /sbin directory
+
+
+/
+|-etc = configuration files (/etc/passwd, /etc/groups)
+|-bin = core commands of the linux operating system are part of bin directory
+	|-ls, mkdir, pwd, cat, echo, grep, find, touch, cp, mv, rm, rmdir, tail, head, nano, vim, cmp, diff, vi, whoami, tar, gunzip, gzip, more, less, tr, wc, 
+|-sbin = super user commands are placed under sbin, only root can use them
+	|- usermanemgment, package, process, networking, disk, device
+	
+|-proc
+|-home
+|-root
+|-tmp
+|-mount
+|-opt
+|-media
+|-lib
+|-var
+|-usr
+|-boot
+|-dev
+
+There are 2 ways we can add a user into the linux operating system?
+1. useradd
+2. adduser
+
+#1. useradd
+by default when we use useradd to add a user into linux operating system the below things will takes place
+	1. group with the username will be created by generating the gid
+	2. user with username will be created by generating uid
+	3. associate the user to the group
+	4. it doesnt prompts us for entering password for login, which means the user will be created without a password
+	5. The user home directory will not be created
+	
+So we cannot login directly using this user since he dont have home directory and password. The only way to perform operations onbehalf of the user is by switching to the user in terminal using su
+
+sudo su username
+even after switching also there is of limited usage, since he doesnt have his own home directory, so the cannot create/modify the files/folders
+
+We need to perform few things manually to assign home directory and password to the above user as below.
+	for eg let us consider the user we added above is "bob"
+	1. goto /home directory
+	2. sudo mkdir bob = this creates an directory for the user under /home
+	3. now change the owner and group of the newly created directory to bob user by executing the below command
+		sudo chown bob:bob /home/bob
+	4. sudo passwd bob = will reset the password for the bob user so that he can login
+
+Instead of manually creating the directories and setting the password there are switches using which we can create user with password and home directory directly as shown below.
+useradd
+	-m = indicates create home directory (this will create a home directory under /home)
+	-d location = if we dont want to create home directory under /home for this user we can create in a different location using -d /bob
+	-p password = creates the user directly with the supplied password
+	-s shell = the default shell the user will be assigned to when we lauch the terminal is "sh",  we can change the default shell to bash by using -s
+	
+so now to quickly add the user into linux we can use the above switches
+sudo useradd -m -p encryptedpassword -s /bin/bash kevin
+otherwise
+sudo useradd -m -s /bin/bash kenin
+sudo passwd kenvin
+-----------------------------------------------------------------------------------------------
+From the above it looks like add a user into linux system is a bit difficult job as we need to carry few things manually. To overcome the above problem ubuntu distro has provided adduser utility which is built ontop of useradd
+
+sudo adduser mark
+Adding user `mark' ...
+Adding new group `mark' (1004) ...
+Adding new user `mark' (1004) with group `mark' ...
+Creating home directory `/home/mark' ...
+Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for mark
+Enter the new value, or press ENTER for the default
+	Full Name []: mark j
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

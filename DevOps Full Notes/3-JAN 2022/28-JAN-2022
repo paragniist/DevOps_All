@@ -1,0 +1,194 @@
+What is the structure of a Bash command?
+There are total 3 parts are there in Bash command
+1. command = the action or the operation we wanted to perform
+
+2. options = options are used for changing the behaviour of the command. options are optional to be used as apart of the command, and we pass option using -option. Here "-" helps to distinguish between option and argument. If we use -value the command treats it as option.
+	
+3. arguments = is the input passed to the command asking to use for performing the operation
+
+command [option] [arguments]
+------------------------------------------------------------------------------------------------
+1. How to remove a file?
+rm filename
+
+2. How to remove a special file?
+rm -f filename 
+remove the file forcebiliy, which means do take confirmation.
+	
+3. How to remove/delete a directory?
+There are 2 ways are there
+	1. empty the directory contents and delete the directory using rmdir
+	rmdir directoryName
+	2. delete directory and its contents recursively using
+	rm -r directoryName
+-----------------------------------------------------------------------------------------------
+1. How to write a message to the STDOUT or terminal?
+echo "message"	
+	
+2. How to create a file with data inside it?
+
+Every bash command, takes the input from STDIN and writes the output to STDOUT. if we want we can redirect the input/output of the commands using redirection operations described below.
+There are 2 types of redirection operators are there
+1. input redirector = using which we can redirect the input source from where program takes the input. Input redirection can be done using "<"
+2. output redirector = we want redirect output of a command to a destination. Output redirection can be done using ">"	
+Now we can use every bash command with either input/output redirection depends on the command we are using.
+	
+echo "data" > filename
+
+
+3. How to see the contents of a File?
+cat filename
+displays the contents of the file
+
+cat < filename = takes the input from File and writes the contents of the file to STDOUT
+cat filename
+both the above commands are same, because we are passing argument as input asking to the cat to read the file
+cat = take the input from keyboard and writes the output to STDOUT
+cat > news.txt
+
+There are 2 ways we create a file with data
+1. echo "data" > filename = here the message/data we supplied will be written onto the File
+2. cat > filename  = it reads the data from keyboard interactively and writes to the File until we press ctrl + D
+-----------------------------------------------------------------------------------------------
+#2 copy and move commands
+
+#2.1 cp 
+cp stands for copy and is used for copying the files/folders into a different location. the original files/folders will not be modified/moved when we use cp
+
+How to copy a File?
+/home/sriman:$
+payslip.txt
+/home/sriman:$
+|-backup
+syntax:-
+cp filename destinationlocation/
+cp payslip.txt backup
+
+How to copy the directory into another location?
+/home/sriman:$
+|-library
+  |-novels
+		|-kecret.txt
+		|-shakespear.txt
+	|-kids
+		|-fun.txt
+		|-logicmaths.txt
+	|-topsellers	
+		
+want to copy the novels directory into topsellers directory
+cp only copies a file from one location to another location. if we want to copy directory and its contents into a different location we need to use -R (recursively)
+	
+cp -R library/novels/ library/topsellers/ = which means recursively copy along with directory its files/sub directories also under the destination
+
+How to copy the contents of the directory into another directory?
+/home/sriman:$	
+library/
+├── kids
+│   └── funmaths.txt
+├── novels
+│   ├── 3idiots.txt
+│   └── indiansaints.txt
+    
+└── topsellers	
+
+cp library/novels/* library/topsellers = copy all the files of a folder into destination
+cp -R library/novels/* library/topsellers = if novels has subdirectories then we need to -R
+
+What are redirection operators? How many are there?
+How to create a file with data?
+How to create a file with data interactively?	
+How to copy File to a different location?
+How to copy a directory along with contents into a location?
+How to copy contents of a directory into a location?
+How to copy contents of a directory which includes subdirectories into a location?
+	
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

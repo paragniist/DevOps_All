@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('checkout scm') {
+            steps {
+                echo 'clone the project from git'
+            }
+        }
+        stage('build') {
+            steps {
+                echo 'building the project'
+            }
+        }
+        stage('deploy') {
+            steps {
+                input message: 'do you want to proceed for deployment', ok: 'Yes'
+                echo 'deploying the project'
+            }
+        }
+    }
+}

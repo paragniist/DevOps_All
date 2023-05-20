@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('when condition') {
+            input {
+                message 'Enter age:'
+                ok 'ok'
+                parameters {
+                    string(name: 'age', defaultValue: 0, description: 'age:')
+                }
+            }
+            when{
+                equals expected: '18', actual: "${age}"
+            }
+        }
+    }
+}

@@ -1,0 +1,354 @@
+Jinja2 Templates
+While working with Ansible in implementing software configuration automation, as part of software installations we might need to generate configuration files pertaining to the env on which we are deploying the application. we can take the help of jinja2 templates in generating the configuration files during the playbook execution.
+	
+Jinja2 engine has provided coding constructs / instruction set in generating the dynamic configuration files by embedding conditional statements and loops within the template files
+
+#1. variables substitutions
+{{variableName}} variable expression to substitute with a value
+
+#2. conditional statements in generating the dynamic output
+2.1 
+if condition:-
+	
+{%if var operator value %}
+  statements
+{% endif %}
+	
+	
+2.1 if-else condition:-
+{%if var operator value %}
+	statements
+{%else%}
+	statements
+{%endif%}
+
+2.2 if/elif/else/endif condition:-
+	
+{%if var operator value1%}
+  statements
+{% elif var operator value2 %}
+  statements
+{% else %}
+	statements
+{% endif %}
+
+Loop control statements
+{% for var in values %}
+	statements
+{% endfor %}
+-----------------------------------------------------------------------------------------------------------------------
+generate an tax report based on gross income of an individual and show the percentage of tax he has to pay on his income
+
+taxreport.j2
+Dear {{person}}
+You are gross earnings per annum is {{earnings}}, so you need to pay a tax of percentage:
+{% if earnings >= 700000 %}
+	30% 
+{% elif earnings >= 500000 %}
+	20%
+{% elif earnings >= 300000 %}
+	10%
+{%else%}
+	0
+{%endif%}
+on your gross income
+
+taxreport-playbook.yml
+- name: taxreport play
+	hosts: all
+	vars:
+		person: Alex
+		earnings: 800000
+	tasks:
+	- name: report generation
+		template:
+			src: taxreport.j2
+			dest: taxtreport.txt
+------------------------------------------------------------------------------------------------------------------------
+crazyeats
+|-*.html
+
+1. apache2 server
+2. site configuration file www.crazyeats.com -> /var/www/crazyeats
+3. enablesite, restart
+
+sourceDirectory
+domainName
+hostingDirectory
+
+
+staticwebhosting
+|-siteconfig.j2
+|-invetoryFile
+|-sitehosting-playbook.yml
+|-vars.yml
+
+siteconfig.j2
+<VirtualHost *:80>
+	ServetName {{serverName}}
+	DocumentRoot /var/www/{{docRoot}}
+</VirtualHost>
+
+sitehosts
+192.168.10.5
+	
+site-vars.yml	
+serverName: "www.crazyeats.com"
+docRoot: crazyeats
+
+
+sitehosting-playbook.yml
+---
+- name: static web hosting play
+	hosts: all
+	vars_file:
+	- site-vars.yml
+	tasks:
+	- name: install apache2 server
+		apt:
+			name: apache2
+			update_cache: yes
+			state: present
+		become: yes
+	- name: copy site directory
+		copy:
+			src: {{docRoot}}
+			dest: /var/www/
+			recurse: yes
+			mode: 0655
+			owner: vagrant
+			group: vagrant
+		become: yes
+	- name: configure site
+		template:
+			src: siteconfig.j2
+			dest: /etc/apache2/sites-available/{{docRoot}}.conf
+		become: yes
+	- name: enable site
+		shell: a2ensite {{docRoot}}
+		become: yes
+		notify:
+			- reloadApache2
+handlers:
+- name: reloadApache2
+	service:
+		name: apache2
+		state: restarted
+	become: yes
+	
+	
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

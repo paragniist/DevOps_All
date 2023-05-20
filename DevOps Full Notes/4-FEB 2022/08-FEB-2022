@@ -1,0 +1,135 @@
+1. find directory/ -name "pattern"
+2. find directory/ -name "pattern" -print
+3. find directory/ -name "pattern" -print0
+4. find directory/ -type f/d -name "pattern"
+5. find directory/ -name "pattern" -empty
+6. find directory/ -name "pattern1" -o -name "pattern2"
+7. find directory/ -name "pattern" -exec shell {} \;
+8. find directory/ -name "pattern" -ok shell {}\;
+9. find directory/ -name "pattern" -perm octal
+
+when to use -exec/-ok and pipe(|)
+in case of -exec/-ok the shell command will be executed by passing each matching outcome one by one as an input whereas in case of pipe the entire outcome of the find will be passed as an input to the shell at one go
+if we are using a shell command that works on multi-line input use pipe (|) operator
+if you command works per line or a single-line input then use -exec or -ok 
+-----------------------------------------------------------------------------------------------
+grep
+-----
+global regular expression print (grep)
+grep is used for searching the files based on the matching content, whereas find is used for searching for files/folders based on their names.
+	
+grep searches for all the occurences of matching text in a given file line by line and outputs only the matching lines on the console
+
+1. grep "text" filename
+searches for the given text within file and displays all the matching lines which contains the text provided
+2. grep -R "text" directory/
+-R stands for recursively, if we want to search within a group of files of a directory rather than into a specific file, then we can use -R which goes through each file within the directory and its sub-directories as well matching for the given text content and displays each matching line on to the console
+3. grep -n "text" filename
+search for the given phrase inside the file and display matching lines along with line# number
+4. grep -i "text" filename
+by default grep is case-sensitive, if we want grep to ignore case while matching the phrase we need to use -i
+5. grep -w "text" filename
+match whole word only, and display the matching lines as output
+6. grep -o "text" filename
+-o stands output only the matching words not the entire line
+7. grep -c "text" filename
+it displays the count of matching phrase in the file
+
+The below grep options are quite helpful for tracing the execption/error in a log file
+8. grep -digit "text" filename
+grep -1 "text" filename = which means print along with matching line a line above and below as well.
+9. grep -Adigit "text" filename
+display the n number of lines after the matching line
+10. grep -Bdigit "text" filename
+display n number of lines before the matching line
+
+11. grep -v "text" filename
+-v = invert match, which means display all the lines which doesnt matches with the given phrase
+
+laptops.txt
+------------
+1   hp pavilion  intel  8gb
+2   dell xps     intel  8gb
+3   asus         amd    16gb
+4   lenovo       ryzen  8gb
+5   mac pro      m1     16gb
+grep -v "intel" laptops.txt
+
+show me all the laptops which doesnt have "intel" processor
+
+In grep along with text/phrase based searching we can use regular expression also for more complex matching.
+regular expression symbols supported by grep
+--------------------------------------------
+1. [] = any one of the single character match
+2. [1-10] = matches any one character with the given range of characters
+3. ^ = this pattern must appear at the begining of the line
+4. $ = this pattern must appear at the end of each line
+5. . = matches any one character
+6. \ = escape character
+7. * = one or more occurences
+8. .* = nothing or any number of characters
+
+salesbook.txt
+--------------
+cr  10-01-2022 andrew  10  1000  np
+dr  10-01-2022 smith   20  2000  creditcard
+dr  11-01-2022 james   5   2000  cash
+dr  12-01-2022 drones  15  3000  creditcard
+cr  13-01-2022 bob     7   200   np
+
+grep "dr" salesbook.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

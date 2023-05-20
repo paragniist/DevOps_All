@@ -1,0 +1,171 @@
+what is umask?
+while creating a file/folder in linux operating system, the linux takes care of assigning the default permissions to a file/folder as most of the time we wanted the same permissions to be assigned to the files/folders we create, so to simplify the process of creating the files the default permissions are applied.
+
+How does linux derives the default permission for a file/folder?
+Linux derives the default permissions to be assigned to a file/folder using umask. umask is a special variable available per each user of the linux operating system.
+
+The default value assigned to the umask variable is
+Root User = 0002
+Normal User = 0022
+
+
+The default max permissions allowed:
+To File of linux operating system is = 666, where the execute permission on a file will not be granted or issued by default for security
+To Folder = 777, as we should be able change directory (cd) into the directory
+
+
+bob
+umask = 022
+
+touch planes.txt
+      666
+		- 022
+		------
+		  644   == default permission
+rw-r--r--
+
+mkdir boxes
+max default permission for folder  = 777
+                                    -022
+																		----
+																		 755
+																		 ----
+rwxr-xr-x   boxes
+
+
+Now while creating an file/folder linux will compute the default permissions for a file/folder by using umask variable value of that user.
+Linux will takes the max default permissions of a file which is 666 and substracts with umask value of the user to derive permission for that file
+ 666
+-022
+------
+ 644
+-------
+similarly while creating an folder it substract the max default permission of a folder which is 777 with umask value of the user to derive default permissions
+
+How to know the umask value of a user?
+There is an command called umask which will displays the current user umask value
+umask
+displays the umask variable value of that user
+
+we can change the default permission being assigned to a file/folder for a user by changing the default umask value of that user
+umask 0ownergroupothers
+
+when we change the umask for a user it will be temporary upon relogin/restart the umask will be reset to default 
+
+How to permanently change the umask value for an user?
+add an entry into the ~/.bashrc file as shown below to make umask permanent
+
+vi ~/.bashrc
+goto the end of the file and add an entry
+umask 0026
+The above umask value is applied for only the user for whom we changed
+
+what is the reason for having different umask values for root and normal user?
+always a root/super user will be created in his username/own group only, since he is the only user who exists in his group, there is no point in allocating a different permission for the group so the umask value for the user/group will be same which is = 002
+
+whereas a normal user can be created other than the usergroup by using -g option in such case we want to differentiate file/folder permissions from owner to group so the default umask = 022
+------------------------------------------------------------------------------------------
+user management commands
+- add user/group
+- delete user/group
+- user modify
+	- change home directory
+	- add group to the user
+	- reset group
+	- change the uid
+  - rename existing user
+	- change default shell
+- see the user and group (id)
+- change password (passwd)
+- see all the users /etc/passwd
+- see all the groups /etc/group
+--------------------------------------
+suoders
+sudo
+sudo su
+sudo su -
+sudo -i
+visudo
+aliases in sudo
+pkexec
+/etc/sudoers.d/
+how to grant password less sudoers access
+-----------------------------------------------------
+file permissions
+chown
+chmod 
+umask
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,140 @@
+What is the change in culture and the new tools and technologies we need to adopt during the development phase of the Software Application?
+1. gather	the requriements from business or product owner and analyze them to build the software application
+2. choose the programming language that best suitable for developing the application of its nature
+3. setup the development environment
+	- install language software
+	- install development tools
+	- install database servers
+	- install application servers 
+The overall time required for setting the development environment is quite high and it would around 10-25 days and has to spend for each developer in the team which is a multiplication factory of the size of the team. This will increases the overall cost of development and delays the delivery of the application.
+	
+How to reduce the time and cost of setting up the development environment?	
+adopt the virtualization technology.
+	
+What is Virtualization, what is the purpose of it?
+We can create mulitple independent environments, which can run in parallel and in an isolated manner on the same physical machine, so that we can effectively utilize the hardware resources of the computer.
+	
+Now devops engineer can setup an virtual machine by installing the required softwares and tools for development. package the virtual machine into an image file and distribute to the development team, so that development team can re-create the virtual machine environment quickly using the image shared.
+	
+If the devops engineer is setting up the virtual machine manually it takes more time, to reduce the time required to setup the virtual machine he may use virtualization workflow automation tool like Vagrant.
+	
+Devops engineer will write machine definition in a machine configuration file and pass to vagrant, so that vagrant takes the responsibility of provisioning the infrastructure and provide to the us.
+
+By using virtualization and vagrant we can drastically bring down the time required in setting up the development environment, so that the whole development team can jump start in developing the application without waiting for the environment.
+----------------------------------------------------------------------------------------------
+Choose an procces model
+To develop and deliver an software application, the development team has to adopt an process model, there are plenty of process models are there like
+	1. waterfall model
+	2. iterative/incremental model
+	3. spiral
+	4. prototype
+	5. Agile methodology scrum process model	
+devops recommends us to use only agile based process models.
+	
+What is a process model, why do we need to use it?
+Process model is a methodology or guidelines or step by step approach that is described or standardized by the experts in the industry that should be followed in developing the software application, thereby the application can be developed successfully.	
+Scrum is one of such process models that are available in the market and is recommended by DevOps to use.
+	
+	
+Srum methodology works on a principle called "fail-fast", which means let there be a failure but let us have it or detect it much earlier than later, so that the cost of failure and the lose of time will be quite neglizable.
+	
+1. It would be impractical or impossible to gather the entire system requirements intially in building an software system. That is where scrum recommends to understand and analyze the business and gather the requirements based on scope or vision we have.
+Now capture those requirements and start working on the system, while we are progressing on building software we understand the further directions of the system and can rethink through the requirements or can identify more in building the system further.
+By the above approach even a complicated business system can be built.
+	
+In scrum the Product owner is the person who defines/creates the requirements for the team by setting up the goal. These requirements defined by the product owner are called product backlogs.
+backlog = an item that should worked on or should be accomplished
+
+2. Scrum Member
+The team members who are going to contribute in developing and delivering the software application end-to-end
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

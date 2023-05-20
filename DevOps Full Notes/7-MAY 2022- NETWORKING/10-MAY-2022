@@ -1,0 +1,70 @@
+application layer:
+in the application layer the application protocols are used for exchanging the data between applications which are communicating over the network
+
+application protocols:
+application protocols defines standard messaging formats and semantics so that both the applications can agree upon them in communicating over the network
+
+There are most commonly used applications are there over the internet, the Internet Standard has identified such type applications which we commonly use as part of our day-to-day life and defined standard protocols for vendor/platform portability
+
+For exchanging the HTML/Web pages over the network : HTTP/HTTPS protocol
+[Hypertext Transfer protocol]
+Server: Http/Web Server
+Client: Browser
+default: 80
+	
+For transferring files across the computers over the network: FTP protocol
+[File Transfer Protocol]
+Server: FTP Server
+Client: FTP Client
+default: 20/21
+	
+For email exchanges we use bunch of protocols
+SMTP = Simple Mail Transfer protocol (sending/receiving) (port: 25)
+POP3 = Postoffice Protocol (reading the mails) (port: 110)
+IMAP = Internet Message Access Protocol (advanced multi-media email sending/receiving) (port: 143)
+Server: Email Exchange Server
+Client: outlook, thunderbird, lotusnotes
+
+Remote Desktop application (RDP) for connecting computers remotely over the network:
+uses RDP protocol, remote desktop application protocol
+Server: Microsoft inbuilt server program (or third-party server programs are available)
+Client: Windows RemoteDesktop client program 
+port: 3389
+	
+Secure Shell (SSH): 22
+used for connecting remote linux computers over the network	
+
+when client program is trying to access the server program, the client has to use application protocol of the server in sending/receiving the data over the network and should use url for accessing
+The url contains the below parts
+schema://serveripaddress:port/resource
+schema: protocol you are using in sending the request it can be
+http or ftp or smtp or pop3 or imap etc
+
+http://192.168.10.11/index.html (this request by default will be sent to the server program running on port 80, since we specified schema as "http")
+--------------------------------------------------------------------------------------------
+Presentation Layer
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

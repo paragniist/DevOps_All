@@ -1,0 +1,186 @@
+How to work with counter based for loops?
+In counter based for loops the initialization, condition and incrementation of a loop will be inside the for loop statement itself.
+
+COUNTER=0 # initialization
+while [ $COUNTER -le 10 ] #condition
+do 
+	COUNTER=$[COUNTER+1] #incrementation
+done
+
+syntax:-
+for((intialization;condition;incrementation))
+do
+	// statements
+done
+
+wap to print the numbers divisible by given number between 1 to N
+N=10
+1 2 3 4 5 6 7 8 9 10
+divisor = 3
+output: 3 6 9 	
+	
+multiplier.sh
+#!/bin/bash
+read -p "n: " N
+read -p "divisor :" DIVISOR
+
+for((I=1;I < N;I++))
+do
+	REM=$[I%DIVISOR]
+	if [ $REM -eq 0 ]
+	then
+		echo $I
+	fi
+done
+------------------------------------------------------------------------------------------
+until loop
+----------
+it is similar to while loop only the only difference is in case of while loop 
+while the condition is true iterator, if condition is false, break the loop whereas in case of until loop until the condition is false iterate the block of code, if the condition is true break the loop
+
+syntax:-
+until [ condition ]
+do
+done
+here util the condition is false, repeat the block of code
+
+wap to print the numbers sequentially from 1 util the user enters "q"
+	
+printNumbers.sh
+-----------------
+#!/bin/bash
+F="y"
+I=1
+until [ $F == "q" ]
+do
+	echo "$I"
+	I=$[I+1]
+	read -p "continue (y/q):" F
+done
+------------------------------------------------------------------------------------------
+wap to print the numbers in the reverse order from N to 1 using until loop?
+10
+10 9 8 7 6 5 4 3 2 1
+	
+printReverseNumbers.sh
+----------------------
+#!/bin/bash
+read -p "n :" N
+I=$N
+until [ $I -eq 0 ]
+do
+	echo "$I"
+	I=$[I-1]
+done
+------------------------------------------------------------------------------------------
+Arrays
+------
+Arrays are used for storing bunch of identical values inside a variable
+(or)
+Arrays are used for storing collection of same datatype values inside a variable
+
+P1=10
+P2=20
+P3=30
+P4=40
+P5=50
+	
+10% = tax
+total price of the product: 
+
+TAX_AMT=$[(P1*10)/100]
+TOTAL_AMT=$[P1+TAX_AMT]
+echo "$P1 after tax: $TOTAL_AMT"
+	
+TAX_AMT=$[(P2*10)/100]	
+TOTAL_AMT=$[P2+TAX_AMT]
+echo "$P2 after tax: $TOTAL_AMT"
+
+TAX_AMT=$[(P3*10)/100]	
+TOTAL_AMT=$[P3+TAX_AMT]
+echo "$P3 after tax: $TOTAL_AMT"
+
+TAX_AMT=$[(P4*10)/100]	
+TOTAL_AMT=$[P4+TAX_AMT]
+echo "$P4 after tax: $TOTAL_AMT"
+
+TAX_AMT=$[(P5*10)/100]	
+TOTAL_AMT=$[P5+TAX_AMT]
+echo "$P5 after tax: $TOTAL_AMT"
+
+if we have same datatype of values on whom we want to apply same logic in performing operation, keeping them in different variables will make the logic duplicate across all the variables.
+instead of them store in an array and apply the logic on the array of elements by iterating.
+	              0   1   2   3   4
+PRODUCT_PRICES=(10, 20, 30, 40, 50)	
+when we store values in an array those are stored in adjacent memory locations and we can access them using index
+The array index begins with 0 and ends with depends on number of elements we stored. if we store N elements the end index will be N-1
+	
+How to declare an array in shellscript?
+There are 3 ways of declaring arrays are there in shellscripting.
+#1 while creating the array itself populate all the values we wanted to store in array as below
+PRODUCT_PRICES=(120 234 654 125)
+	
+#2 Index declaration
+PRODUCT_PRICES[0]=120
+PRODUCT_PRICES[1]=234
+PRODUCT_PRICES[2]=654
+PRODUCT_PRICES[3]=125
+	
+#3 array declaration
+declare -a PRODUCT_PRICES (-a indicates the variable is an array)
+PRODUCT_PRICES[0]=120
+PRODUCT_PRICES[1]=234
+PRODUCT_PRICES[2]=654
+PRODUCT_PRICES[3]=125
+
+How to iteractively read the data into an array?
+while reading the elements itself we can store them in array
+read -a PRODUCT_PRICES
+we need to enter data separated by space and press enter, all the values will take and stored inside array PRODUCT_PRICES
+10 20 30 40
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		

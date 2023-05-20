@@ -1,0 +1,125 @@
+How many types of editors are available in linux?
+There are 2 types of editors are available
+1. cgi [character graphic interface] 
+	1.1 vi
+	1.2 vim
+	1.3 nano
+2. gui [graphical user interface]
+by default in ubuntu distro, the gedit will be available, but we can install any third-party opensource editors available in linux gui environment like
+1. atom
+2. vscode
+3. brackets
+etc
+-----------------------------------------------------------------------------------------------
+vim
+vim is the most popular editor available across all the distros of the linux. it is an programmers editor as it works with commands.
+There are 3 modes are there in vim
+1. command mode
+by default when we open the editor, it enters into command mode. every keypress on the keyboard is considered as a command and performs an operation on file contents. at anypoint of time we can return back to command mode by pressing esc key on the keyboard
+	
+	
+2. input/insert mode
+we can enter into insert/input mode by press "i" key on the keyboard, so that we can start entering the data into the file. 
+	
+3. exit mode
+once we are done with modifying the file contents we can save and quit by entering into exit mode. to enter into exit mode we need to come back to command mode by pressing esc key and then use ":"	on keyboard to enter into exit mode
+1. w + enter = write the file contents
+2. q + enter = quit the editor (doesnt allows if there unsaved changes)
+3. wq + enter = write and quit
+4. q! + enter = quick without saving
+
+The below list of commands are available in command mode:
+A = append the data at the end of the line
+a = append the data to the right side of the cursor position
+I = insert the data at the begining of the line
+i = insert the data at the current cursor position
+O = open a new line above the cursor position
+o = open a new line below the cursor position
+r = replace a character
+R = Replace the text from current position
+S = replace the current line
+yy = yanking (copy a line)
+#nyy = copy n number of lines
+p = paste
+x = to delete a character
+dw = delete a word
+dd = delete a line
+#ndd = delete n number of lines
+u = undo the previous action
+b = back to the begining of the word
+w = begining of the next word
+e = end of the current word
+:linenumber = jump to the given line number
+G = moves the cursor to the end of the file
+ctrl + f = one page forward
+ctrl + b = one page backward
+
+/phrase + enter = search for the text in the file
+press n = to show next matching content
+shift + n = shows previous matching content
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

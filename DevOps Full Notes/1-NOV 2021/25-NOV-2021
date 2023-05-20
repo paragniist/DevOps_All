@@ -1,0 +1,108 @@
+What is an software application?
+Software application is bunch of instructions or lines of code written by the developer using a programming language in fullfilling the business requirements of a business and offer business services to their customers/endusers
+
+How many roles of people involved in developing and delivering a software application?
+There are 3 roles of people involved in developing and delivering an software application
+1. developer
+2. quality assurance engineer
+3. operational engineer
+
+How many stages in which an software application is developed and delivered to the enduser?
+There are 4 stages in which an software application	is developed and delivered
+1. development environment       = where developer build or develops the software application
+2. qa environment                = qa engineers uses this environment to verify and certify the application
+3. uat/stage/pre-prod environment
+	1. enduser will verify the application, whether it is meeting the business requirements or not
+	2. test the application on production-like environment to guarantee the application works on production
+4. production environment        = finally application is deployed/executed on public internet connected machines to make the application accessible to the external/endusers
+
+What is DevOps?
+DevOps is a change in culture/process and adoption of new tools/technologies in developing and delivering an software application.
+	
+DevOps is not a programming language or not a technology, rather it is an methodology/process that should be followed in developing and delivering the software applications.
+	
+
+Change in Culture = The way people are working in building the software application has to be changed.
+For eg..
+In general the project/software application will be developed by 3 teams of people grouped by their roles.
+	1. development team
+	2. quality assurance engineering team
+	3. operation engineering team
+when the people are working in different teams, there is a chance where due to communication mis-match or due to lack of coordination always there is a chance of delay development/delivery of the application.
+	
+So DevOps recommends all the members/contributors of the project to work under one-single team, there is no separate development,qa and operational engineering teams, all of them has to work together in striving for the success of the project which is called "devops team"
+	
+DevOps recommends us to use modern tools and technologies in building and delivering the software application like
+	- jenkins
+	- docker
+	- kubernetes
+	- git
+	- ansible
+	- puppet
+	- chef
+	- salt
+	- vagrant
+	- terraform
+	- packer
+	- maven
+	- artifactory
+	- ecr
+	- grafana
+	- promethesus
+	- splunk
+	- helm charts
+	- datadog
+	- app dynamics
+	- scrum process
+	- nagios
+etc
+20+ tools = 10 days = 200 days
+linux + shellscripting + java + aws + realtime usecases + database + networking 
+
+What is the goal of devops?
+To help us in fast-paced application development and fast-paced application delivery
+
+Why do we need to develop and deliver applications quickly? what is the advantages of it?
+#1 always be ahead of competitors in the market
+
+motorolla / nokia = leading mobile player in the market
+samsung
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

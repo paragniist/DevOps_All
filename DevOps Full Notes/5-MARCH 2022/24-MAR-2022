@@ -1,0 +1,170 @@
+#1. ubuntu package repositories
+	- gpg key
+	- repository to the /etc/apt/sources.list
+#2. dpkg	
+#3. ppa repositories
+------------------------------------------------------------------------------------------
+#3. ppa repositories
+ppa stands personal package archives where software vendors or an individual can deliver their early versions/beta to the world directly before those got approved by ubuntu to get into official repository
+
+The ubuntu has provded an https://launchpad.net/ubuntu/
+where people can register and create repository and publish their software packages to the world.
+	
+How to install the software package from the ppa repository of the ubuntu?
+1. We need to add the ppa repository into the /etc/apt/sources.list file as a ppa repository using the below command
+sudo add-apt-repository ppa:repositoryName
+
+sudo add-apt-repository ppa:ansible/ansible
+
+2. refresh the cache
+sudo apt update
+
+3. then we can install the ppa package by looking at its name
+sudo apt search packageName
+sudo apt install packageName
+-----------------------------------------------------------------------------------------
+1. repsository distribution
+	1.1 official repositories
+	1.2 ppa repositories
+	
+2. direct downlodable
+3. binary distributions
+------------------------------------------------------------------------------------------
+#3 binary distribution
+before understanding binary distribution first we need to learn environment variables in an operating system
+
+What are environment variables, how are these used?
+The environment variables are the placeholders we can at operating system to store values and can be used across the application programs we run on the system.
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

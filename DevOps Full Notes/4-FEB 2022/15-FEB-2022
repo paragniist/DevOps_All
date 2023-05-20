@@ -1,0 +1,198 @@
+What is compression, why do we need it?
+compression is the technic of reducing the size of original file contents, we cannot directly compress the contents of a folder, we need package files/directories into a tar, there after we can compress the contents of the tar
+
+Linux has provided gzip/gunzip for compressing/de-compressing the contents of a tar file.
+gzip:
+gzip is used for compressing the contents of a tar file, when we pass tar as an input to gzip it compress the contents of it and produces an tar.gz file where the original tar will not be available.
+	
+gzip filename.tar = produces filename.tar.gz
+
+gunzip:
+to uncompress the contents of an tar.gz we need to use gunzip, where the tar.gz will be un-compressed into .tar file back.	
+gunzip filename.tar.gz = will produce the filename.tar 
+-----------------------------------------------------------------------------------------------
+tr:
+tr stands for translate which is a shell utility that performs 3 operations
+1. replace a character in given string
+2. delete a specified character in given string
+3. transform the whole sequence of text(string)
+	
+
+#1. replace the character (works for replacing only one character)
+echo "phrase" | tr char1 char2
+replaces all the occurences of the character within the given string
+
+#2. delete a specific character in the given sequence
+echo "phrase" | tr -d char
+delete all the occurence of the character within the given string/phrase/sequence
+
+#3 transform the whole sequence of text
+there are lot of in-built transformations supported by the tr
+1. lower
+2. upperr
+3. digits
+4. space
+5. alnum
+
+echo "phrase" | tr "[:lower:]" "[:upper:]"
+echo "phrase" | tr "[:digit:]" char
+echo "phrase" | tr "[:space:]" char
+echo "phrase" | tr "[:alnum:]" char
+-----------------------------------------------------------------------------------------------
+User Management 
+---------------
+Linux is an multi-user operating system, where multiple different users can use the linux operating system either parallely or one after the another one.
+Incase if the users are using the linux operating system in-parallel the hardware resources of the computer are shared across all the users who are currently using the system.
+	
+During the installation of the ubuntu operating system, we create a user who is called the root user of the linux operating system. The root user has the unrestricted access to all the resources of the Linux Machine for eg..
+	1. user management
+	2. process management
+	3. file management
+	4. system configurations
+	5. hardware resources / device management
+
+Normal user:-
+The root can add other users of the linux operating system who are called "normal" users. The normal user of the linux operating system will have access to his home directory files/folders only, he cannot access any other files/folders of the others. normal user can launch and manage his own process only
+
+restricting access to the files/folders of a user is not going to work in a broarder/corporate environment, one may have to delegate/grant access the files/folders of him to the other users of the linux operating system
+The job of granting access to the files/folders of a user to the users of the linux operating system can be done either by the owner files/folders or the root user
+
+granting and managing the permissions at an individual user level is going to be highly difficult as we cannot keep track of which user has been granted access to which files/folders of mine, so linux has introduced groups
+
+we can create groups and assign similar type of users based on the nature of their work to the groups for eg..
+	1. developer group
+	2. qa group
+	3. administration group
+	4. support engineering group
+	etc
+and assign permissions to the group level rather than individual user level in linux
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+grep
+global regular expression print
+grep is used for searching for the files based on the matching content inside a file. grep is commonly used for searching through the log files in tracing and identifying the errors
+
+1. grep "text" filename
+by default it search through the entire file contents and displays the matching lines of output only.
+	
+2. grep -R "text" directory
+recursively search in all the files including the sub-directories as well and display each matching line along with file path
+
+3. grep -n "text" filename = print line number along with matching line
+4. grep -w "text" filename = whole word match
+5. grep -i "text" filename = ignore case while matching the content
+6. grep -o "text" filename = output only the matching words of the file
+7. grep -v "text" filename = invert match, display only the lines which doesnt contain the pharse provided
+8. grep -c "text" filename = display the count of matches of the given phrase in the file
+
+tracing errors
+--------------
+9. grep -digit "text" filename = display n number of lines above and below the matching line along with matching line
+10. grep -Adigit "text" filename = display n number of lines after the matching line along with  matching line
+11. grep -Bdigit "text" filename = display n number of lines before the matching line along with matching line
+
+regular expressions supported by grep
+-------------------------------------
+[]     = any one of the matching character
+[1-10] = any one of the range of matching characters
+^      = pattern should appear at the begining of the line
+$      = patterh should appear at the end of line
+.*     = any characters of any number of times
+*      = occurences of any pattern zero or once
+\      = escape sequence
+.      = matches single character
+
+flightbookings.txt
+indigo    IG-019   F-19   Samuel   10-01-2022   Hyderabad   Goa     5000
+vistara   VI-093   B-21   James    10-01-2022   Hyderabad   Mumbai  6000
+airindia  AI-098   C-93   Samuel   11-01-2022   Mumbai      Delhi   8000
+indigo    IG-293   F-20   Kevin    11-01-2022   Delhi       Kolkata 5000
+spicejet  SJ-893   G-16   Steve    11-01-2022   Pune        Delhi   6000
+vistara   VI-932   D-26   indigo   12-01-2022   Mumbai      Delhi   5000
+vistara   VI-932   D-12   Samuel   11-01-2022   Delhi       Pune    6000
+spicejet  SJ-893   C-93   Kevin    12-01-2022   Hyderabad   Delhi   7000
+indigo    IG-938   D-     Greg     12-01-2022   Mumbai      Pune    8000
+airasia   AA-6000  F-12   James    13-01-2022   Delhi       Mumbai  7000
+indigo    IG-938   A-39   Smith    12-01-2022   Mumbai      Delhi   6000
+vistara   VI-938   F-93   Peter    15-01-2022   Mumbai      Delhi   6000
+
+
+1. show me invalid seat nos
+grep -wv ".-[0-9][0-9]" flightbookings.txt
+
+2. show me the flights to indigo
+grep -w "^indigo" flightbookins.txt
+
+3. show me all the bookings where ticket price is 6000
+grep "6000$" flightbookings.txt
+
+give me all the flights between Mumbai and Delhi
+4. grep -w "Mumbai.*Delhi" flightbookings.txt
+	
+5. give me number of tickets booked in sj-893 flight
+grep -wc "sj-893" flightbookings.txt
+
+6. show me all the flights between mumbai and delhi flown by vistara of a ticket price 6000
+grep -w "Mumbai.*Delhi"	flightbookings.txt | grep "^vistara" | grep "6000$"
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

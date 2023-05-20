@@ -1,0 +1,104 @@
+What is bean lifecycle management?
+There are certain mandatory activities that has to be performed after the bean definition has been created and few mandatory activities during the destruction of the object which are called post-construction and pre-destruction activities taken care by the ioc container is called lifecycle management.
+	
+When it comes to spring beans we cannot reuse java object lifecycle management methods which are constructor and finalize, we need an separate lifecycle management methods because not all the values that are passed as an input during the creation the bean definition are available at the constructor of the target class, few values might have been passed via setter injection.
+	
+So, in order to perform post construction activity with all the user supper values as an input we need an separate lifecycle management methods. since ioc container is taking care of instantiating the objects and injecting the inputs, its the responsibility of the ioc container to provide lifecycle management support helping us to carry out post construction and pre-destruction activities
+
+There are 3 ways we can work with bean lifecycle:
+1. declarative approach
+2. programmatic approach
+3. annotation-driven approach
+
+
+#1. declarative approach
+-------------------------
+we need to write 2 methods in which we need to write the logic for performing post-construction and pre-destruction activities and declare these methods as lifecycle management methods for the bean definition in spring bean configuration file
+
+Rules of writing the methods are:
+1. should return void 
+2. method should be public
+3. method should not have any parameters
+
+class Math {
+	int i;
+	int j;
+	int sum;
+	public Math(int i) {
+		this.i = i;
+	}
+	public void setJ(int j) {
+		this.j = j;
+	}
+	public void init() {
+		this.sum = this.i + this.j;
+	}
+	public void release() {
+		this.sum=0;
+	}	
+}
+a-c.xml
+---------
+<bean id="math" class="Math" init-method="init" destroy-method="release">
+	<constructor-arg value="10"/>
+	<property name="j" value="20"/>
+</bean>
+
+class Test {
+	public static void main(String[] args) {
+		BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("a-c.xml"));
+		Math math = beanFactory.getBean("math", Math.class);
+		sop(math.getSum());
+		
+		((ConfigurableListableBeanFactory)beanFactory).destroySingletons();		
+	}
+}
+
+
+In the above case the destroy-method we configured for the bean definition will not be called automatically. because
+By default the scope of a bean definition is singleton, which means only one object for that bean definition should be created by the ioc container no matter how many times we requested the object from ioc container
+This indicates ioc container will not remove the bean definition object util its termination.  but ioc container itself dont know when it is going to terminate so that inturn ioc container cannot call destroy method on the bean definitions.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

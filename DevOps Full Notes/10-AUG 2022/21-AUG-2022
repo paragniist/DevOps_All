@@ -1,0 +1,90 @@
+There are 2 types of software configuration management tools are there
+1. push-based architecture
+The devops engineer writes the code modules on the local workstation, and uses central server computer to execute the code modules on to the fleet of servers. The central server computer can be any machine installed with relevant software that is distributed by the any software configuration management tool
+
+1. The Central server computer is stateless, it dont know the information about any of the fleet servers on the organizational network, it doesnt keeps track of any of the machines of the information like hardware, or software packages installed on each of the machines and their version
+2. The ops engineer authenticate himself with central server computer and passes the code modules along with list of fleet servers on whom he wanted to apply the code modules to the central server computer.
+3. Now the central server computer connects to each fleet server on the network, pushes the code modules on to each individual fleet servers executes them remotely  and collects the outcome of execution and reports to the ops engineer.
+
+advantages:-
+	1. The central server computer is completely stateless, no information about any of the fleet servers are stored, due to which the ops engineer can use any computer as central server computer given it is connected to the same network
+	2. If the central server computer has been comprised there is no problem, because any of the information about the fleet servers are not maintained within the central server computer
+	3. No need of installing any agent software on the individual fleet servers and no need to pre-configure the central server computer with the fleet server information, so it is quick and easy to use
+	4. on-demand execution	of the code modules is supported
+	5. debugging the nodes of the cluster and monitoring them is very easy, because the central node server itself will connects to each fleet server, if there is a problem in connecting it reports back to the ops engineer
+	6. The control of executing the code modules onto the fleet servers lies in the hands of central node server, the ops engineer can control the execution of the code modules on to the fleet servers by using different strategies
+
+dis-advantages:-
+	1. cannot handle large network of computers, if more fleet servers are there the load on the central server computer is high
+	2. more fleet servers on the network, takes more time in applying the code modules 
+	3. scheduled executions of the code modules is not supported
+	
+It is suitable for handling small or moderate network of computers and is not recommended for large network of computers
+
+
+2. pull-based architecture
+The devops engineer writes the code modules and uploads them or passes them to the control node server asking them to apply on fleet of servers.
+1. To connect to the control node server and pass the code modules to execute, the ops engineer workstation should be installed and configured with CLI tool on the workstation
+2. The central node server takes the code modules from the ops engineer and stores on the repository with the details of when to execute
+3. each machine/fleet server on the network connects to the control node server and pushes the relevant code modules to be executed and reports the state of execution back to the control node server periodically
+
+advantages:-
+	1. as the agent software pulls the code modules from the control node server and executes them locally the load on the control node server is very less
+	2. the pull-based architecture can scale to any of the fleet size
+	3. supports parallel execute as each agent is responsible for executing so we can achieve higher-level of performance
+	4. we can schedule the execution of code modules
+dis-advantages:-
+	1. Master node is the key of the architecture if the master node goes down then entire fleet is gone
+	2. Migrating from one master node to the another is very difficult
+	3. if master node has been comprimised the whole network of computers are comprised
+	4. the architecture is high complex to understand
+	5. each fleet server has to be installed with agent software which takes lot of time
+	6 each node on the fleet should be preconfigured with control node server, the whole setup of the infra itself takes lot of time
+	
+There are software configuration management tools available in the market based on both the architectures
+Pull-based architecture:
+1. Chef
+2. Ansible Tower (commercial)
+
+Push-based architecture
+1. Ansible (open source)
+2. Puppet
+3. Salt stack
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,128 @@
+Terraform Provisioners
+----------------------
+Terraform is an iac automation tool used for provisioning the cloud infrastructure, but we need to have platform software to be installed and configured ontop of the infrastructure we created to run the software applications. But the job Terraform is only provisioning it doesnt install/configure the software
+
+How to install and configure the software ontop of the infrastructure provisioned by Terraform?
+There are 2 options are available
+1. use software configuration management tools like ansible, puppet, chef, salt etc for installing and configuring the software ontop of the infrastructure provisioned through terraform
+2. create custom cloud provider images in re-creating the infrastructure whenever needed
+
+
+#2. create custom cloud provider images
+upon provisioning the infrastructure using terraform, we can manually install and configure the environment with required software packages and libraries. once the environment is ready for usage, export it as an cloud image so that we can reuse in re-creating the infrastructure
+
+but there are problems with above approach:
+1. manually setting up the environment in installing and configuring the software packages takes lot of time and error prone
+2. whenever there is change in software packages we want to bundle or upgrade existing software packages with higher versions we need rebake the images from scratch which is an painful job
+
+From the above we can understand baking the images in recreating the infrastructure in not effective method rather we need to use software configuration management scripts
+
+#1. use software configuration management tools for creating the environment
+The devops engineer needs to write sofware configuration management scripts using tools like ansible, puppet, chef or saltstack for installing & configuring the environment to the desired state
+
+upon provisioning the environment using terraform, the ops engineer has to gather the information about the env provisioned has to identify which software configuration management scripts has to be applied on which resources being provisioned and execute them manually, this approach has lot of drawbacks or challenges:
+1. the devops engineer has to gather manually the information about all the resources that are provisioned through terraform
+2. need to identify which software configuration management scripts has to be executed on which resources and has to memorize them
+3. need to derive the dependency order in which these scripts has to applied
+4. the devops engineers has to know the technology of the scm script written and has to be aware of how to execute them on the end resources
+5. while launching the scm scripts to be applied on the infrastructure provisioned manually, always there is an chance we might pass the information about the infra wrongly or execute wrong script on a resource which might lead to unexpected behaviour and leads to failure
+
+even though we have 2 automation tools for infrastructure provisioning and software configuration management, to have them work together we have still the manuall process involved due to which we are running into above problems listed. how to overcome these problems?
+we need to integrate these 2 different tools together for executing them automatically that is where terraform provisioners are introduced
+
+
+upon provisioning the infrastructure through terraform, we can launch or apply software configuration management scripts ontop of the infrastructure provisioned through the help of provisioners
+There are 3 types of provisioners are supported by terraform
+1. file-provisioner
+2. local-exec provisioner
+3. remote-exec provisioner
+
+#1. file provisioner
+The file provisioner is used for copying the files from terraform control node to the remote resource
+
+#2. local-exec provisioner
+The scm scripts will execute local to the terraform node using local-exec provisioner
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

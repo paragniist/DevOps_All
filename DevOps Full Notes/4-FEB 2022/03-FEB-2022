@@ -1,0 +1,319 @@
+1. cmp
+-------
+
+cmp is a bash command that is used for comparing contents of 2 files byte by byte. by default it shows only the first difference within the 2 files
+
+1.1 cmp file1.txt file2.txt
+
+products.txt
+-------------
+television
+mobile
+
+popularproducts.txt
+--------------------
+television
+smartaudio
+
+cmp products.txt popularproducts.txt
+products.txt popularproducts.txt: byte 12, line 2
+	
+1.2 -b option which will show the byte which is differing
+cmp -b products.txt popularproducts.txt
+
+products.txt popularproducts.txt: byte 12, line 2 m 143 s 231
+	
+1.3 -i = ignore-starting
+cmp -i 5 products.txt popularproducts.txt
+in both the files it ignores 5 bytes and there after it starts comparing
+
+1.4 -i n1:n2 = ignore-staring of each files
+n1 indicates number of bytes to be ignored in file1
+n2 indicates number of bytes to be ignored in file2
+cmp -i 5:6 products.txt popularproducts.txt
+
+1.5 -l = list all of the difference between both files
+byteposition   file1byte   file2byte
+----------------------------------------------------------------------------------------------
+2. diff
+diff stands for difference. diff compares contents of 2 given files line by line.
+In addition to the comparision it will display recommendations using special symbols indicating how to make the contents of 2 files identical
+
+1. a = add
+2. d = delete
+3. c = change
+4. < = refers to the content of file1
+5. > = refers to the content of file2
+
+It provides recommendations/suggestions on what changes has to be applied on file1 to make it identical with file2
+
+players.txt
+virat
+dhoni
+rohit sharma
+pandya
+
+selectedplayers.txt
+virat
+rahul
+pant
+rohit sharma
+jadeja
+saurav
+dhoni
+
+diff players.txt selectedplayers.txt
+2c2,3
+< dhoni
+--------
+> rahul
+> pant
+
+4c5,7
+
+< pandya
+---------
+> jadeja
+> saurav
+> dhoni
+----------------------------------------------------------------------------------------------
+groceries.txt
+dhal
+rice
+papads
+oil
+
+urgentgroceries.txt
+maida
+dhal
+rice
+papads
+
+0a1
+>dhal
+
+4d4
+< oil
+-----------------------------------------------------------------------------------------------
+diff -c = context comparision showing the missings lines of each other
+double space indicates = both are having same content in that line
+! = if it is in file1 it not present in file2
+! = if it is in file2 it is not present in file1
++ = add the line into f1
+- = delete the line from f1
+
+diff -u = unified
+show the differences in single line 
+double space = both lines are same
++ = add line
+- = remove line
+----------------------------------------------------------------------------------------------
+3. wc
+wc stands for word count which is used for counting the number of characters, words and lines in a given file
+
+wc filename = by default wc displays lines, words and characters in a file
+
+wc -l filename = no of lines in a given file
+wc -w filename = no of words in a given file
+wc -c filename = counts and displays no of characters
+wc -lw filename = lines and words
+wc -cw filename = characters and words
+----------------------------------------------------------------------------------------------
+
+How to find the logged in user of the linux operating system?
+whoami = current user who is logged in
+who = who displays all the users who are right now logged-in into the linux operating system.
+	
+linux operating stores all the information about the users who are registered use in a file /etc/passwd
+
+we can see the number of users by doing cat on the file
+cat /etc/passwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	

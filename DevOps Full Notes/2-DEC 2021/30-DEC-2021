@@ -1,0 +1,99 @@
+What is the change in culture/process and adoption of new tools and technologies during the phase of delivery of the application into production by ops engineer in order adopt devops methodology
+
+The delivery methodology varies from application to application
+#1
+There are applications where we just need to upload/publish the ceritifed binary onto public repository of the organization with an auto-updater/update agent software packaged along with it. 
+At the customer/client end, the auto updater tool that already exists on the computer will pull the latest version of the binary and updates the existing software with new version.
+	
+The job of devops engineer in releasing the application is only publishing the binary into public repository of the organization
+
+#2 
+There are distributed web applications that runs on server infrastructure and requires to release/deploy new versions of the software for each Release of the project, here the devops engineer has more responsiblity in delivering and managing the production environment.
+	
+#1 Release-I
+if it is an initial release of the application into production, now the devops engineer has to gather requirements in running the application on production from business team and technical architect of the application
+based on the above the devops engineer has to create infrastructure and install required set of software packages and tools to run the application.
+	1. The production server infrastructure can be created either on
+			- datacenter (manually procure the computers)
+			- cloud environment (terraform)
+	2. install and configure the required software packages (software configuration management tools like ansible, puppet, chef or saltstack)		
+			- we are going to deploy and run our application on cluster of computers or network of computers to handle the loads of customers/clients accessing our application
+			to install and configure software packages on large network of computers manually it takes huge amount of time, instead of it adoption automation through software configuration management tools
+				for eg.. write ansible playbook and run the code on 1000 computers at one-time which will setup and configure all at once.
+			- handling upgradations of the software packages and installing new software packages in future becomes very easy through automation
+	3. devops engineer has to pull the cerified binary from artifactory repository and run on the production environment computers
+-----------------------------------------------------------------------------------------------
+The DevOps engineer has to take the responsibility of monitoring and maintaining the application on production environment like
+	- use app dynamics, nagios, cloud watch, datadog, spluk, promethesus, graphana, dynatrace, newrelic etc for monitoring the application running on production environment
+	
+	1. app dynamics, promethesus and nagios are the monitoring tools that help us in understanding the load on the cpu, ram, network etc
+	2. graphana, splunk and kibana dashboards will display the metrics of the infrastructure in nice charts and graphs helping us to understand the data.
+	3. cloud watch , datadog 
+	provide access logs on who is accessing your systems and application for security and monitoring	
+-----------------------------------------------------------------------------------------------In addition there are new software updates and patches will be released by the software package vendors
+for eg.. we are using java software for running our application, the current version of java is 11 we are using, new security patch has been provided by the Oracle Corporate asking the people to apply it.
+	
+Now the devops engineer has to create a production like environment and apply the patch and conduct testing on the patched environment to certify the system is in consistent state there after apply the patch on production environment
+This is called update/patch lifecycle process, which has to be taken care by devops engineer and has to handle them through automations
+----------------------------------------------------------------------------------------------
+The development team may release new version of the application, again devops engieer is responsbile for rolling up the new version onto all the machines of the production, by backing up the existing systems.
+	
+	periodical backups of
+		- data
+		- database
+		- application
+	has to be taken care by devops engineer
+
+
+																				
+																			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

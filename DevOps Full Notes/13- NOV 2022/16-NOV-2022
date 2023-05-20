@@ -1,0 +1,57 @@
+Terraform state management
+---------------------------
+What is terraform state file, how is it being used by the terraform while provisioning the infrastructure?
+Terraform to keep track of the resources that are provisioned through the terraform configuration, it creates an teraform state file under the project directory with name terraform.tfstate. In the terraform.tfstate file it stores the information about each resource that is declared in the terraform configuration file with the corresponding resource id that is provisioned on the cloud provider platform along with the information the resource. So that terraform can understand which resources are provisioned and can avoid recreating them in the subsequent runs of the same terraform configuration
+	
+How does the terraform state will be used in determining how many resources has to be new provisioned, modified, deprovisioned?
+The terraform makes use of the state file to identify the resources and actions to be applied in bring the desired state of the system as below
+
+#1 new terraform configuration
+when we create a terraform configuration and plan & apply, since there is no existing terraform.tfstate file under the project, it treats all the resource that are declared in the terraform configuration should be created newly and mark for provisioning.
+	
+when we apply the terraform configuration, post completion of the execution, the terraform captures the state of the resources that are created on the cloud platform and stores them in terraform.tfstate file
+
+
+#2. sub-sequent runs of the same/existing terraform configuration
+when we try to re-apply the existing terraform configuration with modified/added resources in them, terraform will perform the execution as below.
+	2.1 refresh the resources
+	it goes to each resource definition that is available in terraform.tfstate file and takes the id of the resource and tries to query the latest state of the resources from the cloud provider and updates that into the local state file
+	in-short: refreshes the state of the resources in the terraform.tfstate file by querying from the cloud provider
+	2.2 checks to determine actions to be applied
+	it compares the terraform configuration with the latest state of the resources that are there in the cloud platform by using terraform.tfstate file and determines
+		a) which resources are newly added to the terraform configuration
+		b) which resources are modified
+		c) which resources declarations are removed from terraform configuration
+based on this it derives the actions to be applied on the cloud account to bring the system to the desired state
+------------------------------------------------------------------------------------------------------------------------
+How to manage the terraform state file?
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

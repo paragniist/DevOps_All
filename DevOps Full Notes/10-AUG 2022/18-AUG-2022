@@ -1,0 +1,122 @@
+How to install and configure software packages on the infrastructure to make the environments ready for application deployment?
+There are many ways we install and configure software packages
+#1. manual
+upon provisioning the infrastructure the devops engineer can manual install the packages and configure them to make the environment ready for usage, but there are lot of dis-advantages are there
+	1. there are lot of packages to be installed and configured which takes lot of time
+	2. memorize the list of packages and configurations to be applied is quite complex
+	3. since it is an repeatitive process there is no guarantee that we achieve high level consistency each time while setting up
+	4. if we have to setup a cluster of machines the efforts are multiplied
+	5. patching and upgradations are very difficult to handle manually
+	6. keeping track of which packages and configurations are installed on which servers is very difficult
+	
+To overcome the above problems we need to adopt automation in perform software configuration management activities.
+#2. shellscript
+The devops engineer instead of manually installing/configuring the software packages, he write shellscript program with instructions to install/configure packages on the env. Now we ops engineer can run the shellscript program local to machine on which he wanted to install/configure 
+
+There are lot of advantages in installing/configuring the software packages through shellscript automation:
+1. it reduces the time required in installing/configuring the software packages
+2. one the shell programs are written to install/configure the software packages required for an env, the ops engineer dont have to memorize order/configuration settings in installing and configuring the packages. 
+3. we can easily create reproducible environments by using shellscript automation
+4. software upgradations and patching can be applied quickly by creating upgrade or migration scripts easily
+
+From the above it looks like we have lot of advantages with shellscript automation in installing and configuring the software applications on an environment. but there are lot of dis-advantages as well 
+1. working on shellscript requires programming language background and needs sound programming basics, unless it would not be easy to write shellprogram to perform software configuration management. Looks like the existing ops engineers or administrators doesnt have any exposure or knowledge to programming world, so it is always complex for one to comeup with achieving automations through shellscripting
+2. shellscriping is platform specific and will not work across different platforms. Indeed if we write shellscript those works only on Linux platform and will not work on windows. An opsengineer has to write several versions of the shellscripting pertaining to each operating system platform for achieving software configuration management automation.
+In addition a shellscript program written works on a specific distro of the linux for example on debain destros and may not work on redhat distros as many of the software utilities packaged and distributed by the distros are different.
+3. The shellscript doesnt support error management/exception handling, for eg while setting up an software package or during configuration if there is an error encountered the program terminates abnormally by spitting an error code and leaves the system in inconsistent state. rather we would want to handle the failure and rollback the system state to the previous state which is quite harder to handle in shellscripting
+4. idempotancy
+idempotancy is a principle where the post effect of performing an operation for 1 time or N times would be same. The idempotancy gurantees the desired state of the system.
+For eg.. we want to install mysql server on a target machine. 
+So the desired state definition is "mysql-server-8.0" should be running on the target computer
+To accomplish the above task we can write a shellscript program, but the problem with shellscript program is if the system is already in desired state also it tries to reinstall and reconfigure the env which might modify or corrupt the environment. Instead the automation we are implementing should verify the system state and should leave without any changes.
+This cannot be easily achieved through shell programming, programmer has to write lot of complex login in implementing the idempotancy principle
+5. there is no support of logging in shellscript due to which identifying the failures of execution and debugging is very difficult
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

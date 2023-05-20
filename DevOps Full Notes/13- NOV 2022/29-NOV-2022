@@ -1,0 +1,238 @@
+#1. create an artifactory machine using vagrant
+Vagrant.configure(2) do | config |
+    config.vm.box = "ubuntu/focal64"
+    config.vm.network "public_network", ip: "192.168.1.10"
+    config.vm.provider "virtualbox" do | vb |
+        vb.cpus = 4
+        vb.memory = 4096
+        vb.name="artifactoryserver"        
+    end 
+end
+vagrant up
+-----------------------------------------------------------------------------------------------------------------
+#2. we installed apache2 server
+sudo apt update -y
+sudo apt install -y apache2
+
+#3. enable http proxy modules on apache2 server
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod proxy_balancer
+sudo a2enmod lbmethod_byrequests
+
+#4. create an virtualhost configuration file which will forward the request to the jfrog artifactory repository
+
+sudo touch /etc/apache2/sites-available/repo.speed.conf
+sudo vim /etc/apache2/sites-available/repo.speed.conf
+
+repo.speed.conf
+---------------
+<VirtualHost *:80>
+	ServerName repo.speed.com
+	ProxyPreserveHost on
+	ProxyPass / http://127.0.0.1:8082/
+	ProxyPassReverse / http://127.0.0.1:8082/
+</VirtualHost>
+
+#5. enable the site
+sudo a2ensite repo.speed
+sudo systemctl reload apache2
+sudo systemctl restart apache2
+----------------------------------------------------------------------------------------------------------------------
+#3. Install JFrog artifactory
+sudo useradd -m -s /bin/bash artifactory
+sudo mkdir -p /u01/middleware
+sudo chown -R artifactory:artifactory /u01
+
+sudo su artifactory
+cd /u01/middleware 
+wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/[RELEASE]/jfrog-artifactory-oss-[RELEASE]-linux.tar.gz -o jfrog-artifactory-oss-7.46.11-linux.tar.gz
+
+tar -xvzf jfrog-artifactory-oss-7.46.11-linux.tar.gz
+cd jfrog-artifactory-oss-7.46.11/app/bin
+./artifactoryctl start
+------------------------------------------------------------------------------------------------------------------------
+#4. host dns configuration
+c:\windows\system32\drivers\etc\hosts
+192.168.0.10 repo.speed.com
+
+-----------------------------------------------------------------------------------------------------------------------
+#5. open artifactory webconsole and configure user
+
+5.1 upon accessing the repository
+http://repo.speed.com
+it prompts for login use default username/password: admin/password. upon login prompt for changing the password, and enter baseURL as http://repo.speed.com and skip, finish
+
+5.2 goto repositories and create
+#2 local (snap/release)
+#2 remote (snap/release)
+#2 virtual (snap/release)
+	
+#5.3 add speedartifactory	 user
+#5.4 add speedgroup and add speedartifactory user
+#5.5 create permission
+		- add above 4 repositories local/remote
+		- add group speedgroup
+		- grant permissions read, cache/deploy, annotation
+		
+#5.6 goto packages and click on setMeUp and generate settings.xml
+
+settings.xml
+-------------
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 http://maven.apache.org/xsd/settings-1.2.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <servers>
+    <server>
+      <username>speedartifactory</username>
+      <password>Welcome@1</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>speedartifactory</username>
+      <password>Welcome@1</password>
+      <id>snapshots</id>
+    </server>
+  </servers>
+  <mirrors>
+    <mirror>
+      <mirrorOf>*</mirrorOf>
+      <name>repo.release.speed.com</name>
+      <url>http://repo.speed.com/artifactory/repo.release.speed.com</url>
+      <id>central</id>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>repo.release.speed.com</name>
+          <url>http://repo.speed.com/artifactory/repo.release.speed.com</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>repo.snapshot.speed.com</name>
+          <url>http://repo.speed.com/artifactory/repo.snapshot.speed.com</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>repo.release.speed.com</name>
+          <url>http://repo.speed.com/artifactory/repo.release.speed.com</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>repo.snapshot.speed.com</name>
+          <url>http://repo.speed.com/artifactory/repo.snapshot.speed.com</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
+
+
+
+#6. goto windows
+place settings.xml under ~/.m2/ directory
+rename ~/.m2/repository directory to tmp, so that maven things no local maven repository is available and starts downloading the artifacts from remote repository
+and build any maven project
+
+#7. to deploy the local build artifact into remote repository
+goto the maven project open pom.xml and add distributionManagement section pointing repo url to local repo
+
+<distributionManagement>
+	<repository>
+		<id>central</id>
+		<url>http://repo.speed.com/artifactory/repo.local.snapshot.speed.com</url>
+	</repository>
+</distributionManagement>
+
+mvn clean deploy
+will deploy the build artifact into remote repository
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

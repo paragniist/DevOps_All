@@ -1,0 +1,153 @@
+What are the problems we run into if the developers, qa engineers and operational engineers are working dis-jointly as in separate teams in developing and delivering a Software application?
+Even though all of the 3 roles of people are working for one project development, if there working in separate teams we run into several problems	
+1. lack of coordition and communcation gaps between the teams/people will delay the development and deliveries of the software application
+2. due to gaps in communication and lack of coordinations there is a high amount of chance of failure in development and delivery of the application in timely manner
+3. as the people are working in separate teams, blame games starts between the teams that brings down the motivation and moral of teams/people
+4. every one looks for individual success rather than the team success
+5. gurus emerges within the team who tries to control every aspect of software development and delivery lifecycle.
+	
+How to overcome the above challenges in developing and delivering the application?
+adopt devops
+
+What is DevOps?
+DevOps is a change in culture/process and adoption of new tools and technologies in developing and delivering a software application. So that we can achieve fast-paced development and delivery.
+	
+What is the change in culture?
+Rather than working in 3 individual/separate teams, let all the people work under one-single team called DevOps Team. there are plenty of advantages in working under one-single team
+No chance of communication gaps or coordination failures between the people within the team, because, everyone starts right from the commencement of the project and everyone should participate on all the activities during the development delivery playing their individual roles so there 
+	- no chance of delay in development activties or delivery activities
+	- no failures due to lack of communication
+	- no more blame games as all are working under one team
+	- rather than looking at individual success they look for team success which is one team
+looks like we can overcome all the problems we reported earlier by adopting devops process/culture.
+		
+in addition to this we need to adopt new tools/technologies in developing and delivering the application at the indivdual levels as described below.
+-----------------------------------------------------------------------------------------------
+#1 developer
+what are the tools/technologies developers has to adopt in speeding up their development activities?		
+1. gather the requirements from the business owner/product owner and analyze the requirements inorder to develop the software application
+2. choose the programming language that best suite for the type of the application being developed
+
+3. setup the environment required for developing the application (10 - 20 days) (gone)
+	- need infrastructure/machine
+	- install development related tools
+	- install language software
+	- database servers
+	- application servers
+	- setup the project code
+		- configure workspace
+		
+setup up the development environment to facilitate developers in building the application initially takes around 20 days on an average, and incase of replacement of a machine of a developer in existing team it takes about a week. if we consider a team of 5 members to setup their individual machines in running the development environments it takes about 100 odd days which will contributes to the increased cost of software application development/delivery
+
+How to overcome the above problem?
+adopt virtualization technology in setting up the development environments. The devops engineer has to bake/create a virtualization environment using virtualization tools like
+- oracle virtualbox
+- hyperv
+- vmware (desktop|fusion|workstation)
+- parallelx
+etc
+setup entire tools/languages/softwares required for developer to develop the application. export the virtual environment as an image and distribute to the developers in quickly bringing up the development environment.	
+With no time any new resource onboarded into the team can become quickly productive.	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

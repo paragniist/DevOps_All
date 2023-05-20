@@ -1,0 +1,118 @@
+How many types of web applications are there?
+There are 2 types of web applications are there
+1. static web application
+2. dynamic web application
+
+#2. dynamic web application
+In case of dynamic web application, the application takes the data as an input from the user/client over the network using HTTP protocol. perform operation on the data and builds a dynamic response (as a HTML) and dispatches as a response back to the client.
+So per each request, the response that is returned by the application would vary or change, so it is called dynamic web application
+
+To compute or perform operation based on the user input, we need to write programs, so always an dynamic web application is build based on a backend-language like 
+- java
+- .net
+- php
+- python
+etc
+
+To host an dynamic web application we need an dynamic webserver (based on the backend language used)
+If we are using java language as a backend then we need to use one of the java language web server like
+1. Tomcat
+2. Weblogic Server
+3. Websphere Server
+4. Jboss Wildfly Server
+5. Jetty
+6. Netty
+7. Glassfish
+etc
+---------------------------------------------------------------------------------------
+How does the structure of an web application project looks like?
+What is a war file?
+war stands for web application archive, it comprises of application code, libraries and descriptor files together packaged into a war file
+
+application code = business logic
+libraries = reusable code
+descriptor files = information about the classes of our application provided as an input to java web server
+
+warfile.war
+|-*.html
+|-*.css
+|-*.js
+|-*.images
+|-WEB-INF
+	|-classes (application code: *.class)
+	|-lib (*.jar libraries)
+	|-web.xml (descriptor)
+	
+[standard directory structure of a web application project]	
+project (directory)(git repository)
+|-src
+	|-*.java
+|-WebContent
+	|-*.html
+	|-*.css
+	|-*.js
+	|-WEB-INF
+		|-lib
+			|-*.jar
+		|-web.xml
+|-build
+  |-classes
+	|-dist
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

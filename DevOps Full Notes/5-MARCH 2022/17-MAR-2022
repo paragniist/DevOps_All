@@ -1,0 +1,158 @@
+What is a program?
+Program is set of instructions written in a file that can be passed as an input to the operating system asking to execute on the underlying hardware of the computer
+
+What is an Software Application?
+A software application is being built by a software developer based on the requirements provided by the business owner. In order to fulfill the requirements of the business the developer may have to write multiple program, which has to be put together to execute which is called an Software Application
+
+In-Short:- A software application comprises of multiple software programs put together and executed
+
+In a software application we will not run all the programs rather they will be an main program or an entrypoint program that has to be executed to run the application
+
+How does the software application is delivered to the enduser?
+Here enduser refers to either the customers or the employees of an organization whoever uses the software
+
+The developer post completion of the development of the application he has to distribute the application to the endusers to use it. since the application comprises of multiple software program files he has to distribute the application in a packaged format by combining into a single file distribution like a tar or tar.gz file
+
+But there are many chanllenges in distributing the software application as a tar/tar.gz or any single file packaged distribution format
+1. The enduser should have an pack/unpack utilities installed on his machines to extract and run the software program
+2. The enduser should know commands for unpacking the software package distributed by the developer which seems to be complex job
+3. in addition the enduser should know the entrypoint program he has to run in using the software
+4. enduser should know the instructions in lauching the application
+
+considering all the above looks like the single-file packaged distribution of software is difficult to be used by the enduser
+
+Looks like unless the enduser passes the relevant information about the software program to the underlying operating system, it cannot execute the software program. but the enduser dont know the details of executing the application. so it is the responsibility of the operating system to provide a mechanism to help enduser to easily use an software application delivered by an developer
+
+The operating system has introduced software packaging standards which is called "packaged software distribution".
+Now the developer instead of distributing the software application as an compressed tar/.gz files he has to package the software application based on the operating system defined packaging standard which contains
+	1. the software application programs
+	2. information about the software application (metadata) like
+		1. author
+		2. manufacturer
+		3. license
+		4. supported platforms
+		5. version
+		6. documentation/manual
+		7. entrypoint program instructions
+		8. instructions in running the software application
+and distributed to the enduser
+
+upon deliverying the packaged software application the enduser cannot directly run it on the underlying operating system of the computer. In order to execute the program the enduser has to do the below steps
+1. extract the software package downloaded
+2. copy the extracted files into a directory location of the computer
+3. pass the relevant instructions to the underlying operating system asking to run the software application, by reading the instruction document written by the developer
+
+looks the above steps has to be carried everytime when we want to run a software application which still seems to be difficult job, so to overcome this problem the operating systems has provided software package managers or installers
+	
+every operating system provides some tools like package managers or installers which takes care of extracting the packaged software and copies into file system directory location of the computer and reads the instructions contained in the software package and stores them into the operating system registry of the computer, so that each time the enduser want to run the software application he can simply execute a program command/shortcut that kickoff the execution of the program by the operating system itself by reading the instructions and executing the program from the registry
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

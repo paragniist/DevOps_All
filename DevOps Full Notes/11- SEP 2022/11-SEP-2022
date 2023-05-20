@@ -1,0 +1,373 @@
+Ansible variables
+ansible variables are the place holders that can be referred aspart of the playbook in applying the automation by passing different values for these variables.
+There are 7 types of variables supported by Ansible
+1. Ansible Global Settings 
+2. Ansible pre-defined variables in inventoryFile
+3. Ansible User-defined variables in inventoryFile
+	- hosts
+	- group
+4. vars_files
+5. local variable declaration in playbook level
+6. extra-vars
+7. register variables
+
+#1. Ansible global settings
+These are built-in properties of the ansible echo system which controls the behaviour of the ansible cluster. these properties are configured aspart of /etc/ansible/ansible.cfg. we can modify or populate these properties in the ansible.cfg file to tweak the behaviour of the cluster
+
+#2. Ansible predefined variables in InventoryFile
+Instead of applying the configuration settings globally at cluster level, we can modify the ansible cluster settings at a group or host level by using ansible pre-defined variables by configuring them at inventoryFile level
+There are lot of pre-defined variables are there with definite meaning defined by ansible
+1. ansible_host
+2. ansible_connection
+3. ansible_port
+4. ansible_ssh_private_key_file
+5. ansible_user
+6. ansible_password
+7. become
+8. become_user
+9. become_method
+
+#3. user-defined variables in inventoryFile
+we can define our own variables at group or host level within an inventoryFile 
+hosts.yaml
+all:
+	hosts:
+		192.168.10.5:
+			var1: value1
+			var2: value2
+	children:
+		javaserver:
+			hosts:
+				192.168.10.6:
+        192.168.10.7:
+			vars:
+				var1: value1
+				var2: value2
+
+we can refer these variables as part of playbook modules using "{{variableName}}"
+
+How to pass dynamic values as an input to the playbooks during execution?
+We can create playbooks by referring variables inside them and we can supply the values for these variables dynamically while running the playbooks rather than hardcoding the values inside the playbook. So that the playbook becomes easily maintainable
+
+There are 3 ways we can pass dynamic values as input while running a playbook
+1. vars_files
+2. extra-vars (through command-line)
+3. variable declaration locally inside the playbook
+
+#1. extra-vars
+while running a playbook we can pass dynamic values as input for he variables using extra-vars from command-prompt
+
+newfile-playbook.yml
+---
+- name: file play
+	hosts: all
+	tasks:
+	- name: create file
+		file:
+			name: x.txt
+			owner: vagrant
+			group: vagrant
+			mode: 0755
+			state: touch
+...
+In the above playbook the filename, group, owner and permissions are hardcoded so we cannot reuse the playbook in creating a different file with altogether different permissions, so instead of hardcoding the values, we can define variables and pass the values while running the playbook
+
+newfile-playbook.yml
+---
+- name: file play
+	hosts: all
+	tasks:
+	- name: create file
+		file:
+			name: "{{filename}}"
+			owner: "{{ownerName}}"	
+			group: "{{groupName}}"
+			mode: "{{perm}}"
+			state: touch
+...
+now while running the playbook we can supply values for these variables through command-prompt using extra-vars as below.
+ansible-playbook -i inventoryFile --extra-vars filename=ansible-extravars.txt --extra-vars ownerName=vagrant --extra-vars groupName=vagrant --extra-vars perm=0755 newfile-playbook.yml
+
+#2. declaring local variables within the playbook
+within a program we wanted to use a value which seems to be needed at several places, instead of hardcoding the value across the program we can declare a local value by assigning the value and reuse the variable across all the places, so in future if we wanted to modify the value we can change the variable rather than program
+the same concept applies even to local variables of a playbook
+
+newfile-playbook.yml
+---
+- name: copy play
+	hosts: all
+	vars:
+		ownerName: vagrant
+		groupName: vagrant
+		perm: 0644
+	tasks:
+	- name: create file
+		file:
+			name: "{{filename}}"
+			owner: "{{ownerName}}"
+			group: "{{groupName}}"
+			mode: "{{perm}}"	
+			state: touch	
+...
+
+here most of the time the ownerName, groupName and perm would be same for many files while creating, so instead of passing them as extra-vars we can declare and initialize these variables local to the playbook as above
+Now while running the playbook we need to pass only 1 variable value 
+ansible-playbook -i hosts --extra-vars filename=file1.txt newfile-playbook.yml
+
+
+#3. using vars_file
+by using --extra-vars we can pass dynamic values from the command-prompt while running a playbook, but everytime we launch the playbook we need to type the variableNames along with values in commandprompt, so 
+1. the command goes really lengthy if more variables has to be provided with values
+2. there is chance where while typing we might go syntactically wrong as well
+
+so to avoid or overcome the above problem we can define he variables in an vars yml file and refer it inside the playbook. so each time we want to run the playbook with different values, modify the vars yaml before execution
+
+mysql_user_vars.yml
+mysql_user: fithealthsqluser
+mysql_password: welcome1
+perm: '*.*:ALL'
+login_user: root
+login_password: root
+
+mysql-user-playbook.yml
+---
+- name: mysql user play
+	hosts: all
+	vars_file:
+		- mysql_user_vars.yml
+	tasks:
+	- name: create mysql user
+		mysql_user:
+			name: "{{mysql_user}}"
+			password: "{{mysql_password}}"
+			priv: "{{perm}}"
+			login_user: "{{login_user}}"
+			login_passowrd: "{{login_password}}"
+			state: present
+...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

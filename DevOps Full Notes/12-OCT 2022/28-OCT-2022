@@ -1,0 +1,86 @@
+benefits of adopting iac tools in provisioning and managing the infrastructure
+1. higher delivery rates
+2. self-service
+3. documentation
+4. versioning
+5. speed and safety
+6. validation
+7. reusability
+8. collaboration and sharing
+------------------------------------------------------------------------------------------------------------------------
+compare iac automation tools with sofware configuration management tools to understand the differences between them
+There are lot of software configuration management tools like chef, puppet, ansible and salt etc which helps us in installing and configuration the software packages on the fleet servers, within these tools, few of them supports in provisioning and managing the infrastructure
+
+similarly there are lot of iac automation tools are there that supports provisioning and managing the infrastructure, within them few iac tools supports software configuration management.
+	
+From this we can understand there is a very thin line between software configuration management tools and iac automation tools and looks like both can be used inter-chageably, so what is the difference between sofware configuration management and iac automation tools which one should be used for what purpose?
+	
+before moving further let us try to draw a comparision between server templating tools and software configuration management tools
+
+software configuration management         vs    server templating tools
+tools   
+----------------------------------              ------------------------
+ansible, puppet, chef, salt                     docker/packer
+
+if we are using server templating tools like docker and packer etc most of the software configuration management requirements are handled by these tools itself we dont need software configuration management tools like ansible/puppet/chef/salt for installing & configuring the software, but to provision the infrastructure we still need iac tools
+
+if we are running our application without using server templating tools, then to install and configure the software we need software configuration management tools
+
+Software configuration management tools          vs         infrastructure as a code (iac tools)
+chef/puppet/salt/ansible                                    terraform, cloud formation, openstack heat
+-----------------------------------------------------------------------------------------------------------------------
+#1. mutable vs immutable infrastructure
+mutable = something that can be changeable
+immutable = cannot be changed
+
+#2. procedural vs declarative programming
+
+#3. master vs masterless
+#4. agent vs agentless
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

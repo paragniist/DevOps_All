@@ -1,0 +1,418 @@
+Cloud Platform
+on-demand delivery of computing resources to the world is called "cloud computing", the cloud computing offers 3 types of services
+1. IaaS
+2. PaaS
+3. SaaS
+
+#2. PaaS Platform as a Service
+To run a software application ontop of the IaaS layer (Infrastructure), we need additional software libraries/servers which acts as an platform software or middleware software, because this platform s/w or middleware s/w acts sits between the operating system and our application s/w so it is called middelware software
+
+No upon taking the computing resources from the cloud provider, an organization or people should be have middleware software to be installed on top of these machines to run our application which involves
+1. procuring licenses
+2. installing & confuring them etc
+manually taking care of these platform softwares has plenty of drawbacks
+
+1. Huge cost in procuring the licenses of these softwares
+2. takes lot of time in installing & configuring these softwares for production enablement
+3. need manpower resources for installing, configuring and maintaining these platform s/w additionally which incurrs huge manpower cost and maintainance
+4. patching & upgradtion of these platform s/w is a difficult job and has to taken care manually or should implement some automation in-place incase of array of machines
+5. manually need to take care of backup & restore of the platform software periodically
+6. the scaleup/scaledown operations brings down the platform software we need to hookup these platform software to bringup automcatically in the event of scale-up/scale-down
+7. in case of scale-in / scale-out operation, we need to perform complex operations in modifying the configuration of the platform software cluster which takes lot of time and impacts the availability as well.
+	
+Instead of we taking care on managing the platform software, the cloud providers itself provisionings and manages these aspart of lifecycle operations, so that can directly take machines with middleware installed, which are ready for production deployments
+
+
+The most popular middlware softwares will be provided aspart of the PaaS layer, not everything that is available will not be offered aspart of PaaS.
+	
+SaaS = Software as a Service
+There are pre-built enterprise software solutions available in the market like
+1. SAP
+2. Siebel
+3. Peoplesoft
+4. JDEdwards
+5. Salesforce
+6. Workday
+7. Jira
+etc
+
+These are the softwares build by organizations, that can be used by the business enterprises directly in conducting their day to day business operations
+
+To use these enterprise softwares aspart of the business we need to perform below activities:
+1. procure licenses
+2. install & configure them
+3. monitor maintain
+which has lot of drawbacks
+
+1. we need 2 engineering teams cloud engineering and enterprise software engineering teams who has to work closely together in getting the enterprise software onto business, requires huge coordination and maintainance cost in managing the teams
+2. license of these enterprise softwares are very high where an small or moderate companies cannot afford
+3. time required for installing & configuring these softwares are quite high
+4. managing the operations like scale-up, scale-down, scale-in and scale-out is quite difficult 
+5. periodically backup and restoration has to be done manually
+6. patching & upgradations has to be taken care by the team itself
+7. monitoring has to be done
+
+instead of the enterprise or business organizations by themself taking care of them, the cloud providers offers these sofwares aspart of SaaS services, where in a click button desired number of user licenses of these softwares will be available, so no need of any teams, maintainance in using these enterprise software
+
+From the above we can understand a cloud vendor or provider offers 3 types of services
+1. IaaS
+2. PaaS
+3. SaaS
+
+There are lot of cloud providers available in the market who provides these above services, few of the popular providers are 
+1. AWS Cloud Platform
+2. Microsoft Azure
+3. Google Cloud Platform (GCP)
+4. OpenShift (Redhat)
+5. Oracle Cloud Infrastructure (OCI)
+6. Alibaba
+7. IBM Cloud
+etc
+
+The services offered by these providers varies greatly from provider to provider
+
+AWS Cloud Platform
+--------------------
+The AWS Cloud Provider offers lot of services aspart of their cloud platform, to help us in easily identifying and using them, the AWS as distributed them into domains
+There are 7 core and popular domains are available in AWS under which the services are organized
+1. Networking
+2. Compute
+3. Storage
+4. Database
+5. IAM
+6. Monitoring
+7. Messaging
+
+AWS Architecture
+AWS Architecture refers to how does AWS Cloud platform has been spread across in offering the cloud services to the world
+
+#1 AWS Region
+AWS region is an geographical location from where AWS Cloud platform is offerring the cloud computing services to the world. There are 25 different geographical locations which are called regions from where AWS Cloud platform has been spread across and offers their computing services
+AWS Region is not an country, rather it is place within a country from where it is offering the services. For eg.. in US the AWS has 4 different regions from which there are operating and providing the services
+
+There are 3 main reasons why AWS has regions in offering cloud services:
+1. to avoid network latency in accessing the services
+2. based on local govt policies / privacy protection
+3. pricing
+
+upon logging into the AWS Cloud console, we need choose the region from the top right corner from which we wanted to use the cloud services from
+
+
+#2. Availability Zone (AZ)
+Availability zone is nothing but group of data centers offered within the region. 1 AZ means 1 data center operated in one region.
+For each region AWS ensures atleast 2 AZ are provided. The main reason for AWS to introduce the AZ is for High Availability
+
+
+The availability zones are meant for high availablity of the services within the region. The AWS recommends to host our applications across the AZs of a region, so that if one Avalability zone crashes there is guarantee that other AZ would be available and still your application can be served from that location
+
+AWS Cloud platform choose these AZs carefully by evaluating various conditions like
+1. power availablity
+2. climatic conditions
+3. cyclones
+4. tornados
+etc
+so that the likeliness of all the AZs of a region going down is very less
+These Availability zones are inter-connected with each other which high-speed dedicated leased internet lines where the experience of distributing and serving the services across the AZ will be equal to running in 1 AZ itself
+
+#3. Edge locations
+Edge locations are the mini datacenters co-located across the regions of the aws cloud platform. These offers the shared /global services to the customers around the world like
+1. Cloud Front
+2. Route 53
+	etc
+	
+to reduce network latency in distributing the services.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,305 @@
+Packaging
+----------
+if we want to move bunch of files from a directory to another directory of the computer or may want to transfer the files remotely to another computer we have to move or transfer each individual files one after the another one.
+	
+moving/transfering the files one by one is a time taking process and becomes difficult to track on which files has been transfered.
+	
+Instead we can collect those files into a directory to move or transfer across, but directories are non-transferable over the network or in a file as attachments, so to address this problem packaging has been introduced.
+	
+packaging:
+packaging is the process combining multiple files into one single file with an extension of ".tar", often people gets confused between packaging and compression, the packging has nothing to do with compressing the files its just about packing multiple files into one single file so that can be handled easily.
+	
+Linux has provided an tool called "tar" (available across all the distros of linux by default), using which we can pack and unpack bunch of files/folders into a single file
+
+#1. How to package the contents of a directory?
+tar -cvf filename.tar directory/
+	
+here options are described:
+c = create
+v = verbose print the output of executing the command, which means it shows list of files packaged/unpacked during the command execution onto the console
+f = filename with which the tar has to be created
+
+here along with directory, the contents inside the directory also are packaged into an "tar" file
+
+#2. How to package a group of files together?
+tar -cvf filename.tar file1 file2 file3 dir/
+all the files and directories mentioned here are packaged into the tar
+
+#3 how to see the contents of the tar file without extracting it?
+tar -tvf filename.tar
+t = stands for table of contents
+
+#4 How to unpack the contents of a tar file?
+tar -xvf filename.tar
+x = stands for extract
+-----------------------------------------------------------------------------------------------
+compression
+tar packaging will not reduce the contents of the orginal files, so if we want to compress the contents of the files we need use compression.
+	
+Linux has provided an utility called "gzip/gunzip" which are used for compression and un-compression of the file contents. Here we cannot directly compress the list of files or directories directly rather we need to package the file contents into tar file then only we can compress contents of the tar using gzip and gunzip
+	
+For eg..
+we have directory containing below files
+person
+|-documents
+	|-payslips.pdf
+	|-bankaccounts.txt
+	|-supermarket.xls
+	
+we cannot compress the contents of the documents directory directly, first we need to package the files/folders which we want to compress into a "tar".
+	
+tar -cvf documents.tar ~/personal/documents
+There after we can use gzip tool for compressing the contents of the tar file 
+gzip documents.tar
+now the tar file will be zipped and produces into an another file with name documents.tar.gz, where the original ".tar" file no more exists.
+	
+.gz = is the zip extension in linux operating system
+
+There after we can uncompress the contents of ".tar.gz" using gunzip tool
+gunzip documents.tar.gz 
+it products the ".tar" file back by removing .tar.gz file, which can be further unpacked using tar utility again
+
+tar -xvf documents.tar
+----------------------------------------------------------------------------------------------
+tr
+---
+what is tr, what is the purpose of tr?
+tr is used for performing 3 types of operations on a text content
+1. replace a single character in a give string
+2. we can delete a single character in a give string
+3. we can apply transformations on the entire string passed. 
+	
+#1. replace a single character in a give string 
+echo "sequence" | tr char1 char2
+
+echo "Good Morning" | tr "M" "m"
+the above tr command produces the Good morning
+
+#2. delete an character in the given string
+echo "Good Morning!" | tr -d "o"
+	
+#3. apply transformations on the entire string we passed
+There are lot of inbuilt transformations supported by tr command as below
+	1. :upper:
+	2. :lower:
+	3. :space:
+	4. :digit:
+	5. :alnum:
+
+echo "Good Morning" | tr "[:lower:]" "[:upper:]"
+echo "Good Morning" | tr "[:space:]" -		
+replace all the spaces in the given string with "-"
+echo "Rank1" | tr "[:digits:]" 2 = produces Rank2
+echo "Rank[2]" | tr "[:alnum:]" x
+replaces all the alphabets and digits with x
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

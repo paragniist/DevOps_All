@@ -1,0 +1,209 @@
+changed_when:
+
+When we start an apache tomcat server using catalina.sh run, irrespective of the outcome of execution of the shell command always it reports the status as changed.
+if the server has already been started, by rerunning the catalina.sh produces Address already in use, it means the server is already started even then also the shell module reports as changed only
+
+we want to evaluate the condition and if the server has really started then only we want mark the module as changed which can be accomplished using changed_when below.
+	
+- name: start tomcat
+	shell: "~/apache-tomcat-9.0.65/bin/catalina.sh run 2>&1 | grep java.net.BindException"
+	register: tomcatstatus
+	changed_when: "'Address already in use' not in tomcatstatus.stdout"
+------------------------------------------------------------------------------------------------------------------------
+Ansible control statements
+when we pass the playbook as an input to the ansible control node server, it executes the playbook modules/tasks from top to the bottom linearly. if we want to control the flow of execution, for eg.. we want to skip executing a task/module based on condition or wanted to execute a module repeatedly then we need to use control statements of ansible
+
+There are 2 types are there
+1. when
+2. loop
+
+#1. when condition
+based on conditional evaluate we want to execute task/module of a playbook then we need to use when: conditional statement at task level
+
+#1. How to conditional execute a module/task based on ansible facts
+install a direct downloadable packaged distribution based on operating system distro
+
+install-vscode-playbook.yml
+---
+- name: vscode play
+	hosts: all
+	tasks:
+	- name: download vscode  debain
+		get_url:
+			url: https://code.visualstudio.com/docs/?dv=linux64_deb
+			dest: /tmp
+		when: ansible_facts['os_family']	== "Debain"
+	- name: download vscode redhat
+		get_url:
+			url: https://code.visualstudio.com/docs/?dv=linux64_rpm
+			dest: /tmp
+		when: ansible_facts['os_family'] == "RedHat"
+	- name: install vscode on debain
+		apt:
+			deb: /tmp/code_1.71.2-1663191218_amd64.deb
+		become: yes
+		when: ansible_facts['os_family']	== "Debain"
+	- name: install vscode on redhat
+		yum:
+			name: /tmp/code-1.71.2-1663191299.el7.x86_64.rpm
+			state: present
+		become: yes
+		when: ansible_facts['os_family'] == "RedHat"
+			
+#2. How to write conditional statements on registered variables
+we want to conditionally download an apache tomcat server based on the tomcat directory is already available or not
+
+download-tomcat-playbook.yml
+- name: find tomcat install
+	find:
+		paths: "/home/vagrant"
+		file_type: directory
+		pattern: "apache-tomcat-*"
+		recursive: no
+		use_regex: yes
+	register: tomcatStatus
+- name: download tomcat
+  get_url:
+		url: "{{TOMCAT_DOWNLOAD_URL}}"
+		dest: "/home/vagrant"
+		mode: '0755'
+	when: "{{tomcatStatus.matched | float == 0}}"
+			
+#3 condition based on user defined variables
+hosts
+javaserver ansible_host=192.168.10.5 env=dev
+
+install-jdk-playbook.yml
+---
+- name: install jdk
+	vars:
+		jdk_pkg: openjdk-8-jdk
+	hosts: all
+	tasks:
+  - name: determine jdk pkg version
+		set_fact:
+			jdk_pkg: openjdk-11-jdk
+		when: "{{env == 'test'}}"
+	- name: install jdk
+		apt:
+			name: "{{jdk_pkg}}"
+			become:yes
+			update_cache: true
+			state: present	
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

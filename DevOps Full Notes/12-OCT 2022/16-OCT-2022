@@ -1,0 +1,331 @@
+Elastic Loadbalancer
+--------------------
+Load balancer is used for distributing the traffic towards the application across the instances on which the application is running. There are 2 reasons why we use loadbalancer
+	1. For high availability of application, to ensure always our application is available all the time, it is recommended to run the application across atleast 2 instances and distribute the traffic between them
+	2. For scalability, to handle more number of user traffic towards the application we need to deploy the application on multiple instances
+	
+In addition to the above 2, It is recomended to always expose an application throught he Front-end as loadbalancer rather than exposing the application directly to the end-user which helps us in securing the application as well.
+	
+
+Always run our application within the private/hybrid subnet instances only, and expose them through using LBR. Instead of we creating, configuring and managing the LBR by our own, the aws has provided Elastic Loadbalancer service using which we can manage and loadbalance the requests to an application
+
+The AWS Cloud platform has provided 3 types of loadbalancers
+1. Application loadbalancer
+application loadbalancer can be also called as http loadbalancer, it works based on http protocol only and helps us in distributing the traffic across the http/web applications
+
+2. Network loadbalancer
+network loadbalancer is used for load balancing the traffic based on protocol and portno of the applications
+
+3. Gatway loadbalancer
+Gateway loadbalancer is used for load balancing the traffic towards virtual appliances or devices
+
+
+#1. Application Loadbalancer
+Application Loadbalancer distributes the traffic across the multiple instances of our application running across the ec2 instances of an vpc based on http protocol. It is an region level service and hosted at an vpc level.
+it can be used for loadblancing the requests across the az instances of the vpc.
+The application loadbalancer supports loadbalancing the requests based on routing rules 
+1. path based
+2. query parameter
+3. header
+etc
+------------------------------------------------------------------------------------------------------------------------
+How to deploy an application and explose over the application load balancer?
+#1 setup networking
+1. create an vpc network
+region: ap-south-1
+vpc network name: speedvpc
+cidr: 173.10.0.0/16
+	
+2. create 4 subnets
+#2 = application (hybrid/private subnets)
+#2 = loadbalancer (public subnets)
+	
+1. speedhybsn1 [173.10.1.0/24]	
+2. speedhybsn2 [173.10.2.0/24]	
+3. speedpubsn3 [173.10.3.0/24]	
+4. speedpubsn4 [173.10.4.0/24]	
+
+3. create internet gateway
+gateway name: speedig
+attach: speedvpc
+
+create an route table: speedigrt
+subnet assocation: speedpubsn3, speedpubsn4
+route: 0.0.0.0/0 -> speedig
+
+4. create nat gateway
+gateway name: speednatgw
+vpc: speedvpc
+subnet: speedpubsn3
+
+route table: speednatgwrt
+subnet assocation: speedhybsn1, speedhybsn2
+route: 0.0.0.0/0 -> speednatgw
+
+5. create #3 security groups
+1. speedjumpsg
+InBound
+SSH  22  0.0.0.0/0
+OutBound
+All  any 0.0.0.0/0
+	
+2. speedjssg
+InBound
+SSH        22   173.10.0.0/16
+CUSTOM TCP 8080 173.10.0.0/16
+OutBound
+All  any 0.0.0.0/0
+
+
+3. speedlbrsg
+InBound
+HTTP  80  0.0.0.0/0
+OutBound
+All  any 0.0.0.0/0
+-----------------------------------------------------------------------------------------------------------------------
+#2 compute instances
+create 3 compute instances
+#2 for running java application on hybrid subnet
+#1 for jumpbox in connecting to the hybrid subnet instances in installing, configuring and running the application
+
+1. create jumpbox machine
+ec2 instance name: speedjumpboxec2
+shape: t2.micro
+ami: ubuntu
+network:
+	vpc: speedvpc
+	subnet: speedpubsn3
+	enable public ip: true
+	security group: speedjumpboxsg
+keypair: devopskp
+
+2. create javaserver1 machine
+ec2 instance name: speedjavaserver1
+shape: t2.micro
+ami: ubuntu
+network:
+	vpc: speedvpc
+	subnet: speedhybsn1
+	security group: speedjssg
+keypair: devopskp
+
+3. create javaserver2 machine
+ec2 instance name: speedjavaserver2
+shape: t2.micro
+ami: ubuntu
+network:
+	vpc: speedvpc
+	subnet: speedhybsn2
+	security group: speedjssg
+keypair: devopskp
+------------------------------------------------------------------------------------------------------------------------
+#3 setup the application on the java servers and make them running
+
+1. copy ssh key to jumpbox so that using the sshkey we can connect to java server ec2 instances
+#host machine (windows)
+scp -i ~/.ssh/devopskp.pem ~/.ssh/devopskp.pem ubuntu@jumpboxip:/home/ubuntu/.ssh/
+	
+2. ssh into jumpbox and change keypair permission
+ssh -i ~/.ssh/devopskp.pem ubuntu@jumpboxip
+chmod 600 ~/.ssh/devopskp.pem
+
+3. ssh into each of the javaserver instances from jumpbox and install, configure and run the application as below.
+from jumpbox
+
+ssh -i ~/.ssh/devopskp.pem ubuntu@javaserverip
+
+1. install jdk
+sudo apt update -y
+sudo apt install -y openjdk-11-jdk
+
+2. add linux tomcat user
+sudo useradd -m -s /bin/bash tomcat
+
+3. create an /u01/middleware directory and change ownership to tomcat
+sudo mkdir -p /u01/middleware
+sudo chown -R tomcat:tomcat /u01
+
+4. sudo su tomcat
+5. cd /u01/middleware
+6. wget tomcat9 download url
+7. unzip and untar the tomcat server
+8. copy the war file from the host machine into each of the javaserver tomcat/webapps directory
+9. start tomcat server
+-----------------------------------------------------------------------------------------------------------------------
+#4. setup lbr
+1. create target group
+targetgroup: speedtargetgroup
+port: 8080
+healthcheck: /speed/healthcheck.htm
+include both the javaserver ec2 instances in the target group
+
+2. create loadbalancer 
+choose type: application loadbalancer
+configure listener: http/80 -> bind target group
+choose:
+ vpc: speedvpc
+ az & subnets: speedpubsn3, speedpubsn4
+ internet-facing: true
+launch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

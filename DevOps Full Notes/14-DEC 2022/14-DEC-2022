@@ -1,0 +1,128 @@
+How to work with variables in jenkins pipeline?
+variables are the placeholders in which we can store the values, so that instead of using literals we can you variables in performing the operation.
+	
+we need to declare variables in environment {} block within the jenkins pipeline as KEY=VALUE, and we can use these variables in the pipeline stages/steps using "${VARIABLENAME}" or "${env.VARIABLENAME}", here env prefix is optional
+
+Jenkinsfile
+pipeline {
+	agent any
+	environment {
+		APPLICATION_NAME = "jenkinsvariables"
+		APPLICATION_VERSION = 1.0
+	}
+	stages {
+		stage("variables") {
+			steps {
+				echo "APP NAME : ${APPLICATION_NAME}"
+				echo "APP VER: ${APPLICATION_VERSION}"
+			}
+		}
+	}
+}
+
+There are lot of built-in variables which are refered as global variables provided by the jenkins controller and made it available to the pipelines jobs to be used.
+For eg.. we can access the name of the Job within the pipeline script using the global variable JOB_NAME
+in this way there are lot of built in variables are there like
+BUILD_NUMBER
+JOB_NAME
+JAVA_HOME
+BUILD_ID
+JENKINS_HOME
+etc
+these variables can be accessed in the same way we have accessed the other variables using "${env.JENKINS_VARIABLE_NM}". refer to the jenkins documentation to find the global variables defined and available
+------------------------------------------------------------------------------------------------------------------------
+
+Working with Parameters in jenkins pipeline
+-------------------------------------------
+parameterizing the jenkins pipeline is nothing but taking the input data from the user during the time of launching the jenkins pipeline job, using that the pipeline will execute and perform the operation
+
+Jenkins help us in creating a nice form page for our pipeline project to collect the data from the user who is launching the job, it supports rendering 
+1. textboxes
+2. checkboxes
+3. select/choice
+etc
+controls in the form page, so that user can enter the data and trigger pipeline builds
+
+There are 2 ways we can configure parameters in jenkins pipeline
+1. static parameter definition
+2. dynamic parameters through jenkins pipeline code
+
+#1. static parameters
+Through Jenkins GUI/console we configure parameters to used for that project. These are parameters are defined along with while creating the pipeline job itself and stored in jenkins system persistence.
+The only drawback with this approach is, when we are moving the job from one env to an another env, we need to re-define the parameters manually in the jenkins job of the other environment.
+	
+The other solution would be export the jenkins job in the current env and import it onto the different env, but we might still see some issues while importing if the jenkins version in both the environments are different.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

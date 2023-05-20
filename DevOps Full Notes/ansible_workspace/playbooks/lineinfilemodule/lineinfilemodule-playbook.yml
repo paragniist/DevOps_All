@@ -1,0 +1,14 @@
+---
+- name: lineinfile play
+  hosts: all
+  tasks:
+  - name: replace bind address
+    lineinfile:
+      path: ~/mysql.cnf
+      regexp: '^MYSQL_BIND_ADDRESS=.*'
+      line: 'MYSQL_BIND_ADDRESS=0.0.0.0'
+  - name: add new line
+    lineinfile:
+      path: ~/sshd_conf
+      insertafter: '^PermitEmptyPassword.*'
+      line: 'PasswordAuthentication yes'

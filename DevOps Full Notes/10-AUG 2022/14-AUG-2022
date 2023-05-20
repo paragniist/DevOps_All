@@ -1,0 +1,201 @@
+What are vagrant provisioners, what is the purpose of it?
+vagrant provisioners are the automation scripts that are executed by the vagrant upon the boot of the virtual machine.
+There are different types of vagrant provisioners based on the technology of the automation script we are using
+1. shell
+2. file
+3. ansible
+4. puppet
+5. chef
+6. salt
+
+There are 2 ways we can write vagrant provisioners
+1. inline
+2. block level
+
+1. Inline
+with provisioner name:    config.vm.provision "provisioner name", type: "provisionerType", inline: ""
+without provisioner name: config.vm.provision "type", inline: ""	
+	
+multi-line script:
+$script=<<-SCRIPT
+	// shellscript
+SCRIPT
+config.vm.provision "type", inline: $SCRIPT
+
+external script:
+config.vm.provision "type", path: ""
+	
+2. block level
+inline:
+config.vm.provision "type" do | prov |
+	prov.inline = ""
+end
+
+external script:
+config.vm.provision "type" do | prov |
+	prov.path = ""
+end
+-----------------------------------------------------------------------------------------------------------------------
+When does the vagrant provisioners will execute?
+upon booting up the virtual machine for the first-time the vagrant executes the provisioners we configured in the Vagrantfile. but in subsequent bootup of the machine by default the provisioner scripts will not be executed.
+	
+If we wanted to execute the provisioner scripts even after the initial bootup of the vm, we can trigger the provisioner executions manually using 2 ways
+1. through command-line switch
+2. through vagrant configuration
+
+#1. Through command-line switch
+to the vagrant up [switch]
+--provision = if we use --provision along with vagrant up then all the provisioners declared in the Vagrantfile will be executed during the bootup
+--no-provision = if we wanted to skip execution of the provisioner in the first-bootup we can use --no-provision
+
+vagrant up = first boot only provisioners will execute
+vagrant up --no-provision = in first boot also dont execute
+vagrant up --provision = during the bootup execute provisioner
+
+#2. through Vagrantfile configuration
+In Vagrantfile while declaring the provisioners we can specify the behaviour of execution of these provisioners by writing an attribute called "run" which takes 3 possible values
+config.vm.provision "type", inline: "", run: "always/once/never"
+	
+1. always = every reload/restart of the virtual machine execute the provisioner
+2. once = only first boot run (default) [we can override this behaviour through command-line switch]
+3. never = never execute
+
+
+3. There is an other way we can specify a particular provisioner to be executed while launching the vagrant machine for eg.. in our Vagrantfile we have 2 provisioners
+
+config.vm.provision "provisioner1", type: "shell", inline: ""
+config.vm.provision "provisioner2", type: "shell", inline: ""
+
+vagrant up --provision-with=provisioner1
+
+File provisioner:
+The file provisioner is used for copying the files from host machine directory location into the guest/vagrant machine
+
+config.vm.provision "copyWar", type: "file", source: "sourceLocationFile", destination: "directoryLocationGuest"
+------------------------------------------------------------------------------------------------------------------------Multi-Machine Vagrant
+While working on multi-tier application deployments we run database on one vagrant machine and java on another vagrant machine. to create 2 vagrant machines we need to write 2 Vagrant configuration files.
+
+Along with that we need to manage the order in which these 2 mahcines has to be started.
+	1. database server machine should be booted then only java server machine
+	2. more machines are required we need to write more Vagrant configuration files with duplicate configuration
+	
+since these 2 machines cannot exist separately and are dependent on each other, instead of configuring them in 2 Vagrant files we can create them as part of single Vagrantfile so that both can be started together and stopped easily, that is where multi-machine vagrant comes into picture
+
+Multi-Machine vagrant file
+
+Vagrant.configure(2) do | config |
+	#privisioners
+	config.vm.provision "shell", path: "path" #global will be executed for all the machines
+	
+	config.vm.define "database" do | db |
+		db.vm.box = "ubuntu/focal64"
+		db.vm.network ="private_network"
+	end
+	
+	config.vm.define "javaserver" do | jserver |
+		jserver.vm.box = "ubuntu/focal64"
+		jserver.vm.network = "private_network"
+		
+		jserver.vm.provision "shell", inline:"" #local provisioner
+	end
+end
+
+How to bootup the machine?
+vagrant up = bootall the machines in declaration order
+vagrant up machineName = only that machine will be started
+
+vagrant halt = all will stopped
+vagrant halt machinename = only the specified machine will be stopped
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,228 @@
+awk = an utility used by the programmers in performing text processing operations.
+	
+syntax:- awk [options] 'selectioncriteria {action}'	file
+
+#1. awk '{print}' filename = works like cat
+#2. awk '/content/ {print}' filename = only prints the matching content records only
+#3. awk -F "," '{print $2, $3}' filename = print these fields only
+#4. awk 'NR>=3 && NR<=5 {print}' filename
+#5. awk -F "," 'NF>=3 {print}' filename
+
+pre-defined variables in awk
+1. NR = NTH ROW
+2. NF = NO OF FIELDS
+3. FS = FIELD SEPARATOR
+4. RS = RECORD SEPARATOR
+5. OFS = OUTPUT FIELD SEPARATOR
+6. ORS = OUTPUT RECORD SEPARATOR
+------------------------------------------------------------------------------------------
+sed
+----
+sed stands for streaming editor. it is used for processing text from a text file or from an STDIN. it supports 3 types of operations to be applied on the text content
+1. print
+2. delete
+3. substitute or replace a given text with another
+
+#1.
+sed '' filename = print the entire contents of the file, same as cat
+if we dont provide any option to sed, by default it prints
+
+The sed provided symbols indicating what operations and actions to be applied on the text.
+	1. p = stands for print
+	2. d = delete a text
+	3. s = substitute specified text with another text
+	
+printing
+-----------
+#2.
+sed 'p' filename = sed will prints twice the contents, because default option is print and we also explicitly asked to print so it prints twice
+
+policies.txt
+------------
+p02839,smith,24,it engineer,100000,risk coverage
+p08393,james,34,mechanic,50000,risk coverage
+p93839,duke,35,doctor,150000,risk coverage
+p92839,joe,23,student,70000,medical insurance
+p93838,mike,45,civil engineer,200000,accidental insurance
+
+#3.
+sed -n 'p' policies.txt = -n = no default printing (--silient)
+
+#4
+sed -n '2p' policies.txt = print 2nd line only
+#5
+sed -n '2,4p' policies.txt = print from line #2 to line#4 only
+#6 
+sed -n '2,+10p' policies.txt = start with 2nd and print next 3 lines
+#7
+sed -n '2~3p' policies.txt = print the lines starting from 2 line and skip every 2 lines from there and print rest of the file (~n = indicates lines to skipped followed after)
+-----------------------------------------------------------------------------------------
+delete
+--------
+The sed command takes the contents of a file apply the action on the in-memory contents and writes the output to the STOUT by default without modifying the source file, that is why it is called 'streaming editor'
+
+sed '2d' policies.txt = deletes the 2nd line and prints the rest of the contents
+
+if you want sed to modify the original file itself use -i option which stands for inline edit
+------------------------------------------------------------------------------------------
+#3. substitute/replace a specific content in the file
+
+#1. 
+sed 's/text1/text2' filename
+sed goes line by line within the given file and searches for the matching text "text1", if found it only takes the 1 occurence in the line and replace with text2 and moves to the next line
+
+#2 replace nth occurence of the text in each line
+sed 's/text/text/nth' filename
+replace every nth occurence of the matching text in the file line by line
+
+#3 replace all the occurence globally within the file
+sed 's/text/text/g' filename
+
+sed supports allowing regular expressions also in matching the content
+----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+

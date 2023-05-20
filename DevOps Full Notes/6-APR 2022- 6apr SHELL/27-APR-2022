@@ -1,0 +1,120 @@
+What are arrays, what is the purpose of them?
+Arrays are used for storing similar type of values adjacent to each other, so that those can be accessed and processed easily by looping through their index
+
+There are 3 ways we can declare arrays in Shellscripting
+1. collection of values
+ARRAY=(VAL1 VAL2 VAL3)
+	
+2. through index based declaration
+ARRAY[0]=VAL1
+ARRAY[1]=VAL2
+
+3. through array declaration
+declare -a ARRAY
+------------------------------------------------------------------------------------------
+How to know the size of the array?
+${#ARRAY[@]}
+
+How to access all the elements of the array?
+${ARRAY[@]} or ${ARRAY[*]}
+
+How to acces a specific index element of an array?
+${ARRAY[INDEX]}
+
+How to access elements of an array from a specific location till the end of the array?
+ARRAY=(10 20 30 40 50 60 70)
+${ARRAY[@]:BEGIN_INDEX}	
+
+How to access elements of an array of between the start and end index only
+${ARRAY[@]:BEGIN_INDEX:END_INDEX}
+
+How to search and replace an element in an Array
+TEAM=(Mike Blake James Adam Kriste)
+we want to replace James with Jack as James left the team
+
+NEWTEAM=${TEAM[@]/James/Jack}
+------------------------------------------------------------------------------------------
+Wap to find the biggest number in the given array?
+bigNumber.sh
+--------------
+#!/bin/bash
+read -p "numbers :" -a NUMBERS
+BIG=0
+for NUM in ${NUMEBRS[@]}
+do
+	if [ $BIG -lt $NUM ]
+	then
+		BIG=$NUM
+	fi
+done
+echo "Big: " $BIG
+	
+#2. wap to find 2nd largest number in the Array?		
+10 23 67 45 32 53 8
+
+BIG=67
+S_BIG=53
+
+if [ $NUM -gt $BIG ]
+then 
+	S_BIG=$BIG
+	BIG=$NUM		
+elif [ $NUM -gt $S_BIG ]
+then 
+	S_BIG=$NUM
+fi
+
+#4 wap to remove negative numbers in an array
+removeNegativeNumbers.sh
+INDEX
+        0   1   2  3   4  5
+ARRAY1=(10 -12 45 -87 87 65)
+
+NINDEX=3
+NARRAY=(10 45 87 65)
+	
+#!/bin/bash
+read -p "Numbers : " -a NUMBERS
+declare -a POSITIVE_NUMBERS
+INDEX=0
+	
+for NUM in ${NUMBERS[@]}
+do
+	if [ $NUM -gt 0 ]
+	then
+		POSITIVE_NUMBERS[$INDEX]=$NUM
+		INDEX=$[INDEX+1]
+	fi
+done
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

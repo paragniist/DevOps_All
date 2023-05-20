@@ -1,0 +1,134 @@
+What is FileSystem?
+FileSystem is a technic/methodology used for organizing in storing the data on the secondary storage device of our computer
+
+The operating system in order to manage storing the data on the secondary storage device of the computer will use FileSystem. Each operating system has their own FileSystem mechanism being used for managing the data
+
+What are the different FileSystems technics available in Linux operating system?
+	1. Ext    = very old filesystem and no more inuse
+	2. Ext2   = supports storing upto 2tb of data
+	3. Ext3   = extension to Ext2 and supports more volumes of data, but not used in server 			
+							computers as it doesnt support data recovery and snapshot
+	4. Ext4   = fast and the default filesystem used by the linux operating system
+	5. JFS    = Journale FileSystem, made by IBM and is very old filesystem
+	6. XFS    = Extent FileSystem, works slow for smaller file sizes
+	7. Btrfs  = Introduced by Oracle and is called as BTree FileSystem. not stable in few linux distro
+
+All the linux filesystems are designed to be hierarchial in nature where the Files are stored in parent/child relationship using Folders/Directories. Always the FileSystem starts with one single root "/" and all the other files/directories falls under the Root only. We can easily organize and access the data, if the files/directories are organized hierarchially so Linux supports Hierarchial FileSystems.
+
+Linux FileSystem Directories
+During the installation of Linux operating system, it creates standard directories in which the operating systems are placed and organized for managing the system. There are total 15 directories in which linux places the operating systems file
+
+1. "/"    = The root of the Linux FileSystem where every other things will falls under
+2. /bin   = binary files, core commands of the linux operating system
+3. /sbin  = super user commands
+4. /etc   = configuration files related to software packages that are installed
+						(in windows program files)
+	
+5. /boot  = boot loader files are located here, to bootup the operating system
+						(in windows system32)
+	
+6. /proc  = everything in linux is captured as files only, even the programs under execution 							are tracked and monitored and the information of them are maintained as process 							files under proc directory (in windows taskmanager)
+7. /mnt   = remote filesystem directories are mounted under /mnt directory 
+						(in windows network devices)
+	
+8. /media = any detachable devices like cd, pendrives are mounted under /media directory
+						(in windows printers, scanners, cdroms and pendrives)
+9. /tmp   = all the temporary files are kept under /tmp. note: upon system reboot the tmp files 					removed automatically
+10. /home = for each linux user the user specific files are kept under /home/username directory
+11. /root = the root user home directory
+12. /var = variable large files are kept 
+13. /usr = optional software utilities to be shared across multiple users are kept under /usr
+14. /dev = device files (in windows device manager)
+15. /opt = optional software packages are located here and managed by package manager (in 								program files)
+16. /lib = shared system libraries are kept under lib directory
+
+
+
+/opt = optional software packages installed by the users through package managers are kept here
+/dev = devices information of the computer are kept as files under /dev
+/mnt = remote filesystem directories are mounted under /mnt
+/boot = bootloader files are kept under /boot
+/proc = process files describing the information about running programs are kept here
+/bin = core commands
+/sbin = superuser commands
+/tmp = temporary files
+/var = variable large files (logs)
+/media = media devices like cdrom, printers, pendrives are mounted here
+/home = for each linux user a home directory will be created under /home to maintain user preference information
+/root =root user home directory
+/usr = shared programs are kept here
+/lib = shared libraries are kept here
+/etc = optional software package configuration files are kept here
+----------------------------------------------------------------------------------------------
+How to install linux operating system? (Ubuntu operating system)
+#1 In windows/mac we can install linux operating using virtualization software
+Minimum System Requirements
+1. cpu = i3, i5, i7 or ryzen, amd
+2. Ram = 8gb/4gb
+3. Harddisk = drive: (20gb space)
+
+How to install ubuntu linux operating system using virtualization software:
+1. download ubuntu-desktop ios file
+https://ubuntu.com/download/desktop/thank-you?version=20.04.3&architecture=amd64
+2. download oracle virtualbox 6.1.32 
+https://download.virtualbox.org/virtualbox/6.1.32/VirtualBox-6.1.32-149290-Win.exe
+3. download oracle virtualbox extension pack software
+https://download.virtualbox.org/virtualbox/6.1.32/Oracle_VM_VirtualBox_Extension_Pack-6.1.32.vbox-extpack
+
+
+	
+#2 use aws ec2 instance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

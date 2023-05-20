@@ -1,0 +1,92 @@
+ps = process status
+ps = shows the current running process attached to the tty
+ps -a = shows all the process of any tty for the current user
+ps -u = shows user specific process
+ps -e = everyones process
+ps -f = full format
+ps -o = output specific columns only
+-----------------------------------------------------------------------------------------
+How to terminate a running process in linux?
+kill pid (or)
+kill -9 pid (-n = signal status with which we are asking the process to terminate)
+-----------------------------------------------------------------------------------------
+what is a foreground and background process?
+foreground = requires use interaction and blocks the tty of the user where he runs the program, by default every process runs in foreground only
+
+background = These are the process that doesnt requires user interaction while executing and they dont ask any input from the user and doesnt generates the output to the tty console directly, such process can be executed as background to ensure those dont block terminal
+
+we need to use "&" at the end of the process to launch it in background, but to redirect the output to an file of the process we need to use nohup
+nohup program &
+-----------------------------------------------------------------------------------------
+Software Package Management
+---------------------------
+What is an software program?
+A program is a set of instructions written within a file that is is passed as an input to operating system asking to execute on the underlying hardware of the computer
+
+Who develops the software application?
+The software program is built by the developer, based on the requirements provided by the business owner / business team
+
+We build the software application to meet the requirements/demands of a business
+
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

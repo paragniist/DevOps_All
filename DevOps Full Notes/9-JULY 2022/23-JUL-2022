@@ -1,0 +1,161 @@
+Relational database management system (rdbms)
+----------------------------------------------
+#tables [columns]	= information is stored in structured format, so that database knows the definition of the data we stored inside the table. So that database can perform operations on the data
+
+#relationship = relational database management system allows us to establish relationship between the data across the tables through primary key and foreign key columns.
+	
+#sql language = structured query language is an standard language supported by all the rdbms databases, using which we can communicate with database asking to perform operations
+
+#schema/database = group of tables kept together and are accessed are called "schema"/"database"
+	
+#secure = create users and grant access permissions to the schema/database to protected and secure the data from authorized access
+
+#connect = There are database client tools provided by each database vendor using which we can connect to the database system and perform operations by executing/issuing sql queries to the database server
+--------------------------------------------------------------------------------------------
+There are lot of rdbms database server software are provided by various different vendors in the market. few of opensource and others are commercial
+1. oracle database (12c)
+2. db2 (ibm)	
+3. postgres 
+4. ms sql server (microsoft)
+5. mysql server (oracle #opensource)
+6. mariadb
+
+How to install and use mysql server on ubuntu linux operating system?
+MySql Server is an opensource database server software that is popularly used by the people across the market.
+	
+#1. MySql Server is an packaged distribution in ubuntu 20.04+
+sudo apt update -y
+sudo apt install mysql-server-8.0
+	
+by installing the mysql-server-8.0 package, both server and client software will be installed on the machine
+
+#mysql server install comes with an default #root user, which is the administrator user of the database server who can perform all the operations on the database.
+with the default installation, the "root" user will be created with password as empty/blank, so that anyone can access the database making it insecure
+
+To make the database installation secured, the mysql server has provided an tool mysql_secure_installation
+The above tool will configure the database server by prompting few questions to us as below:
+1. Do you want to enforce password validation: No
+2. Enter the root user password: root
+	Re-Enter the password: root
+3. Remove anonymous users: Yes
+4. Remove test databases: Yes
+5. Allow Remote Access to the Root Disabled: No 
+6. Reload previliges: Yes
+
+How to configure mysql server for enabling the remote access?
+Few more things to be done to grant remote access:
+1. With the default installation, the mysql server is configured to listen to localhost traffic only, it doesnt allow the users to connect to the database remotely
+To enable listening to the remote address we need to change the configuration in the mysql server database configuration file as below:
+/etc/mysql/mysql.conf.d/mysql.conf 
+goto the above file and search for bind-address, by default it is configured with 127.0.0.1 which means allow users of the localhost to connect now change the property to 0.0.0.0
+	
+bind-address=0.0.0.0
+sudo systemctl restart mysql = restart the mysql server through initd system.
+	
+2. By default the root user will not be permitted to access the database remotely, so we need to configure another user to the database and grant permission to the user for remote access.
+	
+to add an user to the mysql server database, we need to connect to the database as root user from local system.
+
+sudo mysql -uroot -proot
+mysql is an client utility using it we can connect to the database server.
+	
+	
+#1 add the new user to the mysql server database
+create user 'crazyeats'@'%' identified by 'welcome1';
+using above query we are adding a user "crazyeats" allowing him to access all the database from any location "%" with an password "welcome1"
+	
+#2. now grant access to the database by issuing permissions
+grant all privileges on '*.*' to 'crazyeats'@'%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

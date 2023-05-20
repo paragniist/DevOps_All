@@ -1,0 +1,26 @@
+---
+- name: file play
+  hosts: all
+  tasks:
+  # - name: create file
+  #   file:
+  #     path: ~/ansible-doc
+  #     mode: 0755
+  #     state: touch
+  #     modification_time: preserve
+  #     access_time: preserve
+  # - name: create directory
+  #   file: 
+  #     path: ~/ansible
+  #     state: directory
+  # - name: move ansible-doc to ansible directory
+  #   copy:
+  #     src: ~/ansible-doc
+  #     dest: ~/ansible
+  #     remote_src: true
+  - name: create symlink
+    file:
+      src: ~/ansible-doc
+      dest: ~/ansibledocumentation
+      state: link
+...

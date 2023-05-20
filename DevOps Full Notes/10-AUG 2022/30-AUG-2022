@@ -1,0 +1,193 @@
+Ansible Inventory File
+-----------------------
+The Ansible Control Node server is stateless and doesnt have any information about the fleet servers on whom we wanted to apply the automation. The opsengineer has to write the ansible inventory file describing the details of the fleet servers of the organization on whom we wanted to apply automation
+
+By default Ansible uses the inventoryFile at location /etc/ansible/hosts while applying the modules/playbooks. we can override the default ansible inventoryFile with our own by creating one and supplying using -i switch
+ansible [group] -i inventoryFile -m module
+	
+There are 2 formats in which we can write an inventoryFile
+1. INI Format
+2. YAML Format
+
+#1. INI Format
+we can list down all the hosts on whom we wanted to apply the automation each by separated by a line
+~/hosts1
+192.168.10.11
+192.168.10.12
+	
+It is not recommended to use default inventoryFile as we dont want to apply automation on all the fleet servers of the organization. rather would be a best practise to create one inventoryFile per one project or a business account.
+	
+Within the project or business unit there can multiple fleet servers which are served for different purposes, for eg we have fleet servers categorized by technology, region or environments
+For a project there can be servers alloted based on technology like javaservers and mysqldatabaseservers or
+based on regions for eg.. ap-south-1 and us-east-1 or
+based on environments for eg.. dev, test or prod
+
+To help in organizing the fleet servers of a business unit or a project the ansible inventory files supports groups. we can group the ansible managed hosts based on any criteria and can manage them together.
+By default there are 2 groups are there in every inventoryFile we create
+1. all = every host declared in the inventoryFile comes under all group
+2. ungrouped = if a host has not been assigned to any group other than all then it becomes ungrouped
+
+How to declare groups in inventoryFile?
+#1. INI Format
+groups are declared in INI format with square bracket headings
+~/hosts2
+192.168.10.11
+[javaservers]
+192.168.10.12
+192.168.10.13
+[dbservers]
+192.168.10.15
+192.168.10.16
+	
+In the above inventoryFile there are 4 groups are there
+1. ungrouped = 192.168.10.11
+2. all 
+3. javaservers
+4. dbservers
+
+#2. In YAML 
+---
+all:
+  hosts:
+    192.168.10.11:
+		192.168.10.13:
+	childrens:
+    javaservers:
+      hosts:
+        192.168.10.20:
+			  192.168.10.30:
+		dbservers:
+      hosts:
+        192.168.10.50:
+				192.168.10.60:
+					
+we can always find the groups and list of hosts within the given inventoryFile by running the below command
+ansible-inventory -i inventoryFile --list
+------------------------------------------------------------------------------------------------------------------------
+Host Ranges
+We might have lot of hosts with a similar host patterns either with a specific naming convention or ip address ranges. To adding the group of hosts of the same patter is difficult
+For eg.. we have a javaservers starting with an ipaddress: 192.168.10.11 till 192.168.10.25. Now adding the 14 hosts sequentially in the inventoryFile is a huge effort instead we can use Ranges in host declarations
+
+~/hosts2
+[javaservers]
+192.168.10.[11:25:1]
+min: 11
+max: 25
+increment: 1
+the above expression generates the hosts ips starting from 192.168.10.11 to 192.168.10.25 increment each by 1
+	
+we can not only use ranges for ip address we can use for hostnames as well as below
+~/hosts3
+[javaservers]
+javaserver[1:4:1]
+
+
+In YAML:
+---
+javaservers:
+  hosts:
+	  192.168.10.[5:8:1]:
+		
+-----------------------------------------------------------------------------------------------------------------------
+Inventory File variables
+We can define variables and attach to either a host or a group within the inventoryFile.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

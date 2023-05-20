@@ -1,0 +1,124 @@
+hostmachine
+nat with
+port forwarding host:80, guest: 80
+
+domain -> apache2 site configuration ServerName
+http://crazyeats.com/index.html
+--------------------------------------------------------------------------------------------
+Firewall
+
+Firewalls are used for enforcing traffic restrictions allowing your software programs to be accessible over the network. Most of the operating systems will ship firewall software as part of their install
+
+The Firewalls can be scoped at 2 places
+1. at host level
+In a personal computer or a single-user systems we use host-level firewall for protecting the applications not to be accessed from the outside world, unless permitted
+
+2. network level
+Within an organization, instead of configuring the firewall at the individual host level which is very difficult, we can setup on firewall at the network level which will protect any of the computers connected to the network not to be exposed or accessed from outside world.
+	
+The Firewalls can be either an software applications or can be hardware devices as well.
+In an enterprise organization, people setup hardware firewalls for more performance and network through put than s/w firewalls
+
+We apply traffic restrictions on the software applications to be accessed by the others by configuring various different rules like
+1. allow any traffic to a program running on a specific port
+2. allow all http traffic
+etc
+--------------------------------------------------------------------------------------------
+Ubuntu operating system provides iptables as a default firewall software aspart of its distribution, through which we can manage/apply traffic restrictions. working with iptables requires great amount of knowledge on networking and protocols concepts, so many of the people often find very complex to work with iptables.
+	
+To help people to manage and configuring iptables/firewall in ubuntu operating system, the ubuntu has distributed a software called ufw. ufw stands for "un-complicated firewall". it acts as an interface through which we can manage the ubuntu firewall system.
+	
+by default in ubuntu 18.x operating system ufw is installed and distributed. if you are using previous versions of ubuntu operating system then you need to manually install ufw software package
+sudo apt install ufw
+	
+#1. by default ubuntu firewall is disabled, so no traffic restrictions are applied to the programs running on your computer.
+To enforce traffic restrictions we need to enable the firewall software
+sudo ufw enable
+
+when we enable firewall or ufw above the default behaviour is
+1. deny all the inbound traffic
+2. allow all the outbound traffic
+	
+#2. How to know the status of the firewall or ufw?
+sudo ufw status
+
+We can enforce traffic restrictions at 3 levels
+1. source ip address
+2. portno
+3. protocol
+
+#3 how to see what traffic restrictions are enforced through the firewall
+sudo ufw status verbose
+
+#4. how to allow/deny traffic to the programs from a specific sourceip address
+sudo ufw allow from sourceip
+sudo ufw deny from sourceip
+
+#5. how to allow/deny traffic restrictions based on protocol
+sudo ufw allow protocol
+sudo ufw deny protocol
+eg..
+sudo ufw allow http
+	
+#6. how to allow/deny access based on portno
+sudo ufw allow portno
+sudo ufw deny portno
+
+#7. how to allow/deny traffic to a range of portno
+sudo ufw allow 8080:8088/tcp
+
+#8. How to see the list of rules with numbers applied
+sudo ufw status numbered
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

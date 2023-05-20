@@ -1,0 +1,110 @@
+if-elif-else-fi statement
+bc
+-------------------------------------------------------------------------------------------
+bc stands for basic calculator, it is used for performing arthematic operations on any given inputs let me integer/floating numbers. always bc takes expression as an input performs operation and produces the output.
+	
+var=$(echo "arthematic expression" | bc)
+------------------------------------------------------------------------------------------
+Nested if conditions
+---------------------
+within an if condition we can write another if condition which is called "nested if conditions".
+
+syntax:-
+if [ condition ]
+then
+	if [ condition ]
+	then
+		statements
+	elif [ condition ]
+	then
+		statements
+	else
+		statements
+	fi
+else
+	if [ condition ]
+	then
+		statements
+	elif [ condition ]
+	then
+		statements
+	else
+		statements
+	fi
+fi
+
+we need to execute the instructions based on the evaluation of 2 inputs for eg.. given 2 numbers A and B, where A has multiple possible outcomes where one of it becomes true. for each possible outcome we need to evaluate B with possible outcomes to identify which instructions to be executed.
+	A < 0 = negative
+		B = 1
+		B = 2
+	  B = 3
+	A > 0 = positive
+		B = 1
+		B = 2
+	  B = 3
+	A == 0 
+		B = 1
+	
+wap to take the number of units as an input and calculate the power bill and print the output.
+connectionType: domestic
+	slabs:
+		0 -   100 units = 2.20 
+		101 - 300 units = 3.30
+		> 300 units     = 4.5
+connectionType: commercial
+	slabs:
+		0   - 200 units = 6
+		201 - 500 units = 10
+		> 500 units     = 15
+			
+for eg.. domestic
+180 units = (100* 2.20) + (80 * 3.30) = 
+380 units = (100 * 2.20) + (200 * 3.30) + (80 * 4.5)
+			
+			
+powerbill.sh
+-------------
+#!/bin/bash
+read -p "connection type: " CN_TYPE
+read -p "units consumed: " UNITS
+BILL_AMT=0
+
+if [ $CN_TYPE == "domestic" ]
+then
+	if [ $UNITS -le 100 ]
+	then
+		BILL_AMT=$(echo "$UNITS * 2.20" | bc)
+	elif [ $UNITS -gt 100 -a $UNITS -le 300 ] 
+	then
+		BILL_AMT=$(echo "(100 * 2.20) + (($UNITS-100) * 3.30)" | bc)
+	else
+		BILL_AMT=$(echo "(100 * 2.20) + (200 * 3.30) + (($UNITS-300) * 4.5)" | bc)	
+	fi
+else
+	if [ $UNITS -le 200 ]
+	then
+		BILL_AMT=$[UNITS * 6]
+	elif [ $UNITS -gt 200 -a $UNITS -le 500 ]	
+	then
+		BILL_AMT=$[(200 * 6) + (($UNITS-200) * 10)]
+	else
+		BILL_AMT=$[(200 * 6) + (300* 10) + (($UNITS-500)*15)]
+	fi
+fi
+echo "CONNECTION TYPE: $CNT_TYPE, UNITS Consumed: $UNITS and Bill amount: $BILL_AMT"
+------------------------------------------------------------------------------------------
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

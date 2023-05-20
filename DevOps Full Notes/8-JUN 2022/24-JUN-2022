@@ -1,0 +1,177 @@
+How to setup ssh access for a linux machine?
+#1. ensure we have the ip address of the remote computer we wanted to ssh, and check for reachability of the remote computer
+In our case we wanted to connect to the virtual machines running on virtualbox from hosted machine (windows)
+To perform ssh on to the virtualmachine we need to setup network mode, here we have 3 options
+#1. NAT with port forward: 22
+#2. Bridge Network
+#3. Host-only network adapter (no external network or internet)
+	
+So we can setup 2 things
+1. NAT + Host-only network adapter
+2. Bridge
+
+#2. Install openssh server on the server computer
+sudo apt update -y
+sudo apt install -y openssh-server
+
+#3. upon installing the openssh server, it creates an ssh server configuration file under
+/etc/ssh/sshd_config, it holds configuration settings in managing the ssh server
+Few of the configuration settings available as part of the sshd_config file are as below.
+	
+2.1 the default port on which the ssh server runs is on: 22, which we can change by modifying the sshd_config file
+port=22
+
+2.2 The default authentication mechanism granting the client to access the server is "passwordAuthentication"
+passwordAuthentication: yes
+
+if we want to disable passwordAuthentication then we need set it to no and restart the ssh server
+sudo systemctl restart ssh
+--------------------------------------------------------------------------------------------
+From client machine:
+Windows:-
+
+How to ssh onto the remote machine?
+1. gitbash
+	ssh username@ip
+	
+2. putty/winscp
+open putty and enter ip address and click on connect
+prompt for username/password and will be connected
+	
+3. windows powershell
+by default has bash ssh client
+
+--------------------------------------------------------------------------------------------
+How to configure passwordless authentication to the remote server?
+#1. never enable ssh access for the root user of the linux machine (best practise)
+#2. 
+Let us add an new user joe
+sudo adduser joe 
+
+#3. to enable keybased authentication we need to generate private/public key
+there are many ways to do this
+In windows:
+ #1
+	1. we need to use puttygen utility or tool to generate private/public key
+	2. generate the .pub and .ppk (.pub=public key), (.ppk=private key) and place them under windown $HOME/.ssh directory
+	
+Both Windows & Linux:
+	Windows: gitbash
+	Linux: bash shell utility
+	we need to run a command for generating the SSH keys
+	ssh-keygen
+	The above command prompts for keyfile name and generates .pub/.ppk and stores
+	
+#4. now add the public key on to the remote machine of the user for whom we wanted to allow ssh access
+For eg.. now we wanted to enable ssh access for the "joe" user, then add the public_key we generated to joe on the server
+How to add public key to a user allowing the ssh access?
+# for each user under the $HOME directory we need to create an directory called .ssh
+for eg.. for joe user under his home directory we need to create /home/joe/.ssh/
+# inside that we need to create an file called authorized_keys with permission to the file
+# now add the public key we generated at the client side into the authorized_key file of that user
+
+ssh -i ~/.ssh/joekey joe@192.168.1.113 
+1. when we initiate the sshconnection with above command, the openssh server receives the request.
+2. then it checks under joe user, inside authoried_keys is the public key the client is sending is available or not
+
+How to copy the generated public key on to the remote user authorized_keys file?
+1. manually copy paste into the authorized_keys file
+
+2. we need to have ssh access to the remote server either through password/passwordless with exiting key, then we can use the below approach
+	1. scp to the remote server
+	scp stands for secure copy is a shell command to copy files onto a remote computer and works based on ssh protocol
+	scp sourcefile user@ip:location
+	
+	2. ssh-copyid
+	
+
+
+ssh-keygen
+.pub and .pem =ssh required .pem as an input
+
+puttygen
+.pub/.ppk = putty requires, .ppk as input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

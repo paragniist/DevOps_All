@@ -1,0 +1,13 @@
+---
+- name: debug #play name
+  hosts: javagroup
+  tasks:
+    - name: debug task
+      debug:
+        msg: debug task from ansible playbook
+- name: ping
+  hosts: dbgroup
+  tasks:
+    - name: ping task
+      ping:        
+...

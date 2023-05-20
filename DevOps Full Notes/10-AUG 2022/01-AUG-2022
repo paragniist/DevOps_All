@@ -1,0 +1,364 @@
+#education
+#exposure to computer technology
+#job experience 
+
+#total = 15/16 = 6/7 offers
+#kubernetes [services]
+#jenkins [sonarcube]
+
+#linux
+cpu/memory
+df/du
+grep
+find
+symlink
+awk
+sed
+how to make users as sudoers
+sudo -r chmod
+file permissions
+pipes and redirections
+---------------------------------------
+#shellscripting
+print your name #10 times
+not working, shellscript to identify the cause of slowness of your application
+upload your file or folder in S3
+even or odd number
+find number in array 
+
+#networking
+ipv4
+router
+switch
+osi model = which device working on which layer
+ip addressing, cidr
+why do we use protocol
+what is portno
+
+#ssh tunnel
+#ppk = how to configure remote server using these keys
+how to connect
+
+# java
+what is jar/war?
+maven lifecycle, how to build the project, what is clean and verify
+gav coordinates
+why do we use maven, what is the purpose?
+plugins
+pom.xml
+	
+How to setup jfrog artifactory repository
+how do you use it?
+why do we need artifactory
+
+#apache2 
+site configuration file, why do we use DocumentRoot
+
+#ansible
+role
+modules
+	- list down the modules you worked on
+playbooks
+ansible galaxy
+dynamic inventory files
+architecture
+how ansible is working
+How ansible executes your playbook?
+jinja2 template
+ansible vault
+
+#terraform
+why we use terraform init?
+terraform module
+tfstate = how do you manage terraform remote state management
+if we delete ec2 instance what will happens to the state file
+variables
+architecture
+provisioners 
+
+#git
+rebase
+cherrypick
+mergeconflicts
+fast-forward
+branching strategy
+branches in git
+merge
+pull & fetch
+
+#aws
+networking
+#storage
+#rds / dynamodb
+#cloud front
+#route53
+#cloud watch
+#glacier
+#snowball
+#s3 (bucket policies)
+#iam 
+# different role and policy
+#kms
+#loadbalancer [download and configure ssl]
+#asg
+#storage gateway
+
+#docker
+directives used
+docker image build, push
+docker images are layered (why)
+docker volumes
+CMD/ENTRYPOINT difference
+ADD/RUN
+HEALTHCHECK
+docker networking (types)
+
+#kubernetes
+architecture
+what is the purpose of all the components
+services
+in manifest what is kind/apiVersion
+monitoring tool used in k8s
+helm
+configmaps, configsecret
+pv,pvc
+networking
+how to setup eks
+
+#jenkins
+ci/cd process
+how will you configure git, java, maven with jenkins
+how will you configure sonarqube
+declarative pipeline
+job in jenkins
+environment
+conditions
+jenkins with eks
+parallel builds
+
+elk (configuration options)
+s3 lifecycle
+terraform refresh
+
+kubernetes deployment strategy
+S3 version
+Route53 = record types
+
+ansible directory structure
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

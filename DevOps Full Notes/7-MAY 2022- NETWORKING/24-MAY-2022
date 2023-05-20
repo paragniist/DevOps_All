@@ -1,0 +1,106 @@
+ip address is an logical address assigned to the network interface card of the computer when the computer is connected to the network.
+There are 2 versions of ip addressing are there	
+1. ipv4 addressing = The size of the ipv4 addressing is 32-bit and a max of 4.1 billion devices can be connected to the network
+2. ipv6 addressing = The size of the address is 128-bit and a max of 340 trillion devices can be connected to the network. The ipv6 addressing is written in hexa decimal format
+
+As the more and more devices are connected to the network, we quickly run out of ipv4 addresses, so to overcome the problem ipv6 addressing has been introduced. Currently ipv4 and ipv6 both are available and ipv4 is being used in the market
+
+ipv4 addressing
+---------------
+The ipv4 address is of 32-bit in number, in which we can represent 2^32 possibilities from which we can drive numbers from 1 to 4.1 billion. from this we can understand each computer can be assigned an unique number ranging from 1 to 4.1 billion which can act as an ip address for a computer
+
+but the ip address schema has been designed to be hierarchial rather than a sequence numeric number. anything represented interms of parent/child relationship is called "Hierarchial representation or notation"
+	
+	   (steve)
+---grantfather---
+ |              |
+ son(greg)      daughter(jassie)
+  |    |           |
+son    daughter    son
+(mike) (ali)       (brad)
+
+steve.jassie.brad
+
+if the computers are assigned with sequence number uniquely we cannot identify and relate computers and manage them as a group
+for example in an organization we might have different departments
+1. finance
+2. hr
+3. employee
+4. administration
+
+all of these employees working in different group has access to their computers and part of network. we want to enforce traffic restrictions on who can access what systems on the network
+For eg.. 
+1. an administrator can access any of the employees computers 
+2. a finance team can access employees machines
+3. hr team can access employees
+4. employees should not be able to access any other computers of any group
+
+if we have given the ip address as a sequence number identifying a computer belongs to which group and enforcing restrictions is not possible that is where ip addressing has been designed to be hierarchial
+
+             192 (organization)
+	            |
+      	     168 (campus) (hyderabad)
+	            |
+	----------------------------------
+	10     20          30         40
+ (hr)    (finance)  (admin)   (employees)
+-------  ---------  --------  -----------
+|	 |  |  |       |  |       |     |
+1  2 3   2       5  3      10    100
+
+employee computer ip: 192.168.40.100
+now we can easily apply traffic restrictions from one group of computers to another group by using hierarchial addressing model
+for eg.. 192.168.10.* (hr group) -> 192.168.40.* (employee group) = allow
+
+The ip address is 32 bit length which is broken down into 4 equal octets. 
+Within 8 bits we can represent the maximum number as = 255 (0 - 255), so an ip address can range from
+0.0.0.0 to 255.255.255.255 for any given computer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

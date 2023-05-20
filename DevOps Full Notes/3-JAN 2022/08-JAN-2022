@@ -1,0 +1,145 @@
+What is an operating system, what is purpose of it?
+operating systems help us in achieving hardware portability in building the programs that can work across various different hardware platforms in the market.
+	
+The operating system provides their own instructionset interms of system routines using which we need to write programs, so that those programs are translated into hardware executable instruction set by the operating system taking the help of hardware translators and executes on underlying computer.
+	
+There are problems in writing programs using operating system instruction set
+1. the operating system provided system routines are not developer friendly, those are tough to memorize and difficult to write syntactically
+2. if we write programs using the operating system instruction set, it works only on that platform and doesnt works across the platforms of the computer
+
+To overcome the above problems High-level programming languages are introduced.
+What is an High-level programming language?
+High-level programming languages are introdued to overcome the problems in writing programs using operating system instructionset or mnemonics
+1. The HLL provides their own instructionset using which programmer has to write software programs
+	1.1 The high-language instruction set is developer friendly, it is an english like language that closely resembles the natural language of the humans. Now any one can quickly learn and write programs using HLL instruction set.
+	1.2 The programs written in high-level language can be executed on any operating system/any platform since we are not writing the programs using system routines of an operating system.
+	
+How does the programs written in high-level language instruction set can be executed on the operating system?
+The high-level languages provides compiler tool for each platform, which is responsible for taking HLL instruction set program and converts into operating system executable code, there by which we can execute the code on that operating system.
+	
+From the above we can understand
+The code written once using high-level programming language can be executed on any platform without rewriting or modifying the program, so we achieve platform independent code.
+	
+There are lot of high-level programming languages are there
+1. c
+2. c++
+3. java
+4. python
+5. .net
+----------------------------------------------------------------------------------------------
+Linux operating system
+Linux is an general purpose operating system, originally released in 1991 by Linus Torvalds. he is innovator of modern version control system GIT.
+	
+The UNIX operating system is headed by AT&T and Bell labouratories and they turned it to an commercial operating system where people has to purchase license of using it. Inspired by UNIX the linus trovalds want to build another operating system similar to UNIX which is opensource and freely distributable, that is where the notion of LINUX operating system started.
+	
+LINUX operating system is build based on philosophy of software and operating system should be free and freely modifiable and distributable. Linux is distributed on GNU (General Public License)
+
+The major component of the Linux operating system is "Kernal". kernal interacts with the underlying hardware components of the computer enabling your sofware applications to work on the underlying hardware
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

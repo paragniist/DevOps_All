@@ -1,0 +1,29 @@
+How to deploy an java application that uses database?
+The process of deploying an application and configuration options need to modify while deploying the application changes from application to another, so the developer will give instruction documentation describing the procedure to be followed by the opsengineer in deploying the application.
+	
+What are the instructions to be followed in deploying an fithealth (java webapplication)?
+1. The sourcecode of the project is there as part of git repository.
+	https://github.com/techsriman/fithealth.git
+
+2. clone the project 
+goto workspace/ directory
+git clone https://github.com/techsriman/fithealth.git
+now the source code of the project from git server will be copied onto your local machine
+
+3. software packages and libraries to be installed/configured on the machine
+	3.1 install jdk11 software
+	3.2 install tomcat server version: 10
+	3.3 install mysql-server-8.0
+
+4. run the schema.sql file in the project to create database schema and tables in the mysql server using root user
+	file location: src/main/db/db-schema.sql
+
+5. setup the dbuser for the application and grant remote access to the user to the above database in mysql server
+
+6. 
+
+
+
+How to install the git on ubuntu linux?
+sudo apt update -y
+sudo apt install -y git

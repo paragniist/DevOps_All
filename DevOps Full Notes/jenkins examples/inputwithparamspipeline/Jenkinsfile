@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('input with parametes') {
+            input {
+                message 'enter age'
+                ok 'Yes'
+                parameters {
+                    string(name: 'age', defaultValue: '0', description: 'Enter age')
+                }
+            }
+            steps {
+                sh 'echo "Your age is ${age}"'
+            }
+        }
+    }
+}

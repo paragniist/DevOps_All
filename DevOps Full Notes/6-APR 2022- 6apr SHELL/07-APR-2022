@@ -1,0 +1,145 @@
+How to declare variables as part of Shellscript?
+Variables are the named memory locations in which we can store the value
+(or)
+Variables are the placeholders in which we can store the values
+so that we can refer the variables in using the values of them in our program
+
+How to declare a variables?
+VARIABLENAME=VALUE
+
+How to access a variables?
+$VARIABLENAME
+------------------------------------------------------------------------------------------
+How to read the data interactively as an input in the Shellscript program?
+In the below program we are assiging the A, B variables with a default values, using them we are performing addition operation.
+Let us say we want to perform addition operation on different pair values as an input, then for each pair of inputs we need to modify the code/shell program and run it. If we have 30 pair of input values over which we want to perform the addition operation, we need to modify the program 30 times which is tedious/labourious job.
+	
+addNumbers.sh
+------------
+#!/bin/bash
+A=25
+B=30
+SUM=$[A+B]
+echo "SUM : $SUM"
+	
+sudo chmod u+x addNumbers.sh
+./addNumbers.sh
+SUM: 55
+	
+Instead of modifying the values in the program, if we can make the program take the input from the user dynamically while executing rather than hardcoding, then we dont have to modify the program to execute with different combination of inputs, this is called "interactive inputs" in shell program
+
+The shell or bash has provided an instruction called READ using which we can collect the data from the user while execution
+
+addNumbers.sh
+#!/bin/bash
+echo "Enter A"
+read A
+# the shell interpreter waits for the user input and collects it and assigns to the variable A.
+echo "Enter B"
+read B
+SUM=$[A+B]
+echo "SUM : $SUM"
+
+./addNumbers.sh
+10
+20
+
+Instead of using echo for displaying messages prompting the user to enter the inputs we can use -p option in read instruction itself
+
+#!/bin/bash
+read -p "enter a:" A
+read -p "enter b:" B
+SUM=$[A+B]
+echo "sum : $SUM" 
+----------------------------------------------------------------------------------------
+1. wap to collect firstname and lastname from the user and print together as lastname followed by firstname
+
+fullname.sh
+------------
+#!/bin/bash
+read -p "enter firstname:" FIRSTNAME
+read -p "enter lastname:" LASTNAME
+echo "Your fullname is : $LASTNAME $FIRSTNAME"
+------------------------------------------------------------------------------------------
+How to collect or pass the data non-interactively in shell program?
+	
+shell program
+--------------
+job.sh
+-------
+read X 10
+read Y 20
+#300 lines --> 20 minutes
+
+read Z 30
+read SERVER_NM DEVSERVER
+#500 lines --> 30 minutes
+read DATA
+
+
+./job.sh 10 20 30 DEVSERVER 03494444
+while running the program I know with which input values I want to execute my program
+
+touchless execution
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

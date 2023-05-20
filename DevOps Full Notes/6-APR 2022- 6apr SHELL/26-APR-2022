@@ -1,0 +1,142 @@
+What are arrays, what is the purpose of them?
+Arrays are used for storing collection of similar datatype values, so that we can apply the similar type of processing logic on them together easily
+
+if we dont have arrays for processing group of similar type of values, then we need to use variables, but if we use variables we will run into maintaince problems as below.
+	1. The code/logic we want to apply for all of those values has to be duplicated for each variable
+	2. more amount of time we need to spend on writing the code
+	3. because of code duplication the chances of bugs will be high
+to avoid above problems use arrays only
+
+Arrays are index based collections, all the values are stored in arrays adjacently, we can access the values of an array using index. The index location of the array starts with "0" and ends with n-1 given n elements are there
+
+How to create arrays in shellscript program?
+There are 3 ways we can declare arrays in shellscript program
+#1. arrays with collection of values directly
+ARRAY_NAME=(VAL1 VAL2 VAL3 VAL4)
+		
+#2. index based declaration of array
+ARRAY[0]=VAL1
+ARRAY[1]=VAL2
+ARRAY[2]=VAL3
+
+#3 array declaration
+declare -a ARRAYNAME
+------------------------------------------------------------------------------------------
+How to read the data directly into an Array?
+we can interactively read the data and store into an array directly using 
+read -a ARRAYNAME
+
+all the values we supplied in the terminal separated by space are added to array automatically
+------------------------------------------------------------------------------------------
+How to access all the elements/values stored inside the array?
+${ARRAY_NAME[@]} or ${ARRAY_NAME[*]}
+
+How to find the number of elements in an array?
+${#ARRAY_NAME[@]}
+
+How to access a specific element in an array?
+${ARRAY_NAME[INDEX]}	
+
+#1 wap to print all the elements inside an array
+printArray.sh
+---------------
+#!/bin/bash
+N=(10 20 30 40 50 60)
+
+There are 2 ways we can iterate over the elements of an array
+1. either we can use for in loop
+2. or we can use while loop with counter
+using for-in loop:
+-----------------
+for E in ${N[@]}
+do
+	echo $E
+done
+
+using while loop:
+LEN=${#N[@]}
+I=0
+while [ $I -lt $LEN]
+do
+	echo ${N[I]}
+	I=$[I+1]
+done
+
+using for loop with counter:
+----------------------------
+LEN=${#N[@]}
+for ((I=0;I<LEN;I++))
+do
+	echo ${N[I]}
+done
+------------------------------------------------------------------------------------------
+wap to read the array of elements as an input and print them in reverse order?
+
+reverseArray.sh
+----------------
+#!/bin/bash
+read -p "enter numbers" -a N
+LEN=${#N[@]}
+I=$[LEN-1]
+
+until [ $I -lt 0 ]
+do
+	echo ${N[I]}	
+	I=$[I-1]
+done
+------------------------------------------------------------------------------------------
+wap to collect product prices and calculate total price of the products by adding 10% tax
+
+finalproductprice.sh
+--------------------
+#!/bin/bash
+read -p "product prices" -a PRODUCT_PRICES
+
+for PRODUCT_PRICE in ${PRODUCT_PRICES[@]}
+do
+	TAX_AMOUNT=$[(PRODUCT_PRICE*10)/100]
+	TOTAL_PRICE=$[PRODUCT_PRICE + TAX_AMOUNT]
+	echo "net price: $PRODUCT_PRICE and final price after taxes: $TOTAL_PRICE"
+done
+------------------------------------------------------------------------------------------
+wap to find biggest number in the given array?
+wap to find second biggest number in the given array?
+wap to find the sum of odd position elements in the array?
+wap to remove negative numbers in the given array and return new array?
+	
+ODWA326042022 = 3gAJcn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

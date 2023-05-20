@@ -1,0 +1,70 @@
+What kind of change in culture and what are the tools/technologies to be adopted by the people in the team during the stage of development to delivery as part of DevOps process
+
+#1 development phase
+lets explore the change in culture and adoption tools during development phase of the project
+	1. understand the requirements provided by the product/business owner and analyze them to build the software application
+	2. choose the programming language that best fit for building the application based on its nature
+	3. setup development environment required for developing the project/software application
+		- install language software
+		- install and configure development related tools
+		- install database server software and application server softwares
+		etc
+	The whole process of installing and configuring the development environment takes lot of time around 15-20 days on an average, if there is a team of 5 members working on the application it takes nearly about 100 person days in just setting up development environment.
+	by the above we can understand it delays the software development and delivery process and even increases the cost of manufacturing the software
+
+	That is where DevOps process encourages us to adopt virtualization technology.
+	What is Virtualization?
+	Virtualization is a technology by using it we can create multiple independent isolated environments	on the physical computer system, which help us in effectively utilizing the hardware resources of the computer.
+	There are lot of virtualization softwares are available to create multiple virtual machine environments like
+	1. oracle virtualbox
+	2. hyperv 
+	3. vmware (desktop|workstation|fusion)
+	4. parallelx
+	The devops engineer using virtualization technology has to setup an virtual machine env with required softwares and tools, the export the virtual machine environment as a diskimage file
+	
+	To each developer inorder to setup the development env, the devops engineer has to simply import the diskimage to recreate the virtual machine env on their individual machines.
+		
+	it takes a matter of 5/10 minutes per each developer to bring up the development env which saves huge amount of time and cost of developing and delivering an application.	
+
+	In order to setup the virtual machine by the devops engineer manually it takes lot of time, instead the devops engineer will takes the help of vagrant 
+	what is vagrant?
+	vagrant is an virtualization workflow automation tool, that let the devops engineer declare/define machine configuration, using which vagrant will quickly setup the virtual machine environment. So we can speed up the process of creating virtual machines using vagrant.
+----------------------------------------------------------------------------------------------
+	4. choose the process model in developing and delivering the software application
+		There are lot of software development process models are there 
+		1. waterfall model
+		2. prototype model
+		3. incremental/iterative model
+		4. spiral
+		5. agile methodology, scrum model
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,208 @@
+Working with text editors
+--------------------------
+How to edit a file in linux operating system?
+In order to edit the contents of a file like modify the text or delete or add the lines of content we need text editors similar to the notepad or notepad++ or wordpad in windows operating system we need similar text editors in linux to modify the file contents.
+	
+There are 2 types of text editors are available as part of the linux operating system
+1. console based editors or cgi (character graphic interface) based editors
+These are the non-gui editors which works directly on terminal / console itself using which we can edit or create files in linux
+	1.1 vi
+	1.2 vim
+	1.3 nano
+	
+2. gui editors
+These editors are similar to notepad or wordpad in windows where in all the graphical user interface based options are available to easily edit the files
+These editors differ from linux distro to other distro
+by default in ubuntu distro we have gedit
+
+Most of the time we are going to work on linux in headless mode only where there is no gui interface available, majority of the production environments are ran under headless mode only so it is mandatory for everyone to understand the cgi based editors to work in modifying the files in linux
+
+#1 vi/vim
+The most popular and available editor by default in majority of the linux distros is vi/vim
+vi stands for visual editor and the improved version of the vi is vim which has more options than vi
+
+vi = is an classical editor (older) which is not friendly to use, so a improved version built ontop of vi is vim (vi improved) has more options and user friendly as well.
+	
+majority of the linux distros are directly shipping vim editor in latest, and if you dont find vim available on the your machine you can install it using
+
+sudo apt update -y
+sudo apt install -y vim
+-----------------------------------------------------------------------------------------------
+How to work with vim editor?
+There are 3 modes are there in vim editor
+
+1. command mode
+In command-mode every keypress on the keyboard will be taken as a command and an relevant operation will be performed on the file contents that we opened. by default the vim editor opens in command-mode. at any point of time if we want to return back to the command-mode from other modes we need to press esc key on the keyboard.
+	
+2. input mode
+In the input mode we can insert the data into the file by typing the keys on the keyboard. Inorder to enter into input mode we need press "i" on the keyboard
+in vim is is called "insert" mode
+In case of vi we need to mandatorily type "i" letter only on the keyboard where as in vim if we press any key other than command key on the keyboard the editor automatically goes into insert/input mode
+
+In case of vi we cannot move the curson to the left, right, top or bottom using arrow keys when you are in input mode the arrow keys are also taken as an input and inserts the data into the file. so we need to mandatorily go back to command mode to move the cusor between the characters or lines
+where as in vim even in insert mode also we can use arrow keys for moving the cursor.
+after entering the data into the file we can go back to the command mode by pressing esc key on keyboard
+	
+3. exit mode
+after entering the data into the file either we can save or discard the contents of the file and exit by entering into exit mode
+To enter into exit mode first we need to go back to command mode by pressing esc and then type ":" on the keyboard so that the editor goes into exit mode. 
+here we have few options to exit from the editor after pressing ":"
+	w = write/saved
+	q = quit
+	wq = write and quite
+if you have opened file and modified the contents then you cannot quite the file unless the changes are written or discarded
+	to discard changes and quit we need to use :q!
+q! = means quit the editor without saving the contents
+
+To open the vim editor we need to use
+vim filename
+if the given file is already existing it opens it for editing otherwise if creates a blank file for writing the contents.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

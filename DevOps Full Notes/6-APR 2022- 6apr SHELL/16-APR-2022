@@ -1,0 +1,224 @@
+if-elif-else-fi statement
+--------------------------
+An conditional expression we are evaluating might lead to one of the multiple possible outcomes, where each the outcomes are mutual exclusive.
+	
+if there only 2 possible outcomes out of an expression then we use if-else statement
+for eg.. a gender can be either "male" or "female" here only 2 possible outcomes are there so we can build an conditional statement using if/else
+	if [ $GENDER == "male" ]
+	then
+		// statements
+	else
+		// statements
+	fi
+
+but now the conditional expressions we are writing can return any one of the multiple possible outcomes
+for eg.. 
+if your salary < 1 lac = 0 tax, salary between >=1 lac and <=2 10% salary >3 and <=4 20% otherwise 30%
+	
+so to execute our code based on these 4 possible outcomes we have to write 4 if conditions
+we cannot use if-else statement as it has multiple possible outcomes
+if [ $SAL -lt 100000 ]
+then
+	TAX=0
+fi
+
+if [ $SAL -ge 100000 -a $SAL -le 200000 ]
+then
+	TAX=10// calculating
+fi
+
+if [ $SAL -gt 200000 -a $SAL -le 300000 ]
+then
+	TAX=10// calculating
+fi
+
+if [ $SAL -gt 300000 ]
+then
+
+fi
+
+but if we write 4 if conditions when one condition evaluates to true, the rest of the conditions will not passed so writing 4 if conditions is going to waste cpu cycles in evaluating instead we can use if-elif-else statement
+
+calcincometax.sh
+-----------------
+#!/bin/bash
+read -p "gross salary:" SAL
+TAX_AMOUNT=0
+	
+if [ $SAL -le 100000 ]
+then
+	TAX_AMOUNT=0
+elif [ $SAL -gt 100000 -a $SAL -le 200000 ] 
+then
+	TAX_AMOUNT=$[SAL*10/100]
+elif [ $SAL -gt 200000 -a $SAL -le 300000 ]	
+then
+	TAX_AMOUNT=$[SAL*20/100]
+else
+	TAX_AMOUNT=$[SAL*30/100]
+fi
+echo "salary : $SAL and tax amount: $TAX_AMOUNT"
+------------------------------------------------------------------------------------------
+#2. wap to take age of a person and show the ticket amount he has to pay for travelling in flight
+BASE_FARE=2000
+ageGroup = [0 - 2] = 13% BASE_FARE	
+ageGroup = [3 - 7] = 30% BASE_FARE + 13% TAX [TICKET_PRICE]
+                         600       + 78 =  678
+ageGroup = [8 - 12]= 50% BASE_FARE + 13% [TICKET PRICE]	
+ageGroup = > 12 = BASE_PRICE + 13% [BASE_PRICE]
+
+airlinesfare.sh
+----------------
+#!/bin/bash
+read -p "BASE PRICE:" BASE_PRICE
+read -p "AGE:" AGE
+TICKET_PRICE=0
+TAX_AMOUNT = 0
+TOTAL_TICKET_PRICE=0
+	
+if [ $AGE -le 2 ]	
+then
+	TICKET_PRICE=0
+	TAX_AMOUNT=$[BASE_PRICE*13/100]
+elif [ $AGE -gt 2 -a $AGE -le 7 ]	
+then
+	TICKET_PRICE=$[BASE_PRICE*30/100]
+	TAX_AMOUNT=$[TICKET_PRICE*13/100]
+elif [ $AGE -gt 7 -a $AGE -le 12 ]	
+then
+	TICKET_PRICE=$[BASE_PRICE*50/100]
+	TAX_AMOUNT=$[TICKET_PRICE*13/100]
+else
+	TICKET_PRICE=$BASE_PRICE
+	TAX_AMOUNT=$[TICKET_PRICE*13/100]
+fi
+
+TOTAL_TICKET_PRICE=$[TICKET_PRICE+TAX_AMOUNT]
+
+echo "base price : $BASE_PRICE, chargeable ticket price: $TICKET_PRICE, tax amount: $TAX_AMOUNT total ticket price: $TOTAL_TICKET_PRICE"
+------------------------------------------------------------------------------------------
+How to work with floating/decimal numbers as part of shellscripting?
+The shellscript is an language not designed for performing mathematical operations, it is an low-level language provided for performing administrative related activities.
+So by default the arthematic operations works on integer numbers only and doesnt support float/decimal values
+
+To support working with float/decimal values in performing arthematic operations the shellscript has provided a utility called "bc" stands for basic calculator to which we need to pass arthematic expression as an input,so that it executes and returns the outcome.
+	
+adddecimalnumbers.sh
+#!/bin/bash
+A=$1
+B=$2
+SUM= $(echo "$A+$B"|bc)
+echo "SUM: $SUM"	
+-----------------------------------------------------------------------------------------
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,221 @@
+Linux Architecture
+-------------------
+There are 4 layers on which linux operating system wroks
+1. hardware
+2. kernal
+3. shell
+4. utility programs
+-----------------------------------------------------------------------------------------------
+Linux FileSystem
+
+What is a FileSystem?
+To understand what is a FileSystem, first we need to explore how does data is stored on physical storage of your computer.
+
+How does data is stored on Physical storage device (hdd) of a computer?
+We cannot store symbolic/character representation of the data directly on the harddisk or storage device of a computer, since these are magnetic/electronic devices these are capable of capturing the data in on/off which is 0/1 only
+
+So, if we want to store symbols/characters on the storage device we need translate these characters in binary format 
+
+In binary system we have 2 values as 0 or 1 only available, but there are lot of symbols are there in languages so we cannot use binary system to denote or represent those many symbols
+
+now use decimal numbers to symbols and convert decimal number into binary number and store the symbols in binary format of the storage device
+
+Each character assign decimal value
+a = 63
+then convert into binary format using lcm operation which results in = 111111(2), now store the binary equivalent of that decimal number on the computer storage device
+
+while reading the data convert binary data into decimal format and map into a corresponding symbol notation back
+
+To exchange the data across the people in the same interpretation format we need to standardize the each symbol with specific decimal number so that every one can interpret the characters easily
+That is where to help us in standardizing the symbol = decimal notation the character-set encoding standards are introduced, these are also called as "symbol charts"
+
+The very popular character-set encoding standard that is defined is ASCII
+ASCII = american standard code for information interchange
+The ASCII Character-set encoding standard has defined decimal number for all the english alphabets, numbers and special characters so that we can store english language data and few special characters by interpreting them into binary format
+
+The ASCII standard has defined decimal number for total 256 characters starting from the range 0 - 255.
+To represent the symbols/characters as per ASCII standard we need at max 8 bits. now based on the decimal value of the character we need to convert into binary representation and store it on the harddisk
+
+few characters would result in = 2 bits and few other characters would result in 7 bits in binary format, so if we store data as 2 or 7 bits based on their decimal-binary reading the data from storage becomes difficult since we dont know how which character has how many bits
+
+So irrespective of the decimal = binary equivalent make the binary number as 8 bits by adding leading bits as 0 so that every character we read 8 bits from storage
+
+symbol
+ |-lookup into ascii chart and find decimal number
+   |- convert decimal number into binary format
+	    |-add leading 0s if required to make it 8 bit length
+				|-then store 8bits as one symbol on storage device
+				
+				
+ASCII only supports english characters, but there are other languages as well to accomodate other languages we need additional characterset encoding standards support different languages
+1. unicode = 2 bytes (16 bits)
+2. utf-8 (8 bits)
+3. utf-16 (16 bits)
+4. utf-32
+5. iso-9001
+
+why there are lot of character set encoding standards are provided?
+if there is only one character-set encoding standard is available, then to represent all the languages characters the max decimal value could result in more bits of memory.
+So for eg. if we required 24 bits for storing a character then each character on the storage device should be stored as 24 bits only.
+	
+In such case if we are using only english language in our computer still we need to spare 24 bits which are useless and waste the memory so to reduce the memory wastage there are multiple character-set encoding standards are introduced.
+----------------------------------------------------------------------------------------------
+File = it is an data structure in which we hold the address location of the actual data where it resides on the storage device of our computer
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,171 @@
+2. Shellscript
+the devops engineer has to write an shellscript program that takes care of installing and configuring the software packages on the targeted env, he/she runs the script local to machine on which we want to apply
+
+advantages:
+1. we can save lot of time
+2. no complexity in memorizing the order of installing packages and configurations
+3. reproducible env
+4. upgradations and patchings can be automated 
+
+dis-advantage:
+1. need to be a programmer to write shellscript program
+2. poor error management support, incase of failure there is no way to rollback the system state
+3. shellscript is platform specific and even distro specific as well
+4. no logging support so difficult to debug the failures
+5. its hard to achieve idempotancy
+-----------------------------------------------------------------------------------------------------------------------
+3. Python
+Python is an high-level scripting language that is platform independent programming language. It has rich set of modules/libraries that can be reused in quickly building the software applications. Never a programmer needs to write code by himself accomplish an operation, always the developers can find one or the other module that is already build by other developers and distributed. These richer set of modules available in python makes it popular and favourable programming language in the world.
+	
+Python is heavily used in writing administrative scripts to configure and manage server-side softwares. Each server provides their own phython sdk/api through which people can build administrative scripts in managing the servers
+For eg.. a weblogic server provides python modules, by using which we can automate the process of administering and configuring the weblogic server
+
+There are plenty of advantages of using python language in perform software configuration management automation:
+1. Python is an high-level programming language with feature rich, that can be taken as an advantage in build software configuration management scripts easily
+2. It is an platform-independent programming language so the code written in python can be executed on any platform
+3. rich error handling and error management capabilities are built into the language
+4. in-built logging supports is available in python, that makes the scripts easily debuggable
+5. The programmer can resuse the python modules that are available in quickly building the code automations
+
+dis-advantage:-
+	1. very very complex to learn and need  a strong programming background to work with
+	2. idempotancy is still difficult to achieve
+	3. keeping track of the software packages and configurations (or) state management is not supported by python
+	4. orchestrating the code modules in achieving automation is highly complex
+	
+
+					 
+				 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

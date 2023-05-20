@@ -1,0 +1,6 @@
+artifactory servers
+Artifactory repositories are used for distributing the artifacts that are produced through the build process across the various different stages of development and delivery of the application. These are majorly used for facilitating the ci/cd process
+
+There are 2 types of branching strategies are there in git
+1. develop branching strategy
+2. trunk based release strategy

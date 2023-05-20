@@ -1,0 +1,150 @@
+What the change in culture/process and adoption of tools/technologies devops recommending during the development phase of an software application?
+#1 choose a programming language, that best suite for the type of the application we are developing
+#2 setup the development environment
+devops is recommending us to use:
+	virtualization to quickly bring up the development environment for the developers
+	to build virtual machine quickly, recomended to use vagrant
+#3 choose a process model for developing and delivering an application
+devops is recommending us to use:
+	agile based process model and most popular used is "scrum"
+#4 implement the software system
+let the team pick the product backlogs which are prioritized by the production owner and assign the user stories to sprint and start developing.
+during the development, to collaborate the source code across the team use source code management (scm) repository
+devops is recommending us to use:
+	git an source code management repository
+why git?
+git branching strategy supports parallel development and testing of the individual features, which can be released quickly. we can adopt scrum process model easily through the help of git repository
+
+devops engineer responsibility:
+	- installing, configuring
+	- administring
+	- establishing branching strategy
+	- merging the branches
+	- creating release branches, during the production
+	- deliver the feature and develop branches across the stages of testing
+	
+what is source code management repository do you recommend in adopting devops for an project?
+git
+-----------------------------------------------------------------------------------------------
+#5 
+once the development of the feature has been completed, the developer by himself has to perform unit testing to cerify the code is working properly before deliverying the code to qa.
+	
+unit testing is not an one-time activity, the developer has to repeatedly perform the unit testing for each code change he has made during the development or while fixing the bug.
+Whenever developer has modified the code in order to fix a bug, the code changes he has made might have broken some other parts of the program, its the responsibility of the developer to conduct through unit testing to ensure all the code is working properly before delivering it to the qa.
+	
+if developer is performing unit testing manually, it takes lot of time to certify his code changes inorder to deliver the code to qa which will futher delays the development and delivery of the application.
+indirectly it is increasing the cost of development and delivery of the application.
+	
+To reduce the time required for certifying the code changes, devops recommends unit test automation. 
+Now the developer along with building the functionality, in parallel he has to write the test code for testing the original code and verify it is working properly or not.
+	
+So each time when the developer modifies the code, to certify his code changes are working properly he can simply execute test code instead of manual verification, so that the changes can be ceritified quickly and released to qa
+
+this brings down the cost of fixing a bug and delivering to the production.
+There are lot of unit test automation frameworks are available in the market like
+1. junit
+2. testNG
+3. XUnit
+are the popular libraries available in java language
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

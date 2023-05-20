@@ -1,0 +1,48 @@
+Artifactory Servers
+The Artifactory servers are used for 2 purposes
+1. The artifactory server is majorly used for adopting ci/cd pipleline integration & delivery. The developer upon merging the feature marking as completion, we want to release the feature for qa for testing and futher stages of delivery aswell.
+	
+In order to release the code to the qa we take the help of continous integration tools like jenkins. The Jenkins continous integration pipeline takes care of 
+1. building the project	
+2. executing the junit testcases written by the developer
+3. execute even the integration-tests
+4. code coverage and code quality checks are passed then it produces an build artifact of the project
+5. then the build artifact will be published into artifactory repository
+6. then it promotes/deployes the published artifact into qa env
+once the qa has certified the published build artifact, it will be promoted for further stages of delivery all the way through production
+
+2. The artifactory repositories are nothing but remote repositories that are setup in an organization to cache and distribute the dependencies/plugins within the organization
+
+
+There are many 3rd party vendors manufactured distributed artifactory server softwares in the market, few are commercial and others are opensource like
+1. nexus repository (commercial)
+2. jfrog repository (commercial)
+JFrog Platform has provided rich set of features aspart of it
+1. dependency management through various types of repositories
+	1.1 maven central, bitnami repository or jcentral repositories (proxy repositories)
+	1.2 docker repository or container registries
+	1.3 release management pipelines 
+	1.4 security scanner
+	1.5 distribute and release management
+
+3. jfrog oss repository (opensource software stack) (opensource) (community edition)
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

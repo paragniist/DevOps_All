@@ -1,0 +1,104 @@
+#1. Relational database management system (rdbs)
+Relational database management system is structured database management system that allows us to store the data interms of tables/records within it
+
+For each type of data we want to store in the database, we need to create a table. While creating the table we need to declare the columns of data we wanted to store inside the table.
+	
+By declaring the columns for a table we are telling the definition of the information we wanted to store in the table, since database has the information about the data we stored in a table, rdbms itself can help us in managing the data
+
+
+In relational database management system we can store the data in tables and we can establish relationship between the data across the tables by using primary key and foreign key columns
+
+primary key =  a column that contains unique value accross all the records of the table, so that using the pk value we can establish relationship
+
+foreign key = a column declared in the table referring to the primary key column of another table, it allows us to only store the data which is contained in another table pk column only.
+	
+To perform operations on the rdbms databases,the rdbms databases has provided an standard language called sql (structured query language)
+using the sql queries we can talk to the database asking it to perform operations like, create table, drop table, insert row, delete row, update a row, select/get the data etc
+
+These sql language is classified into 4 types
+1. DDL (data definition language)
+creating, dropping, alter and truncating the objects (like tables)
+	
+2. DML (data manipulation language)
+inserting, updating and deleting the data inside the tables
+
+3. DQL (data query language)
+for retreving the data from the tables
+
+4. DCL/DTL (data control language / data transaction language)
+grant, revoking the permissions on the objects
+commit/rollback the data 
+
+basic syntax of queries
+#1 create table
+CREATE TABLE TABLE_NM(COLUMN_NM DATA_TYPE primary key, COLUMN_NM DATA_TYPE, COLUMN_NM DATA_TYE)
+	
+#2. insert data into table
+INSERT INTO TABLE VALUES(COL1, COL2, COL3, COL4)
+	
+#3.query the data
+SELECT * FROM TABLE
+--------------------------------------------------------------------------------------------
+To identify the different groups of tables of different applications or purposes we need to create schema.
+Schema is nothing but collection of related tables, that can be used for an application.
+
+create database hmsdb;
+use hmsdb;
+--------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

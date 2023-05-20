@@ -1,0 +1,103 @@
+What is the role of a developer in developing and delivering an software application?
+#1 gather the requirements from business/product owner, understand and analyze the requirements inorder to build the software application
+
+#2 choose a programming language
+	-java
+	-.net
+	-python
+	-php
+	
+#3 setup the development environment required for developing the software application
+	3.1 install language software and configure them
+	3.2 install development tools
+	3.3 install database server software 
+	3.4 install application server software and configure them
+	
+#4 choose and adopt process model for developing the application	
+	- waterfall
+	- iterative/incremental model
+	- spiral model
+	- prototype model
+	- scrum methodology
+	
+#5 develop the code to distribute or collaborate the source code across the team use source code management repository
+	- svn
+	- wincvs
+	- vss
+	- git
+	
+#6 use build tools for translating and packaging the software application for easy delivery of the application
+What is the purpose of build tools?
+Build tools helps the developer in automating the process of translating and package an software application. 
+So that developer or qa engineer or ops engineer dont need to manually perform translation and packaging the application, they can quickly execute build instruction file which takes care of performing the build process. 
+There are many standard build tools are there for each language
+java:       .net       python
+- maven     - MSBuild  -pybuilder
+- ant
+- gradle
+	
+#7. perform unit testing to verify the code written by the developer is free of errors so that qa can conduct the testing on the code.
+	
+2. Quality Assurance Engineer
+What are the roles and responsibilities of a Quality Assurance engineer in developing and delivering the software application?
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

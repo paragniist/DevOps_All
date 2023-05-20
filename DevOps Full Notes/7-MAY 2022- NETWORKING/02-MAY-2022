@@ -1,0 +1,91 @@
+networking
+-----------
+How to interconnect 2 computers to establish a network?
+To allow any 2 computers to communicate with each other or form a network, they need to be inter-connected with each other over a physical transmission line
+
+1. Each computer should have an network interface card (nic) (also called network socket) attached to the computer, enabling the computer to plugin into a network cable
+2. To inter-connect both of these computers with a wire we need a network cable with RJ45 sockets attached to both end should be plugged into the NIC of these 2 computers
+Then the physical transmission of data between these 2 computers can takes place
+
+For the modern computers, the network interface card is installed as a chip on the motherboard of the computer usually will have only one nic card.
+if we want to interconnect to multiple computers, we need to attach an external network interface card into the pci slots of the motherboard
+
+A computer can have an many no of network interface cards attached to it based on the number of computers to which it wants to interconnect or communicate
+	
+How does the data will be transfered across these computers?
+When a computer is sending the data, by default the data will be send to all of the computer it has been inter-connected to. But inorder to send the data to a specific computer on the network, each computer should have an identification with which we can address the computer using which we can send the data
+
+For each computer connected to the network we will have 2 types of identifications will be there.
+1. ip address
+2. mac address
+
+#1. ip address
+The network administrator after interconnecting the computers with each other, has to manually configure ip address (identification number) to each computer on the network to allow the computer to be identified on the network
+
+In a large network of computers, assigning the ip addresses manually is a tedious job and a network administrator use dhcp server to generate and assign ip addresses to the computers.
+(dhcp : dynamic host configuration protocol)
+	
+The ip address is called logical address attached to a computer which is also called "dynamic address" and is going to change per each restart of a computer on the network
+The ip address is divided into 4 parts called 4 octets which ranges from 0.0.0.0 to 255.255.255.255
+	
+#2. mac address
+mac address stands for media access control address which is an physical address of a computer. The nic card manufacturer will attach an mac address uniquely to each nic card manufactured and is static in nature and cannot be modified.
+	
+To allow a computer to communicate with another computer over the network we need ip address only and a mac address will not be used.
+	
+For a given computer there can be multiple ipaddresses and mac address can be there based on number of network interface cards attached and plugged-in onto the network
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

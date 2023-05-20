@@ -1,0 +1,204 @@
+What is an software application?
+Software application is nothing but set of programs are put together and are executed for fullfilling the business requirements of a business system.
+	
+In a software application there is one entry-point program that has to be kicked-off to lauch running the application
+
+How does the software application has to be distributed to the endusers?
+The software application has to be distributed based on the packaging standards provided by the operating system vendors, so that it becomes easily installable and executable
+
+A packaged software application contains
+1. The actual executable format of the software application programs bundled with
+2. metadata information about the problem like
+	1. author
+	2. licensing
+	3. manufacturer
+	4. warranty of usage
+	5. version
+	6. instructions/documentation of the software
+3. entrypoint program and instructions in running that program
+
+How does the enduser has to do to run the software application?
+The enduser upon downloading the packaged application he has to perform quite a number of steps like
+1. extract the packaged application into an harddisk drive location of our computer
+2. read the instruction set on how to execute/launch the application
+3. run the software application by entering the command provided
+
+looks like enduser should be a program to use an application instead operating systems has provided package managers and software installers that takes care of installing the software packages distributed based on the operating system standards
+The software package manager or an installer does the below:
+1. it extracts the software package and copies the files into a designated directory location on the computer.
+2. it reads the metadata information regarding how to run the software program and registers into operating system registry
+3. and to facilitate launching the program, it creates a command/shortcut helping the enduser lauching the application
+
+The software packaging standards and the installation tools provided by the operating systems differs from one operating system to the other, what is the reason for having different packaging standards and installations tools across the operating systems?
+	
+An software application that is built has to be compiled to each operating system inorder to execute on different platforms, so we need to produce different copies packaged software each per the operating system on which we want to install and use
+
+So inorder to differentiate which packaged software runs on which operating system, the operating systems has introduced their own packaging standards and installers
+
+In windows we need to package an software application for delivery in .exe/.msi packaging standards, and need to use windows installer for installing the software
+
+What are the packaging standards and package managers available in linux operating system?
+Different distros of the linux operating system has come up with different packaging standards and package management tools because, as part of the core linux kernal there is no software packaging standard and package mangement tools are provided. So enduser has to manually extract and setup the software to use it on the operating system of the computer.
+
+So each of the individual linux distro vendors has introduced their own packaging standards and package manager tools that takes care of installing and configuring the software packages on their respective distros
+	
+ubuntu 
+packaging standard = .deb
+package management tools are = apt and dpkg
+apt = advanced package management tool
+dpkg = debain package manager
+	
+redhad
+packaging standard = .rpm
+package management tools = yum
+
+arch linux
+package standard = .pac
+package management tool = pacman
+
+so depends on the linux distro you are using you need to download the relevant software package and use an appropriate tool for installing on the linux operating system.
+
+What are the ways the software packages are distributed in linux operating system?
+The software packages are distributed in linux operating system in 3 ways
+1. repository based packaged software distribution
+2. direct downloadable packaged software distribution
+3. binary distribution
+
+devops 7:30 pm - 9:30 pm ist
+hibernate framework: 6:00 pm - 7:00 pm
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

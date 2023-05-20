@@ -1,0 +1,111 @@
+What is public ip address and private ip address?
+private ip:
+A computer assigned with a private ip address can communicate only with other computers of the same network. 
+public ip:
+A computer assigned with public ip address can communicate and send/receive the data to any computer around the world
+
+PRIVATE IP RANGE [PER EACH IP CLASS]
+CLASS A: 10.0.0.0 - 10.255.255.255
+CLASS B: 172.16.0.0 - 172.31.255.255
+CLASS C: 192.168.0.0 - 192.168.255.255
+	
+scope:
+private ip: The computer assigned with private ip range is visible and accessible within the network only
+public ip: The computer assigned with public ip is accessible across the network from any where
+
+networkType:
+private ip: can used for setting up an LAN (private network).
+public ip: public ip address is issued by an ISP (internet service provider)
+	
+cost:
+private ip: can be used free of cost
+public ip: we need to pay to the isp and purchase to use it for our computer
+--------------------------------------------------------------------------------------------
+osi model layer protocol
+	- application protocol (portno) = 
+		- http
+		- ftp
+		- smtp
+		- imap
+		- pop3
+		- rdp
+		- ssh		
+	- transport protocol
+------------------------------------------
+network topologies 
+network devices
+	- repeater
+	- hub
+	- switch
+	- router
+	- bridge
+	- firewall
+	- modem
+ip addressing 
+	- reason for hierarchial addressing
+	- classfull ip addressing
+	- subnetmask = used for computing network address, how does it works
+	--------------------------------------------------------------------
+	CIDR, why introduced
+	ip notation
+	how do we derive subnetmask and network/host address from CIDR ip
+	
+private ip address/public ip address
+vpn network
+--------------------------------------------------------------------------------------------
+Virtualization
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

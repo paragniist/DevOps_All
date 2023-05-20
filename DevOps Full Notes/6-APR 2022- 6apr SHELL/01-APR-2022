@@ -1,0 +1,136 @@
+What are the text processing commands available as part of the linux bash shell?
+There are 5 text processing commands are there
+1. cut
+2. paste
+3. awk
+4. sed
+5. sort
+
+1. cut
+cut is used for extracting the fields of data from an given input/text file based on delimeter
+syntax: cut -d delimeter -f fieldNo filename
+
+2. paste
+paste is used for merging the contents of 2 different text files line by line based on delimeter
+syntax: paste -d delimeter file1 file2
+
+3. awk
+awk is an utility widely used by the programmers in performing the operations on the text content like
+1. searching and extracting the matching lines of content
+2. extracting the fields of data based on delimeter
+3. perform transformations
+4. applying actions on the data
+
+syntax:-
+awk [options] 'selectioncriteria {action}' file
+	
+There are implicit or pre-defined variables are there in awk which can be used for extracting or formatting the output displayed by awk
+1. NR = NTH RECORD
+2. NF = NUMBER OF FIELDS
+3. FS = FIELD SEPARATOR (default "space")
+4. RS = RECORD/ROW SEPARATOR (default "newline")
+5. OFS = OUTPUT FIELD SEPARATOR (default "space"), while writing the output each field should be delimited with what separator we can specify using OFS
+6. ORS = OUTPUT RECORD SEPARATOR (default: "newline"), used for specifying the delimiter in writing each line as an output
+
+employees.txt
+--------------
+1010,adrew,developer,5,23000,contractor
+1011,taylor,senior developer,7,32000,permanent
+1012,mark,developer,4,21000,permanent
+1013,stephen,architect,15,56000,permanent
+1014,edwin,senior developer,8,32000,contractor
+
+
+awk '{print}' employee.txt = similar to cat
+in the above command we didnt specified options and selection criteria but we only told action as {print} which indicates print the contents of the file so it works same as cat
+
+
+#2. filter the records based on selection criteria
+awk '/contractor/ {print}' employee.txt
+
+#3. print specific fields in each record rather than all the fields in the line
+awk parses each line in the file based on field separator and stores these fields in an implicit variables starts from $0 - $n based on number of fields
+$0 = entire row
+$1 = first field in the row
+goes on till the last field
+now we can print specific fields of each row by referring these implicit variables
+
+awk -F "," '{print $2 $1 $5}' employees.txt
+
+#4. How to process only specific records of data only?
+awk -F "," 'NR>=2 && NR<=5 {print $1, $4}' employees.txt
+
+#5. display the records who has atleast 4 fields in each row.
+awk -F "," 'NF >= 4 {print}' employees.txt
+
+#6. display only the records who has more than 40000 salary
+awk -F "," 'NF>=5 && $5>=40000 {print}' employees.txt
+
+#7. display only the records who has more then 30 characters?
+awk 'length($0) > 30 {print}' employees.txt
+awk 'length($5) = 5 {print}' employees.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

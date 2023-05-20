@@ -1,0 +1,60 @@
+How to install jdk11
+1. jdk11 download
+	https://download.java.net/java/ga/jdk11/openjdk-11_windows-x64_bin.zip
+2. extract the zip file and paste under c:\Program Files\java\ directory
+3. goto windows environment variables add the above jdk11\bin location to PATH variable
+--------------------------------------------------------------------------------------------------------------
+How to install maven?
+1. download the maven binary distribution
+https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip
+
+2. extract the maven zip file and paste the extracted directory into cd:\
+3. goto windows environment variables and add the above maven/bin location to the path variable
+		c:\apache-maven-3.8.6\bin
+------------------------------------------------------------------------------------------------------------------------
+Ansible
+--------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

@@ -1,0 +1,203 @@
+1. How to know linux shell user in which the command are executed?
+whoami
+
+2. How to know the logged-in user of the linux operating system?
+logname
+
+3. How to know the users currently logged-in into linux?
+who
+
+4. How to know the operating system name?
+uname
+uname -a 
+lsb_release -a
+
+5. how to know the machine name?
+hostname
+hostname -i = loop back ip address
+hostname -I = shows all the network interface cards ip address
+	
+6. How to change the name of the machine?
+Linux stores the name of the machine in /etc/hostname we can change and reboot the machine to get effected
+sudo vi /etc/hostname
+
+7. How to know all the network adapters attached to the computers with their details?
+ifconfig
+
+ifconfig is not available by default we need to install net-tools package
+sudo apt update -y
+sudo apt install -y net-tools
+
+8. How to check the reachability of another server over the network?
+ping ipaddress
+
+9. How to list all the hardwares of our computer in linux?
+lshw
+
+10. How to shutdown or restart an linux operating system?
+poweroff = shutdown
+reboot/reboot -f = restart the operating system
+
+11. How to access the cpu information of the machine?
+Linux stores the information about the cpu in /proc/cpuinfo which we can cat
+
+sudo cat /proc/cpuinfo
+
+12. what are the run-levels or init levels are there in linux operating system?
+init levels or run levels indicates how we wanted linux operating system to be booted, there are total 7 run levels are there from 0 - 6. to boot the linux machine in a specific run-level or init level we need to use init command followed by run level
+sudo init runLevel
+
+1. sudo init 0 = shutdown/poweroff
+2. sudo init 1 = single user mode with no networking, no multi-tasking and only root access (its same as safe-mode in windows)
+3. sudo init 2 = no networking, but allows multi-tasking
+4. sudo init 3 = supports networking, multi-tasking, but no gui
+5. sudo init 4 = same as init 3 level but reserved for research purpose
+6. sudo init 5 = supports networking, multi-tasking, with gui and sound
+7. sudo init 6 = reboot
+------------------------------------------------------------------------------------------
+Process Management
+-------------------
+What is a program?
+Program is nothing but a File in which we store instructions that can be passed as an input to the operating system asking to execute.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

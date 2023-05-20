@@ -1,0 +1,102 @@
+What is systemd init system, why do we need them?
+We wanted to run few process/programs upon the boot of the kernal, these processes stays for a long time and continue to execute until we shutdown the machine. how to manage such mandatory process that has to be executed upon bootup of the kernal and monitor them to keep them running?
+	
+#1 Solution
+The user can kickoff these process on the boot of the kernal manually, but there are lot of problems are there
+	1.1 There could be a long list of such process that has to be executed upon the boot of the kernal, and these process may have inter-dependency between them. manually memorizing these list of process and running them based on their dependency order is a difficult job
+	1.2 Since these are mandatory process, monitoring them and restarting them in the event of crash is a difficult job
+	1.3 To manage these process like start, restart, stop etc we need rely on process id and run through various commands like ps -ef, kill etc to manage them, which is a difficult job
+	
+To help us in overcoming the above challenges in running such process, the GNU Tool initd service has been introduced. many of the major linux distros has adopted and implemented initd service as their default service engine for managing the process
+
+The Systemd init service takes care of managing and monitoring the mandatory process within the linux system.
+To let the systemd init service to manage or process the programs, we need to provide the information about our programs to the initd system which is called a service unit.
+	
+There are 2 types of services are there in initd system	
+1. Services that are created/registered through packaged installations
+2. Services registered manually by the user of the linux
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

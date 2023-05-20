@@ -1,0 +1,34 @@
+---
+- name: apt play
+  hosts: all
+  tasks: 
+  # - name: install tree
+  #   apt:
+  #     name: tree
+  #     state: present
+  #     update_cache: yes
+  #   become: yes
+  # - name: uninstall tree
+  #   apt:
+  #     name: tree
+  #     state: absent
+  #     purge: true
+  #   become: yes
+  # - name: remove unused packages
+  #   apt:
+  #     autoremove: yes
+  #   become: yes
+  # - name: autoclean cache repositories
+  #   apt:
+  #     autoclean: true
+  #   become: yes
+  - name: install required packages
+    apt:
+      name:
+        - curl
+        - tree
+        - vim
+      state: latest
+      update_cache: yes
+    become: yes
+...

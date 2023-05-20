@@ -1,0 +1,11 @@
+---
+- name: reg vars play
+  hosts: all
+  tasks:
+  - name: find osname on managed node
+    command: uname -a
+    register: v_uname_result
+  - name: print osname
+    debug:
+      msg: "os name: {{v_uname_result.stdout}}"
+...

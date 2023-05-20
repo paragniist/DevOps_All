@@ -1,0 +1,86 @@
+What is Sprint?
+Sprint is a shortest duration of time typical spans between 1-4 weeks where the scrum team will work and produce an product increment
+
+Who will assign the work in a Sprint?
+Nobody will assign the user stories to the scrum team of a sprint, the team is encouraged to pick by themself the user stories and work upon with that Sprint.
+	
+How does the team knows which backlogs has to be worked upon in the Sprint?
+The product owner will prioritize and set expectition to the scrum team encouraging them to choose backlogs from the list
+
+How do we track the progress of the Sprint?
+The Scrum Master conducts the daily stand-up call to understand the progress of the team and resolve any blockers between
+
+Sprint Review Meeting vs Sprint Retrospection Meeting?
+Sprint Review Meeting:
+	will be conducted at the last day of the Sprint, to demo the sprint deliverables to the product owner. So that product owner will approve or reject it
+Sprint Retrospection:
+	Will be conducted after Sprint Review, its a closed door meeting to help them team understand what went wrong, how can we overcome the mistakes, so that team can align to the goals
+	
+Backlog:
+a requirement that has to be fulfilled to build the software system
+
+User Story:
+A backlog can be broken down into smaller user stories to accomodate as part of the Sprint
+----------------------------------------------------------------------------------------------
+What are the cultural changes and adoption of new tools and technologies during the development phase of a project to speed up the development of the project?
+
+1. The product owner prioritize the backlogs and encourage the team to workup on, analyze and estimate the user stories and workup on in sprints
+2. choose the programming language of the choice
+3. setup development environment
+	- use virtualization technology and adopt vagrant workflow management tool in bringing up the development environment quickly
+4. choose the process model for developing and delivering the software application
+	devops recommends us to choose agile based process methodology only.
+	preferrable many people use : scrum methodology
+5. start implementing/developing the code
+how to do collaborative development with the team?
+we need to use source code management repository tools for distributing the source code across the members of the team. There are lot of source code management repository tools are there like
+	1. svn
+	2. vss
+	3. wincvs
+	4. perforce
+	5. Rational Clearcase
+	6. GIT
+devops recommends to use GIT repository only
+
+	
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

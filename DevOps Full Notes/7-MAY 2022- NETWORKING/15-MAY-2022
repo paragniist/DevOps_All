@@ -1,0 +1,160 @@
+#4. Transport layer
+The transport performs 3 activities
+1. segmentation
+takes the data from the session layer, breaks that into smaller packets and adds receivers portno and sequenceno to the packet  (reorganize the data at the receiver side) which is called data segment and passes to the lower-level layer
+
+2. flow control
+instructs the sender to slow down in transmitting the data, when the receiver is running on low-speed network
+
+3. error control
+adds the checksum to each data packet being transmitted, so that the reciever can detect the corrupted packets 
+
+#5. Network Layer
+network layer is responsible for transferring the data from one network computer to the computer on a different network
+
+1. logical addressing
+The network layer takes the data segment from transport layer and appends/adds source/destination computer ip address to it, which is called "ip packet" or "data packet" 
+	
+2. Routing
+The network layer identifies the destination network to which the data packet should be routed to based on ip address
+	1. it takes the ip address of the destination computer
+	2. identifies from the ip address, the network address and host address
+	3. based on network address it determins to which network the packet has to be routed to
+The process of sending the data packets to the right network of computers is called "Routing"
+	
+3. Path Determination
+There are multiple paths in which a data packet can be transmitted to the destination computer across the networks.
+The network layer identfies the several ways in which a packet can be send to the destination computer and picks the shortest path based on various parameters like (traffic, distance in transmission etc) and determins the right path for transferring the data
+
+#6. Datalink Layer
+Datalink layer is a software embedded as part of the nic card and is programmed by the manufacturer of the nic card and shipped to us. The datalink layer is responsible for transferring the data between the computers of the same network.
+
+There are 3 responsibilities of datalink layer
+1. Physical addressing
+2. Media Access control
+3. Error control
+
+#1. Physical addressing
+The datalink layer takes the ip packet or data packet from network layer, adds the source and destination mac address of the computers to it. In addition it adds some head/tail bits to the it and makes it as data frame
+
+#2. media access control
+The datalink layer is responsible for encoding the data into signal format that can be transmittable over the medium. which is called "media access control"
+	
+#3. error control
+There are 2 types of error control are taken care by datalink layer
+1. collission detection=datalink layer keeps an eye on the network channel to identify the line is busy or available for transmission, to avoid collision while sending the data over the channel
+
+2. Fault detection=while transferring the data frame over the physical channel sometimes due to hardware failure the frames might recieve in corrupted state, so the datalink layer adds random head/tail bits to the frame to identify these corrupted frames and request for resubmission.
+	
+	
+#7. Physical Layer
+The pysical layer takes the bits of data converts into relevant format based on transimission media so that it can transffered from source to the destination
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

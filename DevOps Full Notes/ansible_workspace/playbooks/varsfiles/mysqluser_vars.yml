@@ -1,0 +1,7 @@
+---
+mysql_user: fithealthsqluser
+mysql_password: fithealth@1
+priv: '*.*:ALL'
+login_user: root
+login_password: root
+...

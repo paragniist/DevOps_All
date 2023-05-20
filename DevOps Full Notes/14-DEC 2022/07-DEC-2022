@@ -1,0 +1,616 @@
+pre-requisite:-
+- install oracle virtualbox and extension pack on the windows machine
+- install vagrant
+
+How to install the jenkins?
+#1. create the 3 virtual machines through vagrant
+1.1 create an jenkinsworkspace directory under d:\ drive
+1.2 create an file with name "Vagrantfile" into which write the below machine configuration 
+
+Vagrant.configure(2) do | config |
+    config.vm.define "jenkinsserver" do | jenkinsmaster |
+        jenkinsmaster.vm.box = "ubuntu/jammy64"
+        jenkinsmaster.vm.network "private_network", ip: "192.168.11.10"
+        jenkinsmaster.vm.network "forwarded_port", guest: 8080, host: 8081
+        jenkinsmaster.vm.hostname = "jenkinsserver"
+        jenkinsmaster.vm.provider "virtualbox" do | vb |
+            vb.cpus = 2
+            vb.memory = 2048
+            vb.name = "jenkinsserver"
+        end
+    end
+    %w{jenkinsslave1 jenkinsslave2}.each_with_index do | nodename, index |
+        config.vm.define nodename do | slaveNode |
+            slaveNode.vm.box = "ubuntu/jammy64"
+            slaveNode.vm.network "private_network", ip: "192.168.11.#{index+11}"
+            slaveNode.vm.hostname = nodename
+            slaveNode.vm.provider "virtualbox" do | vb |
+                vb.cpus = 2
+                vb.memory = 2048
+                vb.name = nodename
+            end
+        end
+    end
+end
+
+goto d:\jenkinsworkspace directory on command-prompt and run the below command
+vagrant up
+
+upon starting the machines we need to run the below command to ssh into the vagrant machines
+vagrant ssh machineName for eg.. if machine name is "jenkinsserver" we need to run the command as vagrant ssh jenkinsserver
+------------------------------------------------------------------------------------------------------------------------
+#2. Install jenkins master on the jenkinsserver node
+
+we can install the jenkins master on the jenkins server as a repository based distribution, for that we need add jenkins repository to our ubuntu
+
+#1. add the jenkins repository to the our ubuntu sources.list
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+		
+sudo apt update -y
+
+
+#2. install the jdk 11 on the machine
+sudo apt install -y openjdk-11-jdk
+
+#3. install maven
+sudo apt install -y maven
+
+
+#4. Install the jenkins
+sudo apt install -y jenkins
+jenkins will be installed and configured as an initd.service, so we can check the status of the jenkins by running 
+sudo systemctl status jenkins
+
+#5. goto the webbrowser on the windows host and type http://localhost:8081 will open up the jenkins console
+
+#6. In the first run, it prompts for password which is generated during the jenkins install and will be placed in initialAdminPassword file we can see the password using below command.
+	
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+once we copy paste the password into the jenkins console, it prompts for installing suggested plugins, click on it will begin the setup and finally enter username, password to register and use jenkins
+-----------------------------------------------------------------------------------------------------------------------
+#3 setup the slave nodes and make them ready for adding to the jenkins cluster
+since we are going to build java application and deploy them from jenkins slave node we need jdk and maven to be installed on each slave
+
+ssh into each slave node using
+vagrant ssh jenkinsslave1 & jenkinsslave1
+
+1. sudo apt update -y
+2. sudo apt install -y openjdk-11-jdk
+3. sudo apt install -y maven
+------------------------------------------------------------------------------------------------------------------------
+How to add slave node to the jenkins master?
+when we ask jenkins master to run a job, the master chooses a jenkins agent node / slave node and connects over the ssh and runs the job locally on the slave machine from a jenkins working directory
+
+There are 3 ways in adding an agent node to the master
+#1 Through ssh
+
+so to add a machine as an jenkins slave node to the master we need to do the following
+1. have an ssh user with private/public key seeded on each slave node, so that we can pass this information to the master
+by default for all the vagrant machines the ssh user is "vagrant" already available and vagrant generates pub/priv key which can be used directly
+
+2. on each slave machine create an jenkins working directory and make sure the ownership of this directory will be the ssh user
+
+#1. ssh into each slave node and create an jenkins working directory as below.
+vagrant ssh jenkinsslave1
+sudo mkdir -p /u01/jenkins
+sudo chown vagrant:vagrant -R /u01
+
+#2. add ssh keys into each slaves
+1. goto master node and run
+ssh-keygen -t ed25519
+this generates an ssh pub/priv key under ~/.ssh/ directory
+
+
+
+#2. now add the public key into each slave node under authorized_Keys file
+cat the public key on jenkins server
+cat ~/.ssh/id_rsa.pub
+copy the ssh key and goto each slave node and add into authorized_keys
+
+jenkinsslave1 & jenkinsslave2
+vim ~/.ssh/authorized_keys
+1. press o
+2. shift + insert
+3. esc :wq
+
+Now check from master are we able to ssh into each slave node by running
+ssh -i ~/.ssh/id_rsa vagrant@slaveip
+
+#3. add ssh credentails into jenkins master through console, so that it can be used for ssh into slaves
+goto dashboard > manage jenkins > manage credentials
+click on system scope > click on Global Credentails
+click on Add credentails from top right 
+choose the credentail type as ssh username with private key
+and enter all the details and create an sshkey id
+paste the cat ~/.ssh/id_rsa (private key) while creating the key
+
+
+#4. goto dashboard > manage jenkins > manage nodes & clouds
+Then click on new node from the left navigation and enter the below details
+nodename: jenkinsslave1 (node name you want to use)
+label: 
+description:
+remote directory: /u01/jenkins (the directory we created on the slave)
+connect method: choose via ssh (#3 option)
+host: slaveip address
+and choose credentails to connect as the above one we created
+
+click on save
+
+#2. through agent software connecting to the jenkins controller
+Instead of using ssh, which only works with Linux based machines, we can use agent software to establish communication between master/slave
+
+To do this first we need to install jdk on each slave node using the below command
+sudo apt update -y
+sudo apt install -y openjdk-11-jdk
+
+goto dashboard > manage jenkins > Configure Global Security
+goto Agents and TCP port for inbound agents
+choose Fixed choice and enter the port: 50000	
+this will allow the agents to connect to the jenkins master over 50000 port
+
+goto dashboard > manage jenkins > Configure System 
+under Jenkins Location modify jenkinsURL to point it with right jenkins BaseURL
+
+goto dashboard > manage jenkins > manage nodes & cloud
+click on new node
+nodename:
+description:
+labels:
+executors: 4
+remote directory: /u01/jenkins
+launch method: through controller (option1)
+click on save
+
+now click on the agent we created and see the instructions on running the agent software on the slave
+
+Now ssh into the slave machine we added above and run the commands to download and connect to the master
+curl -sO http://ip:port/agent.jar
+java -jar agent.jar -jnlpUrl -secret -workDir=/u01/jenkins
+------------------------------------------------------------------------------------------------------------------------
+How to work with jobs in jenkins?
+There are 2 types of jobs are there in jenkins
+1. free-style project
+2. pipeline 
+
+1. free-style project
+The free-style project job is an old method of creating an jenkins job where the instructs we wrote in free-style project will be stored on the master itself. we can perform the build activities in building a project using
+	-> checkout the code from scm
+	-> build steps
+	-> postbuild activities
+and create the job
+upon building the job jenkins creates an build# and goto build number and see the logs of progress/results of running the job
+
+There are problems with free-style project
+1. debugging the failures in free-style project should rely on logs only, most of the time the logs would be lengthy and itemizing the failure is going to take lot of time and makes complex to read thelogs
+2. The free-style job code is stored only on the jenkins server (database itself)
+	due to which
+	1. we cannot collaborate
+	2. cannot version
+	3. and easily move across the env
+	
+To overcome these problems jenkins has introduced Pipeline jobs
+#2. Pipeline
+There are 2 types of pipeline projects are there
+1. declarative pipeline
+2. scripted pipeline
+
+#1. declarative pipeline
+declarative pipelines are written in DSL language (domain-specific language) which is quite expressive and easy to understand and doesnt require any programming langauge knowledge to work with
+The build steps are broken down into stages and each stage will have steps to perform operation
+
+syntax:-
+pipeline {
+	agent {
+		label 'label'
+	}
+	stages {
+		stage('stageName') {
+			steps {
+				// instructs to be executed
+			}			
+		}
+		stage("stageName") {
+			steps {
+				// instructs to be executed
+			}
+		}
+	}
+}
+
+
+#2. scripted pipeline
+The scripted pipelines are advanced jenkins pipelines in which the groovy script will be written aspart of the pipeline code. since we write groovy script in performing the build, we can levarage groovy language capabilities in writing powerful build scripts
+
+but the jenkins developer has to have a very strong knowledge on groovy programming to write the scripted pipelines
+
+syntax:-
+node('agentNode') {
+	stage('stage1') {
+		//instructs
+	}
+	stage('stage2') {
+		// instructs
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

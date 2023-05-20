@@ -1,0 +1,168 @@
+vagrant provisioners
+While working on projects, the default boxfiles distributed as part of the vagrant cloud may not be sufficient in running our application, we need to install additional software packages/libraries and need to add configurations to make the environment ready for deploying/developing and running the application.
+	
+To quickly setup the server/project environment	instead of manually creating the env from base boxfile we can create our own vagrant boxfile through which we can setup the project env quickly.
+	
+How to create an custom vagrant boxfile?
+we need to create manually the virtual machine with all the configurations required for making the machine manage by vagrant. in addition we need to install/configure packages and export it as an boxfile
+
+The above process of manually creating the vagrant boxfiles has lot of challenges:
+1. creating the vagrant boxfile manually through the installations/configuration process is very difficult and takes lot of time
+2. manually carrying out the activities might lead to errornoeus operation
+3. baking an vagrant boxfile is not an one-time job, we may have to create the vagrant boxfile for the project many times whenever there is a change in versions of the software or upgrade or patch the softwares bundle inthe boxfile, manually doing this job is very difficult and takes huge time
+
+To avoid the above problems in creating the boxfiles we need to use automation scripts.
+
+#1. create an organization level base box files for each operating system platform with minimal packages/libraries and configurations
+
+#2. Now for each project we need a separate boxfile with that project specific software libraries/packages and configurations. Now create a virtual machine from base boxfile, install project softwares/libraries and configurations into that machine and export as project boxfile
+Here while creating the project specific boxfile by installing s/w and configurations onto the virtual machine instead of we manually installing and configuration we can execute automation scripts
+
+Now instead of we running these automation scripts manually upon the first boot of the machine we can configure them as provisioners letting the vagrant execute them automatically.
+	
+	
+vagrant provisioners are the automation scripts we wanted to execute during the boot of the virtual machine to perform one-time activities like installations/configurations 	to make the env ready for usage.
+	
+There are various different configuration management tools are available in writing automation scripts for software installations and configurations like
+1. shellscript
+2. ansible
+3. puppet
+4. chef
+5. salt
+etc
+
+To execute different automation scripts of different technology vagrant supports multiple types of provisioners
+1. shell provisioner
+2. file provisioner
+3. ansible provisioner
+4. puppet provisioner
+5. Chef
+6. Salt 
+etc
+
+we can write provisioners in vagrantfile in 2 ways
+1. inline provisioners
+2. block provisioners
+
+
+#1. Inline provisioners
+Vagrant.configure(2) do | config |
+	config.vm.box="boxfile"
+	config.vm.provision "provisionername", type:"", inline: ""
+end
+for eg.. we are install jdk11 then the provisioner looks like below
+config.vm.provision "jdk11 install provisioner", type: "shell", inline: "sudo apt install -y openjdk-11-jdk" 
+	
+#2. declare provisioner without name
+config.vm.provision "type", inline: ""
+config.vm.provision "shell", inline: "sudo apt install -y openjdk-11-jdk"
+	
+#3. declare inline-block provisioner
+config.vm.provision "shell" do | prov |
+	prov.inline: ""
+end
+
+#4. declare provisioner with external shellscript file
+installJdk11.sh
+sudo apt update -y
+sudo apt install -y openjdk-11-jdk
+
+config.vm.provision "installJdk", type: "shell", path: "installJdk11.sh"
+	
+or we can configure above using block-level provisioner as well
+
+config.vm.provision "shell" do | jp |
+	jp.path: "installJdk11.sh"
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

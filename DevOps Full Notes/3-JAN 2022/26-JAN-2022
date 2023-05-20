@@ -1,0 +1,177 @@
+questions:-
+1. How to know in which shell we are in?
+
+How to interact with the kernal of the linux operating system?
+We need an Shell interpreter program that help us in easily working with kernal.
+There are 2 popular shells are available
+1. bourne shell
+	1.1 bourne shell (sh)
+	1.2 korn shell (ksh)
+	1.3 bourne again shell (bash)
+	1.4 posix (sh)
+	
+2. c shell
+	2.1 c shell (csh)
+	2.2 TENEX shell (tcsh)
+
+We terminal to interact with operating system. by default when we open terminal we will be logged into (sh) bourne shell prompt. we can switch between the shells using the shell-shortcuts.
+bourne: sh ($)
+bourne again shell: bash (user@computer:$)
+korn shell: ksh ($)
+	
+When we switch from one shell to another, to return back to previous shell we need to type: exit
+----------------------------------------------------------------------------------------------
+File Management 
+----------------
+What is File?
+File is an logical memory unit within the harddisk of our computer in which we can store the data.
+Every file has to be created using a name which is called "filename", by referring we can access the contents of the File.
+	
+What is Folder/Directory?
+Folder or a directory is used for grouping or collecting related set of files, so that we can locate and access the files easily.
+	
+officedocs
+|- payslip-april.txt
+|- payslip-march.txt
+|- increment-letter.txt
+
+personaldocs
+|-holiday.txt
+|-person-info.txt
+
+during the time of installing the linux operating system we created an user, is called "root" user of the linux. by default linux for each user creates an home directory location under which the files/folders of the user are kept.
+The linux FileSystem will starts with "/"	and for each user it creates an directory under /home/$USER
+For eg.. if we create an user with name "bob", then linux operating system creates an home directory for bob user under "/home/bob", similar if we create "james" user, it creates an home directory for james as well under "/home/james".
+	
+So every user will have access to the Files/Folders that are there in his home directory only	
+-----------------------------------------------------------------------------------------------
+When we launch the terminal window you will be by default logged into bash shell under $HOME/Desktop folder.
+note:- switch to home directory of the user to work with always	by using "cd"
+-----------------------------------------------------------------------------------------------
+1. How to create a File?
+touch filename = creates an empty file
+2. How to see the files within a directory?
+ls
+3. How to write an message to the STDOUT or console
+echo "message"
+4. How to see the contents of the File?
+cat filename
+5. How to see the current working directory?
+pwd
+6. How to change between the directories
+cd directoryName
+-----------------------------------------------------------------------------------------------
+#1. to see the files/folders with in a directory
+ls = list files and folders
+ls displays all the files/folders that are in current directory horizontal
+
+ls -l = shows the long list of files and folders that are there in pwd by show in tabular fashion
+TypeFile FilePermissions owner group size last_accessed_time file/folderName
+if the first character in ls -l displays
+d = directory
+- = File
+
+ls directoryName = show me the files/folders that are in the given directory
+/home/sriman:$
+- tastebuds
+  |-cakes
+	|-snacks [pwd]
+	|-deserts
+- fashiontrends
+  |-women
+	|-men
+	|-kids
+How to see all the files/folders of a directory including their sub-directories?
+ls -R directoryName 
+display all the files/folders of directory and in-turn each sub-directories and their directories recursively in a level by level manner
+ls --color=always 
+displays files in white color and folders in blue color
+ls --color=none
+displays all the files/folders in white color only
+
+	
+How to change between the directories?
+cd directoryName
+cd directory/subdirectory/subdirectory = we can change to multiple directories along the path
+cd .. = will take you back to parent directory
+cd = takes you to user home directory
+cd ~ = takes you to user home directory
+cd - = takes back to the directory from where we navigated
+----------------------------------------------------------------------------------------------
+How to create a folder?
+mkdir folderName
+mkdir dir1/dir2/dir3 = the dir3 will be created given dir1 and dir2 are already existing
+mkdir -p dir1/dir2/dir3 
+-p stands for create the directories of the specified path, now all the directories if doesnt exist will be created till dir3
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	

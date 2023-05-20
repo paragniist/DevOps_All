@@ -1,0 +1,112 @@
+What is the change in culture/process and which tools and technologies we need adopt during the qa phase of an software application developer for adopting the devops process?
+
+QA Engineer is responsible for testing and verifying whether the application is working as per the requirement or not, inorder to verify the application is working or not, he has to execute the software application pass the data and verify whether the output produced is correct/wrong based on which he will mark the test as passed or failed.
+In this way he has perform lot of test executions to verify the application / system meets the requirement or not.
+
+To execute the application he needs qa environment.
+The developer has to provide the information about what tools/softwares has to be installed on the qa environment inorder to execute the application to ops engineer. based on those inputs the ops engineer has to setup the qa environment
+
+The QA Environment setup by the devops engineer should resemble production like environment since the Development Environment is also same as production environment.
+	
+Through the adoption of devops tools we were able to quickly setup development environment as same as production environment, which has eliminated the necessity of UAT and reduces the qa cycles/phases/stages in ceritifying to deliver the application into production
+
+In production our application is executed on cluster of computers which are inter-connected with each other over the network and are exposed to the public network
+
+Setting up the qa environment like a production environment requires
+1. procurement of hardware resources or infrastructure (one-time activity)
+2. setup network inter-connecting the computers
+3. configure security to ensure it resembles like production
+4. install tools and software packages
+5. pull the executable file of the software applcation from artifactory repository
+6. run the application on qa environment 
+handover the environment to qa asking for testing
+
+It takes lot of time in procuring the infrastructure and setting up the network configurations in creating an qa environment, the cost of investment is very high.
+Instead of procuring the hardware or infrasture we can make use of a cloud provider. There are lot of cloud providers are there like
+ - aws (amazon webservice)
+ - gcp (google cloud provider)
+ - azure (microsoft)
+ - oci (oracle cloud infrastructure)	
+the cloud providers provides infrastructure and various other services to the world/customers. instead of we buying physical hardware resources we can lend/lease for a time period and use and them.
+there are lot of advantages:-
+	1. low investment cost
+	2. pay per usage
+	3. free of maintainance 
+
+How to setup the computers on the cloud provider environment?
+The cloud providers provides cloud console website using them we can request infrastructure. manually setting the environment takes lot of time and that too repeatedly we need setup the qa enviornment which takes more amount of time.
+	
+The devops engineer has to automate the process of creating the infrastructure on cloud provider using terraform tool. terraform is an "infrastructure as a code" tool.
+	
+Now ops engineer has to install and configure softwares on those machines to run the project manually. It takes lot of time in installing and configuring the required softwares on those computers to run the application, so we need software configuraiton management automation tools like
+1. Ansible
+2. Puppet
+3. Chef
+4. Slat Stack
+
+now write the automation code using one of the above tools, and execute that on the infrastructure we got from cloud provider which takes of installing the software and configuring them so that we can run the software application on that computer.
+	
+pull the executable code from artifactory repository and run on the computer we setup just now and handoff to qa for testing.
+	
+The whole process we described above in delivering the application to the qa for testing is called continous delivery.
+-----------------------------------------------------------------------------------------------
+Now the qa engineer has to test and certify the application for delivery.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

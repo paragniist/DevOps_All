@@ -1,0 +1,23 @@
+How to integrate jenkins with git?
+There are 2 ways we can integrate jenkins with git
+1. we can always can clone the git repository from jenkins using pat token
+2. through git webhooks 
+
+#1. clone/pull the code from jenkins job 
+whenever we trigger a jenkins job manually, the jenkins job will clone/pull the code from git repository by using git pat tokens
+
+#2. git webhooks
+whenever the developer commits/merges the code into git repository, git server will triggers the jenkins pipeline in building and deploying the code through using webhooks
+
+Jenkins Free-style project to deploy foodies application on one of the slave node:
+mvn clean verify
+sudo apt update -y
+sudo apt install -y openjdk-11-jdk
+sudo mkdir -p /u01/middleware
+sudo chown -R vagrant:vagrant /u01
+sudo su vagrant bash -c "wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.70/bin/apache-tomcat-9.0.70.tar.gz -O /u01/middleware/apache-tomcat-9.0.70.tar.gz"
+sudo su vagrant bash -c "tar -xvzf /u01/middleware/apache-tomcat-9.0.70.tar.gz -C /u01/middleware"
+sudo su vagrant bash -c "cp target/foodies*.war /u01/middleware/apache-tomcat-9.0.70/webapps" 
+sudo su vagrant bash -c "/u01/middleware/apache-tomcat-9.0.70/bin/startup.sh"
+	
+	

@@ -1,0 +1,152 @@
+what are software package repositories, why do we need them?
+The software package repositories are used for distributing software packages or tools or utility programs build by the open source software contributors to the world
+
+How many types of repositories are there?
+There are 2 types of repositories are there
+1. distro repositories = since the software packaging standard differs from vendor to vendor to distribute their own packaged software the distros has comeup with their own repositories
+2. vendor repositories = the enterprises who build and distribute commercial software libraries setup their own repositories and distribute the software
+
+even the commercial software libraries can be published as part of the distro repositories.
+	
+How does the poeple around the world can distinguish between the distro software packages, open source distributed packages and third-party vendor libraries if all of them as has been published in the same repository?
+That is where repositories are being added with categorization of software libraries. There are 4 categories into which libraries are published into repository
+1. Main        = opensource and cannonical s/w packages are published here
+2. Universe    = community maintained s/w packages are distributed
+3. Restricted  = proprietory vendor software packages like device drivers etc
+4. Multiverse  = licensed and legal restriction s/w packages 
+
+How to install s/w packages in ubuntu?
+ubuntu has provided an package manager tool called "apt",which stands for advanced packaging tool, it helps us in browsing, searching, downloading the software packages and install them on the ubuntu operating system
+
+How does the apt tool knows the information about the software package repositories to browse, search and download the software packages?
+The information/location of the software package repositories are stored in the linux operating system under /etc/apt/sources.list file
+now we can add repositories location/information into the sources.list file or there is a directory /etc/apt/sources.list.d/ into which we can create 1 file per repository to add the information about the repository
+
+by adding a file per repository under /etc/apt/sources.list.d/ directory makes it easyily manageable, we can modify or remove individual repository quickly rather modifying the whole configuration file which is /etc/apt/sources.list
+
+The repository information is added into the file in below format
+deb repositoryUrl version category
+deb http://dl.google.com/linux/chrome/deb/ focal main
+					
+How to add the repository urls into the sources.list file?
+There are 2 ways we can add repository urls into the sources.list file
+1. manually add the repository url
+2. use apt-add-repository tool
+
+#1. open sources.list file using an text editor like vi and add the repository url manually by following specified format
+#2. instead of manually adding the repository url by modifying the sources.list which is not safe we can use apt-add-repository tool which takes the repositoryUrl as an input and adds it to the sources.list file automatically
+
+every repository has a public signing key that should be used for communicating with the repository for security and securing the communication channel. before communicating with the repository we need to download the gpg key distributed by the vendor and add to our operating system, there by which we can communicate with repository
+
+#1. download the gpg key
+wget gpgkey url
+#2. add the key
+sudo apt-key add keyfilename
+------------------------------------------------------------------------------------------
+
+after adding the repository url to the sources.list or sources.list.d/ directory we need to tell the apt tool to sync up the repository using
+
+sudo apt update
+it will downloads the software index list from each of the repositories that are defined in /etc/apt/sources.list or /etc/apt/sources.list.d/ directory and caches them locally so that searching and downloading the software packages for installing will become quick
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

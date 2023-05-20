@@ -1,0 +1,117 @@
+What is a Play?
+A play is set of tasks we wanted to apply on group/host to achieve the desired state of the system.
+
+Within a playbook file we can write multiple plays or we can write each play in a separate playbook file.
+	1. if multiple plays exists together and cannot be applied independently then it is good practise to write them together in one-single playbook file
+	For eg.. when we are applying automation on installing an kubernetes cluster
+		The kubernetes master node, worker nodes and work station need to be setup on different machines and we need all of them to be performed to have fully operational kubernetes cluster.
+	so we can achieve this automation by write multiple plays in one single playbook
+	2. if the automations we wanted to apply are independent and can exist without any dependency we can separate them and write in multiple playbook files
+	
+A playbook contains multiple plays, where in each play we need
+1. specify the host/group on whom we wanted to apply the automation
+2. tasks comprises of modules to be applied on the fleet
+
+What is a Task?
+A task represents an operation or an action we wanted to accomplish on a target/ansible host machine. A task comprises of a module declaration attached with arguments to it
+We can think of a task as a named execution of a module to perform an action.
+Additionally we can attach conditions/loops in controlling the way we wanted to apply the module on the fleet
+
+Playbook
+-------------
+---
+- name: playName
+  hosts: group
+	tasks:
+		- name: taskName
+			module:
+				argName: argValue
+				argName: argValue
+		- name: taskName
+			module:
+				argName: argValue
+				argName: argValue
+------------------------------------------------------------------------------------------------------------------------
+demonstrate basic syntax of playbook.
+					
+debug-playbook.yml
+---
+- name: debugplay
+	hosts: all
+	tasks:
+		- name: debug task
+			debug:
+				msg: hurray! ansible module debug is working 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,143 @@
+File Permissions
+-----------------
+By default when a user created a file/folder on linux filesystem, the owner will have a full access to the file/folder he created, in addition the root/sudoer of the linux system can access the files/folders of the Filesystem to enforce the security
+
+If linux doesnt permits the other users of the operating system to access the files/folders that is created by a user then there is no collaborative support in working together.
+	
+So linux along with enforcing security, it should permit us to grant access in a controlled way to the other users of the linux operating system.
+
+How do we grant access to the File/Folder created by an user of linux operating system to others?
+When a user created a file/folder, granting the access permissions to that file/folder of the other linux users individually becomes tedious job
+	1. keeping track of which files/folders are given access to which users of the linux system
+	2. granting the permissions to individual and revoking them is very difficult
+	
+To help us in organizing and managing the File/Folder permissions easily linux has categorized users into 3 levels
+1. owner
+2. group
+3. others
+
+#1. owner = The user who has created the file/folder becomes the owner
+#2. group = instead of assigning the permissions to the individual users, we can assign the permissions to the group level providing/granting the access to file/folder
+#3. others = The linux users who are not part of the group becomes others for the file/folder
+
+Now when a user creates a File/Folder in linux system, he grants permissions on a File/Folder at 3 levels to
+1. owner
+2. group
+3. others
+
+What kind of permissions can be assigned for a File/Folder to the owner, group or others?
+File:-
+The typical operations we can perform on a File is read, write and execute
+1. READ = we can cat/see the contents of the file
+2. WRITE = we can edit/modify the file contents
+3. EXECUTE = it is not applicable for all types of files, if there are program files like shellscripts or any executable files, for those we need to grant execute permissions to run the operating system
+
+Folder:-
+The operations we can perform on a Folder is read, write, execute.
+1. READ = list the contents of the directory
+we can only issue ls command but we cannot cd into the directory
+2. WRITE = we can change the contents of the directory like 
+	create new files
+	delete existing files
+	copy, move etc
+3. EXECUTE = we can change into the directory
+	we are allowed to do cd on the directory
+	
+A linux user while creating a File/Folder can grant READ,WRITE & EXECUTE permissions on the Files/Folders he created to owner, group and other users of the linux operating system
+---------------------------------------------------------------------------------------------------
+When a user has created a File/Folder it will be assigned by default
+	1. owner as user who created
+	2. group as primary group of the user who created
+now the user of the File has to grant permissions READ,WRITE and EXECUTE permissions to owner/group and others.
+but for each file/folder we a user created assigning permissions on that file/folder to all the 3 level of users manually becomes tedious job
+
+That is where linux assigns default permissions to for File/Folder we created to all the 3 levels of users
+File
+1. owner =  rw-
+2. group =  rw-
+3. others = r--
+	
+Folder
+1. owner  = rwx
+2. group  = rwx
+3. others = r-x
+----------------------------------------------------------------------------------------------------
+How to see the File/Folder permissions assigned to File/Folder in linux system?
+ls -l
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

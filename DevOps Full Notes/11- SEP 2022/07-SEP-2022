@@ -1,0 +1,250 @@
+#1. Command category/group
+	1.1 command 
+	1.2 shell 
+	1.3 expect 
+#2. File category
+	2.1 copy
+	2.2 file
+	2.3 lineinfile
+	
+#3. Packaging category
+The ansible has provided several modules under packaging category using which we can perform software package installations and upgradations
+For each linux distro there are separate package managers are there
+	if it is an debain distro the package manager is = apt
+	                                   redhat distro = yum
+																		           mac = homebrew
+
+so to help us in installing the software packages on different distros the ansible has provided platform/distro specific package installer modules as below.
+	1. debain = apt module
+	2. redhat = yum modules
+	3. mac    = homebrew modules
+	
+Now we can use the distro specific package management modules in our playbooks for installing/managing the software packages. but the problem is the playbooks becomes distro specific and will not be portable across the distros of the linux. But the advantage is we can use the full capabilities or the features specific to the distro package manager
+	
+To overcome the above problem the ansible has provided "package" as a generic package manager.	
+Let us explore the debain distro package manager module : apt
+
+apt module = has all the options related to installing and managing the software packages equalTo apt tool in debain distros
+
+#1. install a specific software package
+- name: task
+	apt:
+   name: packageName
+	 state: [present, latest, absent]
+	 update_cache: yes|no
+	 
+1. present = the specified package is installed and available on the fleet (ignore version)
+2. latest = ensure the latest available version of the specified software package in installed on the fleet
+		 if older version is there it will upgrade
+3. absent = if present it will remove/uninstall
+
+update_cache: yes/no = reload/refresh the cache from ubuntu repository during installation
+autoremove: yes/no = if the package is not being used will be removed 
+autoclean: yes/no	= removes the local repository cached packaged files which are no longer needed
+deb: = install the local deb file
+purge: true = cleanup the configuration files of the package (to be used along with state: absent)
+	
+#2 How to uninstall a software package?
+- name: task
+	apt:
+		name: packageName
+		state: absent
+		purge: true
+			
+#3 how to install the latest version of the software package?
+- name: task
+	apt:
+		name: packageName
+		state: latest
+		update_cache: yes
+
+#4 remove unwanted packages on the system
+- name: task
+  apt:
+    autoremove: true
+			
+#5. remove unwanted packages on the local cache
+- name: task
+	apt:
+		autoclean: yes
+		
+#6. How to install multiple software packages?
+- name: task
+	apt:
+		name:
+			- package1
+			- package2
+			- package3
+		update_cache: yes
+------------------------------------------------------------------------------------------------------------------------
+instead of using apt module we can use pacakge module for installing and managing the software packages
+The package module works on any distros of the linux operating system.
+	
+syntax:-
+package:
+	name: packageName
+	state: [present, latest, absent]
+	use: auto
+
+To install or manage software packages on the ubuntu/linux operating system we need sudoer access but by default ansible control node server runs the ansible modules on the managed node without using sudoer
+
+To let the ansible control node use the sudoer access for running a module we need to explicitly tell to the control node server to execute the module using sudoer permission
+
+To run any of the modules with a different accessPermissions or users we need to use previlige escalations in ansible
+1. become: true|false or yes|no = indicates execute the specified module with sudoer (or equivalent access)
+
+- name: task
+	apt:
+		name: packageName
+		state: present
+		update_cache: yes
+	become: yes
+	
+but to run any command on sudoer permission linux prompts for password, so the user has to interactively enter the password for grabbing sudo access, which makes difficult to achieve touchless automations. so the ansible user we are using for executing the modules should be configured as passwordless sudoers access on managed nodes
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

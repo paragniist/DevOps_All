@@ -1,0 +1,164 @@
+There are 2 types of jar distributions are there in java language
+#1. library jar
+#2. application/executable jar
+
+#1. library jar
+we can package bunch of classes into a jar packaging structure and can distribute to the other people, so that others can reuse our classes within their application
+
+1.1 How does the jar structure looks?
+jarFilename.jar
+|-META-INF
+	|-manifest.mf
+|-packages
+	|-.class
+		
+For eg.. we want to distribute a utility called pdfmaker with below directory structure
+pdfmaker
+|-com
+  |-pdfmaker
+		|-document
+			|-*.class
+upon packaging the above directory into a jar, the jar file structure looks as below.				
+				
+pdfmaker.jar
+|-META-INF
+	|-manifest.mf
+|-com
+  |-pdfmaker
+		|-document
+			|-*.class
+What is Jar?
+Jar is an zip archive of java language, which is equivalent to a zip file only. but the difference is
+	1. the jar files are portable across the operating system platforms
+	2. jar interpreter can directly execute the .class files inside the jar file, we dont need to unzip to use them
+In the above jar file we have directory called "META-INF", stands for meta information which means information about the jar
+it contains an manifest.mf which is called "jar descriptor" file that holds the details of the jar like, version, manufacturer and licensing details
+
+How to package a directory of classes into a jar file?
+The java has provided an jar tool/utility as part of JDK distribution, we need to use the jar tool for packaging the class files for distribution
+
+jar -cvf file.jar directory
+-c = create
+-v = verbose (show me comments on the command execution)
+-f = filename
+--------------------------------------------------------------------------------------------
+#cashdesk = probytes.com
+it generates bills for restaurants by adding taxes
+
+$HOME/workspace
+cashdesk
+|-src
+	|-com
+		|-probytes
+			|-manager
+				|-BillManager.java
+|-bin
+	|-com
+		|-probytes
+			|-manager
+				|-BillManager.class
+
+package com.probytes.manager;
+public class BillManager {
+	public double getBillAmount(String itemName, int quantity) {
+		return 933;
+	}
+}
+
+HOME/workspace/cashdesk$ javac -d bin com/probytes/manager/BillManager.java
+HOME/workspace/cashdesk$ jar -cvf cashdesk.jar -C bin/ com
+--------------------------------------------------------------------------------------------
+#tatagroups
+tajdesk/
+├── bin
+├── lib
+│   └── cashdesk.jar
+└── src
+    └── com
+        └── tajgroups
+            ├── agent
+            │   └── BillingAgent.java
+            └── runner
+                └── Main.java
+	
+package com.tatagroups.agent;
+import com.probytes.manager.BillManager;
+
+public class BillingAgent {
+	public double getMemberBill(String itemCode, int quantity) {
+		BillManager billManager = new BillManager();
+		double amount = billManager.getBillAmount(itemCode, quantity);
+		double discountAmount = (amount * 10)/100;
+		return discountAmount;
+	}
+}
+
+package com.tatagroups.runner;
+public class Main {
+	public static void main(String[] args) {
+		BillingAgent billingAgent = new BillingAgent();
+		double amount = billingAgent.getMemberBill("chicken lollipop", 2);
+		System.out.println("bill amount : " + amount);
+	}
+}
+
+$HOME/workspace/tajdesk$ export CLASSPATH=lib/cashdesk.jar:bin
+$HOME/workspace/tajdesk$ javac -d bin com/tajgroups/agent/BillingAgent.java
+$HOME/workspace/tajdesk$ javac -d bin com/tajgroups/runner/Main.java
+
+$HOME/workspace/tajdesk$ java com.tajgroups.runner.Main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+
+
+
+				
+				
+				
+				
+				
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+OSI Model layer protocol has 7 layers
+1. Application Layer
+Both the application will establish standards in exchanging the data over the network. They define message formats, structure and semantics using which applications will communicate with each other.
+	
+2. Presentation Layer
+The presentation layer presents the data to the lower layers of the OSI model in transmittable format. It performs 3 activities
+1. Data Conversion
+converts the character data into bits/bytes or binary format using charset encoding standards.
+	
+2. Data Compression/De-compression
+reduces the size of data by applying bit compression technics so that the data can be quickly exchanged over the network.
+	
+3. Data Encryption/DeCryption
+tranforms the data into encrypted format so that no one can steal/understand the data over the transmission
+
+3. Session Layer
+End-to-End exchange of data between the applications will be taken care by Session layer. It performs 2 responsibilities
+1. Authentication and Authorization
+Session Layer keeps track of the authentication and authorizaion information of the client applications, so that server can authorize the application for accessing.
+	
+2. Session Management
+The session layer keeps track of the data packets that has to be send from the client to the server, it tracks how many packets has been transmitted and still how many packets has to be transffered
+and at the receiver side the session layer reorder the data packets that are recieved in re-constructing the data back
+
+All the above layers we discussed operates at end-to-end transmission of data between the applications. but the rest of the layers from Transport talks about physical transmission of data over the network
+
+4. Tranport Layer
+The transport layer does 3 responsibilities
+1. Segmentation
+2. Flow control
+3. Error control
+
+
+5. Network Layer
+6. Datalink Layer
+7. Physical Layer
+
+
+
+100% = technical
+
+
+
+
+
+
+
+
+
+
+
+
+

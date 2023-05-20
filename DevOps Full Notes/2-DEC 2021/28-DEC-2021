@@ -1,0 +1,131 @@
+What is the change in culture and adoption of tools / technologies during the qa phase of the application inorder to adopt devops process/methodology?
+
+1. The ops engineer has to setup the qa environment by gathering the inputs from developer about the softwares and tools required to run the project.
+	#1.1
+	- the qa environment we setup should resemble production like environment
+	- to quickly setup the infrastructure the ops engineer has to adopt cloud platforms like aws, gcp, oci, azure etc
+	- to enable creating the infrastructure in automated way the devops engineer has to use "iac" tools like terraform
+		the devops engineer will write the code in terraform and executes which will create infrastructure on cloud platform
+	#1.2
+	upon creating the infrastructure the devops engineer has to install the software packages and tools, having these installed manually takes lot of time
+	to help in automating the software installations and configurations the devops engineer has to adopt software configuration management tools like
+		- ansible
+		- puppet
+		- chef
+		- salt stack
+	the devops engineer writes the code in installing and configuring the software using any of the above tools and executes on the infrastructure created on the cloud platform which will takes care of setting up the environment.
+	
+2. take the executable program from artifactory repository and run on the qa environment created above and deliver the env details to the qa engineer.
+	
+3. now the qa engineer has to conduct the various different types of test cases in certifying the application. conducting the tests manually takes lot of time for a qa engineer in certifying the application.
+The qa verification process is not an one-time activity, rather it is an repeatitive activity that has to be conducted many times as below.
+	- during every developer feature verification
+	- during each bug fix
+	- during each patch release
+	- during overall system testing before release the application into production
+manually conducting the testing in cerifying the bug, or a feature or a patch or whole system certification in executing all / relevant testcases manually requires huge amount of time and efforts which delays the testing and delivery process of the application due to which the cost of building the application goes high.
+
+the qa engineers are responsible for test automations, they need to use test automation tools like
+	- selenium
+	- webdriver
+	- TestNG
+	- QTP
+	- Appium
+	- Cucumber
+	- JMeter
+	- Test Studio
+	- Load Runner
+	- Test Runner
+	- ETL
+etc
+
+-> scrum methodology
+	-> developers -> 
+								sprint-#1 [3 weeks]
+									userstories (features) (7)
+									qa = testcases/testplans [1week]
+									-> once the developers delivered the features, perform manually testing and certify the features
+								sprint#2 [3 weeks]	
+									userstories (features) (6)
+									qa = write automation test code for features delivered in Sprint#1 and continue to prepare testplans/testcases
+									-> once the developers delivered the features, perform manually testing of sprint#2 features and to certify overall system execute automation tests that are created till then.
+The qa engineers are always one sprint behind the developers sprint in uptaking the automation for testcases.
+4. the qa will promote the executable file of the project in artifactory to label=release
+
+developers
+	sprint#1
+		-> userstories (7)
+		qa wait and prepare the testcases and testplans
+		* as soon as the feature has been delivered by the developer, immediately the qa has to jump start in testing the feature
+		to test and certify the feature qa requires environment, now the devops engineer is responsible for setting up the environment
+even though the devops engineer has automated the whole process of creating the infrastructure and installing and configuring the software through automation on the machine, still he has to manually coordinate and run the tools for setting up the environment.
+	
+-> while devops engineer manually triggers/executes the automation tools there are lot of problems are there
+	1. human errors
+	2. takes lot of time in coordination between the tools in running
+due to which there is still an amount of delay in setting up the qa environment.
+
+How to solve the above problem?
+adopt jenkins/bamboo/hudson continous integration tools for setting continous delivery pipeline.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+									
+									
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,69 @@
+vagrant
+What is vagrant? why do we need to use vagrant?
+vagrant is an virtualization workflow automation tool that can be used by developers, quality assurance engineers and the support/operational engineers in developing and delivering the software applications.
+	
+Why do we need virtualization & a workflow automation tool on virtualization?
+Here we have 2 questions to address
+1. Why we need virtualization?
+2. Why do we need virtualization workflow automation tools like vagrant
+let us see each of them
+
+#1. why we need virtualization?
+while working on distributed application, our applications has 2 parts within them
+1. server application
+A server application provides services or information to the client programs who has requested. These applications runs on a server platform software.
+For eg..
+	1. An web application built on any language requires an http/web application server software to work
+	2. An database server acts as an server software to provide persistency services to the applications
+	3. Mail Exchange server is required to provide mailing services
+	
+2. client application
+The client applications are the programs through which the people interact with server software applications in using the services of the server applications. for eg..
+	1. A web browser used to interact with an web application 
+	2. A database client to connect to a database server to perform storage operations etc
+	
+To build, test and deliver these applications we need 2 different environments
+1. Server environment
+A Server environment refers to a computer installed/configured with all the software packages/libraries required for running the server applications
+
+2. Client envrionment
+Client environment is a machine setup with client software tools/utilities required for testing/using the server applications that are build
+
+How to setup these 2 environments to have the application develope/test and deliver it quickly?
+Without virtualization and support of vagrant how can we develop a software application by setting up these 2 environments let us expore?
+There are 2 ways we can setup the development environment of the developer so that he build the applications and deliver it to the qa
+1. setup both client/server environment on the development environment of the developer
+2. setup the central server environment wherein all the developers can deploy and verify their code changes and use their development computer as an client environment for testing
+
+Let us understand the above 2 approaches and see the advantages/dis-advantages with each of them
+#1. Both server/client environments on the same machine
+The developer can install and configure all the server/client software packages and utilities on the same workstation from where he is developing the application.
+	
+1. If we are setting up the server/client environments on the developers workstation, we would endup spending lot of time in installing/configuring the client/server environments across all the machines of the developers within the team, this shoots up the overall cost of building the software application as well and even contributes for the delay in delivering the application
+
+2. 												 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	

@@ -1,0 +1,172 @@
+what is devops?
+devops is a change in culture and adoption new tools and technologies in fast-paced development and delivery of the application
+
+change in culture: adopt agile-methodologies in developing & delivering the application
+adoption of new technologies: 
+virtualization
+containerization
+cloud
+etc
+
+for fast-paced delivery we need to adopt ci/cd process in delivering the application. ci/cd has total 3 terms in it
+ci = continous integration
+cd = continous deployment
+cd = continous delivery
+
+by adoption the ci/cd process the development & delivery rates of the application can be improved quite alot
+
+
+#1. continous integration
+continous integration is about performing the bunch of quality gating checks on the code that is delivered by the developer into a feature branch to ensure the stability of the builds.
+whenever a developer pushes the code into the feature branch, before pushing the changes  into feature branch the developer has to perform bunch of quality checks like
+1. pull the code from the git repository (feature branch)
+2. build the code
+3. run the unit-test cases
+4. run the code quality tools like sonarcube, cobertura etcs for code review and code coverage
+5.  if all the checks are passed push the artifact into the artifactory repository
+
+From the above we can understand for every push into the repository the developer has to ensure the code meets the quality 
+
+#2. continous deployment
+The continous deployment is the process of release a feature to the qa for futher testing. whenever the developer completed the feature he/she will merge the feature into the develop branch upon merging the code into develop it should be delivered to the qa for testing, in-order to deliver the code for qa to test the ops engineer has to perform bunch of activities
+1. pull the code from repository
+2. build the code
+3. integration-tests
+4. publish the artifact into artifactory repository
+4. provision the infrastructure on a cloud provider or on a local virtual machine
+5. install and configure required platform software on the env we created
+6. deploy the application
+7. do the sanity checks
+8. release the env to the qa for futher testing
+
+The above process has to be carried by the ops engineer for each feature being merged into the develop branch 
+
+#3. continous delivery
+The continous delivery is the process of release the tested/certified code or features by the qa into the production. For this the ops engineer has to pull the certified and promoted artifact by the qa and made it available for delivery
+The delivery process can vary based on the type of the application
+#1. if it is an cloud-based managed service offering then the ops engineer has to identify all the instances or services on which the application has to upgraded and has to perform necessary operations
+#2 for few types of application the ops engineer has to push or publish the artifact into distribution channel
+
+From the above we can understand there are bunch of activities that should be performed repeatedly at various different stages of development and delivery of the application
+#1. continous integration
+The developer to ensure better code quality he has to run the unit-test cases and code review/coverage tools for each change he made for a feature, manually conducting this process is a tedious job, since it is repeatitive. Instead the ops engineer can use a jenkins pipeline in which he can automate the whole process of carrying out the activities 
+
+#2. Similarly during the continous delivery and deployment the ops engineer has to perform bunch of activities for deploying and delivering the application where he needs to kickoff several automation tools and archestrate them together to achieve the final outcome, instead of performing them manually he can make use of jenkins
+
+There are lot of continous integration tools are available in the market like
+1. jenkins
+2. hudson
+3. bamboo
+4. concourse
+5. teamcity
+
+Jenkins Architecture
+--------------------
+Jenkins follows master and slave architecture
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

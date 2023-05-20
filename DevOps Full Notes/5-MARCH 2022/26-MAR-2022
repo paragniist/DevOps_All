@@ -1,0 +1,209 @@
+Environment Variables
+-----------------------
+What are environment variables?
+environment variables are created at the operating system level and are used/accessible by all the applications running on the operating system.
+	
+There are 2 types of env variables are there
+1. system variables
+These are the variables created by the operating system byitself and has defined a pre-defined meaning to be used.
+	
+2. user-defined variables
+These are the variables created by the users of the linux operating system to pass data to the programs running on the operating system.
+	
+How to create user-defined variables?
+Linux has provided an command called export using which we can create env variables
+export variableName=value
+$variableName = will gives the value of the variable
+
+What is PATH variables what is the significance of it?
+PATH is an pre-defined variable created by the operating system.
+Whenever user is trying to run a program without specifying the location of the program or path to it, then operating system uses PATH variable to identify the directory locations where it can go and look for programs files to execute
+By default PATH variable is populated with the below directory locations
+/bin
+/sbin
+/usr/bin
+/usr/sbin
+/usr/local/bin
+/usr/local/sbin
+
+How to execute our own programs by setting PATH?
+/home/sriman/programs/netbanking:$	
+print
+#!/bin/bash
+echo "printing"
+	
+/home/sriman:$
+by default we need to enter the full location of the program to execute. but there are 2 problems
+problems:-
+	1. There can be multiple program files located under netbanking directory as there are part of the application, so for running all the programs of netbanking application we need to specify the path
+	2. each time navigating into the directory to run the program is difficult
+	3. users cannot memorize the directory locations
+	
+instead populate the PATH env variable pointing to the directory location of netbanking. so while setting the path we should not remove existing directories, rather we need to append our directory to the existing directories
+
+In linux 2 different directory paths are separated using ":" colon
+
+export PATH=$PATH:/home/sriman/programs/netbanking
+print
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

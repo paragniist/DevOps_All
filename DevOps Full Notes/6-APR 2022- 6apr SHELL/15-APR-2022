@@ -1,0 +1,69 @@
+if-else statement
+-----------------
+if there are only 2 possible outcomes out of an expression, then rather than writing 2 if conditions in evaluating the outcome, it is better/efficient to write if-else statement
+syntax:-
+	
+if [ condition ]
+then
+	statements
+else
+	statements
+fi
+
+#1 wap to find whether the given number is even/odd number?
+/ (division operator) = quotient
+% (modulus operator) = remainder of a division
+
+evenorodd.sh
+--------------
+#!/bin/bash
+read -p "enter number:" N
+REM=$[N%2]
+
+if [ $REM -eq 0 ]
+then
+	echo "$N is even"
+else
+	echo "$N is odd"
+fi
+-----------------------------------------------------------------------------------------
+if-elif-else-fi statement
+if-elif-else-fi is a statement that can be used for evaluating a multiple possible outcomes where oe of it is going to be true
+	
+	
+let us continue tomorrow at 7:30 pm guys
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

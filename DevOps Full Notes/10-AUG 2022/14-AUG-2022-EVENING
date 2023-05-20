@@ -1,0 +1,62 @@
+automation for mysql server database
+
+1. how to install the mysql server with our own supplied password for the root user in an non-interactive installation?
+In ubuntu operating system there is a package called debconf-utils which stands for debian configuration utilities through which we can pass the input values to the package manager during the installation of the software.
+	
+mysql-server-8.0	mysql-server/root_password	password root	
+mysql-server-8.0	mysql-server/root_password_again	password root
+
+
+2. we need to launch mysql_secure_installation script for configuring the database, but the script requires interactive inputs which will breaks the touchless automation.
+So how to run any shellscript non-interactively
+That is where we have expect shell utility
+
+addNumbers.sh
+#!/bin/bash
+read -p "Enter a: " A
+read -p "Enter b: " B
+SUM=$[A+B]
+echo "SUM: $SUM"
+
+The above shellscript we wanted to run non-interactively? 
+To do that write one more shellscript that launches the above shellscript by passing inputs
+
+nonIteractiveAddNumbers.sh
+#!/usr/bin/expect -f
+set timeout -1
+spawn ./addNumbers.sh
+expect "Enter a: "
+send -- "10\r"
+expect "Enter b: "
+send -- "20\r"
+expect eof
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

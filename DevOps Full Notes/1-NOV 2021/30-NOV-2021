@@ -1,0 +1,104 @@
+What is DevOps?
+DevOps is change in culture/process and adoption of new tools and technologies in developing and delivering a software application.
+	
+Why do we need to use DevOps?
+fast paced application development and delivery
+
+Why should we develop and deliver applications quickly?
+1. always to be ahead of competitors in the market
+2. better customer satisfaction and higher ROI
+3. to reduce software development cost, so that adoption of software applications increases
+
+To understand what changes are being brought by devops, first we need to explore how does the existing development practices are there, who are involved in developing and delivering the application, how do these people work or perform?
+----------------------------------------------------------------------------------------------------
+#1 What are	the responsibilities of a developer in developing and delivering an software application?	
+	1. 
+	gather the requirements from the business owner, analyze and understand those requirements inorder to build the software application
+	2. 
+	choose a programming language, that better suites for developing the software application of its nature.
+		- java
+		- .NET
+		- php
+		- python
+		- ruby
+	3. Before building the application, the developer requires development envionment. let the developer setup the development environment with the below things:
+		3.1 install the programming language software on the machine like jdk (java), .net framework (.NET), python sdk (Python)
+		3.2 install the development tools that helps in developing the application
+			like IDE, debugging tools etc
+		3.3 install database software like oracle, ms sqlserver, mysql, mongodb, db2, cassandra
+				[why to use database s/w: they help us in storing/accessing the data on the computer permanently]
+		3.4 install application server softwares, these depends on the programming language we are using
+			for eg..
+				java = tomcat server
+				.NET = iis
+				php = lamp
+				nodejs = node server
+	4. choose and adopt a process model
+	process model is proven procedure or a methodology that should be followed to develop and deliver a software application successful.
+				
+	there are several experts who has lot of experience in software application development/delivery, based on their experiences of work, they comeup with standard steps/procedures to be followed and provided to us as process models. So there are lot of process models are there few of them which are very popular are
+	1. waterfall model
+	2. incremental/iterative model
+	3. spiral model
+	4. prototype model
+	5. agile methodology scrum process model
+	
+The very old and highly popular process model in the software engineering industry is "waterfall model", the name itself tells you it defined steps that has to be followed in uni-directional manner from top-bottom
+There are 5 phases/steps in which we need develop and delivery the application
+#1 requirement gathering and analysis
+#2 design = study the system and plan how you want to develop
+#3 implementation (coding)
+#4 testing
+#5 production and maintainance
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+			
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,105 @@
+How many ways we can promote a user/group as a sudoer?
+There are 2 ways are there
+1. /etc/sudoers file
+2. /etc/sudoers.d directory
+
+#2. /etc/sudoers.d
+in /etc/sudoers file there is an entry as #include_dir /etc/sudoers.d which indicates consider the sudoers entries that are written in the files under /etc/sudoers.d directory, so all the users/groups declared insider
+/etc/sudoers (or) any of the files which are kept inside /etc/sudoers.d/ directory are promoted as sudoers.
+	
+In general people majorly creates per each user/group a file under /etc/sudoers.d directory in which they add a sudoers entry per user for the sake of easy manageability
+
+How to validate the contents of an sudoers file?
+sudo visudo -cf sudoersfile
+
+recommended approach of working with sudoers:
+it is always recommended to copy the original sudoers file into another directory and modify the copied file and validate the file using visudo command given above. 
+if the contents of the file are valid or passed ok by visudo then replace the original sudoers file with modified file.
+
+#3. How to modify the sudoers file incase if it has been corrupted?
+pkexec= stands polkit execute is a shell command that allows us to execute any shell command onbehalf of the superuser of the linux operating system
+
+syntax:-
+pkexec command
+
+when the sudoers file is corrupted there is no way any one can act as sudoer to edit the file, then only option left withus is to edit the file as a superuser of the linux system using pkexec
+pkexec visudo /etc/sudoers
+----------------------------------------------------------------------------------------------------
+using sudoer we are granting root access to other users where as using pkexec we can temporarily execute any shell command as a root with superuser/password only
+
+How to enforce restrictions on the sudoers in granting permissions?
+To enforce restrictions on sudoers to execute the commands on a 
+1. From specific host
+2. specific user/group
+3. commands
+we need to use aliases.
+There are 4 types of aliases we can declare in sudoers file for enforcing restrictions
+1. User_Alias = specifies a group of users by username
+2. Runas_Alias = specifies a group of users by UID
+3. Host_Alias = specifies list of hostnames
+4. Cmnd_Alias = specifies list of commands and directories
+
+#4. Cmnd_Alias
+command alias is used for defining the list of commands that are allowed for sudoer to execute onbehalf of root user on a machine
+
+#CMD ALIAS
+Cmnd_Alias FILE_MGMT_CMD=/usr/bin/ls,/usr/bin/touch,/usr/sbin/useradd
+
+#USER
+user ALL=(ALL): FILE_MGMT_CMD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

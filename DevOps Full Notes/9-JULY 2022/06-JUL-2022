@@ -1,0 +1,207 @@
+Platform independent high-level programming language
+advantage:-
+	1. Write the code once and it works on all the platforms
+	2. we need to compile the source code only once, which will generates an operating system independent, intermediate executable code, which guarantee to work across all the platforms
+	3. we can test the code on one platform and certify it to work across others, so the time/cost of certifying the application is very less
+	4. we dont need to maintain multiple binary distributions each per platform to release the application to the customers
+	
+Java is an platform independent programming language, we write the code and compile it to produce an intermediate executable code (bytecode), that can be shipped across any platforms
+To work with java we need to install the java language on our machine. The java language has been distributed into 2 distributions
+
+1. JDK (java development kit)
+JDK stands for java development kit, it is an java distribution that contains all the development and runtime tools required for developing the java applications and executing the java applications
+For eg, java compiler is shipped as part of JDK distribution which is used by the developer for compiling and generating an bytecode
+along with that developer has to execute the code as well, so an java interpretor tool also being shipped as part of JDK
+
+
+2. JRE (java runtime environment)
+JRE stands for Java Runtime Environment, which only contains tools for running the java application which is nothing but "java interpreter", a customer/enduser inorder to execute/run a java program he only needs interpreter he dont need developer related tools, a light weight easily distributable java distribution has been provided to the enduser through JRE.
+	
+How to install the java language on ubuntu?
+sudo apt update -y
+sudo apt install -y openjdk-11-jdk
+
+	
+	
+How to write a java program and execute it?
+#1. The developer writes the java program and distributes the source code by placing it in GIT repository
+Everything in java is written in a construct called "class", class is an datastructure in which we wrap data and code to process the data together. We can write as many classes we want in java application to modularize the code.
+But out of all the classes in java application, there is one class which acts as an entrypoint class called Main class of the java application from where the program execution begins.
+	
+Even though we can have any number of Main classes in a java application, the program execution always begins with only one Main class
+	
+We need to follow certain rules in writing the Main class of the java program/application:
+1. The main class should be declared as public
+2. The main class name and filename of the main class must and should be same.
+3. it is recommended to declare the class under a package.
+
+$HOME/workspace/jdops$	
+Main.java
+----------
+package com.jdops.runner;
+import java.security.SecureRandom;
+
+public class Main {
+	public static void main(String[] args) {
+     SecureRandom random = new SecureRandom();
+	   int lucky = random.nextInt(100);
+	   System.out.println("lucky :" + lucky);
+	}
+}
+
+#2. compile the java program
+To compile the java program we need java compiler tool that is shipped as part of java language software (jdk).
+javac = is the java compiler tool shipped aspart of jdk
+
+goto the directory of the project above
+$HOME/workspace/jdops$
+javac -d . Main.java
+
+The above command passing Main.java source code into the javac compiler which compiles and generates the bytecode "Main.class" under the current directory based on package structure
+	
+$HOME/workspace/jdops:$
+                |-Main.java
+								|-com
+									|-jdops
+										|-runner
+											|-Main.class
+
+The -d stands for directory into which we want javac compiler to generate the bytecode, here we specified it as "." so it generates the .class file under the current directory itself based on packageName
+	
+#3. we can run the bytecode of the java program by using java interpreter
+goto the directory of the project above where we have bytecode of the program is available
+$HOME/workspace/jdops:$
+
+java = is an java interpretor tool provided as part of JDK/JRE distribution which takes bytecode as an input and converts into operating system executable code and runs on the underlying operating system of the computer
+
+java com.jdops.runner.Main
+to the java interpreter we need to pass the fully qualified name of the class which is nothing but packageName.className
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+How to integrate Jenkins with Terraform?
+We need to install Terraform plugin and configure it as an auto installed under Global Tool Configuration.
+	
+	

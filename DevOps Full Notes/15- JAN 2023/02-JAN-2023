@@ -1,0 +1,99 @@
+Under which circumstances do we need to use virtualization:
+1. we wanted to create dedicated isolated environments that can be used by different people independently. For eg.. in a cloud computing env, a cloud provider provides compute instances to multiple different users by sharing the same physical system resources across the users through the help of virtualization technology
+
+2. In an organization the system administrator can make use of virtualization to create independent env for different projects for development or testing the applications. by sharing the physical system between projects, we can reduce the hardware cost in developing/deliverying the software application
+
+
+Containerization:
+Containerization is a technology through which we can pack software applications along with their dependent libraries/packages together and can ran them within the container by isolated it from other applications or containers running on the same env
+
+advantages:-
+1. containers are light weight, they dont run dedicated operating system within them. So we can run multiple different containers on the same machine and an achieve high and effective utilization of system resources of a computer
+2. container images are light weight since the operating system is not installed ontop of the image, thus making them easily carry across the computers or environments. "Containers are shippable/transferable"
+3. containerization images are shippable across the env, due to light weight. Unlike virtual machines the containers are quickly started and shutted down, because all it takes to run/stop a container is just launching or shutting down the program inside it. thus making the containerization technology favourable to achieve ci/cd easily
+4. due to less bootup time in running the containers, these are easily scalable
+5. patching & upgrading the containers are quite easy when compared with virtual machines
+
+dis-advantages:-
+1. we cannot run dedicated operating system independent of the host operating system within a container
+2. less secured when compared with virtualization, as each container doesnt have dedicated operating system running within them
+3. suitable for short-running applications only
+------------------------------------------------------------------------------------------------------------------------
+when to use virtualization and containerization?
+virtualization:
+if we want to run isolated environments of independent operating systems and share these environments across the teams or users in running their software applications, then use virtualization
+
+containerization:
+if we just want to run an application isolated from other applications running on the same environment or machine then use containerization
+
+There are 2 main benefits of using containerization technology
+1. using the containerization technology we can abstract the underlying technology of the application and the way we need to run the application from ops engineer so that he can standardize the workflow of delivery of the s/w application
+
+2. since the containers are light weight we can run multple containers on the same machine and we can optimize the utilization of resources of the computer
+------------------------------------------------------------------------------------------------------------------------
+There are lot of containerization technology supported tools are available in the market
+1. docker
+2. redhat openshift
+3. podman
+4. mesosphere
+5. containerd
+6. Microsoft Container
+etc
+
+out the above the most popular containerization provider is "docker"
+docker is the word derived from dock-worker. dock worker is a job of a person who loads containers and unloads the containers from a ship. using docker we can implement containerization technology like we can package software applications into docker iamges, ship them across. we can run the packaged applications isolated from another in a docker container etc
+
+docker workflow:
+develop -> package -> ship
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	

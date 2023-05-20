@@ -1,0 +1,251 @@
+What is a FileSystem, why do we need it?
+The data will be stored on the storage device of our computer in bits or binary format. In order to locate and access the data on the harddisk each memory location is assigned with an address
+
+So to access the data we need to remember the address locations where the data has been stored on the storage device of the computer, but looks like quite impossible to memorize address of the memory locations where the data has been stored
+
+Instead of we remembering the address location where the data bits are stored, we can store these data bit address in another place within the harddisk which is called "File"
+
+#1. File
+----------
+File is a logical memory location in which we store the address of the data where it has been stored on the harddisk of our computer. In addition we can attach few attributes like Filename, owner, created date etc
+
+The File information also will be stored on the harddisk only as bits of data. in order to differentiate which bits are data bits and which bits are holding the address location of the databits as file, your harddisk memory is divided into 2 parts
+
+1. data bits
+2. file bits
+
+#2. File pointer table
+-----------------------
+When we store multiple files on the harddisk, for each file we need to make any entry in File Bits section of the harddisk
+But how to identify the address of memory locations where the File information is stored?
+To help us in identifying the address location where the File information is stored we need File Pointer table
+File pointer table is an index which contains File Name and address location of the File information stored on File bits section of the harddisk
+
+How to read the data of a File?
+#1. goto File pointer table search with FileName pick File address location
+#2. goto File address location read the data block addresses
+#3. goto data block memory locations and read the bits of data
+
+
+There is a problem with above approach of storing the data:
+If we store each memory location address where data is stored in a File, then the amount memory we used for storing the address is more than the actual data, which is going to waste harddisk storage device space.
+	
+How to efficiently store the data on the harddisk without wasting the memory?
+To save memory in storing address of the data bits, we can divide the storage locations into memory/data blocks of fixed size.
+	
+For eg we can divide the harddisk memory in blocks of each block size as = 10 bits
+Now when we want to store the data on the harddisk allocate blocks of memory rather than bits
+
+If our data is less than the block size, even then also the entire block will be allocated which will waste few bits of memory of the block
+If our data is more than the block size, then allocate multiple blocks to hold the data
+
+For eg.. our data part is 4 bits even then also allocate 1 block(10 bits size) where 6 bits of memory is wasted, which is quite ignorable rather than storing each memory location address which occupies more memory than the wastage
+
+If we want to store data of 45 bits, then allocate 5 blocks of memory
+
+How do we know in which blocks our data has been stored?
+Now to keep track of the memory locations where our actual data is stored we need to store block address on the File rather than memory location address.
+Because if we know block address we can find memory location where the data is stored on the harddisk
+starting memory location = ((blockAddress - 1) * blockSize) + 1
+ending memory location = 	(blockAddress * blockSize)
+	
+If we store the data on multiple blocks then we need to store multiple block addresses in the File
+
+File
+--------------
+block address
+- 2
+- 23
+- 15
+here for this file we allocated 3 blocks of memory, so we stored 3 block addresses
+-----------------------------------------------------------------------------------------------
+How do we store the File information on the harddisk?
+In the File we store
+FileName
+owner
+created date and
+data block addresses
+all of this data will be converted into bits and stored on File Block area of the harddisk
+
+How to identify the File information has been stored in which memory location of the File block area of the Harddisk?
+Now we need to use FilePointer table, in which we need to store FileName and memory address locations where File information is stored.
+	
+For eg. to store File information it took 18 bits of memory, then how many memory address locations we need to store in FilePointer table along with FileName = 18 memory location addresses where File information is stored
+
+looks like to store memory addresses of the File information we are wasting lot of memory, how to optimize this?
+Again devide File block area into File blocks of fixed size. So divide file block area into fixed size file blocks.
+Since the File block is fixed, the number of data block addresses we can store inside a Fileblock is also fixed, so always the size of data we can store in a File will be fixed only
+
+We have 20 bits of data to store
+now allocate - 2 data blocks and store 2 data block address in a File block
+store fileblock address in pointer table
+
+FilePointer = FB(2)
+	            |-datablock address
+							   block no = 2
+								 block no = 22
+								 |-goto ((2-1)*10)+1, ((22-1)*10+1)
+	
+What is a FileSystem?
+FileSystem is a technic or mechanism through which we can organize and store the data on the memory units of the storage device, so that we can retrieve the data easily
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

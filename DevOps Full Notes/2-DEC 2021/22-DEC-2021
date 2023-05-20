@@ -1,0 +1,108 @@
+What is change in culture or process and adoption of new tools and technologies in adopting the devops during the development phase of our application?
+#1. choose a programming language that suites for the nature of the application
+#2. setup the development environment
+devops recommends us to use:
+	virtualization to quickly setup the development environment across the team
+	vagrant for building the virtual machine quickly
+	so that we can reduce the time required for setting up the development environment
+#3. choose the process model for developing and delivering the application
+devops recommends us to use:
+	agile based methodology, and popular use scrum process model
+#4. implementation of the software system
+during the development how does the team is going to collaborate and distribute the source code?
+use source code management repository and devops recommends to use git repository for adopting scrum process model easily
+#5. perform unit testing before delivering the code to the qa
+what is unit testing and goals of unit testing?
+is the process of verifying the code developed by the developer in order to certify the code is working properly so that it can be tested by qa team.
+during unit testing the developer has to look for 2 things
+	1. programmatic errors
+	2. basic functionality of system is working properly
+	
+how often the developer has to perform unit testing?
+For each change or a bug fix he has made, to verify the changes he has made are working properly the developer has to perform unit testing. there could be a bunch of testcases he has to verify inorder to certify his changes are working properly.
+manually conducting the unit testing by developer in certifying the code changes takes lot of time and delays the delivery of the application.
+	
+To overcome this problem, the developer has to adopt unit test automation.
+What is unit test automation?
+Write the test code which will execute the original code and verify the output and produces the test has been passed or failed. So that each time if we want to verify the original code, run the test code that produces the output quickly
+
+This will greatly reduces the time required for certifying the code changes.
+	
+devops process recommends developers to write test automation code along with original code to speed up development and delivery
+
+
+modify the code to fix the bug
+-> verify the fix you made quickly by executing those relevant testcases only (local system)
+
+-> before delivering the code to the qa -> certify the whole system by executing all the unit testcases of the project
+
+whole system unit testing should be done 
+1. after the bug fix has been verified by running relevant testcases
+2. after pushing the code repository
+
+take the code from repo -> run whole system unit testcases -> certify the system and deliver to the qa
+now to certify the whole system by executing the entire unit testcases before delivering the application to the qa the developer
+	1. has to setup environment
+	2. take the code from repository
+	3. build it using build tools to make single executable
+	4. run the testcases
+this whole process takes lot of time in certifying the changes and delivering it to the qa.
+devops recommends us to use continous integration pipeline using continous integration tools like
+	- jenkins
+	- bamboo
+	- hudson etc
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

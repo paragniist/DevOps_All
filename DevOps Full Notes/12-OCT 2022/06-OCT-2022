@@ -1,0 +1,84 @@
+1. Network domain
+1.1 Virtual Private Cloud Network (VPC Network)
+VPC is an isolated network created by an aws account user, the resources within a vpc is isolated from other resources of another vpc 
+
+1. A vpc is created per user account, for a region and has all the availability zones of the region part of the vpc
+2. by default all the resources within the vpc can communicate with each other
+3. per aws user account, per region at max we can create 5 vpcs (softlimit)
+4. by default a resource in one vpc cannot communicate with another resource of another vpc, even though both belongs to the same aws account user. if we want resources across the vpc to communicate with each other we need to vpc peering
+5. per each aws user account, per each region, one default vpc is created by aws
+
+What is the purpose of vpc?
+There are several for using an vpc by an individual or an organization
+we wanted to create isolated network of resources per
+#1. business or department level
+within an organization there can be several deparments like hr, finance and sales etc. there can resources categorized and spread across these departments. inorder to isolate the resources of one department from another we need to create vpc per department
+
+#2. per projects
+different resources of different project should be isolated from each other through vpc
+
+#3. per environment
+per each env in which we deploy the application to ensure the resources of one env will not access the resources of another env, we create vpc
+developmentvpc
+testvpc
+stagevpc
+prodvpc
+
+
+How to create an vpc?
+To create an vpc network we need to provide name of the vpc along with CIDR range within which the resources are assigned with ip address
+
+2.2 subnet
+vpc is an large isolated network which spans across all the availability zones of a region, if we create resources at the vpc level, then all the resources created within that vpc will applied with same access restrictions and security.
+but we wanted different group of resources to have different access restrictions and security to be applied, which cannot be done by keeping them aspart of the same vpc.
+	
+So aws has provided subnets. subnets are the smaller networks that are created out of an vpc, where we can create resources within a subnet and apply traffic restrictions and security to the group of resources created within that subnet
+For eg.. in a project we may have an ec2 instance and an elastic cloud cache resources, where we wanted ec2 instance to be accesible over the public network, but elastic cache should be restricted to be accessible within the vpc network only which can accomplished by placing them as part of 2 different subnets of the vpc
+
+There are 3 types of subnets are there
+1. private subnet
+2. public subnet
+3. hybrid subnet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

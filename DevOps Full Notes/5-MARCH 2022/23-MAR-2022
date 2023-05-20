@@ -1,0 +1,125 @@
+How to install the direct downloadable software packages distributed directly by the vendors?
+There are few vendors who distributes the s/w packages directly from the official websites. The endusers has to identiy the relevant package distribution based on the distro of the linux and should download it on to the ubuntu system.
+There after the ubuntu has provided an software package installer which is "dpkg", stands debain package manager
+
+sudo dpkg -i filename.deb
+sudo dpkg -r packageName = unistall the package from the machine (it is is already installed)
+sudo dpkg -l = list all the software packages that are installed on the machine
+sudo dpkg -s packageName = gives the status of the software whether it is installed or not
+sudo dpkg -c filename.deb = shows the contents of the packaged software
+sudo dpkg --unpack file.deb = will extracts the contents of the package software
+sudo dpkg -P packageName	= it works similar to remove only but in even removes the configuration files (similar to apt purge)
+sudo dpkg -l packageName = shows the list of software packages matching with the given name and displays their status of installation
+
+while installing the software package using dpkg, if that s/w package requires any dependencies those will not resolved/installed by the dpkg which will eventually results in failure of the installation, the ubuntu user has to identify such dependencies and should install before proceeding on installing any software
+
+if a s/w installation has broken due to in-availability of dependencies while using dpkg we can fix the broken install using
+sudo apt --fix-broken install
+
+instead of using dpkg for installing a downloaded s/w package we can use apt itself to install, which takes care of resolving the dependent software libraries also at oneshot
+sudo apt install --file location.deb
+------------------------------------------------------------------------------------------
+
+ppa repositories
+----------------
+ppa stands personal package archives
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

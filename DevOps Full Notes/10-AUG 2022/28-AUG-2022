@@ -1,0 +1,357 @@
+YAML
+YAML stands for yet another markup language and it is an data representation standard used for storing or representing the data, it is similar to an xml/json language
+it is named as Aint Markup language which is nothing but not another markup language because it doesnt uses tags for representing the data like XML.
+
+When it comes XML it is too verbosed and difficult to learn, incase of Json it is equally verbose and has too many punctuations to overcome the above formats the YAML has been introduced which is considered as the most easiest data representation standard for representing thedata
+
+YAML also stores or represents the data in structured format and attaches semantics to the data, so that programs can easily read and perform the operations on that data. YAML greatly uses the intendations to represent the data
+
+YAML supports built-in primitive types as
+1. String
+Any sequence of set of characters of data is considered as String and we dont need to put the string in doube quotes
+2. Number
+any digits are considered as number
+3. Boolean
+true, false, yes, no, TRUE, FALSE
+
+YAML supports 2 types of data structures
+1. Map [maps are similar to objects]
+2. Lists
+
+1. Map
+Map is an key/value pair data used for representing an object or a thing, the key and the value are separated by a column. A space is mandatorily required after the key: for representing value
+
+xml
+----
+<account>
+	<account-no>938</account-no>
+	<account-holder-nm>Peter</account-holder-nm>
+	<account-type>savings</account-type>
+	<balance>9384</balance>
+</account>
+
+Json
+----
+{
+	"accountNo": 938,
+	"accountHolderName": "Peter",
+	"accountType": "savings",
+	"balance": 9384
+}
+
+YAML
+----
+accountNo: 938
+accountHolderName: Peter
+accountType: savings
+balance: 9384
+	
+#2. List
+json
+-----
+["hyderabad", "new delhi", "banglore", "jaipur"]
+
+xml
+----
+<places>
+	<place>Hyderabad</place>
+	<place>New Delhi</place>
+	<place>banglore</place>
+	<place>Jaipur</place>
+</places>
+
+YAML
+----
+- Hyderabad
+- New Delhi
+- Banglore
+- Jaipur
+
+every YAML file starts with --- and ends with ..., it is not mandatory rather optional to write these "---" and "..." and the YAML file has to be saved with an extension ".yaml" or ".yml"
+	
+groceries.yml
+---
+- dal
+- jira
+- cummin seeds
+...
+	
+we want to make a list of shopping items for groceries and vegetables, to represent both these informations we generally write 2 yaml documents/files
+groceries.yml
+---
+- dal
+- jira
+- cummin seeds
+...
+	
+vegetables.yml
+---
+- brinjal
+- cucumber
+- carrot
+...
+	
+Instead we can combine these 2 YAML files into one single yml file as below
+shoppingitems.yml
+---
+- dal
+- jira
+- cummin seeds
+...
+---
+- brinjal
+- cucumber
+- carrot
+...
+	
+From the above we can understand we can combine multiple document into onesingle yml file.
+Let us try to represent more complex data in YAML format
+
+passport
+passportNo, passportHolderName, dob, place of birth, gender, issued dt, expiry date, addresses, issuedBy
+addressLine1, addresLine2, city, state, zip country
+present:
+permanent:
+
+	
+passport.json
+{
+	"passportNo": "p03830",
+	"passportHolderName": "John",
+	"dob":"22/04/1990",
+	"gender": "Male",
+	"placeOfBirth": "Hyderabad",
+	"issuedDate": "12/11/2009",
+	"expiryDate": "12/10/2019",
+	"issuedBy":"Passport Authority Hyderabad",
+	"addresses": [
+		{"addressLine1": "3/83, Main Street",
+		"addressLine2": "Beside lake",
+		"City": "Hyderabad",
+		"state": "telangana",
+		"zip": 9384,
+		"country": "India"},
+		
+		{"addressLine1": "3/83, Main Street",
+		"addressLine2": "Beside lake",
+		"City": "Hyderabad",
+		"state": "telangana",
+		"zip": 9384,
+		"country": "India"}
+	]
+}
+
+passport.yml
+-------------
+passportNo: p3834
+passportHolderName: John
+dob: 12/11/1990
+gender: Male
+placeOfBirth: Hyderabad
+issuedDate: 11/11/2009
+expiryDate: 11/10/2019
+issuedBy: Hyderabad Authority
+addresses:
+	- addressLine1: 3/83, Main Street
+	  addressLine2: Main Street
+		city: hyderabad
+		state: telangana
+		zip: 833
+		country: India
+	- addressLine1: 83-38, Near Bus depo
+	  addressLine2: old towers road
+		city: banglore
+		state: karnataka
+		zip: 9384
+		country: India
+------------------------------------------------------------------------------------------------------------------------
+
+project information
+projectno, projectname, description, startdate, enddate, estimatedPersonHours, clientName, clientLocation, portifolio
+technologies(java, spring, jpa)
+teamMembers(peter, andrew, matt)
+
+project.yml
+---
+projectNo: 938
+projectName: Fithealth
+description: patients information system
+startdate: 10/01/2022
+enddate: 10/10/2025
+estimatedPersonHours: 40500
+clientName: Athena
+clientLocation: New Jersey
+portifolio: Healthcare
+technologies:
+  - java
+  - spring
+  - jpa
+teamMembers:
+  - peter
+  - andrew  
+  - matt
+...
+-----------------------------------------------------------------------------------------------------------------------
+
+		
+order information		
+orderno, ordereddate, customer name, mobileno, email address, storename, totalquantity, amount and
+products: productName, quantity, unit price, totalPrice
+ 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

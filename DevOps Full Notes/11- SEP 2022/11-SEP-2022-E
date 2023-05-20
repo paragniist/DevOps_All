@@ -1,0 +1,239 @@
+How many ways we can pass dynamic values as input to the playbook while execution?
+There are 3 ways we can pass the variables as an input while executing the playbook, we can even refer them as playbook level variables
+1. --extra-vars 
+2. local variables within the playbook using vars
+3. vars-files
+
+#1. --extra-vars
+using --extra-vars we can pass variables with values at the command-line while running the playbook
+ansible-playbook -i inventoryFile --extra-vars var1=val1 --extra-vars var2=val2 playbook.yml
+
+#2. using vars for declaring local playbook variables
+we can delcare directly variables with values inside the playbook itself using vars declaration
+playbook.yml
+------------
+---
+- name: play
+	hosts: group
+	vars:
+		var1: val1
+		var2: val2
+	tasks:
+		- name: task1
+			module:
+				args:
+...
+	
+#3. vars_files
+instead of passing variables with values in command-line we can write them in an yml file and include them inside the playbook using vars_files
+
+variables.yml
+---
+var1: val1
+var2: val2
+
+playbook.yml
+---
+- name: play
+	hosts: group
+	vars_files:
+		- varfile1.yml
+		- varfile2.yml
+	tasks:
+	- name: task1
+		module:
+			args:
+...
+-----------------------------------------------------------------------------------------------------------------------
+How many types of variables can be declared in Ansible?
+There are 8 types of variables of different scopes can be used in ansible automation
+1. ansible global settings
+2. ansible pre-defined variables at inventoryFile
+3. user-defined variables at inventoryFile
+	- host
+	- group
+4. playbook variables
+5. vars_files
+6. --extra-vars
+7. register variables
+8. magic variables
+
+
+#7. register variables
+when we ask the control node server to execute a playbook, the control node server reads module by module transfers over the ssh to each managed node executes them locally on the managed node and transfers the outcome of execution over the network back to the control node server in json format and renders it.
+	
+we can capture/store the output of an module execution as an input into another module by storing the json property into an variable using register
+
+write a playbook to print the operating system name of the managed nodes
+
+---
+- name: play
+	hosts: all
+	tasks:
+	- name: task1
+		command: uname -a
+		register: osname
+	- name: print osname
+		debug:
+			msg: "{{osname}}"
+...
+
+The output of a command module has been stored in a variable and passed as an input to the debug module using register variable.
+				
+register variables are dynamic variables that are created during the playbook execution	unlike the other variables we declare in ansible
+------------------------------------------------------------------------------------------------------------------------
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

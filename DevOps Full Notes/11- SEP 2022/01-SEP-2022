@@ -1,0 +1,361 @@
+Inventory Files
+1. delcaring ansible managed nodes in inventoryFile [INI, YAML]
+2. working with groups in inventoryFile
+3. host ranges
+4. Inventory Variables
+
+Inventory Variables
+Variables are the placeholders in which we can store the values, so that we can avoid hardcoding the values and run the playbooks by passing different values for the variables
+The Inventory Variables
+1. are global variables that will passed to all the modules/playbooks that are executed against the hosts/groups on which those are defined
+2. Host level variables are used for defining or attaching information specific to an host-only.  if we wanted to define a variable global to all the module/playbook executions and is specific to host only then we need to declare variable at the host level. ideally configuration values, labels classifying the machine/usage are defined as host level variables
+3. group-level variables are used to define common variables applicable to the group of hosts
+
+There are 2 types of variables are there
+1. ansible pre-defined variables
+2. user-defined variables
+
+1. ansible predefined variables
+these are the variables defined by the ansible with pre-defined meaning attached. using these variables we can change the behaviour of the control node server being connected to the managed nodes in executing the modules/playbooks. The ansible predefined variables are prefixed with ansible_
+
+1. ansible_host
+2. ansible_port
+3. ansible_user
+4. ansible_password
+5. ansible_ssh_private_key_file
+6. ansible_become
+7. ansible_become_user
+8. ansible_become_password
+9. ansible_shell_type
+
+In addition we can define our own user-defined variables attaching the values we wanted to pass as an input for module/playbook execution
+
+How to declare variables?
+1. INI
+host-level variables:
+192.168.10.11 variableName=value variableName=value
+
+group-level variables:
+[dbserver]
+192.168.10.11
+192.168.10.12
+	
+[dbserver:vars]	
+variableName=value
+variableName=value
+
+2. YAML
+host-level variables
+
+all:
+  hosts:
+    192.168.10.11:
+			variableName=value 
+			variableName=value
+  children:
+		dbserver:
+			hosts: 
+				192.168.10.12
+				192.168.12.12
+			vars:
+				variableName: value
+				variableName: value
+------------------------------------------------------------------------------------------------------------------------
+ansible host alias
+in addition to the host address we assign an alias name to the host for added readability
+
+~/hosts
+splunk_server ansible_host=192.168.10.11 
+------------------------------------------------------------------------------------------------------------------------
+Playbook
+To perform an automation on the fleet servers we need to execute a bunch of ansible modules sequentially by orchestrating them. manually executing the ansible modules on fleet is a tough job
+Instead we can declare the modules we wanted to execute on the ansible managed nodes and archestrate them by using playbooks.
+	
+Playbooks are written in YAML file format, the ansible developer/ops engineer delcares all the modules he wanted to apply on the managed nodes to achieve the desired system state in a playbook and pass it as an input to the control node server
+
+since the playbooks are structured and has semantics (programmable format), the control node server reads the playbooks identifies the modules declared and executed them on the fleet
+
+An automation we wanted to apply on the fleet is called a play. In a playbook we can have multiple plays. Each play represents a group of tasks we wanted to execute on the machines to achieve desired state of the system.
+	
+For a project to be setup/deployed we might have to perform multiple automations like
+1. installing and configuring tomcat server
+2. installing and configuring mysql server
+
+these 2 automations can be orchestrated into 2 plays separately so that we can choose to apply which plays on which fleets.
+	
+These 2 plays can be written either in 1 playbook yaml file as 2 documents or we can write in 2 playbook yamls separately, because an YAML file allows us to write multiple documents inside it
+
+The decision of combining multiple plays into an single playbook file depends on how those 2 plays are executed.
+if there are multiple plays that always co-exists and has to be applied for completing the automation, we can combine multiple plays into one single playbook file
+
+How does the playbook file looks like?
+syntax/structure of playbook file:
+
+playbook.yml
+---
+- name: play1
+	hosts: groupName 
+	tasks:
+		- name: task1
+			module:
+				argName: argValue
+				argName: argValue
+	  - name: task2
+			module:
+				argName: argValue
+				argName: argValue
+	
+- name: play2
+  hosts: groupName
+...
+
+
+		
+A task represents a named execution of a module, through tasks we can control the execution of a module as well. by looking at the taskName we can understand why we are executing the module for. so a play contains multiple tasks to be applied/executed to achieve desiredsystem state
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

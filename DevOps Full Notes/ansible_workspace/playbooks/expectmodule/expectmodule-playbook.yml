@@ -1,0 +1,17 @@
+---
+- name: expectplay
+  hosts: all
+  tasks:
+  - name: expect to add numbers
+    expect:
+      command: ./addNumbers.sh
+      chdir: /home/vagrant
+      echo: true
+      responses:
+        "enter a:": 10
+        "enter b:": 20
+    register: sum
+  - name: print sum
+    debug:
+      msg: "sum: {{sum}}"
+...

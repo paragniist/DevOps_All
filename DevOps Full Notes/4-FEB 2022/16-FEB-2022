@@ -1,0 +1,157 @@
+There are 2 types of users are there in linux operating system
+1. Root user
+2. Normal user
+
+#1. Root user
+During the installation of the operating system, the user we create becomes the Root of the linux operating system. Root user has un-restricted access to the entire resources of Linux system. he can perform
+	1. user management
+	2. file management
+	3. process management
+	4. device management
+	5. system configuration management
+	6. package management
+	etc
+	
+#2. Normal user
+The Root can additional add users to the linux operating system inorder to grant the access to the machine to other users.
+The Normal users can only create files/folders within his/her home directory, can manage only the process of their own.
+	
+#3. Groups
+Root user of the linux operating system can grant permissions to individual normal users of the linux, even though we can manage permissions at the each user level, it is an tedious job and keeping track of who has been given what permissions are highly difficult, so to easily manage permissions linux has introduced groups
+
+Groups are meant for grouping the related set of users together so that we can grant access to the group level and manage it easily
+-----------------------------------------------------------------------------------------------
+Root can add additional users and create groups in linux machine
+
+user:
+1. Each user of a linux operating system is associated with few information as defined
+	1.1 username = each user has his own username with which he will be identified and should unique across other users of the system
+	1.2 uid = each user will be assigned with an unique id which is an auto-generated number while adding the user
+	1.3 password = password to verify the user
+
+group
+2. similar to the user, when we add group in linux the group also is associated with few information as below
+	2.1 groupname = each group should be defined with a name to identify
+	2.2 gid = group id for the group will be assigned through auto-generation
+	
+What will happen when we add a user to the linux system?
+The Root user can add other users into the linux system, while creating/adding the user into the linux system the below activities will be taken place automatically
+	1. The linux operating system generates an uid automatically to the user by incrementing the last user uid + 1 and associates the uid to the user we are adding
+	2. Every user in linux must and should be associated with a group, so when we add an user into the linux operating system, the linux will automatically creates a group with name of the user as the groupname and generates gid for the group by incrementing last group gid + 1 and associates the user to the group it has created
+	3. For every user account we create, the linux will creates an default home directory under /home/$USER and associates the user to the home directory location
+		
+Note:- Every user must and should be associated with a group, a user cannot exists in linux without any group
+-----------------------------------------------------------------------------------------------
+Where does the users and groups of linux operating system are stored?
+The users the we add into the linux operating system, the linux has to keep this information in somewhere as part of the FileSystem that is where it holds the information about all the users of the linux operating system within a file under /etc/passwd
+Similarly all the groups of the linux system are stored in /etc/groups file
+
+-----------------------------------------------------------------------------------------------
+
+More about Root user:
+---------------------
+There can be only one Root user for the entire linux system, so that the total control of the entire system lies within one place with Root
+	1. The Root user is created during the installation of the operating system
+	2. The Root user has will be assigned with uid as "0", to identify
+	3. The Root user will be created with an home directory under /root
+	
+The user we add during the installation is the normal user of the linux operating system,	additional to the user we add during installation, linux will internally creates an separate root user with the password provided.
+	4. when we login into the linux operating system, we are permitted to login as an normal user only.
+	5. Now we can switch from normal user to root using sudo su - or sudo su, so that linux will prompt for password of the root to switch as root user
+	6. The prompt displays an "#" when you are in root
+	7. it is always recommended to avoid using root for performing operations.
+		
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

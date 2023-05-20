@@ -1,0 +1,270 @@
+Ansible playbook
+Playbooks are used for applying the automation on a fleet server to achieve desired state of the machine. Playbooks are written in YAML and contains lists of tasks with module declarations within them.
+
+How does ansible playbooks will execute?
+The playbooks are executed by default from the top to the bottom of the task declarations, and each task sequential on fleet by fleet server.
+by default forks = 5 configured in ansible.cfg
+So the #1 task will be picked up and triggered on #5 fleets at a time, there after again #1 task will be scheduled to execute on next #5 fleet servers until #1 task one completed execution on all the fleets it will not move to the task#2. In this way it executes all the tasks declared as part of the playbook sequentially from top/bottom one-by one
+
+The way of execution of the tasks on the fleet can be modifed by changing the execution strategies. during the execution of a task on any of the fleet servers has resulted in a failure, then the fleet server will be marked for skipping/omitted and continues to execute on remaining fleet
+
+task#1 -> 1 - 5 [fleets] = #3fleet server failure, 6 - 10 [fleets]
+task#2 -> 1 - 6 [fleets] skipping fleetserver#3, 7-10 [fleets]
+------------------------------------------------------------------------------------------------------------------------
+How does ansible output the execution of an playbook?
+The ansible control nodeserver displays the status of each task execution within a playbook indicating the status of task execution on each managed node of the fleet
+
+There are 5 possible statuses in which a task can be there and it is reported per each managed node
+1. ok(n)           = for how many task executions the control node is able to successfully connect to the managed nodes
+2. changed(n)      = indicates how many tasks of the playbook executions has changed the state of the managed node
+3. unreachable(n)  = how many task executions of the playbook failed due to unable to connect to the managed node
+4. failure(n)      = how many task executions of the playbook resulted in failure of execution
+5. skipped(n)      = how many task executions are omitted on the managed node The reasons can be 
+                     - unmatched condition
+										 - due to previous failures										
+-----------------------------------------------------------------------------------------------------------------------	Ansible Modules
+Modules represents a unit of work that can be applied on managed nodes. The ansible modules are written in Python language, they take input as arguments and produces the output as json format including the status of the action being performed on a node
+
+We dont need to develop/build any modules rather Ansible developer community has developed lot of modules and distributed them as part of ansible distribution, these modules that are shipped by the ansible developers as part of ansible distribution are called built-in modules of Ansible
+
+In addition to the build-in modules there are other developer communities and third-party organizations contributed in developing and distributing the ansible modules through ansible repositories because of popularity of ansible in the market
+few of the third-party contributors are 
+1. aws cloud platform
+2. vmware
+
+From the above we can understand there are unending list of ansible modules are there. It will be very difficult to identify a module and use as there are lot of modules, so to help us in easily locating them the ansible has grouped them into categories or groups. Now we can quickly locate of identify the modules by browsing through appropriate group of usage
+1. identity modules
+2. file modules
+3. packaging modules
+4. remote management modules
+
+We can browse the module list and their categories in
+https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html
+
+As there are lot of modules in ansible we cannot memorize all of those modules and their arguments in using them. so the best way to use these modules is browsing through documentation. but it would be good to memorize atleast few of the modules we commonly used for our automation
+
+The ansible has provided an CLI tool called ansible-doc using which we can acces the documentation of any module
+ansible-doc -l = list down all the modules that are shipped as part of ansible distribution
+ansible-doc moduleName = shows the documentation of a module
+------------------------------------------------------------------------------------------------------------------------
+Let us explore few of the popularly used ansible modules browsing through categories
+Command Category:
+Under the command category there are 2 modules popular being used 
+1. command
+2. shell
+
+The shell/command modules are used for executing any linux commands on the fleet. Looks like by using shell/command module itself we can achieve automation and we dont need any other modules of ansible. But it is not recommended to implement automation through these 2 modules, always we should choose appropriate module available in ansible distribution for achieving the designed state, because these 2 modules doesnt support idempotancy
+
+The command/shell modules simply transfers the shell command we passed as an input and executes the on the managed nodes over ssh and transfers the outcome of executing the command without checking the idempotancy
+
+Both command/shell modules are used for executing linux shell commands only, then why do we need 2 modules?
+There is a subtile different between these 2 modules
+1. command module = doesnt uses the shell capabilites for executing the linux commands on the node, so we cannot use shell capabilities like (pipes) | and redirections (>, <, >>,  <<) 
+2. shell module = by default uses /bin/sh for executing the linux commands so we can use both pipes and redirections
+
+#1. command module
+
+1.1 execute a given command
+command: command to execute
+
+command: echo "hi"
+
+1.2 execute the command by changing to the directory specified
+command: command to be executed
+   args:
+	   chdir: directory
+		 
+1.3 executes a command only when the specified file/directory doesnt exists under the given path
+command: command to be executed
+   args:
+     creates: path to the file
+		 
+command: tough ~/abc.txt
+   args:
+	   creates: ~/abc.txt
+		 
+		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

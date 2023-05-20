@@ -1,0 +1,153 @@
+YAML
+Yet another markup language. YAML is an data representation standard used for storing and representing the data in structured format attached with semantics so that the data becomes programmable
+
+DataTypes:
+1. string
+2. number
+3. boolean
+
+DataStructures:
+1. Map = Map is used for representing object type with key/value pair of data attached
+2. List = collection of similar type values
+	
+
+policy.yml
+---
+benefits: 
+  - copay
+  - "out of network coverage"
+  - "preexisting conditions"
+claims: 
+  - 
+    claimAmount: 40000
+    claimNo: c0383
+    claimedDate: 2022-04-23
+    description: "high fever"
+    hospitalName: Yashoda
+  - 
+    claimAmount: 40000
+    claimNo: c0384
+    claimedDate: 2022-07-23
+    description: fever
+    hospitalName: Apollo
+insuranceAmount: 500000
+memberInfo: 
+  dob: 2000-01-01
+  emailAddress: greg@gmail.com
+  firstName: Greg
+  gender: male
+  lastName: L
+  mobileNumber: 93839494728
+plan: 
+  planName: MedicalShield365
+  planNo: p33
+  planType: medical
+  policyEndDate: 2023-01-21
+  policyHolderName: Greg
+policyNo: p3839
+policyStartDate: 2022-01-22
+premiumAmount: 50000
+tenure: 12
+------------------------------------------------------------------------------------------------------------------------
+What is an Ansible Inventory file, how to write an ansible inventory file?
+The ansible control node server is an stateless, we dont store any of the information pertaining to the managed nodes of the ansible cluster. while applying the code automation by the ops engineer, either through ansible module/playbooks he has to provide the list of managed nodes on the cluster as well by writing an inventoryFile
+
+The default inventory file the ansible control node server looks at is 
+/etc/ansible/hosts
+in this file we need to declare the list of hosts/managed nodes on whom we wanted to apply the automation. so that while executing the module/playbook ansible control node server by default looks into the default inventory file for applying the automation
+
+Instead of using the default inventoryFile, we can also can create our own inventoryFile with list of managed nodes defined inside it and can pass it as an input using -i switch while running an module or a playbook
+
+ansible [group] -i inventoryFile -m moduleName -a args
+
+There are 2 ways we can write ansible inventory File format
+1. INI Format
+2. YAML Format
+
+1. INI Format
+In INI format each host is separated by a new line
+~/sqlhosts
+192.168.19.10
+192.168.19.20
+	
+2. YAML Format
+~/javahosts.yml
+all:
+  host: 
+    192.168.1.10
+		192.168.1.11
+
+ansible all -i ~/javahosts.yml -m ping
+
+In an organization the can be lot of machines, which are allocated to different projects, always we dont wanted to apply automation on all the servers within the organization. so instead of using default inventory file it is recommended to use project specific inventoryFile and pass it as -i while running the module/playbook
+
+For a given project there can be 200 servers are allocated, so we can create an inventoryFile specific to the project declaring all the #200 servers information. but we wanted to apply the automation only on a subset of machines of a similar type of the project, how can we apply the automation only to a subset of computers with in the project.
+
+To apply automation on subset of computers of a project define them into groups of similar type machines.
+There are 2 default groups in every inventory files
+1. all group
+2. ungrouped
+
+1. ungrouped = if there is a host/server not being defined in any group then it is part of ungrouped
+2. all = all the hosts in the inventoryFile will be part of all group
+
+~/hosts1 [INI File]
+192.168.10.11
+[javaservers]
+192.168.20.20
+192.168.20.21
+[mysqlservers]
+192.168.30.11
+192.168.30.12
+	
+ungrouped: 	192.168.10.11
+all : 192.168.10.11, 192.168.20.20, 192.168.20.21, 192.168.30.11, 192.168.30.12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	

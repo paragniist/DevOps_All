@@ -1,0 +1,230 @@
+How many types of control statements are there?
+There are 2 types of control statements are there
+1. conditional control statements
+based on the conditional evaluation, we want to execute a block of code, this can be done using conditional control statements. There are 2 types of conditional control statements are there
+	1.1 if statement
+	1.2 case statement
+	
+2. loop control statements
+if we want to repeatedly execute a line/block of code within our program then we need to use loop control statements
+
+for eg.. to execute a block of code repeatedly for n number of times within a place of our program we can write the same set of statements repeatedly as below.
+	
+echo "Good Morning"	
+echo "Welcome to Shellscripting"
+	
+echo "Good Morning"	
+echo "Welcome to Shellscripting"	
+	
+echo "Good Morning"	
+echo "Welcome to Shellscripting"
+	
+repeatedly writing the same set of lines has several problems
+The code is being duplicated for several times within our program so that it brings lot of maintainance problems like
+	1.1 if we need to make a change in the code, we need to modify not just one place, we need to modify it across all the places since we have written several times.
+	1.2 changes in the code requires more amount of time as it has been repeatedly written
+	1.3 high chances where if we commit mistake in changing, it would appear at all the copies of the code and introduces more errors/bugs
+	1.4 since we need more time in making the change or fixing a bug, the cost of maintainance is high
+	
+so avoid repeatedly writing the same code if we want to execute for more number of times instead of use loop control statements.
+	
+Loop control statements are used for executing a block of code repeatedly without duplicating the code for several times. There are 3 types of loop control statements are there
+1. while
+2. for
+3. until
+
+let us explore each of them below.
+	
+#1. while loop
+while loop is a loop control statement that is used for executing a block of code based on the condition. 
+syntax:-
+	while [ condition ]
+	do
+		statements
+	done
+here in the while loop we will specify the condition, util the condition remains true the lines of code written between do/done are executed repeatedly. if the condition fails, the loop will terminate and continues to executes the next line of code in the program.
+	
+COUNTER=1 
+while [ $COUNTER -le 5 ]	
+do
+	echo "good evening"
+	COUNTER=$[COUNTER+1]
+done
+echo "bye!"	
+	
+if we want to repeatedly execute lines of code for n times we need to take 3 things
+1. COUNTER variable = used for counting number of times the loop has been executed
+2. CONDITION = breaking the loop or execute the loop statements till the condition is true
+3. INCREMENT = incrementing the COUNTER to count number of iterations
+------------------------------------------------------------------------------------------
+wap to print N numbers.
+N=10 = 1 2 3 4 5 6 7 8 9 10
+
+printNNumbers.sh
+------------------
+#!/bin/bash
+read -p "n: " N
+COUNTER=1
+while [ $COUNTER -le N ]
+do
+	printf "%d " $COUNTER
+	COUNTER=$[COUNTER+1]
+done
+printf "\nbye!\n"
+------------------------------------------------------------------------------------------
+wap to print all the even numbers between 1 to N
+for eg.. N is 10, print all the even numbers between 1 - 10
+2 4 6 8 10
+	
+printEven.sh
+------------
+read -p "n: " N
+COUNTER=2
+while [ $COUNTER -le $N ]
+do
+	printf "%d\t" $COUNTER
+	COUNTER=$[COUNTER+2]
+done
+
+(or)
+	
+printEven.sh
+-------------
+read -p "n :" N
+COUNTER=1
+REM=0	
+while [ $COUNTER -le $N ]
+do
+	REM=$[COUNTER%2]
+	if [ $REM -eq 0 ]
+	then
+		printf "%d\t" $COUNTER
+	fi
+	COUNTER=$[COUNTER+1]
+done
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

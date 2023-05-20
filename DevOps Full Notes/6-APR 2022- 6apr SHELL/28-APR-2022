@@ -1,0 +1,108 @@
+functions
+----------
+What are functions why those are used?
+functions are used for executing a block of code at various different places within a shellprogram.
+for eg.. consider a snipped of code below which has #3 lines, we wanted to execute those #3 lines of code at 3 different places within our program, this cannot be done using loop control statements 
+The only way is to write the same block of code at 3 places withour shell program, the code becomes duplicated across the program and will run into maintainance problems
+	1. the chances of increasing the bugs will be more
+	2. if we need to make a change we need to modify at all the places
+	3. the time required for making the changes will be more
+	4. cost of rework is high
+	
+Instead of duplicating the code, we need to use functions	
+
+3 lines of code
+----------------
+ls
+echo "hi"
+cat f1.txt
+
+#100 lines program
+
+at line#10 (once)
+.
+.
+at line#30 (once)
+.	
+.	
+.
+at line#97 (once)
+
+What are functions?
+functions are reusable block of code that can be executed at different places within our shell program
+While working with functions our shell program is divided into 2 blocks of code
+#1. main block of code
+#2. function block
+
+Always the shell program code begins execution from main block of code only. By default functions will not be executed, functions will be executed only when those are called from main block or by any other function.
+
+How to write a function?
+syntax:-
+function functionName() {
+	#lines of code to be executed as part of the function
+}
+		
+program.sh
+-----------
+#!/bin/bash
+function greet() {
+	echo "iam in a greet function"
+	echo "thanks for calling"
+	echo "bye bye..."
+}
+
+#main block of code
+echo "hi"
+ls
+cat f1
+greet #calling function
+echo "bye..."
+
+
+
+./program.sh
+
+How to call a function?
+we just need to refer the name of the function from the main block or any other function when you want to call
+in the above program we can execute greet function just by referring greet as aname in the main block
+
+How does the flow of execution will happen when we write and call a function?
+#1. always our program begins execution from main-block only
+#2. within the main-block if we call the function by referring its name,  the program pointer/control will be transferred to the function block
+#3. all the lines of code in the function will be executed in sequential order
+#4. once the control reached to end of the lines of code in function the control will be returned to the next line of the function call in the main block and continues to execute till the end.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

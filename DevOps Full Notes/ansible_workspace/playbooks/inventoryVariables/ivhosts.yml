@@ -1,0 +1,17 @@
+---
+all:
+  hosts:
+    192.168.10.5:
+      mysql_dbname: rconnect
+      mysql_login_user: root
+      mysql_login_password: welcome1
+  children:
+    javaservers:
+      hosts: 
+        192.168.10.6:
+        192.168.10.7:
+      vars:
+        mysql_dbname: fithealth2
+        mysql_login_user: fithealthuser
+        mysql_login_password: fithealth@1    
+...

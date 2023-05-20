@@ -1,0 +1,117 @@
+How does docker runs multiple containers isolated from each other?
+The docker users the 3 key features of the linux operating system
+1. linux namespaces = namespaces are nothing but named compartments into which the objects can be grouped or managed together. An object in one namespace can be completely isolated from other objects of a different namespace.
+docker users 5 linux namespaces to keep the container running isolated
+1. pid
+2. net
+3. ipc
+4. mnt
+5. uts
+	
+2. cgroups
+cgroups stands for control groups through which we can limit the amount of system resources to be allocated to a process.
+	
+3. union filesystem
+docker users the union filesystem to package and distribute the docker container images.
+	
+Initially Linux does have these features to run containers isolated, later on from linux kernal 2.4.11 version in 2008, these features are added in support of running containers
+
+Docker Architecture
+There are 3 main core components are there in docker
+1. docker engine = docker engine is the core component of the docker echo system that takes care of running/managing the docker containers base on docker images. It has futher divided into 3 sub-components
+	1.1 docker daemon = http api that is used by the users are clients to communicate with the docker engine
+	1.2 containerd = component build by docker team, that performs several reponsibilities
+		1.2.1 building and packaging the docker images out of the image instructs from dockerfile
+		1.2.2 publishes/pulls the docker images from the docker container registry
+		1.2.3 converts the docker images into oci specification images and pass it down to the runc asking to spawn and run in a container
+	1.3 runc = a c library that takes care of reading oci specification images and spawns and manages the containers by talking to the underlying operating system.
+2. docker cli = tools to communicate with docker engine
+3. docker container registry = to publish and distribute images across the env/worlds
+------------------------------------------------------------------------------------------------------------------------
+What are docker objects?
+There are 2 types of objects are there in docker
+1. docker image
+2. docker container
+
+1. docker image
+A file packaged or compressed with application binary, dependent software packages & libraries, bins/libs that enables the container to communicate with the underlying docker engine along with instructions required for running the application put together is called an "docker image"
+	
+usually the application developers upon building their applications, will package the application into a docker image and distribute it by publishing the image into the docker container registry. Through the help of docker image, docker is able to abstract the delivery of an software application.
+No matter the application has been built on which technology/language, without bothering about the details of what env is required for running, which software packages and configurations needed to run the application, the enduser or an ops engineer can quickly run the application out of the image by running an docker command.
+because the image has been packaged with all the details along with the instructions to run it.	
+
+How to distribute the docker images?
+The docker images are published and distributed through docker container registry. The docker team has setup an public docker container registry called "docker hub". People around the world can bake the docker images packaging their application binaries and publish them into docker hub and can distribute them around the world.
+	
+To publish an docker image into the docker hub registry, we need to create an repository per each image. A repository basically represents an image.
+There are 2 types of repositories are there
+1. public repositories = The image that is published into the public repository is open to the world, any one can search for the image and download and use it or even can modify your image aswell
+	
+2. private repositories = The image published into a private repository is not discoverable or searchable by anyone, and to use the image or modify one require an access grant towards the image repository
+organizations can make use of the private repositories to publish their commercial project artifacts and keep them private from others
+
+To publish or discover/pull the images, we need to create an account in docker hub. The docker hub allows per user account to create only 2 private repositories and there is no limit and can create any number of public repositories per user.
+In case if we wish to have more private repositories we need to purchase a licensing plan
+
+Docker Images:
+There are lot of docker images created and published by various people around the world into the docker hub registry. The images can be categories into 4 groups
+1. docker official images
+2. docker verified
+3. Sponsored OSS (opensource software)
+4. community images
+
+1. docker official images = these are the images created and published by the docker team itself, most of the time these images acts as base images in creating our own images.
+2. docker verified images = these are the images created by the partners and are verified by the docker team and are published 
+3. sponsored oss = to promote opensource stack the docker encourages the community in building images which are verified by the docker team
+
+The above there are trusted and verified images that can be used always
+community images = these are the images build and published by unknown or any one around the world, which are not verified by the docker team and should be used at our own risk
+
+
+The docker team has provided an official docker image called "alpine" and the size of the image is 5mb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

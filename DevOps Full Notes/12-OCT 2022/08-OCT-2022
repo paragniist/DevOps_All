@@ -1,0 +1,41 @@
+What many types of subnets are there?
+There are 3 types of subnets
+1. private subnet
+2. public subnet
+3. hybrid subnet
+
+1. private subnet
+by default we create a subnet within the vpc, it acts as an private subnet. all the resources within the private subnet are accessible within the vpc only and cannot be accessed from the external world
+
+few things to recollect: 
+1. by default per each aws account; per region a default vpc across all the regions will be created by aws
+2. per each vpc we created an default route table will be created by aws cloud platform with default route as 
+vpccidr  local
+
+In a typical application deployment we deploy database on private subnet and application on public subnet
+
+Now database cannot be accessed from external network and can be only accessed by the resources of the vpc, so that it is secured
+---------------------------------------------------------------------------------------------
+Hybrid Subnet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+What are the best practices we need to follow in running an software package on linux machine?
+1. For each software application/program we want to execute create an separate user
+	1.1 The user we create should not be able to login into the system
+	1.2 dont need to have an home directory
+	1.3 should only be associated in his own group
+	1.4 should not have any password
+2. change ownership of the binary distribution package to the user
+3. change the permission of the files/folder to 540 or 500
+4. switch to the new user and launch the software package
+------------------------------------------------------------------------------------------
+How to run tomcat server binary distribution in linux?
+1. create an user for eg.. mwuser (no home, no password) and should belong to mwuser group only
+sudo useradd mwuser
+
+2. general best practise in running the binary distributions or any software packages is.
+	create an directory under "/" root called "/u01"
+sudo mkdir /u01
+sudo chown -R mwuser:mwuser /u01
+
+3. under that for each software package create an directory for eg.. we want to run tomcat server, then place tomcat-server distribution directory under /u01
+
+4. switch to mwuser
+sudo su mwuser
+
+5. download the apache-tomcat binary distribution tar.gz and place it under /u01 directory
+cd /u01
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.60/bin/apache-tomcat-9.0.60.tar.gz
+
+6. extract the apache-tomcat-9.0.60.tar.gz file
+gunzip apache-tomcat-9.0.60.tar.gz
+tar -xvf apache-tomcat-9.0.60.tar
+
+7. grant execute permission to apache tomcat server ./startup.sh shutdown.sh
+sudo chmod u+x apache-tomcat-9.0.60/bin/startup.sh apache-tomcat-9.0.60/bin/shutdown.sh
+
+8. To make tomcat server launch from any directory location on our machine there are 2 ways are there
+	1. add /u01/apache-tomcat-9.0.60/bin to the PATH variable by modifying ~/.bashrc
+	2. create an symlink for startup.sh and shutdown.sh under /usr/bin directory
+------------------------------------------------------------------------------------------
+Linux Text processing Commands
+-------------------------------
+The text processing commands are used for taking a text of characters as an input either from the STDIN or from a file and apply actions/operations on the content like
+1. searching for a given text
+2. extracting the contents of the file based on delimeter
+3. substituting or replacing a text
+4. searching and deleting the text content
+There are quite a number of linux shell utilities are available to perform the text processing as below.
+	1. cut
+	2. paste
+	3. awk
+	4. sed
+	5. sort
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

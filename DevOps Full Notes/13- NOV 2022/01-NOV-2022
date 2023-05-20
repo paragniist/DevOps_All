@@ -1,0 +1,190 @@
+How to pass the aws access key and secret access key to the terraform CLI?
+There are 3 ways are there 
+#1. Shared File
+we need to create credentails file under ~/.aws/ directory, into which we need to add the below properties populated with the corresponding values
+~/.aws/credentails
+[profile]
+aws_access_key=accesskey
+aws_secret_access_key=secretcode
+
+profile = is used for supporting multiple aws accounts or IAM users
+
+#2. through environment variables
+export the env variables with the names as below
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+	
+#3. through terraform configuration file	
+in the terraform configuration file within the provider block we can declare
+provider "aws" {
+	access_key = ""
+	secret_key = ""
+}
+------------------------------------------------------------------------------------------------------------------------
+How to provision the infrastructure on aws cloud platform using terraform?
+To provision the infrastructure resources using terraform, we need to declare resources information that we wanted to provision by writing in terraform configuration file
+
+There are 2 formats in which we can write the terraform configuration file
+1. HCL = HCL stands for Hashicorp Language
+2. JSON = Terraform supports declaring resources in JSON format as well.
+	
+It is preferred to write the terraform configuration in HCL format than JSON, since it is easy to read and understand
+
+In terraform configuration file we can write 2 types of declarations
+1. Resource declaration
+Resource declaration are way through which we tell the terraform to provision an resource on the cloud provider platform
+2. DataSource declaration
+DataSource declarations are way we ask terraform to query the existing resources that are already of the cloud provider platform. For eg.. we wanted to provision an ec2 instance within an existing vpc/subnet, they way we can fetch the existing vpc/subnet of our account so that we can pass it as an input to ec2 resource declaration is through the help of datasource declaration
+
+#1. Resource declaration
+A Resource declaration indicates the resource we wanted to be provisioned on the cloud provider platform. for eg.. if we want to provision an ec2 instance on aws cloud provider platform we need to write ec2 resource declaration describing the details of the instance we wanted to provision in terraform configuration file
+The resource declarations differs from provider to provider, since each provider has their own services/resource types.
+	
+Syntax:-
+resource "TYPE" "NAME" {
+	resource configuration
+}	
+
+1. TYPE = indicates the type of resource we want to provision. For every cloud provider, the resource type will starts with cloudprovidername_resourceType.
+for eg.. if we want to provision an ec2 instance on aws cloud provider then the resource type will be "aws_ec2", so that we can quickly identify the resource we are referring from
+
+2. NAME = The NAME we declare here doesnt refers to the name of the resource we want to create, its just an configuration name or block name we gave to the resource declaration. using the name we can refer the resource in expressing dependencies across the resources
+
+For eg.. we want to create an vpc with name "javavpc" and within the javavpc we want to create a subnet called "javasubnet". So we can tell the terraform to create javasubnet under javavpc by referring to the RESOURCENAME as shown below.
+	
+resource "aws_vpc" "javavpc" {
+	cidr = "10.0.0.0/16"
+	tags = {
+		NAME = "javavpc"
+	}
+}	
+	
+resource "aws_subnet" "javasubnet" {
+	cidr = "10.0.1.0/24"
+	vpc_id = aws_vpc.javavpc.id
+	tags = {
+		NAME = "javasubnet"
+	}
+}
+
+In the above aws_subnet resource declaration we are referring to the vpc_id pointing to javavpc.id, that is how we express depenencies between the resources or we can refer resources using the name
+
+when we apply the above terraform configuration by passing to terraform CLI, the terraform will generates an acyclic graph representing the resources and their dependencies to identify the resources has to be created in which order
+
+There are lot of resource types are there supported by each cloud provider, it will be practically impossible to memorize the resource types and their declarations in writing terraform configuration file, we need to refer the provider declarations documentation provided by terraform 
+
+#2. datasource declaration
+datasources is used for querying the existing resources available on the cloud platform, so that using these references we can create resources within them
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

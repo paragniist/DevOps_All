@@ -1,0 +1,175 @@
+What is the change in culture/process and what tools and technologies has to be adopted during qa phase of the application in order to adopt devops methodology?
+1. qa engineer requires qa environment to verify the application
+the developer provides the inputs related to software packages, configurations and tools to be installed on the qa environment to run the application. based on the inputs the devops engineer has to setup the qa environment.
+qa environment is similar to production like environment, setting up the qa environment manually takes lot of time and errornous also, so devops engineer has to automate the process of creating the infrastructure using
+	1.1 cloud = infrastructure
+	1.2 terraform = automate the creation of infrastructure through code
+	
+2. Now the ops engineer has to install software packages and should perform configurations, install and configuring the softwares manually again takes lot of time. so devops engineer has to adopt automation in installing and configuring the software using
+	1. chef
+	2. ansible
+	3. puppet
+	4. salt stack
+	etc
+write the code in installing and configuring the software using any of the above tools and execute on the infrastructure created on cloud.
+
+3. pull the exectuable file of the project from artifactory repository and run on the qa environment setup above
+
+4. share the qa environment details to the qa engineer for testing.
+	
+5. qa engineer has to verify the application is working as per the requirement or not by conducting various different types of testcases.
+if qa engineer is performing these tests manually it takes lot of time and it is even repeatitive process in testing and certifying
+	- features
+	- bugs
+	- patches
+	and releases
+which will delays the delivery of the application and increases the cost of development and delivery of the application
+
+qa engineer has to adopt test automation in conduting/executing the testcases. there are several tools/softwares are there the qa has to use for automation like
+	- selenium
+	- webdriver
+	- testNG
+	- cucumber
+	- Test Runner
+	- Load Runner
+	- QTP
+
+qa engineer will always be a sprint behind the development sprint in accomplishing the test automation.
+	- the current sprint deliverables are certified by the qa engineer manually
+	- the previous spring deliverables are automated for testing in the current sprint.
+
+How does testing happens in certifying for the release?		
+1. When the developer has delivered the userstory/features for verification, the qa engineer will test the feature manually and approve it
+2. once the overall features of the sprint are tested and ceritified individually those are merged into develop branch and an integration testing has to be done by the qa engineer to certify the overall system state
+
+at this moment, the qa has to perform testing in 3 stages on the whole system
+	1. all the features of the current sprint are tested manually
+	2. run the test automations on the entire code base for certifying the overall system
+	3. there could be few tests which are not feasible to be automated, those tests also has to be conducted manually by the qa
+once the whole testing has been done, the qa will approve the code for release.
+
+The devops engineer even though he has automated each stage of activity through different automation tools, still these tools has to be triggered or executed manually to setup the overall system and test it, which takes huge amount of time.
+	
+Instead of it the devops engineer can setup Continous Delivery Pipeline using Jenkins/Bamboo/Hudson software tools
+
+1. Continous Integration = to quickly certify the code developed by the developer to be qualified for testing
+2. Continous Delivery = will pull and executes the code on qa environment for facilitating the qa to conduct testing
+-----------------------------------------------------------------------------------------------
+What is the change in culture/process and adoption of new tools and technologies during delivery phase of the application inorder to adopt devops process?
+
+Release-I
+Since it is Release-I there is no existing application running in the production, so the devops engineer has to setup the application for release from scratch.
+	- infrastructure [cloud, terraform]
+	- networking
+	- security
+	----------------------------------------------------------------------------
+	- software installations and configurations [ansible, puppet, chef, salt stack]
+	-------------------------------------------------------------------------------
+	- pulling the code from artifactory which is labelled for release
+	- run on production infrastructure and make it available to customers
+-------------------------------------------------------------------------- 
+jenkins pipeline continous delivery
+
+#1
+There are few software products that would be bundled with updater tools which just need to be pushed into public repository, where the updater tools are going to download the software package, patches or bundles and are applied automatically in upgrading the existing infrastructure.
+In this case the job of devops engineer is to pull the executable from private repository and publish into release repository of the organization.
+For which the devops engineer will setup continous delivery pipeline in jenkins/bamboo/hudson
+
+#2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

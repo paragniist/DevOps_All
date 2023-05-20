@@ -1,0 +1,6 @@
+virtualbox network 
+-------------------
+
+There are 6 network interface cards supported by oracle virtualbox
+1. AMD PCnet-PIC II
+2. AMD PCnet-Fast III

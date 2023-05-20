@@ -1,0 +1,16 @@
+---
+- name: service play
+  hosts: all
+  tasks: 
+  - name: install apache2
+    apt:
+      name: apache2
+      state: present
+      update_cache: yes
+    become: yes
+  - name: restart apache2
+    service:
+      name: apache2
+      state: stopped
+    become: yes
+...

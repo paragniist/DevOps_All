@@ -1,0 +1,140 @@
+How to read the data interactively during the execution of a shellscript program?
+The bash has provided an instruction called read used for collecting the data from the STDIN (keyboard)
+	
+read VARIABLENM	
+while asking the user for an input, prompt the user with an message leting him know what is the input he has enter by printing a message
+read -p "message" VARIABLENM
+
+WAP to read the aadhar no as an input from the user and print no of characters in the given aadhar no
+
+readAadhar.sh
+#!/bin/bash
+read -p "enter aadhar no:" AADHAR_NO
+echo $AADHAR_NO | wc -c
+------------------------------------------------------------------------------------------
+How to pass the data as an input to the shell program non-interactively?
+When we are collecting the data as an input in our program interactively, the program will be blocked for execution util the user enters the input, so that always the user who is running the program should be available and should pass the input whenever prompted. We cannot achieve touchless automation in running the programs
+
+since we know at the time of running the program which values we wanted to use we can pass all of those values required as an input at the time of launching the program itself non-iteractively which are called "program arguments"
+	
+addNumber.sh
+-------------
+#!/bin/bash
+A=$1
+B=$2
+SUM=$[A+B]
+echo "sum : $SUM"
+
+
+running:-
+----------------------
+chmod u+x addNumber.sh
+./addNumber.sh 10 20 
+./addNumber.sh 30 40
+	
+	
+The values we supply at the time of running the program are called program arguments which are nothing but input values passed to the program, each argument should be separated by space
+The bash interpreter upon looking at the filename followed by values separated by space, it will understand we want to run the given shellfile by passing those input values and quickly creates an implicity/special variables begining with 1 2 3 ...n depends on number of values we passed and assigns the values we supplied in the respective order
+so if we want to access the 1st argument we supplied inside the shellprogram we need to use $1, similarly 2nd argument with $2 goes on
+in addition there are still some more special variables are available as below
+
+$0 = gives you the filename of the program we are running
+$1 = 1st argument
+$2 = 2nd argument
+.
+.
+.
+$n = nth argument
+$# = tells you number of arguments passed as an input
+$@ = returns all the arguments we passed as an input
+$* = both $@ and $* is same with only 1 minor difference
+
+random.sh
+----------
+$@[2] = in this case string is interpreted as 1 argument
+$*[2] = in case of * it ignores quotes and consider space to be as an argument separator
+
+./random.sh 10 20 '30 40'
+	
+wap to take 3 numbers as an input non-interactively and sum them and display the output
+------------------------------------------------------------------------------------------
+How to perform arthematic operations in shell program?
+By default everything that we write in a shell program is treated as a character or command to be interpreted and executed by the shell interpreter
+To let the shell interpreter understand we are asking him to perform arthematic operation taking the values as an input we need to write arithematic expression
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

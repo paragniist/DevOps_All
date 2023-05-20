@@ -1,0 +1,175 @@
+hostsite.sh
+------------
+#!/bin/bash
+
+function checkAndInstallApache2Server() {
+	dpkg -s apache2
+	local APACHE2_SERVER_FOUND = $?
+	if [ APACHE2_SERVER_FOUND -ne 0 ]
+	then
+		sudo apt update -y
+		sudo apt install -y apache2
+		local APACHE2_INSTALLED_STATUS=$?
+		if [ $APACHE2_INSTALLED_STATUS -ne 0 ]
+		then			
+			return 200
+		fi
+	else
+		local APACHE2_RUNNING_STATUS = $(sudo systemctl status apache2 | grep "Active" | awk '{print $2}')
+		if [ $APACHE2_RUNNING_STATUS == "inactive" ]
+		then			
+			return 300
+		fi
+	fi
+	return 0
+}
+
+function setupSiteDirectory() {
+	if [ ! -e $ZIP_LOC ]
+	then
+		return 400
+	fi
+	
+	if [ -d /var/www/$SITE_DIR ]
+	then
+		var today=`date +%m%d%y%H%S`
+		sudo mv /var/www/$SITE_DIR /var/www/$SITE_DIR_'$today'	
+	fi
+	
+	sudo cp $ZIP_LOC /var/www
+	sudo tar -xzvf /var/www/$ZIP_LOC	
+	sudo chmod -R 755 /var/www/$SITE_DIR
+	
+	return 0
+}
+
+function checkAndConfigureApache2Site() {
+	local var APACHE2_SITE_CONFIG_STATUS=0
+	if [ ! -e /etc/apache2/sites-available/$SITE_DIR.conf ]
+	then
+		sudo cp apache2site.conf.tmpl /etc/apache2/sites-available/$SITE_DIR.conf
+		sudo sed -i 's/:SERVER_NAME/$DOMAIN_NM/g' /etc/apache2/sites-available/$SITE_DIR.conf
+		sudo sed -i 's/:DOCUMENT_ROOT/$SITE_DIR/g' /etc/apache2/sites-available/$SITE_DIR.conf	
+		sudo a2ensite $SITE_DIR
+		sudo systemctl reload apache2
+		local APACHE2_SITE_CONFIG_STATUS=$?
+		return $APACHE2_RELOAD_STATUS
+	fi
+	return 0	
+}
+
+function checkAndAddDNSEntry() {
+	sudo cp /etc/hosts /etc/hosts.bak #good practise
+	sudo grep "$DOMAIN_NM" /etc/hosts
+	local DNS_ENTRY_FOUND=$?
+	if [ $DNS_ENTRY_FOUND -ne 0 ]
+	then
+		sudo chmod 755 /etc/hosts
+		sudo echo -e "\n127.0.0.1   $DOMAIN_NM" >> /etc/hosts
+	fi
+}
+
+function checkUfw() {
+	local UFW_STATUS=$(sudo ufw status | grep "Status:" | awk '{print $2}')
+	if [ $UFW_STATUS == "active" ]
+	then
+		sudo ufw verbose | grep "80/tcp"
+		local RULE_STATUS=$?
+		if [ $RULE_STATUS -ne 0 ]
+		then
+			sudo ufw allow 80
+		else
+			local HTTP_STATUS=$(sudo ufw verbose | grep "80/tcp" | awk '{print $2}')
+			if [ $HTTP_STATUS == "deny" ]
+			then
+				return 500
+			fi
+		fi
+	fi
+	return 0
+}
+
+#main block
+
+NARGS=$#
+if [ $NARGS -ne 3 ]
+then
+	echo "error: sitedirectory, zipLocation and domainname are required!"
+	exit 100
+fi
+SITE_DIR=$1
+ZIP_LOC=$2
+DOMAIN_NM=$3
+
+checkAndInstallApache2Server
+
+var APACHE2_SERVER_STATUS=$?
+if [ $APACHE2_SERVER_STATUS -eq 200 ]
+then
+	echo "error: failure during the installation of apache2 server, please check the logs"
+	exit 200
+elif [ $APACHE2_SERVER_STATUS -eq 300 ]	
+then 
+	echo "error: apache2 server is down, start and re-lauch the script to host the application"
+	exit 300
+fi
+
+setupSiteDirectory
+var SITE_DIRECTORY_STATUS=$?
+
+if [ $SITE_DIRECTORY_STATUS -eq 400 ]
+then
+	echo "error: zip location is not found"
+	exit 400
+fi
+
+checkAndConfigureApache2Site
+var SITE_CONFIG_STATUS=$?
+if [ $SITE_CONFIG_STATUS -ne 0 ]
+then
+	echo "error: while configuring apache2 site, please check the logs"
+	exit $SITE_CONFIG_STATUS
+fi
+checkAndAddDNSEntry
+checkUfw
+
+
+
+
+hostsite crazyeats ~/public_html/crazyeats.tar.gz www.crazyeats.com
+           $1                   $2                    $3
+					 
+apache2site.conf.tmpl
+<VirtualHost *:80>
+	ServerName :SERVER_NAME:
+	DocumentRoot /var/www/:DOCUMENT_ROOT:
+</VirtualHost>
+
+cp site.conf.tmp /etc/apache2/sites-available/crazyeats.conf
+sed -i 's/:SERVER_NAME:/$DOMAIN_NM/g' /etc/apache2/sites-available/crazyeats.conf
+sed -i 's/:DOCUMENT_ROOT:/$SITE_DIR/g' /etc/apache2/sites-available/crazyeats.conf
+
+crazyeats.conf
+---------------
+<VirtualHost *:80>
+	ServerName www.crazyeats.com
+	DocumentRoot /var/www/crazyeats
+</VirtualHost>
+
+toyland.conf
+------------
+<VirtualHost *:80>
+	ServerName www.toyland.com
+	DocumentRoot /var/www/toyland
+</VirtualHost>
+
+
+
+
+
+
+
+
+
+
+

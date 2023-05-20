@@ -1,0 +1,352 @@
+#2. vagrant networking
+instead of we working with hypervisor provider supported networking modes, the vagrant has provided networking modes using which we can configure the networking for the virtual machines
+There are 2 reasons why vagrant has provided networking modes of their own
+1. irrespective of the underlying hypervisor provider supported networking modes we can configure networking for the virtual machines. (hypervisor provider networking options are abstracted)
+2. the machine configurations we wrote in Vagrantfile works across any hypervisor provider since vagrant takes care of mapping internally the vagrant networking configuration to underlying hypervisor networking 
+
+Vagrant supports 3 network modes:
+1. forwarded_port
+2. private_network
+3. public_network
+
+The above network modes of vagrant are mapped to the virtualbox networking modes as below.
+#1. forwarded_port
+it is an nat network with port forwarding in oracle virtualbox networking
+purpose:-
+during the time of development of our application, developer wants to deploy the application on the server environment to test the code he has written. Now he can setup the server env as virtual machine by configuring the networking mode as (NAT), so that the virtual machine has external network access. To test the application from host machine (client environment) he can configure port forwarding.
+This results in an highly secured environment for developing the application
+
+#2. private network
+private network is nothing but Internal network adapter in virtualbox where all the vms connected to the same private network can communicate with each other. But the virtual machines will not have access to the external network or host/external network cannot communicate with virtual machines.
+purpose:
+when we are deploying multi-tier applications, we run application on one vm and database on separate vm. the database server vm should be accessed only from java server vm only, this can be achieved by keeping them within the private network with an network name. 
+	
+#3. public network
+public network is configured as bridge network adapter in oracle virtualbox networking. it is less secured and not recommended for production deployments
+
+purpose:
+during the development we wanted to allow the virtual machine to be accessed from anywhere, we are not bothered about security in such case we use public network
+
+How to configure the above networking modes in vagrant configuration file?
+In the vagrant configuration file along with boxname we need to specify the network mode as below:
+
+Vagrant.configure(2) do | config |
+	config.vm.box="boxname"
+	config.vm.synced_folder "sourcelocation", "guestMountLocation"
+	config.vm.network "networkMode" [configuration options based on network mode we are using]
+end
+
+The networking configuration options differs from network_mode we are using
+
+#1. forwarded_port
+syntax:
+config.vm.network "forwarded_port", guest: guestPort, host: hostPort
+
+Vagrant.configure(2) do | config |
+	config.vm.box="boxname"
+	config.vm.network "forwarded_port", guest: 80, host: 8080
+end
+In the above configure we are specifying the forwarded_port as if we send the request to the host port: 8080 it should forward the traffic to the guest application running the vm on port: 80
+http://localhost:8080 -> it will forward the request to guest machine application running on "80" port
+
+#2. private network
+A private network maps to host-only network adapter in virtuabox
+There are multiple options are there in configuring private network in vagrant file.
+	
+2.1 DHCP Enabled
+by enabling the dhcp,the ip address of the vms are generated dynamically
+
+Vagrant.configure(2) do | config |
+	config.vm.box = "boxname"
+	config.vm.network "private_network", type: "dhcp"
+end
+
+2.2 static ip address binding
+instead of enabling the dhcp we wanted the vm to be configured with fixed ip address, so that each time the machines are booted with same ip address. This will be helpful for accessing the database server from java server vm over the fixed ip. 
+
+Machine#1 (java server)	
+Vagrant.configure(2) do | config |
+	config.vm.box = "boxname"
+	config.vm.network "private_network", ip: "192.168.10.1"
+end
+
+Machine#2 (database server)
+Vagrant.configure(2) do | config |
+	config.vm.box = "boxname"
+	config.vm.network "private_network", ip: "192.168.10.2"
+end
+
+#2.3 make an private network for both the virtual machines 
+
+Machine#1 (java server)	
+Vagrant.configure(2) do | config |
+	config.vm.box = "boxname"
+	config.vm.network "private_network", ip: "192.168.10.1",virtualbox_intnet: "fithealthnetwork"
+end
+
+Machine#2 (database server)
+Vagrant.configure(2) do | config |
+	config.vm.box = "boxname"
+	config.vm.network "private_network", ip: "192.168.10.2",virtualbox_intnet: "fithealthnetwork"
+end
+
+#3. public_network
+The public network in vagrant is configured as bridge network in underlying hypervisor provider
+There are multiple configuration options are available in configuring public network 
+
+3.1 default network adapter will be used for bridge
+
+Vagrant.configure(2) do | config |
+	config.vm.box="boxname"
+	config.vm.network "public_network"
+end
+ip address is generated dynamically and default network adapter of the host will be used for bridge
+
+3.2 static ip
+Vagrant.configure(2) do | config |
+	config.vm.box="boxname"
+	config.vm.network "public_network", ip: "192.168.10.11"
+end
+
+3.3 we can specify the physical network adapter of the host machine to be used for bridge
+Vagrant.configure(2) do | config |
+	config.vm.box="boxname"
+	config.vm.network "public_network", bridge: ["Killer Wireless-n/a/ac 1535 Wireless Network Adapter"]
+end
+How to find the physical network adapter names of the host machine?
+on the host machine open command prompt and type ipconfig /all displays list of network adapters of the host.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

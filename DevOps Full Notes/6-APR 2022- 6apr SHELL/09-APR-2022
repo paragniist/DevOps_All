@@ -1,0 +1,260 @@
+How to pass data as an input to the shell program non-interactively?
+Non-interactive inputs means the program arguments we pass as an input while launching the program, it is majorly used for achieving touchless automation
+
+The shell interpreter program takes the arguments we supplied while launching the program and stores them in a special variables starts from $0 to $n to make this data available for program to use
+$0 = program filename
+$1, $2.. $n = implicit variables using which we can read the respective arg values which are passed along with the program
+$# = no of arguments
+$@ or $* = help us in accessing all the arguments supplied as an input
+------------------------------------------------------------------------------------------
+How to write arthimetic expressions as part of shell program?
+Each character we wrote as part of the shell program is taken by the shell interpreter as a data or command or a symbol only, by default it doesnt evaluate as an arthematic expression, for eg.. if we write the below program
+
+#!/bin/bash
+A=10
+B=20
+SUM=$A+$B
+# The above statement will not be considered as an expression, rather it combines as string and returns
+echo $SUM
+#The echo $SUM prints the 10+20 as an output
+
+Now we need to instruct the shell intepreter to evaluate the arthematic operators by writing them in expression
+There are 3 syntaxes in which we can let the shell interpret know it as an expression
+1. using expr keyword
+
+#!/bin/bash
+A=10
+B=20
+SUM=`expr $A+$B`
+echo $SUM
+The above way of writing arthematic expressions is the old style of programming in shellscript, there are 2 more ways are there
+
+2. using $(()) notation
+
+#!/bin/bash
+A=10
+B=20
+SUM=$((A+B))
+echo "sum : $SUM"	
+	
+3. using $[] notation
+The simplied form rather than $(()) is using $[]
+A=10
+B=20
+SUM=$[A+B]
+echo "Sum : $SUM"
+
+by the above we can understand the expr or $(()) or $[] is a notation we use to help the shell interpreter differentiate between a char/symbol/command from an expression
+------------------------------------------------------------------------------------------
+printf
+------
+There are 2 ways we can write the data onto a STDOUT or console in linux program
+1. echo = echo is a statement used for writing output on the STDOUT or console and for each output it appends newline at the end
+
+2. printf = printf is similar to the printf we have in c language which allows us to format the output while printing. unlike echo, the printf will not print newline at the end of the line
+
+There are few escape characters that are supported by printf 
+"\" is a character called as escape sequence or character,where the character written after "\" is interpreted specially by the bash interpreter
+	
+\n = prints newline on to the console
+\t = prints tab
+\r = carriage return (newline)
+\b = backspace
+\\ = prints single "\"
+The above escape characters or not supported by echo
+
+In addition printf supports format specifiers indicating the type of values we want to print
+%d = printing integer numbers
+%f = printing floating numbers
+%c = single character
+%s = String
+%x = small letters hexadecimal
+%X = capital letters Hexdecimal numbers
+
+#!/bin/bash
+A=10
+B=20
+printf("A is %d B is %d",$A, $B)
+A=20.93839
+printf "A is %f" $A
+------------------------------------------------------------------------------------------
+Command Substitutions in Shellscript
+
+Sunday:-
+7:00 am - 8:30 am ist = Docker
+8:45 am - 10: 30 am ist = spring framework
+
+5:30 pm - 6:30 pm ist = Hibernate Framework
+7:00 pm - 8:30 pm ist = Devops
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

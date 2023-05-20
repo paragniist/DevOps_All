@@ -1,0 +1,108 @@
+What is Scrum Methodology?
+Scrum is a agile methodology based process model that works on an priciple called "fast-fail".
+	
+There are 3 roles of people are there
+1. product owner
+He is business representative of the system we are building, he provides the requirements to the team and set the goal/vision in buiding the system.
+product owner will write product backlogs, so that the team has to work upon in building the application.
+
+2. scrum member
+3. scrum master
+
+
+1. What is a Sprint?
+Sprint is an shortest duration of time where the team will work on the backlogs and produce an shippable product increment. The Sprint can be of a minimum =1 week and a maximum = 4 weeks. 
+The Sprint duration should be fixed at the initial commencement of the project and should followed till we complete the project/system
+
+2. Sprint Planning meeting:
+It starts at the begining of each sprint. The product owner, scrum master and the scrum team are participants.
+agenda:
+	1. product owner will prioritize the product backlog (which requires immediate attention)
+	2. encourages the scrum team to pick product logs based on the priority
+	3. the product owner will provides inputs on each backlog and ensures the whole team understands what they have to work on for those backlogs
+	4. the team has to provide estimates
+	5. now break the backlog into user stories (breakdown of the product backlogs)
+	6. estimate each user story, based on that assign the user stories to the sprint and team should commit for delivery
+	
+3. Daily-Standup call / Scrum Call
+To keep track of the progress of the Sprint, the scrum master will conduct daily Standup call.
+Participants:-
+	The scrum team and the scrum master
+entire team presence is mandatory, no one should miss the standup call
+usually will be there for 15 minutes (not more than that)
+every one in the meeting should answer 3 questions
+	3.1 what has been done
+	3.2 what is planned 
+	3.3 do you have any challenges or blockers
+	
+4. Sprint Review Meeting
+End of the sprint the Sprint Review meeting will be conducted. The whole world is invited to the meeting.
+Scrum master will organize the meeting.
+The Individual members of the scrum team should demo the stories they worked on
+The product owner will review the work items which are accomplished and will say accepted or rejected.
+
+5. Sprint Retrospection Meeting
+Conducted by Scrum Master
+only Scrum Member and Scrum Master are the participants, its a closed door meeting.
+Everyone will be discussing about what went wrong, how can do it better.
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

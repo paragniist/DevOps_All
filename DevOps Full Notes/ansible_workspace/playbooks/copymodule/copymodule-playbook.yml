@@ -1,0 +1,19 @@
+---
+- name: copyplay
+  hosts: all
+  tasks:
+  # - name: copy stories
+  #   copy:
+  #     src: stories.txt
+  #     dest: /home/vagrant
+  # - name: remote copy stories
+  #   copy:
+  #     src: /home/vagrant/stories.txt
+  #     dest: /vagrant
+  #     remote_src: true
+  - name: validate and copy
+    copy:
+      src: ansiblesudoer
+      dest: /home/vagrant
+      validate: '/usr/sbin/visudo -csf %s'
+...

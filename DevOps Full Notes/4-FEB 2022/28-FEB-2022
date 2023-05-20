@@ -1,0 +1,12 @@
+File permissions
+------------------
+Linux is an multi-user & multi-programming operation system, which means multiple users can use the linux operating system, share the resources and perform operations on the computer.
+	
+If multiple users are allowed to use the linux machine and are allowed to create files/folders, does anyone can access/modify the files/folders created by the other users of the linux?
+	
+If linux operating system allows anyone to access the files/folders of other people then there is no need of multiple users of linux operating system having single user servers the purpose. So to ensure better security and accessibility of the Files/folders of a user from others Linux has introduced File permissions
+
+When a user of the linux operating system has created a File/Folder it should not be completely kept isolated from others, there should be a way to permit/grant access to the Files/Folder of an user to other users of the linux system for collaborative team work
+
+
+	

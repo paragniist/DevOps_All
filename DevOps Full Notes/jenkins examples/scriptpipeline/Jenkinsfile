@@ -1,0 +1,16 @@
+	
+pipeline {
+	agent any
+	stages {
+		stage('scripted') {
+			steps {
+				echo 'scripted code begins'
+				script {
+					for(int i=0;i<10;i++) {
+						echo "${i}"
+					}
+				}
+			}
+		}
+	}
+}	

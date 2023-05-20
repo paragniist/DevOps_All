@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    parameters {
+        string 'JAVA_VERSION'
+        choice choices: ['DEV', 'TEST', 'STAGE', 'PROD'], name: 'BUILD_ENVIRONMENT'
+        password name: 'DB_PASSWORD', defaultValue: 'Welcome#123', description: 'database password'
+        text name: 'DATA'
+        booleanParam name: 'DEPLOY', defaultValue: true, description: 'want to deploy on the target environment'
+    }
+    stages {
+        stage('parameters') {
+            steps {
+                echo "java version : ${params.JAVA_VERSION}"
+                echo "build env: ${params.BUILD_ENVIRONMENT}"
+                echo "db password: ${params.DB_PASSWORD}"
+                echo "data ${params.DATA}"
+                echo "deploy ${params.DEPLOY}"
+            }
+        }
+    }
+    post{
+        always {
+            echo 'Finished!'
+        }
+    }
+
+}

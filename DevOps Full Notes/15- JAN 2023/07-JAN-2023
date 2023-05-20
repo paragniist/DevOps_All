@@ -1,0 +1,46 @@
+docker images are layered and stackable
+when we are creating docker images for different applications or different versions of the same applications, there are lot of software packages, libraries or software bits in common packaged across all the images and does duplicating them, so that it shoots up the size of the image being distributed due to which we have several problems
+1. wasting huge of diskspace
+2. more network bandwidth consumption while publishing/pull the images 
+3. delay in transfering the images
+
+To overcome the above problem docker has comeup with layered and stackable images
+while creating an docker image we always extend our image from the base docker image, so docker will not modify or package the base image bits into our image. rather our image will be linked with the base image, in such way across the images we build, we hold reference or a pointer to the base image, rather than including those bits into our image,thus keeping the image size small
+
+when we are packging or adding any software into the image, each write operation onto the image will produce an intermediate image layer, which is equal to an image without an name. and this layer will be added as a link into our image
+so indirectly an docker image is comprised of several images interlinked with each other. 
+In this way the images has several layers, one is stacked on top of another one.
+-----------------------------------------------------------------------------------------------------------------------
+#2. docker container
+docker container is an program created out of an docker image, kept in execution isolated from other programs running on the docker host
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

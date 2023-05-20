@@ -1,0 +1,130 @@
+sudoers
+----------
+
+There is only one Root user exists in the linux operating system to retain the control of the system/resources with only one user. as it is impossible to manage with only one root user in the reality the linux has introduced sudoers
+
+who are sudoers, what can they do?
+sudoers are the users who can perform the operations onbehalf of the Root user, which means they can act like root user
+but there is a difference between root user and sudoers, the root user while making an user as a sudoer can enfore restrictions on the user
+
+How to make a normal user as a sudoer?
+There are 2 ways:
+1. by using /etc/sudoers file
+2. by creating an sudoers entry under the directory /etc/sudoers.d
+
+
+#1. working with /etc/sudoers file
+Root can promote an normal linux user as a sudoer by making an entry of the user into /etc/sudoers file.
+	
+There are 2 sections are there in sudoers file
+#1. user section
+#2 group section
+
+we can either promote an individual user as a sudoer or we can promote a group so that all the users belongs to that group can become suoders
+
+#1.1 user section
+For each individual user whom we want to promote as a sudoer should be added an entry into /etc/sudoers file under user section as shown below
+username ALL=(ALL:ALL) ALL
+
+1st ALL = The user can grab sudo access from any remote location
+2nd ALL = user can perform sudo operations onbehalf of any user
+3rd ALL = user can perform sudo operations onbehalf of any group
+4th ALL = user can execute any bash commands by using sudo
+
+#1.2 group section
+instead of promoting individual users as a sudoers we can manage a group of users easily by adding the group to the sudoers file
+
+For eg.. 
+we want to promote all the people working in operations department to be promoted as sudoers, rather than adding every user in sudoers file, we can bind all the users to a group like "devopsgroup" and declare the group under sudoers file as below.
+	
+%groupName ALL=(ALL:ALL) ALL
+here % indicates that it is a group name rather than username
+
+
+what sudoers can do?
+1. by default an user will launch the shell as a normal user only, so all the shell commands he executes will be applied/executed onbehalf the user only
+2. if the normal user has been promoted as a sudoers then 
+	2.1 he can execute any shell command using sudo 
+	"sudo" means execute the shell command as a root user
+	2.2 he can even switch to the root user as well by using
+	sudo su - or sudo su
+	2.3 he can even switch to any other users of the linux by using
+	sudo su username and execute shell commands onbehalf of the user
+given the root allows all the above operations for that user in sudoers file
+
+by default sudoers file is readonly, and even root user by himself cannot edit/modify sudoers file
+sudo ls -l /etc/sudoers
+-r--r----- 1 root root 755 Feb  3  2020 /etc/sudoers
+
+so inorder to modify the sudoers file let us give write permission to root user as below.
+sudo chmod 640 /etc/sudoers
+
+ls -l /etc/sudoers
+-rw-r----- 1 root root 755 Feb  3  2020 /etc/sudoers
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,152 @@
+Introduction to operating system
+To understand what is an operating system, first let us explore the hardware parts/units of a computer system
+
+There are 4 important parts of the computer are there
+1. cpu or micro-processor or processor
+cpu stands for "central processing unit", cpu performs arthematic and logical operations.
+arthematic operations means all the mathematical computations like
+	1. addition
+	2. substraction
+	3. multiplication
+	4. division
+	5. modulus
+logical operations involves comparisions
+	1. and
+	2. or
+	3. not
+relational operations
+	1. greater than
+	2. less than
+	3. equal
+	4. not equal
+from the above we can understand the cpu is the computing component (brain) of a computer system who performs operation.
+The cpu is an electronic device, which will works based on signal. the only way we can pass input to the cpu is using on/off state
+on =  pass the power
+off = stop the power
+interms of data representation the on can be represented using 1 and off can be represented using 0
+	
+We can feed data into the cpu interms of 0s and 1s only for perform operation. since 0s and 1s are passed to the microprocessor for communication it is called "machine language"	or "binary language"
+	
+2. ram
+ram stands for random access memory. ram is an volatile memory, which means we can store data temporarily within the ram memory, so that cpu can use the data for performing operations.
+ram is an electronic device so that the data storing and retrieval will be very fast and matches with the speed of the cpu.
+Note: when we turnoff the computer, all the data we stored in ram will be erased.	
+
+3. harddisk
+HDD = "Hard disk drive"
+harddisk is referred as "HDD" device is a secondary memory or permanent storage memory of a computer. The data stored in HDD will be permanent and will not be lost upon restarting the computer.
+The data is stored on HDD interms of Files and Folders. The HDD is an mechanical device where the speed at which storing and retrieval are slow, so inorder to match the speed of cpu, always the computer will fetch the data from HDD into Ram and pass it as an input to cpu to perform operations.
+	
+4. motherboard
+The hardware components of the computer are inter-connected and are communicated through the help of motherboard of the computer.
+-----------------------------------------------------------------------------------------------
+How to perform operations or communication with computer asking to perform operations?
+The cpu/processor only can understand machine/binary language only, so all the data we want to pass as an input to the processor has to be converted into binary language and pass it as an input to the processor of the computer.
+	
+Even though we can input the instructions to the processor in binary language it is very difficult as humans are not good at memorizing and understanding the data interms of numbers.
+	
+looks like even though computer is an wonderful device, using the computer seems to be the most difficult aspect of it, which indirectly means we cannot use a computer or no use of a computer.
+	
+To overcome the above problem in interacting with the computer and using it, people has introduced Assembly language
+
+#1. Assembly language
+The Assembly level language has provide simple keywords which are in english language also called as "mnemonics". for eg..
+	1. ADD
+	2. SUBSTRACT
+	3. MULTIPLY
+	4. DIV
+	5. MODULUS
+	6. STORE
+	7. COPY
+	8. MOVE etc
+now people dont have to pass the instructions to the processor in machine language, rather write the instructions in assembly level language using mnemonics/keywords, so that cpu can interpret (understand) and perform the operations.
+	
+advantages:-
+	1. easy to understand and memorize
+	2. quickly write the instructions and pass it as an input to processor to perform operations
+	
+There are various different cpu manufacturers are there
+1. intel
+2. amd
+3. ryzen
+
+across the manufacturers and across the cpu models the assembly language instruction set will vary. So, the program written using assembly level language instruction set works on one cpu/processor and doesnt works on another cpu manufacturer.
+summary: the assembly level language instruction set is not hardware portable.
+	
+Now the users/programs of the computers	has to learn
+1. various different assembly language instruction set to work with different processor models/manufacturers
+2. the same program has to written multiple times each for cpu instruction set to execute across multiple computers
+
+by above it is very difficult to use assembly languages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

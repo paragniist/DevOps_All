@@ -1,0 +1,28 @@
+How to host an static web application?
+	
+To host an static web application we need 
+httpd servers: they can receive http request, look for the resource in a webroot directory and send the HTML Page or a Web Page as response back to the client.
+	
+There are lot of opensource httpd servers	are manufactured and distributed by different vendors, few of the popular distributions are
+1. nginx
+2. apache2 httpd server
+	
+http client: A web browser acts as an client program in sending http request to the server and receives the HTML Response from the server and render it on the page
+
+An web application can be hosted in 2 ways 
+1. through intra-network (within the organization) (LAN/WAN network)
+2. over the internet and making it accessible to the public world.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

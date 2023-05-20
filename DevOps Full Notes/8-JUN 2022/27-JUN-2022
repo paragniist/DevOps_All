@@ -1,0 +1,156 @@
+shellscripting
+---------------
+Shellscript for static web application hosting
+
+DEPLOY_SITE.SH
+BEGIN
+	read SITE_DIR
+	read SITE_ZIP_LOCATION
+	read DOMAIN_NM
+	
+	IF apache2 installed == FALSE
+	THEN
+		install it
+	ELSE
+		check apache2 status
+		IF apache2 == not running
+		THEN
+			give error message, saying start apache2 and run the script again
+			exit 1
+		FI
+	FI
+	IF SITE_DIR exists in /var/www 
+	THEN
+		rename with SITE_DIR_DATE
+	FI
+	copy the new site directory into /var/www
+	IF SITE_CONFIG is existing == FALSE
+	THEN
+		create an site config file with domain entry
+		enable site
+		reload apache2 server
+	END
+	IF DOMAINNAME ENTRY NOT FOUND IN HOSTS_FILE
+	THEN
+		add an entry for the domain name
+	FI
+END
+
+
+copy dir to /var/www
+install apache2
+create siteconfig
+enable site, reload 
+add the domainname in host file
+ufw enabled, the allow 80 port
+
+deploysite.sh
+--------------
+#!/bin/bash
+
+function checkAndInstallApache2() {
+	local APACHE2_INSTALL_STATUS=$(dpkg -s apache2 | grep "Status:" | awk '{print $4}')
+	if [ $APACHE2_INSTALL_STATUS == " install ok installed"]
+	then	
+		local APACHE2_RUNNING_STATUS=$(sudo systemctl status apache2 | grep "Active:" | cut -d ":" -f2| awk '{print $1}')
+		if [ $APACH2_RUNNING_STATUS != "active" ]
+		then
+			echo "error: apache2 is down, start it and rerun the script for deployment"
+			exit 200
+		fi
+	else
+		sudo apt update -y
+		sudo apt install -y apache2		
+		local APACHE2_INSTALLED_STATUS = $?
+		if [ $APACHE2_INSTALLED_STATUS == 1 ]
+		then
+			echo "error: error while installing the apache2 server, please check the logs to resolve"
+			exit 300
+		fi
+	fi
+	
+	return 0		
+}
+
+#Main Program
+
+NARGS=$#
+if [ $NARGS -ne 3 ]
+then
+	echo "error: sitedirectory, zip location and domainname are required"
+	exit 100
+fi
+SITE_DIR=$1
+ZIP_LOCATION=$2
+DOMAIN_NM=$3
+
+checkAndInstallApache2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

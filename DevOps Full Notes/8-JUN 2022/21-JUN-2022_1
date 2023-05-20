@@ -1,0 +1,26 @@
+What is SSH, why do we use it?
+SSH stands for Secure Shell, it is used for accessing the remote shell of a linux computer securely, so that we can perform administrative activities like install/uninstalling software packages, configuration management etc on the machines remotely
+
+How does the SSH Connection would be established with a remote server?
+There are 2 stages in which an SSH connection would be established to an remote server
+1. A session would be established between both the parties to communicate with each other
+2. authenticate the remote/client computer to authorize access to the server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

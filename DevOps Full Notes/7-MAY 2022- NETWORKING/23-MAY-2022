@@ -1,0 +1,49 @@
+Ip Address
+-----------
+For each computer on a network, to uniquely identify the computer and access it we need ip address.
+There are 2 types of address are there for each computer
+1. physical address = The mac address of the network interface card acts as an physical address of the computer
+2. logical address = ip address that is assigned to the network interface card acts as an logic address
+	
+The logical address/ip address will be assigned to a computer only when it is connected to the network.
+There are 2 versions of ip address are there
+1. ipv4 = ipv4 address is of 32-bit in length
+2. ipv6 = ipv6 address is of 128-bit in length
+
+By using the ipv4 addressing version of 32-bit length we can connection 4.1 billion computers on the network by assigning the number to these computers.
+Anything that is connected to the network should be assigned with an ip address for eg..
+	1. Computer
+	2. Laptop
+	3. Mobile
+	4. Printer
+	5. Scanner
+	6. Television
+	7. Switch
+	8. Router
+anything that is connected to a network will be assigned with an ip address. so there is a high chance of we quickly running out of ip address that can be generated for a ipv4 range when more devices are connected to the network.
+So to overcome the problem the ipv6 has been introduced	, the ipv6 is an 128-bit hexa decimal number that allows more number of devices to be connected to the network and looks like we can never run out of ip range.
+	
+All the network devices supports both ipv4 and ipv6 addressing and right now the ipv4 is in active use and future might switch to ipv6 address only
+--------------------------------------------------------------------------------------------
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

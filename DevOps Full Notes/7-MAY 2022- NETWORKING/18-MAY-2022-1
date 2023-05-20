@@ -1,0 +1,123 @@
+network topologies:
+network topologies defines how does the computers are inter-connected with each other
+There are 5 topologies are there
+1. bus
+2. ring
+3. star
+4. mesh
+5. hybrid
+
+#3.star topology
+In star topology to inter-connect computers on the network we use a centralized device called "hub". All the computers on the network are directly connected to the hub device.
+	
+Whenever a computer sends the data to another computer, it will be recieved by the hub and the hub distributes the data to all the other computers it has been connected to, in this way the computers communicates in star topology
+
+As each computer has its own dedicated network channel on which the data exchange takes place so there is a no chance of collision
+
+The number of computers that can be connected to the network depends on the capacity of the hub. if it is a 8 port hub we can interconnect 8 computers on the network
+
+advantages:-
+	1. minimal hardware is required to setup the network, the cost of setting up the network and time required is less 
+	2. as each computer has its own dedicated channel connecting to the hub, there is no network congession or data collison arrises during communication
+	3. adding a computer to the network or detaching is quite easy	
+	4. if a node/computer or cable brokes down there is no loss of network
+	5. Troubleshooting the network is easy
+	
+dis-advantage:-
+	1. there is a single-point of failure,where if the hub goes down the entire network will come down
+	
+#4. Mesh topology
+In Mesh topology each computer is inter-connected with n-1 computers on the network forming an mesh. The mesh topology is considered as a robust network since we have multiple paths over which we can reach to the other computer.
+The Mesh topology is not used for interconnecting computers in a LAN network rather it is used for inter-connecting the Network of Networks forming an WAN network
+
+advantages:-
+	1. its a robust network where if one channel goes down always we have other routes to reach to the destination. which means the network never goes down
+	2. huge network traffic can be handled by this network
+	3. minimal chance of data collision occurs as there is multiple paths of transmission
+	
+dis-advantages:-
+	1. requires more amount of hardware resources like network cards, wires interconnecting these computer networks so that the cost of setting up this network is very high
+	2. quite complex to create this network
+	3. the time required for setting up this network is very high
+	4. ideally not suitable for interconnecting small group of computers
+	5. troubleshooting and diagnosing the problems is very difficult
+	
+#5. Hybrid Topology
+Interconnecting network of networks together is called hybrid topology
+The example of an hybrid topology network is internet
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

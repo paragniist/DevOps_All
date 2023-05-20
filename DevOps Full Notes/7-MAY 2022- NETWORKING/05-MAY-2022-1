@@ -1,0 +1,48 @@
+How can a program can communicate with other program that is running on another computer over the network?
+any program to communicate with any other program over the network we need the ipaddress and the portno of the program to whom we want to communicate.
+	
+what is a portno, why do we need it?
+portno is a logical address assigned to program by the operating system of the computer to uniquely identify the program among other programs on that computer inorder to receive data over the network
+
+every program that is running on a computer doesnt requires a portno, if the program wanted other programs to communicate with him, then the program has to open a port no allowing other programs to connect
+
+From here we can understand there are 2 types of programs are there
+1. server program
+server program opens a portno on the computer allowing other programs to communicate with him and provides data or functionality to other programs.
+	
+2. client program
+client program wants to use the functionality or data from server program and will connect to the server program using ipaddress and portno and communicates with the server program.
+-------------------------------------------------------------------------------------------How does the data transmission takes place between the programs over the network?
+We cannot transmit symbol notation of the data over the network directly, whenever a program wants to send the data over the network, the data will be translated/encoded into binary representation using charset encoding standards and will be transmitted over the network channel, the receiver of the data will decode the binary representation into symbol notation by using the same charset encoding standard
+--------------------------------------------------------------------------------------------
+What are protocols what is the purpose of it?
+protocols are set of rules that has to be followed by both the parties inorder to effectively communicate with each other
+
+Any 2 computers communicating over the network requires to follow protocols in exchaning the data, unless otherwise the data interchange will not become effective.
+The protocols ensures 
+1. always the data that is send by a sender will be received by the intended receiver only
+2. even through the same physical channel of communication is being used by multiple computers in exchanging the data, the protocol gives you an illusion that any 2 computer over the network has their own dedicated channel for communication
+3. protocol even gurantees the guranteed delivery of information between those 2 parties.
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
